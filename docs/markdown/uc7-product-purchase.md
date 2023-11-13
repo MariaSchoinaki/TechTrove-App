@@ -65,4 +65,4 @@
 
 
 ## Διάγραμμα
-![Διάγραμμα]()
+![Διάγραμμα](uml/requirements/activity-product-purchase.png)

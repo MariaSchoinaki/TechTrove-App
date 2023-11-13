@@ -98,7 +98,7 @@
 [ΠΧ6 Αποθήκευση Σύνθεσης](uc6-pc-save.md)
 
 [ΠΧ7 Αγορά Προϊόντων](uc7-purchase.md)
-![Διάγραμμα]()
+![Διάγραμμα](uml/requirements/activity-product-purchase.png)
 
 ## Συμπληρωματικές προδιαγραφές
 
