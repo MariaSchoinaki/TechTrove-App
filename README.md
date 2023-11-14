@@ -21,3 +21,16 @@
 
 ## ![Διάγραμμα περιπτώσεων χρήσης](docs/markdown/uml/requirements/use-case-diagram.png)
 
+## Μετατροπή Umlet διαγραμμάτων
+Η μετατροπή σε εικόνα των Umlet διαγραμμάτων που τοποθετούνται στο φάκελο docs/uml γίνεται εκτελώντας τις εντολές:
+```bash
+# Περιβάλλον linux
+cd docs
+./mvnw umlet:convert
+```
+```bash
+# Περιβάλλον windows
+cd docs
+mvnw umlet:convert
+```
+Προϋπόθεση είναι η αρχικοποίηση της μεταβλητή περιβάλλοντος JAVA_HOME με την τοποθεσία του Java JDK.
