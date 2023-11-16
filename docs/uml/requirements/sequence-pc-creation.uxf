@@ -111,8 +111,7 @@ group=1</panel_attributes><additional_attributes>10;20;210;20</additional_attrib
 layer=1
 transparency=10
 group=1123456789</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>306</x><y>732</y><w>114</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-displayMarkProduct
-group=1dfghj</panel_attributes><additional_attributes>30;30;60;30;60;10;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>312</x><y>708</y><w>120</w><h>54</h></coordinates><panel_attributes>opt
+displayMarkProduct</panel_attributes><additional_attributes>30;30;60;30;60;10;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>312</x><y>708</y><w>120</w><h>54</h></coordinates><panel_attributes>opt
 --
 [product exists]
 fg=#993366
@@ -198,23 +197,17 @@ group=1</panel_attributes><additional_attributes>290;20;10;20</additional_attrib
 get info</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>438</x><y>132</y><w>108</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
 getInfo()</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>138</x><y>894</y><w>576</w><h>18</h></coordinates><panel_attributes>ref
 bg=#9999bb
-transparency=80
-group=98</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>372</x><y>894</y><w>60</w><h>18</h></coordinates><panel_attributes>Cancellation
+transparency=80</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>372</x><y>894</y><w>60</w><h>18</h></coordinates><panel_attributes>Cancellation
 style=wordwrap
-fg=gray
-group=98</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>372</x><y>768</y><w>60</w><h>18</h></coordinates><panel_attributes>Cancellation
+fg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>372</x><y>768</y><w>60</w><h>18</h></coordinates><panel_attributes>Cancellation
 style=wordwrap
-fg=gray
-group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>138</x><y>768</y><w>576</w><h>18</h></coordinates><panel_attributes>ref
+fg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>138</x><y>768</y><w>576</w><h>18</h></coordinates><panel_attributes>ref
 bg=#9999bb
-transparency=80
-group=group-0</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>372</x><y>1236</y><w>60</w><h>18</h></coordinates><panel_attributes>Cancellation
+transparency=80</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>372</x><y>1236</y><w>60</w><h>18</h></coordinates><panel_attributes>Cancellation
 style=wordwrap
-fg=gray
-group=group-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>108</x><y>1236</y><w>612</w><h>18</h></coordinates><panel_attributes>ref
+fg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>108</x><y>1236</y><w>612</w><h>18</h></coordinates><panel_attributes>ref
 bg=#9999bb
-transparency=80
-group=group-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>738</x><y>984</y><w>126</w><h>66</h></coordinates><panel_attributes>Στο ref μπαίνει 
+transparency=80</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>738</x><y>984</y><w>126</w><h>66</h></coordinates><panel_attributes>Στο ref μπαίνει 
 *ΜΟΝΟ*
 εάν ο πελάτης επιλέξει
 το κουμπί ακύρωση
