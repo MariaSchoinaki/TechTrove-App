@@ -92,11 +92,7 @@ group=0</panel_attributes><additional_attributes>300;20;10;20</additional_attrib
 bg=light_gray
 layer=2
 transparency=10
-group=0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>270</x><y>1395</y><w>27</w><h>27</h></coordinates><panel_attributes>type=termination
-fg=red
-layer=3</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>72</x><y>1395</y><w>27</w><h>27</h></coordinates><panel_attributes>type=termination
-fg=red
-layer=3</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>558</x><y>1395</y><w>27</w><h>27</h></coordinates><panel_attributes>type=termination
+group=0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>558</x><y>1395</y><w>27</w><h>27</h></coordinates><panel_attributes>type=termination
 fg=red
 style=wordwrap
 layer=3</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>720</x><y>1395</y><w>27</w><h>27</h></coordinates><panel_attributes>type=termination
