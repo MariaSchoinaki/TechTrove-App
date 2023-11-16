@@ -1,19 +1,225 @@
-<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><element><id>UMLActor</id><coordinates><x>110</x><y>132</y><w>66</w><h>121</h></coordinates><panel_attributes>Πελάτης</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>132</x><y>231</y><w>33</w><h>539</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;470</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>935</x><y>165</y><w>110</w><h>33</h></coordinates><panel_attributes>_:Order_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1122</x><y>165</y><w>110</w><h>33</h></coordinates><panel_attributes>_:Orderline_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>319</x><y>165</y><w>110</w><h>33</h></coordinates><panel_attributes>_:ProductType_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>462</x><y>165</y><w>110</w><h>33</h></coordinates><panel_attributes>_:Pc synthesis_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>594</x><y>165</y><w>110</w><h>33</h></coordinates><panel_attributes>_:Component_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>979</x><y>187</y><w>33</w><h>572</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;500</additional_attributes></element><element><id>Relation</id><coordinates><x>1166</x><y>187</y><w>33</w><h>572</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;500</additional_attributes></element><element><id>Relation</id><coordinates><x>363</x><y>198</y><w>33</w><h>572</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;500</additional_attributes></element><element><id>Relation</id><coordinates><x>506</x><y>198</y><w>33</w><h>572</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;500</additional_attributes></element><element><id>Relation</id><coordinates><x>638</x><y>198</y><w>33</w><h>572</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;500</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>198</x><y>165</y><w>110</w><h>33</h></coordinates><panel_attributes>_:Catalogue_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>242</x><y>198</y><w>33</w><h>572</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;500</additional_attributes></element><element><id>Relation</id><coordinates><x>132</x><y>242</y><w>132</w><h>55</h></coordinates><panel_attributes>lt=&lt;-
-Product
-search</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>242</x><y>242</y><w>22</w><h>99</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>363</x><y>264</y><w>22</w><h>77</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>253</x><y>253</y><w>132</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-getType</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>638</x><y>275</y><w>22</w><h>77</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>374</x><y>264</y><w>286</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-getComponent</panel_attributes><additional_attributes>240;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>374</x><y>308</y><w>286</w><h>55</h></coordinates><panel_attributes>lt=&lt;.
-component
-</panel_attributes><additional_attributes>10;20;240;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>418</x><y>385</y><w>253</w><h>110</h></coordinates><panel_attributes>optional</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>506</x><y>407</y><w>22</w><h>66</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>781</x><y>517</y><w>220</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-MakeOrder</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>979</x><y>583</y><w>209</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-PlaceOrder</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>88</x><y>242</y><w>814</w><h>308</h></coordinates><panel_attributes>Loop
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text></help_text><element><id>UMLActor</id><coordinates><x>16</x><y>0</y><w>64</w><h>88</h></coordinates><panel_attributes>Customer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>152</x><y>24</y><w>80</w><h>24</h></coordinates><panel_attributes>_:CustomerUI_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>40</y><w>24</w><h>2288</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;2840</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>496</x><y>24</y><w>80</w><h>24</h></coordinates><panel_attributes>_:ProductController_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>40</y><w>24</w><h>2296</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;2850</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>624</x><y>24</y><w>80</w><h>24</h></coordinates><panel_attributes>_:ProductType_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>120</y><w>96</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+Αναζήτηση
+</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>128</x><y>112</y><w>128</w><h>48</h></coordinates><panel_attributes>Αναζήτηση
+Προϊόντος
+fg=orange
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>200</y><w>360</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+Επιλογή Ποσότητας
+</panel_attributes><additional_attributes>430;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>392</x><y>216</y><w>16</w><h>40</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>320</y><w>360</w><h>32</h></coordinates><panel_attributes>lt=&lt;-
+Αίτημα Προσθήκης Στο Καλάθι</panel_attributes><additional_attributes>430;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>536</x><y>344</y><w>136</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+getAvailableAmount()</panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>736</x><y>24</y><w>80</w><h>24</h></coordinates><panel_attributes>_:Customer_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>768</x><y>40</y><w>24</w><h>2312</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;2870</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>768</x><y>456</y><w>16</w><h>24</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>32</x><y>408</y><w>1040</w><h>248</h></coordinates><panel_attributes>Alt
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>638</x><y>407</y><w>22</w><h>66</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>517</x><y>407</y><w>143</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-AddToSynthesis</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>242</x><y>473</y><w>22</w><h>66</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>979</x><y>539</y><w>22</w><h>66</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>737</x><y>165</y><w>110</w><h>33</h></coordinates><panel_attributes>_:Cart_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>781</x><y>198</y><w>33</w><h>561</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;490</additional_attributes></element><element><id>Relation</id><coordinates><x>132</x><y>484</y><w>132</w><h>55</h></coordinates><panel_attributes>lt=&lt;.
-Showinfo
-</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>517</x><y>429</y><w>132</w><h>55</h></coordinates><panel_attributes>lt=&lt;.
-item
-</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1166</x><y>583</y><w>22</w><h>99</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>649</x><y>264</y><w>154</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-addtoCart</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>506</x><y>264</y><w>22</w><h>66</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>517</x><y>297</y><w>286</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-addtoCart</panel_attributes><additional_attributes>240;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>781</x><y>264</y><w>22</w><h>33</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>781</x><y>319</y><w>22</w><h>44</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>781</x><y>418</y><w>22</w><h>66</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>649</x><y>418</y><w>154</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
-addtoCart</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>1166</x><y>726</y><w>22</w><h>22</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+requestedAmount &lt;= amount
+
+
+
+
+
+
+
+--
+else
+fg=#b06482</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>536</x><y>440</y><w>248</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+addProductToCart()
+</panel_attributes><additional_attributes>290;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>88</y><w>1104</w><h>616</h></coordinates><panel_attributes>While
+fg=#1b6f0e
+--
+[O Πελάτης αναζητά]</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>832</x><y>2072</y><w>80</w><h>24</h></coordinates><panel_attributes>_:Order_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>656</x><y>40</y><w>24</w><h>2296</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;2850</additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>944</y><w>152</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+Αίτημα Αφαίρεση Προϊόντος
+</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>16</x><y>896</y><w>1072</w><h>176</h></coordinates><panel_attributes>Opt
+--
+Αφαίρεση
+fg=#b7934f
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>528</x><y>344</y><w>16</w><h>192</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>656</x><y>360</y><w>16</w><h>16</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>536</x><y>360</y><w>136</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+amount</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>392</x><y>336</y><w>16</w><h>296</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>216</y><w>144</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+requested amount
+</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>528</x><y>232</y><w>16</w><h>16</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>408</x><y>576</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>552</y><w>136</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+displayMessage</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>520</y><w>144</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+message</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>328</y><w>144</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+add to cart</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>480</y><w>256</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+storeCart()
+</panel_attributes><additional_attributes>300;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>768</x><y>496</y><w>16</w><h>24</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>16</x><y>176</y><w>1072</w><h>504</h></coordinates><panel_attributes>While
+fg=#91b491
+--
+message == True</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>72</y><w>40</w><h>2280</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;30;2830</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>360</x><y>24</y><w>80</w><h>24</h></coordinates><panel_attributes>_:ProductUI_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>184</x><y>40</y><w>24</w><h>2272</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;2820</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>248</x><y>24</y><w>88</w><h>24</h></coordinates><panel_attributes>_:CustomerController_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>40</y><w>40</w><h>2296</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;30;2850</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>856</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>832</y><w>112</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+DisplayCart
+</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>184</x><y>752</y><w>16</w><h>120</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>760</y><w>152</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+Eπιλογή καλαθιού
+</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>768</y><w>488</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+getCart()
+</panel_attributes><additional_attributes>590;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>768</x><y>784</y><w>16</w><h>24</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>792</y><w>488</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+cart</panel_attributes><additional_attributes>10;20;590;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>24</x><y>256</y><w>776</w><h>56</h></coordinates><panel_attributes>ref
+--
+Cancellation
+bg=#9999bb
+transparency=80</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1112</x><y>264</y><w>112</w><h>56</h></coordinates><panel_attributes>Στο ref μπαίνει 
+*ΜΟΝΟ*
+εάν ο πελάτης επιλέξει
+το κουμπί ακύρωση
+bg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>288</x><y>768</y><w>16</w><h>56</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>760</y><w>112</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+get cart
+</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>808</y><w>112</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+cart</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>184</x><y>960</y><w>16</w><h>96</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>288</x><y>976</y><w>16</w><h>72</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>960</y><w>112</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+delete product
+</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>768</x><y>992</y><w>16</w><h>24</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>976</y><w>488</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+deleteProduct(Product)
+</panel_attributes><additional_attributes>590;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>1016</y><w>488</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+storeCart()
+</panel_attributes><additional_attributes>590;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>768</x><y>1032</y><w>16</w><h>24</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>728</y><w>1104</w><h>952</h></coordinates><panel_attributes>while
+fg=#15695f
+--
+deleteProduct == True or outOfStock == True</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>1144</y><w>152</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+Αίτημα Αγοράς Καλαθιού
+</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>184</x><y>1160</y><w>16</w><h>584</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>288</x><y>1360</y><w>16</w><h>232</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1344</y><w>112</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+buy cart
+</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>1432</y><w>376</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+getAvailableAmount()</panel_attributes><additional_attributes>450;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>656</x><y>1448</y><w>16</w><h>32</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>1456</y><w>376</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+amount</panel_attributes><additional_attributes>10;20;450;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>16</x><y>1544</y><w>1072</w><h>112</h></coordinates><panel_attributes>opt
+--
+checkAll() == False
+fg=#b06482</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>1256</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1600</y><w>136</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+displayMessage</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1576</y><w>112</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+outOfStock</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1032</y><w>120</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+deleteProduct</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>248</x><y>1376</y><w>448</w><h>160</h></coordinates><panel_attributes>while
+fg=orange
+--
+Το καλάθι έχει μη τσεκαρισμένα προϊόντα</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>304</x><y>1504</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>1480</y><w>104</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+checkAll()</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>1728</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1704</y><w>120</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+displayForm</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>184</x><y>1784</y><w>16</w><h>24</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>16</x><y>1192</y><w>824</w><h>152</h></coordinates><panel_attributes>opt
+--
+Το καλάθι είναι άδειο
+fg=#b06482</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1232</y><w>136</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+displayMessage</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>1624</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>384</x><y>1320</y><w>24</w><h>24</h></coordinates><panel_attributes>type=termination
+fg=red
+layer=3</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>520</x><y>1320</y><w>24</w><h>24</h></coordinates><panel_attributes>type=termination
+fg=red
+layer=3</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>648</x><y>1320</y><w>24</w><h>24</h></coordinates><panel_attributes>type=termination
+fg=red
+layer=3</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>848</x><y>1288</y><w>136</w><h>56</h></coordinates><panel_attributes>*Τερματίζεται μόνο*
+έαν έχει μπει στη 
+συγκεκριμένη συνθήκη.
+bg=light_gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>1768</y><w>168</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+Συμπλήρωση Στοιχείων χρέωσης
+</panel_attributes><additional_attributes>180;20;20;20</additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>1824</y><w>152</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+Επιλογή Συνέχειας
+</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>184</x><y>1840</y><w>16</w><h>416</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1848</y><w>112</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+check mandatory</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>288</x><y>1864</y><w>16</w><h>104</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>1872</y><w>144</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+checkMandatory()</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>304</x><y>1896</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>296</x><y>1920</y><w>120</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+checkCard()</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>304</x><y>1944</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1952</y><w>112</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+FalsePerInfo</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>1976</y><w>136</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+DisplayMessage</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>2000</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2064</y><w>656</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+create</panel_attributes><additional_attributes>800;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>768</x><y>2152</y><w>16</w><h>24</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2144</y><w>592</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+StoreOrder</panel_attributes><additional_attributes>720;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2200</y><w>136</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+DisplayMessage</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>2224</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+layer=1
+transparency=10
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>1704</y><w>1112</w><h>328</h></coordinates><panel_attributes>while
+fg=orange
+--
+FalsePerInfo == True</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>864</x><y>2088</y><w>24</w><h>240</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;280</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>864</x><y>2112</y><w>16</w><h>32</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2112</y><w>688</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+addOrderInfo</panel_attributes><additional_attributes>840;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>864</x><y>2192</y><w>16</w><h>32</h></coordinates><panel_attributes>
+bg=light_gray
+layer=2
+transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2176</y><w>688</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+Store</panel_attributes><additional_attributes>840;20;10;20</additional_attributes></element></diagram>
