@@ -1,0 +1,99 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>854</x><y>0</y><w>126</w><h>186</h></coordinates><panel_attributes>_User_
+--
+-userID: Integer
+-username: String
+-password: String
+-isEmployer: Boolean
+-firstName: String
+-lastName: String
+-email: Email
+-telephone: Telephone
+
+--
++getUserID(): Integer
++getUsername(): String
++getIsEmployer(): String
++getFirstName(): String
++getLastName(): String
++getEmail(): Email
++getTelephone(): Telephone
+#changeInfo(&lt;T, K&gt;): Boolean
+#changePassword(password:String): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>464</x><y>174</y><w>132</w><h>108</h></coordinates><panel_attributes>_Customer_
+--
+name: String
+Surname: String
+/SavedSynthesis
+/Cart
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>114</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>188</x><y>288</y><w>126</w><h>108</h></coordinates><panel_attributes>_ProductType_
+--
+description 
+modelNo
+price: Money
+inStock
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>152</x><y>126</y><w>108</w><h>114</h></coordinates><panel_attributes>_Order_
+--
+date: Date
+total: Money
+cardNumber: Integer
+telephone: TelephoneNumber
+eMail: EmailAddress
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2</x><y>306</y><w>114</w><h>90</h></coordinates><panel_attributes>_OrderLine_
+--
+amount: Integer
+total: Money
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>254</x><y>186</y><w>222</w><h>30</h></coordinates><panel_attributes>lt=-
+&lt; places
+m1=*
+m2=1
+</panel_attributes><additional_attributes>10;20;350;20</additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>204</y><w>84</w><h>114</h></coordinates><panel_attributes>lt=-
+&lt; includes
+m1=1..*
+m2=1
+</panel_attributes><additional_attributes>10;170;10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>110</x><y>306</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=-
+consists of &gt;
+m1=*
+m2=1
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>248</x><y>390</y><w>18</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>146</x><y>432</y><w>246</w><h>84</h></coordinates><panel_attributes>lt=-
+
+
+</panel_attributes><additional_attributes>10;120;10;20;390;20;390;120</additional_attributes></element><element><id>Relation</id><coordinates><x>194</x><y>516</y><w>138</w><h>30</h></coordinates><panel_attributes>lt=-
+&lt; Contains
+m1=*
+m2=1..*
+</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>276</y><w>138</w><h>264</h></coordinates><panel_attributes>lt=-
+creates &gt;
+m1=*
+m2=1..*
+</panel_attributes><additional_attributes>160;10;160;410;10;410</additional_attributes></element><element><id>UMLClass</id><coordinates><x>104</x><y>504</y><w>96</w><h>60</h></coordinates><panel_attributes>_Component_
+--
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>128</x><y>618</y><w>48</w><h>42</h></coordinates><panel_attributes>_Item_
+--
+serialNo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>146</x><y>558</y><w>36</w><h>72</h></coordinates><panel_attributes>lt=-
+has &gt;
+m1=*
+m2=1
+</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>504</y><w>126</w><h>108</h></coordinates><panel_attributes>_Pc synthesis_
+--
+componentCounter: Integer
+/publishState: Boolean
+/numberOfRatings: Integer
+/rating: Double
+--
+
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>32</x><y>468</y><w>108</w><h>66</h></coordinates><panel_attributes>lt=-
+Compatible with &gt;
+m1=1..*
+m2=1..*
+</panel_attributes><additional_attributes>120;80;10;80;10;20;140;20;140;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>656</x><y>174</y><w>126</w><h>108</h></coordinates><panel_attributes>_Employer_
+--
+
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>524</x><y>150</y><w>210</w><h>36</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;40;10;20;330;20;330;40</additional_attributes></element></diagram>
