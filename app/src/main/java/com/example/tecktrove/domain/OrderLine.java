@@ -18,7 +18,7 @@ public class OrderLine {
         return subTotal;
     }
 
-    public void setQuantity(int quantity) {
+    void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
