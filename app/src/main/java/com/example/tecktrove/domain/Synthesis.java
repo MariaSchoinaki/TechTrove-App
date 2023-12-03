@@ -1,6 +1,6 @@
 package com.example.tecktrove.domain;
 
-import com.example.tecktrove.contacts.Money;
+import com.example.tecktrove.util.Money;
 import java.util.ArrayList;
 
 public class Synthesis extends ProductType{

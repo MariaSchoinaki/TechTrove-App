@@ -1,6 +1,6 @@
 package com.example.tecktrove.domain;
 
-import com.example.tecktrove.contacts.Money;
+import com.example.tecktrove.util.Money;
 public class ProductType {
     private int modelNo;
     private Money price;
@@ -12,9 +12,9 @@ public class ProductType {
      * @param modelNo       the model number as an Integer
      * @param price         the price of the ProductType
      */
-    public ProductType(int ModelNo, Money Price){
-        this.modelNo = ModelNo;
-        this.price = Price;
+    public ProductType(int modelNo, Money price){
+        this.modelNo = modelNo;
+        this.price = price;
     }
 
     /**
@@ -40,8 +40,8 @@ public class ProductType {
      *
      * @param modelNo   ProductType's model number
      */
-    public void setModelNo(int ModelNo) {
-        this.modelNo = ModelNo;
+    public void setModelNo(int modelNo) {
+        this.modelNo = modelNo;
     }
 
     /**
@@ -49,8 +49,8 @@ public class ProductType {
      *
      * @param price   ProductType's price
      */
-    public void setPrice(Money Price) {
-        this.price = Price;
+    public void setPrice(Money price) {
+        this.price = price;
     }
 
 }
