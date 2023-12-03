@@ -14,5 +14,10 @@ public class TelephoneTest {
         Assert.assertFalse((new Telephone("456")).equals(null));
         Assert.assertNotNull(t);
         Assert.assertEquals(t , new Telephone("123"));
+
+        Assert.assertTrue(t.isValid());
+        Assert.assertEquals(t,t);
+
+        Assert.assertTrue((new Telephone(null)).equals(new Telephone(null)));
     }
 }

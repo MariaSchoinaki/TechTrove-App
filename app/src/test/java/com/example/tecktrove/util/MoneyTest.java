@@ -15,8 +15,18 @@ public class MoneyTest {
 
         Assert.assertFalse((Money.euros(30)).equals(null));
         Assert.assertEquals(Money.dollars(20), new Money(new BigDecimal(20), Currency.getInstance("USD")));
-        Assert.assertNotNull(new Money((new BigDecimal(15)), Currency.getInstance("EUR")));
+
+        Money m1 = new Money((new BigDecimal(15)), Currency.getInstance("EUR"));
+        Assert.assertNotNull(m1);
         Assert.assertEquals("10 €", new Money(new BigDecimal(10), Currency.getInstance("EUR")).toString());
+
+        Assert.assertTrue(m.equals(m));
+        Assert.assertTrue(m.equals(new Money(null,null)));
+
+        Assert.assertFalse((m1.equals(Money.dollars(20))));
+
+        Assert.assertEquals(465, m1.hashCode());
+
     }
 
     @Test

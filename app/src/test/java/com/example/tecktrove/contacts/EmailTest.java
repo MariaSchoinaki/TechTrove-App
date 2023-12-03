@@ -14,5 +14,8 @@ public class EmailTest {
         Assert.assertFalse((new Email("other@g.gr")).equals(null));
         Assert.assertNotNull(e);
         Assert.assertEquals(e , new Email("elen@gmail.com"));
+        Assert.assertEquals(e,e);
+
+        Assert.assertTrue(e.isValid());
     }
 }

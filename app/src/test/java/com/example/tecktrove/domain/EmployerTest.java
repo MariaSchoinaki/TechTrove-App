@@ -1,6 +1,7 @@
 package com.example.tecktrove.domain;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 
@@ -28,7 +29,7 @@ public class EmployerTest {
     }
 
     @Test
-    public void check(){
+    public void checkEquals(){
         Employer e1 = new Employer(5673, "george", "george56", "George", "Kennedy", 7890, new Email("klap@yahoo.com"), new Telephone("6898909678"));
         Employer e2 = new Employer(8956, "kenny1999", "ken1256k", "Kenny", "Jonhson", 4565, new Email("kennyjonhson@gmail.com"), new Telephone("6984564578"));
 
@@ -40,6 +41,7 @@ public class EmployerTest {
         Object other = new Object();
         assertNotEquals(e1, other);
         assertEquals(e1,e1);
+        assertFalse(e2.equals(null));
 
     }
 
