@@ -1,8 +1,9 @@
 package com.example.tecktrove.domain;
 
-import android.telecom.TelecomManager;
-
 import com.example.tecktrove.contacts.Telephone;
+import com.example.tecktrove.contacts.Email;
+import java.util.Date;
+import com.example.tecktrove.util.Money;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ public class Order {
     private Money total;
     private int cardNumber;
     private Telephone telephone;
-    private Mail email;
+    private Email email;
     private ArrayList<OrderLine> orderLines;
     public Order(){}
 
@@ -26,7 +27,7 @@ public class Order {
      * @param orderLines   the elements of each order
      */
 
-    public Order(Date date, Money total, int cardNumber, Telephone telephone, Mail email, ArrayList<OrderLine>orderLines){
+    public Order(Date date, Money total, int cardNumber, Telephone telephone, Email email, ArrayList<OrderLine>orderLines){
         this.date=date;
         this.total=total;
         this.cardNumber=cardNumber;
@@ -71,8 +72,8 @@ public class Order {
      *
      * @return the email
      */
-    public Mail getEmail() {
-        return email;
+    public Email getEmail() {
+        return this.email;
     }
     /**
      * Sets the date of order's placement
@@ -103,7 +104,7 @@ public class Order {
      *
      * @param email the customer's email address
      */
-    void setEmail(Mail email) {
+    void setEmail(Email email) {
         this.email = email;
     }
     /**

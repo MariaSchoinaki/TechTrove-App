@@ -1,5 +1,5 @@
 package com.example.tecktrove.domain;
-
+import com.example.tecktrove.util.Money;
 public class OrderLine {
     private int quantity;
     private Money subTotal;
