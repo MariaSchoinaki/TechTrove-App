@@ -32,8 +32,8 @@ public class OrderLine {
      *
      * @return the ProductType
      */
-    public void getProductType(){
-        this.ProductType;
+    public ProductType getProductType(){
+        return this.productType;
     }
     /**
      * Gets the price of a product
