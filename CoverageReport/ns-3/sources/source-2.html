@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Customer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: Customer (com.example.tecktrove.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Customer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (26/26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.domain;
+&nbsp;
+&nbsp;import com.example.tecktrove.contacts.Email;
+&nbsp;import com.example.tecktrove.contacts.Telephone;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class Customer extends User {
+&nbsp;
+&nbsp;    private ArrayList&lt;Synthesis&gt; savedSynthesis;
+&nbsp;    private ArrayList&lt;ProductType&gt; cart;
+&nbsp;
+<b class="fc">&nbsp;    public Customer(){}</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructor of Customer
+&nbsp;     *
+&nbsp;     *
+&nbsp;     * @param savedSynthesis   a list that contains all saved synthesis of a customer
+&nbsp;     * @param cart             the customer&#39;s cart
+&nbsp;     */
+&nbsp;    public Customer( int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone, ArrayList&lt;Synthesis&gt; savedSynthesis, ArrayList&lt;ProductType&gt;cart){
+<b class="fc">&nbsp;        super(id,username,password, firstName,lastName,email,telephone);</b>
+<b class="fc">&nbsp;        this.savedSynthesis=savedSynthesis;</b>
+<b class="fc">&nbsp;        this.cart=cart;</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * Gets the id of the Customer
+&nbsp;     *
+&nbsp;     * @return the customer id
+&nbsp;     */
+&nbsp;
+&nbsp;    public ArrayList&lt;Synthesis&gt; getSavedSynthesis() {
+<b class="fc">&nbsp;        return this.savedSynthesis;</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * Gets the list of the customer&#39;s cart
+&nbsp;     *
+&nbsp;     * @return the cart
+&nbsp;     */
+&nbsp;    public ArrayList&lt;ProductType&gt; getCart() {
+<b class="fc">&nbsp;        return this.cart;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the  customer&#39;s saved synthesis list
+&nbsp;     *
+&nbsp;     * @param savedSynthesis the customer&#39;s saved synthesis list
+&nbsp;     */
+&nbsp;    void setSavedSynthesis(ArrayList&lt;Synthesis&gt; savedSynthesis) {
+<b class="fc">&nbsp;        this.savedSynthesis = savedSynthesis;</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * Sets the customer&#39;s cart
+&nbsp;     *
+&nbsp;     * @param cart the cart of the customer
+&nbsp;     */
+&nbsp;    void setCart(ArrayList&lt;ProductType&gt; cart) {
+<b class="fc">&nbsp;        this.cart = cart;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void addToSavedSynthesis(Synthesis synthesis){
+<b class="fc">&nbsp;        this.savedSynthesis.add(synthesis);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void removeFromSaved(Synthesis synthesis){
+<b class="fc">&nbsp;        this.savedSynthesis.remove(synthesis);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void addToCart(ProductType product){
+<b class="fc">&nbsp;        this.cart.add(product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void removeFromCart(ProductType product){
+<b class="fc">&nbsp;        this.cart.remove(product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    ProductType getProductFromCart(int ProductID){
+<b class="fc">&nbsp;        int i = this.cart.size() - 1;</b>
+&nbsp;        ProductType p;
+<b class="fc">&nbsp;        while(i&gt;=0){</b>
+<b class="fc">&nbsp;            p = this.cart.get(i);</b>
+<b class="fc">&nbsp;            if(p.getModelNo() == ProductID){</b>
+<b class="fc">&nbsp;                return p;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            i-=1;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;    ProductType getProductFromSaved(int ProductID){
+&nbsp;
+<b class="fc">&nbsp;        int j = this.savedSynthesis.size()-1;</b>
+&nbsp;        ProductType p;
+&nbsp;
+<b class="fc">&nbsp;        while(j&gt;=0){</b>
+<b class="fc">&nbsp;            p = this.savedSynthesis.get(j);</b>
+<b class="fc">&nbsp;            if(p.getModelNo() == ProductID){</b>
+<b class="fc">&nbsp;                return p;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            j-=1;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-05 01:28</div>
+</div>
+</body>
+</html>

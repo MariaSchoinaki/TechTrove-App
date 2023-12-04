@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > User</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: User (com.example.tecktrove.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">User</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/23)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.domain;
+&nbsp;
+&nbsp;import com.example.tecktrove.contacts.Email;
+&nbsp;import com.example.tecktrove.contacts.Telephone;
+&nbsp;
+&nbsp;
+&nbsp;public class User {
+&nbsp;    private int id;
+&nbsp;    private String username;
+&nbsp;    private String password;
+&nbsp;    private String firstName;
+&nbsp;    private String lastName;
+&nbsp;
+&nbsp;    private Email email;
+&nbsp;    private Telephone telephone;
+&nbsp;
+<b class="fc">&nbsp;    public User(){}</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructor of User
+&nbsp;     *
+&nbsp;     * @param id         the id of the user as integer
+&nbsp;     * @param username   the username of user
+&nbsp;     * @param password   the password of user
+&nbsp;     * @param firstName       the name of the user
+&nbsp;     * @param lastName    the surname of the user
+&nbsp;     * @param email      the email address of the user
+&nbsp;     * @param telephone  the phone number of the user
+&nbsp;     */
+&nbsp;
+<b class="fc">&nbsp;    public User(int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone){</b>
+<b class="fc">&nbsp;        this.id = id;</b>
+<b class="fc">&nbsp;        this.firstName = firstName;</b>
+<b class="fc">&nbsp;        this.password = password;</b>
+<b class="fc">&nbsp;        this.lastName = lastName;</b>
+<b class="fc">&nbsp;        this.username = username;</b>
+<b class="fc">&nbsp;        this.email = email;</b>
+<b class="fc">&nbsp;        this.telephone = telephone;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the id of the user
+&nbsp;     *
+&nbsp;     * @param id    the user id
+&nbsp;     */
+&nbsp;    public void setId(int id) {
+<b class="fc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the id of the user
+&nbsp;     *
+&nbsp;     * @return the user id
+&nbsp;     */
+&nbsp;    public int getId() {
+<b class="fc">&nbsp;        return this.id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the Username of the user
+&nbsp;     *
+&nbsp;     * @param username  the username of the user
+&nbsp;     */
+&nbsp;    public void setUsername(String username) {
+<b class="fc">&nbsp;        this.username = username;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the username of the user
+&nbsp;     *
+&nbsp;     * @return  the username of the user
+&nbsp;     */
+&nbsp;    public String getUsername() {
+<b class="fc">&nbsp;         return this.username;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the password of the user
+&nbsp;     *
+&nbsp;     * @param password the password of the user
+&nbsp;     */
+&nbsp;    public void setPassword(String password) {
+<b class="fc">&nbsp;        this.password = password;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the password of the user
+&nbsp;     *
+&nbsp;     * @return the password of the user
+&nbsp;     */
+&nbsp;    public String getPassword() {
+<b class="fc">&nbsp;        return this.password;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the first name of the user
+&nbsp;     *
+&nbsp;     * @param name the first name of the user
+&nbsp;     */
+&nbsp;    public void setName(String name) {
+<b class="fc">&nbsp;        this.firstName = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the first name of the user
+&nbsp;     *
+&nbsp;     * @return the first name of the user
+&nbsp;     */
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return this.firstName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the last name of the user
+&nbsp;     *
+&nbsp;     * @param lastName  the last name of the user
+&nbsp;     */
+&nbsp;    public void setLastName(String lastName) {
+<b class="fc">&nbsp;        this.lastName = lastName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the last name of the user
+&nbsp;     *
+&nbsp;     * @return  the last name of the user
+&nbsp;     */
+&nbsp;    public String getLastName() {
+<b class="fc">&nbsp;        return this.lastName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the email of the user
+&nbsp;     *
+&nbsp;     * @param email     the email address of the user
+&nbsp;     */
+&nbsp;    public void setEmail(Email email) {
+<b class="fc">&nbsp;        this.email = email;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the email address of the user
+&nbsp;     *
+&nbsp;     * @return   the email address of the user
+&nbsp;     */
+&nbsp;    public Email getEmail() {
+<b class="fc">&nbsp;        return this.email;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the telephone number of the user
+&nbsp;     *
+&nbsp;     * @param telephone the telephone number of the user
+&nbsp;     */
+&nbsp;    public void setTelephone(Telephone telephone) {
+<b class="fc">&nbsp;        this.telephone = telephone;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the telephone number of the user
+&nbsp;     *
+&nbsp;     * @return  the telephone number of the user
+&nbsp;     */
+&nbsp;    public Telephone getTelephone() {
+<b class="fc">&nbsp;        return this.telephone;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-05 01:28</div>
+</div>
+</body>
+</html>

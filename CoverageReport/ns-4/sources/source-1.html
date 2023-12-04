@@ -1,0 +1,330 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Money</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.util</a>
+</div>
+
+<h1>Coverage Summary for Class: Money (com.example.tecktrove.util)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Money</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (34/34)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.util;
+&nbsp;
+&nbsp;import java.math.BigDecimal;
+&nbsp;import java.util.Currency;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;/**
+&nbsp; * The main purpose of this class is to provide
+&nbsp; * an easy and safe way to apply money transactions.
+&nbsp; * This class validates the currency of transactions
+&nbsp; * and does the basic math operations.
+&nbsp; */
+&nbsp;
+&nbsp;
+&nbsp;public class Money {
+&nbsp;
+&nbsp;    private BigDecimal amount;
+&nbsp;    private Currency currency;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructor of Money
+&nbsp;     *
+&nbsp;     * @param amount        the amount of transaction
+&nbsp;     * @param currency      the total customer charge as Money type
+&nbsp;     *
+&nbsp;     */
+<b class="fc">&nbsp;    public Money(BigDecimal amount, Currency currency) {</b>
+<b class="fc">&nbsp;        this.amount = amount;</b>
+<b class="fc">&nbsp;        this.currency = currency;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the amount of transaction
+&nbsp;     *
+&nbsp;     * @return the amount
+&nbsp;     */
+&nbsp;    public BigDecimal getAmount() {
+<b class="fc">&nbsp;        return amount;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the Currency
+&nbsp;     *
+&nbsp;     * @return the Currency
+&nbsp;     */
+&nbsp;    public Currency getCurrency() {
+<b class="fc">&nbsp;        return currency;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the sum of two Money values of the same currency as
+&nbsp;     * a new Object of the class Money.
+&nbsp;     *
+&nbsp;     * @param other the amount added.
+&nbsp;     * @return the sum of the two amounts
+&nbsp;     * @throws IllegalArgumentException if the amounts don&#39;t have the same currency
+&nbsp;     */
+&nbsp;    public Money plus(Money other) {
+<b class="fc">&nbsp;        checkForSameCurrencies(other);</b>
+<b class="fc">&nbsp;        return new Money(amount.add(other.amount), currency);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the subtraction of two Money values of the same currency as
+&nbsp;     * a new Object of the class Money.
+&nbsp;     *
+&nbsp;     * @param other the amount subtracted.
+&nbsp;     * @return the subtract of the two amounts
+&nbsp;     * @throws IllegalArgumentException if the amounts don&#39;t have the same currency
+&nbsp;     */
+&nbsp;    public Money minus(Money other) {
+<b class="fc">&nbsp;        checkForSameCurrencies(other);</b>
+<b class="fc">&nbsp;        return new Money(amount.subtract(other.amount), currency);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Multiplies the amount by some factor
+&nbsp;     *
+&nbsp;     * @param factor the factor
+&nbsp;     * @return the Money Object as the result of the multiplication
+&nbsp;     */
+&nbsp;    public Money times(BigDecimal factor) {
+<b class="fc">&nbsp;        return new Money(amount.multiply(factor), currency);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Multiplies the amount by some factor
+&nbsp;     *
+&nbsp;     * @param factor the factor
+&nbsp;     * @return the Money Object as the result of the multiplication
+&nbsp;     */
+&nbsp;    public Money times(long factor) {
+<b class="fc">&nbsp;        return new Money(amount.multiply(BigDecimal.valueOf(factor)), currency);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Divides the sum by some divisor
+&nbsp;     *
+&nbsp;     * @param divisor the divisor
+&nbsp;     * @return The object with the result of the division
+&nbsp;     */
+&nbsp;    public Money divide(BigDecimal divisor) {
+<b class="fc">&nbsp;        return new Money(amount.divide(divisor), currency);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Divides the sum by some divisor
+&nbsp;     *
+&nbsp;     * @param divisor the divisor
+&nbsp;     * @return The object with the result of the division
+&nbsp;     */
+&nbsp;    public Money divide(long divisor) {
+<b class="fc">&nbsp;        return new Money(amount.divide(BigDecimal.valueOf(divisor)), currency);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks if this object has the same currency with Money object other
+&nbsp;     *
+&nbsp;     * @param other the other object of type Money
+&nbsp;     * @throws IllegalArgumentException if they don&#39;t have the same currency
+&nbsp;     */
+&nbsp;    private void checkForSameCurrencies(Money other) {
+<b class="fc">&nbsp;        if (!currency.equals(other.currency)) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;Different Currencies&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the amount of money in the euro currency unit.
+&nbsp;     *
+&nbsp;     * @param amount the amount
+&nbsp;     * @return The object with the amount and currency unit euro
+&nbsp;     */
+&nbsp;
+&nbsp;    public static Money euros(BigDecimal amount) {
+<b class="fc">&nbsp;        return new Money(amount, Currency.getInstance(&quot;EUR&quot;));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the amount of money in the euro currency unit.
+&nbsp;     *
+&nbsp;     * @param amount the amount
+&nbsp;     * @return The object with the amount and currency unit euro
+&nbsp;     */
+&nbsp;    public static Money euros(long amount) {
+<b class="fc">&nbsp;        return euros(BigDecimal.valueOf(amount));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the amount of money in the dollar currency unit.
+&nbsp;     *
+&nbsp;     * @param amount the amount
+&nbsp;     * @return The object with the amount and currency unit dollar
+&nbsp;     */
+&nbsp;    public static Money dollars(BigDecimal amount) {
+<b class="fc">&nbsp;        return new Money(amount, Currency.getInstance(&quot;USD&quot;));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the amount of money in the dollar currency unit.
+&nbsp;     *
+&nbsp;     * @param amount the amount
+&nbsp;     * @return The object with the amount and currency unit dollar
+&nbsp;     */
+&nbsp;    public static Money dollars(long amount) {
+<b class="fc">&nbsp;        return dollars(BigDecimal.valueOf(amount));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Compare Money with another object.
+&nbsp;     * If they have the same currency and amount,
+&nbsp;     * they are the same
+&nbsp;     *
+&nbsp;     * @param other another object
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object other) {
+<b class="fc">&nbsp;        if (other == null) {</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (this == other) {</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (!(other instanceof Money)) {</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        Money theMoney = (Money) other;</b>
+<b class="fc">&nbsp;        if (currency == null) {</b>
+<b class="fc">&nbsp;            return theMoney.currency == null</b>
+&nbsp;                    &amp;&amp; amount == null &amp;&amp; theMoney.amount == null;
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (!currency.equals(theMoney.currency)) {</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return amount == null ? theMoney.amount == null</b>
+<b class="fc">&nbsp;                : (amount.compareTo(theMoney.amount) == 0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get the hash Code based of the amount hash code
+&nbsp;     *
+&nbsp;     * @return te hash code as an integer
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+<b class="fc">&nbsp;        return amount == null ? 0 : amount.hashCode();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns Money Objects as string like &quot;amount currency&quot;
+&nbsp;     *
+&nbsp;     * @return the amount and the currency as string
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="fc">&nbsp;        return amount.toString() + &quot; &quot; + currency.getSymbol();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-05 01:28</div>
+</div>
+</body>
+</html>

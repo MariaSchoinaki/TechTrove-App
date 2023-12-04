@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SystemDate</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.util</a>
+</div>
+
+<h1>Coverage Summary for Class: SystemDate (com.example.tecktrove.util)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SystemDate</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.util;
+&nbsp;
+&nbsp;
+&nbsp;import java.util.Calendar;
+&nbsp;
+&nbsp;/**
+&nbsp; * Helper class to get the system date.
+&nbsp; * The class allows to replace the system date with a predefined date.
+&nbsp; * This feature is useful for performing automatic checks.
+&nbsp; */
+&nbsp;public class SystemDate {
+&nbsp;
+<b class="fc">&nbsp;    protected SystemDate() { }</b>
+&nbsp;
+&nbsp;    private static SimpleCalendar stub;
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets a specific date as the system date.
+&nbsp;     * This date is returned by {@link SystemDate#now()}.
+&nbsp;     * If {@code null} is set instead of a default date then the actual system date is returned
+&nbsp;     *
+&nbsp;     * @param stubDate the returned date
+&nbsp;     */
+&nbsp;    protected static void setStub(SimpleCalendar stubDate) {
+<b class="fc">&nbsp;        stub = stubDate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Removes the stem
+&nbsp;     */
+&nbsp;    protected static void removeStub() {
+<b class="fc">&nbsp;        stub = null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the system&#39;s date or one
+&nbsp;     * predetermined date where it has been set
+&nbsp;     * by {@link SystemDate#setStub}.
+&nbsp;     * @return system&#39;s date
+&nbsp;     */
+&nbsp;    public static SimpleCalendar now() {
+<b class="fc">&nbsp;        return stub == null ? new SimpleCalendar(Calendar.getInstance()) : stub;</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-05 01:28</div>
+</div>
+</body>
+</html>
