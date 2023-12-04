@@ -6,7 +6,7 @@ import com.example.tecktrove.contacts.Telephone;
 import java.util.ArrayList;
 
 public class Customer extends User {
-    private int customerID;
+
     private ArrayList<Synthesis> savedSynthesis;
     private ArrayList<ProductType> cart;
 
@@ -29,14 +29,7 @@ public class Customer extends User {
      *
      * @return the customer id
      */
-    public int getCustomerID() {
-        return this.customerID;
-    }
-    /**
-     * Gets the list of the customer's saved synthesis
-     *
-     * @return the savedSynthesis
-     */
+
     public ArrayList<Synthesis> getSavedSynthesis() {
         return this.savedSynthesis;
     }
@@ -48,14 +41,7 @@ public class Customer extends User {
     public ArrayList<ProductType> getCart() {
         return this.cart;
     }
-    /**
-     * Sets the ID of the customer
-     *
-     * @param customerID  the ID of the customer
-     */
-    void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
+
     /**
      * Sets the  customer's saved synthesis list
      *

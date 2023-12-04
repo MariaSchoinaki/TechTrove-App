@@ -24,13 +24,13 @@ public class CustomerTest {
    @Test
    public void checkDefaultConstructor(){
       Customer o = new Customer();
-      o.setCustomerID(20);
-      assertEquals(o.getCustomerID(),20);
+      ArrayList<ProductType> c1 = new ArrayList<ProductType>();
+      o.setCart(c1);
+      assertEquals(o.getCart(),c1);
    }
     @Test
     public void testGetSet(){
-       customer1.setCustomerID(19);
-       assertNotEquals(this.customer1.getCustomerID(),this.customer2.getCustomerID());
+
        assertEquals(this.customer1.getSavedSynthesis(),this.customer2.getSavedSynthesis());
        assertEquals(this.customer1.getCart(),this.customer2.getCart());
        ArrayList<Synthesis> s1 = new ArrayList<Synthesis>();
