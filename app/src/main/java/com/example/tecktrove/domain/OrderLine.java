@@ -1,4 +1,5 @@
 package com.example.tecktrove.domain;
+
 import com.example.tecktrove.util.Money;
 
 import java.math.BigDecimal;
@@ -19,6 +20,7 @@ public class OrderLine {
     public OrderLine(int quantity, ProductType productType){
         this.quantity=quantity;
         this.productType=productType;
+        calculateSubTotal();
     }
     /**
      * Gets the quantity of a product
@@ -26,7 +28,7 @@ public class OrderLine {
      * @return the quantity
      */
     public int getQuantity() {
-        return quantity;
+        return this.quantity;
     }
     /**
      * Gets the type of a product
@@ -50,9 +52,13 @@ public class OrderLine {
      *
      * @param quantity the quantity that the customer needs
      */
-    void setQuantity(int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
         calculateSubTotal();
+    }
+
+    public void setProductType(ProductType productType){
+        this.productType = productType;
     }
 
     /**
@@ -62,4 +68,18 @@ public class OrderLine {
         this.subTotal = this.productType.getPrice().times(new BigDecimal(this.quantity));
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (other == null){
+            return false;
+        }
+        if (this == other){
+            return true;
+        }
+        if (!(other instanceof OrderLine)){
+            return false;
+        }
+        OrderLine o = (OrderLine) other;
+        return this.productType.getName().equals(o.getProductType().getName());
+    }
 }
