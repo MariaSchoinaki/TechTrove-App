@@ -10,5 +10,12 @@ import java.util.ArrayList;
 public class Port {
 
     private ArrayList<Pair<String, Integer>> ports;
-    Port(){}
+    public Port(){}
+
+    public Port(ArrayList<Pair<String, Integer>> ports){
+        this.ports = ports;
+    }
+    public void add(Pair<String, Integer> port){
+        ports.add(port);
+    }
 }
