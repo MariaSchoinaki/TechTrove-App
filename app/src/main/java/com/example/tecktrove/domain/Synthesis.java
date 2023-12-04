@@ -20,8 +20,8 @@ public class Synthesis extends ProductType{
      * @param modelNo          the model number of the Synthesis as an Integer
      * @param price            the price of the Synthesis as Money
      */
-    public Synthesis(int modelNo, Money price, String name,boolean publishState, int numberOfRatings, double subRating, double rating){
-        super(modelNo, price, name);
+    public Synthesis(int modelNo, Money price, boolean publishState, int numberOfRatings, double subRating, double rating){
+        super(modelNo, price);
         this.publishState = publishState;
         this.numberOfRatings = numberOfRatings;
         this.subRating = subRating;
@@ -88,5 +88,17 @@ public class Synthesis extends ProductType{
      */
     public void setSubRating(double subRating) {
         this.subRating = subRating;
+        setNumberOfRatings(numberOfRatings + 1);
+        calcRating(subRating);
+    }
+
+    /**
+     * Calculates the total rating of the Synthesis
+     *
+     * @param subRating   Synthesis's sub rating
+     */
+    public void calcRating(double subRating){
+        int old = this.rating * numberOfRatings;
+        this.rating = (this.rating + subRating)/numberOfRatings;
     }
 }
