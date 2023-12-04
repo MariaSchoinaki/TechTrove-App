@@ -66,7 +66,7 @@ transparency=10
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>16</x><y>176</y><w>1072</w><h>504</h></coordinates><panel_attributes>While
 fg=#91b491
 --
-message == True</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>72</y><w>40</w><h>2280</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;30;2830</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>360</x><y>24</y><w>80</w><h>24</h></coordinates><panel_attributes>_:ProductUI_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>184</x><y>40</y><w>24</w><h>2272</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;2820</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>248</x><y>24</y><w>88</w><h>24</h></coordinates><panel_attributes>_:CustomerController_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>40</y><w>40</w><h>2296</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;30;2850</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>856</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
+message == True</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>48</x><y>72</y><w>40</w><h>2280</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;30;2830</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>360</x><y>24</y><w>80</w><h>24</h></coordinates><panel_attributes>_:ProductUI_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>184</x><y>40</y><w>24</w><h>2288</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;2840</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>248</x><y>24</y><w>88</w><h>24</h></coordinates><panel_attributes>_:CustomerController_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>40</y><w>40</w><h>2296</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;30;2850</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>856</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
 layer=1
 transparency=10
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>832</y><w>112</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
@@ -206,10 +206,10 @@ StoreOrder</panel_attributes><additional_attributes>720;20;10;20</additional_att
 DisplayMessage</panel_attributes><additional_attributes>30;40;60;40;60;10;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>200</x><y>2224</y><w>16</w><h>16</h></coordinates><panel_attributes>bg=light_gray
 layer=1
 transparency=10
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>1704</y><w>1112</w><h>328</h></coordinates><panel_attributes>while
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>144</x><y>2032</y><w>552</w><h>88</h></coordinates><panel_attributes>while
 fg=orange
 --
-FalsePerInfo == True</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>824</x><y>2096</y><w>24</w><h>232</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;270</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>824</x><y>2136</y><w>16</w><h>32</h></coordinates><panel_attributes>
+there are Product Types in Cart that have not been ckecked</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>824</x><y>2096</y><w>24</w><h>232</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;270</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>824</x><y>2136</y><w>16</w><h>32</h></coordinates><panel_attributes>
 bg=light_gray
 layer=2
 transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2120</y><w>648</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
@@ -227,9 +227,12 @@ layer=3</panel_attributes><additional_attributes></additional_attributes></eleme
 bg=light_gray
 layer=2
 transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2032</y><w>424</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-OrderLine</panel_attributes><additional_attributes>510;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>824</x><y>2112</y><w>16</w><h>16</h></coordinates><panel_attributes>
+OrderLine()</panel_attributes><additional_attributes>510;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>824</x><y>2112</y><w>16</w><h>16</h></coordinates><panel_attributes>
 bg=light_gray
 layer=2
 transparency=10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>2096</y><w>200</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
 addOrderLine(OrderLine orderLine)</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>2088</y><w>456</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-addOrderLineInfo</panel_attributes><additional_attributes>550;20;10;20</additional_attributes></element></diagram>
+addOrderLineInfo</panel_attributes><additional_attributes>550;20;10;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>1752</y><w>1112</w><h>328</h></coordinates><panel_attributes>while
+fg=orange
+--
+FalsePerInfo == True</panel_attributes><additional_attributes></additional_attributes></element></diagram>
