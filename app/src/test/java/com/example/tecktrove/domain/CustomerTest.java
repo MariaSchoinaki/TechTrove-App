@@ -49,28 +49,33 @@ public class CustomerTest {
 
       assertEquals(new ArrayList<>(), customer1.getCart());
       ProductType p = new ProductType(16627,Money.euros(10), "abc");
+      ProductType k = new ProductType(15627,Money.euros(10), "acb");
       customer1.addToCart(p);
+      customer1.addToCart(k);
       assertNotNull(customer1.getCart());
 
-      assertEquals(p, customer1.getProduct(16627));
+      assertEquals(k, customer1.getProductFromCart(15627));
 
       customer1.removeFromCart(p);
 
-      assertNotEquals(p, customer1.getProduct(16627));
+      assertNotEquals(p, customer1.getProductFromCart(16627));
    }
 
    @Test
    public void checkSaved(){
       assertEquals(new ArrayList<>(), customer1.getSavedSynthesis());
       Synthesis p = new Synthesis(1234, Money.euros(20), "bcd", new ArrayList<Component>());
+
+      Synthesis k = new Synthesis(15627,Money.euros(10), "acb", new ArrayList<Component>());
       customer1.addToSavedSynthesis(p);
+      customer1.addToSavedSynthesis(k);
       assertNotNull(customer1.getSavedSynthesis());
 
-      assertEquals(p, (Synthesis) customer1.getProduct(1234));
+      assertEquals(k, (Synthesis) customer1.getProductFromSaved(15627));
 
       customer1.removeFromSaved(p);
 
-      assertNotEquals(p, customer1.getProduct(16627));
+      assertNotEquals(p, customer1.getProductFromSaved(16627));
 
    }
 }
