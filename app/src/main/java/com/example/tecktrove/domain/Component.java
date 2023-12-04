@@ -10,8 +10,9 @@ public class Component extends ProductType{
     private String manufacturer;
     private Port availablePorts;
     private Port requiredPorts;
+    private int quantity;
 
-    public Component(){}
+    public Component(){this.quantity = 0;}
 
     /**
      * Constructor of Component
