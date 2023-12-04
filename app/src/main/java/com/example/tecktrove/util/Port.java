@@ -10,12 +10,22 @@ import java.util.ArrayList;
 public class Port {
 
     private ArrayList<Pair<String, Integer>> ports;
-    public Port(){}
+    public Port(){
+        ports = new ArrayList<Pair<String, Integer>>();
+    }
 
     public Port(ArrayList<Pair<String, Integer>> ports){
         this.ports = ports;
     }
     public void add(Pair<String, Integer> port){
         ports.add(port);
+    }
+
+    public int getPortNumber(String key){
+        for(Pair<String, Integer> p : ports){
+            if(p.getKey().equals(key)) {
+                return p.getValue();
+            }
+        }
     }
 }
