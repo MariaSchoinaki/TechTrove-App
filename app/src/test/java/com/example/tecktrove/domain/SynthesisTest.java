@@ -28,7 +28,7 @@ public class SynthesisTest {
         s2.setPublishState(true);
         Assert.assertTrue(s2.getPublishState());
 
-        s2.setSubRating(5);
+        s2.setSubRating(5, new Customer());
         Assert.assertEquals(5,s2.getSubRating(),0.5);
     }
 
@@ -43,11 +43,23 @@ public class SynthesisTest {
 
     @Test
     public void checkCalculateRating(){
-        s1.setSubRating(5);
-        s1.setSubRating(3);
 
+        s1.setSubRating(5, new Customer());
+        s1.setSubRating(3, new Customer());
         Assert.assertEquals(4.0, s1.getRating(),0.0001);
         Assert.assertEquals(2, s1.getNumberOfRatings());
+    }
+
+    @Test
+    public void checkListRatings(){
+
+        Customer c1 = new Customer();
+        Customer c2 = new Customer();
+        s1.setSubRating(5, c1);
+        Assert.assertEquals(c1,s1.getCustomer());
+        s1.setSubRating(3, c2);
+        Assert.assertEquals(c2,s1.getCustomer());
+        Assert.assertEquals(2, s1.getRatingsList().size());
     }
 
     @Test

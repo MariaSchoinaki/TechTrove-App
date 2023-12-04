@@ -2,6 +2,7 @@ package com.example.tecktrove.domain;
 
 import com.example.tecktrove.util.Money;
 import java.util.ArrayList;
+import android.util.Pair;
 
 public class Synthesis extends ProductType{
     private boolean publishState;
@@ -12,7 +13,10 @@ public class Synthesis extends ProductType{
     private ArrayList<Component> components;
     private ArrayList<Pair<Double, Customer>> ratings;
 
-    public Synthesis(){}
+    public Synthesis(){
+        this.ratings = new ArrayList<Pair<Double, Customer>>();
+        this.components = new ArrayList<Component>();
+    }
 
     /**
      * Constructor of Synthesis
@@ -23,6 +27,7 @@ public class Synthesis extends ProductType{
     public Synthesis(int modelNo, Money price, String name, ArrayList<Component> components){
         super(modelNo, price, name);
         this.components = components;
+        this.ratings = new ArrayList<Pair<Double, Customer>>();
     }
     /**
      * Gets the publish state of the Synthesis
@@ -84,7 +89,7 @@ public class Synthesis extends ProductType{
      * @param subRating   Synthesis's sub rating
      */
     public void setSubRating(double subRating, Customer customer) {
-        ratings.add(new Pair<>(subRating, customer));
+        this.ratings.add(new Pair<>(subRating, customer));
         this.customer = customer;
         this.subRating = subRating;
         setNumberOfRatings(numberOfRatings + 1);
@@ -114,7 +119,7 @@ public class Synthesis extends ProductType{
     }
 
     public ArrayList<Pair<Double, Customer>> getRatingsList(){
-        return ratings;
+        return this.ratings;
     }
 
     public Customer getCustomer(){
