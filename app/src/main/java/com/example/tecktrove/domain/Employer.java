@@ -5,7 +5,7 @@ import com.example.tecktrove.contacts.Telephone;
 
 public class Employer extends User{
 
-    private int employerID;
+
 
     public Employer(){}
 
@@ -19,30 +19,15 @@ public class Employer extends User{
      * @param lastName      the surname of the employer
      * @param email         the email address of the employer
      * @param telephone     the phone number of the employer
-     * @param empID         the employer id
+
      */
-    public Employer(int id,String username, String password, String firstName, String lastName, int empID, Email email, Telephone telephone){
+    public Employer(int id,String username, String password, String firstName, String lastName, Email email, Telephone telephone){
         super(id, username,password,firstName,lastName, email, telephone);
-        this.employerID = empID;
+
     }
 
-    /**
-     * Sets the employer id
-     *
-     * @param employerID   the employer id
-     */
-    public void setEmployerID(int employerID) {
-        this.employerID = employerID;
-    }
 
-    /**
-     * Gets the employer id
-     *
-     * @return  the employer id
-     */
-    public int getEmployerID() {
-        return employerID;
-    }
+
 
     /**
      * Compare an Employer with another object.
