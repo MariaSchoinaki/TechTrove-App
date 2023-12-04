@@ -8,24 +8,19 @@ public class Synthesis extends ProductType{
     private int numberOfRatings;
     private double subRating;
     private double rating;
+    private ArrayList<Component> components;
 
     public Synthesis(){}
 
     /**
      * Constructor of Synthesis
-     * @param publishState     the publish state of the Synthesis as a Boolean
-     * @param numberOfRatings  the total number of ratings of the Synthesis as an Integer
-     * @param subRating        the subRating of the Synthesis as a Double
-     * @param rating           the total rating of the Synthesis as a Double
+     * @param components       the components of the Synthesis as an ArrayList<Component>
      * @param modelNo          the model number of the Synthesis as an Integer
      * @param price            the price of the Synthesis as Money
      */
-    public Synthesis(int modelNo, Money price, String name, boolean publishState, int numberOfRatings, double subRating, double rating){
-        super(modelNo, price,name);
-        this.publishState = publishState;
-        this.numberOfRatings = numberOfRatings;
-        this.subRating = subRating;
-        this.rating = rating;
+    public Synthesis(int modelNo, Money price, String name, ArrayList<Component> components){
+        super(modelNo, price, name);
+        this.components = components;
     }
     /**
      * Gets the publish state of the Synthesis
@@ -97,8 +92,20 @@ public class Synthesis extends ProductType{
      *
      * @param subRating   Synthesis's sub rating
      */
-    public void calcRating(double subRating){
-        double old = this.rating * numberOfRatings;
+    private void calcRating(double subRating) {
+        double old = this.rating * (numberOfRatings - 1);
         this.rating = (this.rating + subRating)/numberOfRatings;
+    }
+
+    public void add(Component component) {
+        this.components.add(component);
+    }
+
+    public void remove(Component component){
+        this.components.remove(component);
+    }
+
+    public ArrayList<Component> getComponentList(){
+        return this.components;
     }
 }
