@@ -22,13 +22,15 @@ public class Component extends ProductType{
      * @param requiredPorts   the required ports of the component as an ArrayList
      * @param modelNo         the model number of the Component as an Integer
      * @param price           the price of the Component as Money
+     * @param quantity        the quantity of the Component as Integer
      */
-    public Component(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts){
+    public Component(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity){
         super(modelNo, price,name);
         this.description = description;
         this.manufacturer = manufacturer;
         this.availablePorts = availablePorts;
         this.requiredPorts = requiredPorts;
+        this.quantity = quantity;
     }
 
 
@@ -68,6 +70,9 @@ public class Component extends ProductType{
         return requiredPorts;
     }
 
+    public int getQuantity(){
+        return this.quantity;
+    }
 
     /**
      * Sets the description of a Component
@@ -103,5 +108,17 @@ public class Component extends ProductType{
      */
     public void setRequiredPorts(Port requiredPorts) {
         this.requiredPorts = requiredPorts;
+    }
+
+    public void addQuantity(int quantity) {
+        this.quantity += quantity;
+    }
+
+    public void removeQuantity(int quantity) {
+        if(this.quantity <= quantity){
+            this.quantity = 0;
+        }else{
+            this.quantity -= quantity;
+        }
     }
 }
