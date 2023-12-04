@@ -17,7 +17,7 @@ public class PortTest {
     }
 
     @Test
-    public void  check(){
+    public void  checkPortFunctionality(){
         Pair port1 = new Pair("PCIExpress", 1);
 
         ArrayList<Pair> available_ports = new ArrayList<Pair>();
@@ -35,10 +35,8 @@ public class PortTest {
 
         Assert.assertEquals(-1, availablePorts.getPortNumber("hchc"));
 
-        available_ports.remove(c);
+        availablePorts.remove(c);
         Assert.assertEquals(-1, availablePorts.getPortNumber("HDMI"));
-
-
 
     }
 }
