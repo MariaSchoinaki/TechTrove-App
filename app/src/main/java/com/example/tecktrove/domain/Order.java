@@ -4,11 +4,13 @@ import com.example.tecktrove.contacts.Telephone;
 import com.example.tecktrove.contacts.Email;
 import java.util.Date;
 import com.example.tecktrove.util.Money;
+import com.example.tecktrove.util.SystemDate;
+import com.example.tecktrove.util.SimpleCalendar;
 
 import java.util.ArrayList;
 
 public class Order {
-    private Date date;
+    private SimpleCalendar date;
     private Money total;
     private int cardNumber;
     private Telephone telephone;
@@ -27,7 +29,7 @@ public class Order {
      * @param email        the email address of the user as email Mail type
      * @param orderLines   the elements of each order
      */
-    public Order(Date date, Money total, int cardNumber, Telephone telephone, Email email, ArrayList<OrderLine>orderLines){
+    public Order(SimpleCalendar date, Money total, int cardNumber, Telephone telephone, Email email, ArrayList<OrderLine>orderLines){
         this.date=date;
         this.total=total;
         this.cardNumber=cardNumber;
@@ -41,7 +43,7 @@ public class Order {
      *
      * @return the placement date
      */
-    public Date getDate(){
+    public SimpleCalendar getDate(){
         return this.date;
     }
 
@@ -95,7 +97,7 @@ public class Order {
      *
      * @param date the date that the order was placed
      */
-    public void setDate(Date date) {
+    public void setDate(SimpleCalendar date) {
         this.date = date;
     }
 
