@@ -6,6 +6,7 @@ import com.example.tecktrove.util.Port;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class OrderLineTest {
         orderl1 = new OrderLine(2,new Component(235456, Money.euros(BigDecimal.valueOf(30.5)) , "AMD Ryzen 7", "Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί", "AMD", new Port(), new Port() ));
         orderl2 = new OrderLine(5,new Component(12345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ));
         orderl3 = new OrderLine(1,new Synthesis(235456, Money.euros(1500),"lola" , new ArrayList<Component>()));
-        orderl4 = new OrderLine(1,new Synthesis(235456, Money.euros(1500), "abcd ",new ArrayList<Component>()));
+        orderl4 = new OrderLine(2,new Synthesis(235456, Money.euros(1500), "abcd ",new ArrayList<Component>()));
     }
 
     @Test
@@ -62,7 +63,7 @@ public class OrderLineTest {
         Assert.assertFalse(orderl1.equals(orderl2));
         Assert.assertTrue(orderl1.equals(orderl1));
         Assert.assertFalse(orderl1.equals(null));
-        Assert.assertTrue(orderl3.equals(orderl4));
+        assertEquals(orderl4,orderl3);
         Assert.assertFalse(orderl3.equals(new Object()));
     }
 }
