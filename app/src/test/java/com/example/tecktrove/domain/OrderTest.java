@@ -1,6 +1,8 @@
 package com.example.tecktrove.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+
 
 import java.time.LocalDate;
 import com.example.tecktrove.contacts.Email;
@@ -59,7 +61,28 @@ public class OrderTest {
         order1.setOrderLines(l1);
         order2.setOrderLines(l1);
         assertEquals(this.order1.getOrderLines(), this.order2.getOrderLines());
-        order1.setCustomer(new Customer());
+        order1.setCustomer(new Customer(18, 18, "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()));
+        order2.setCustomer(new Customer(18, 18, "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()));
+        assertEquals(this.order1.getCustomer(),this.order1.getCustomer());
+
+    }
+    @Test
+    public void testAddRemove(){
+        OrderLine R3 = new OrderLine(2,new ProductType(125,new Money(new BigDecimal(2100.1), euroCurrency),"chris"));
+        order1.addOrderLine(R3);
+        assertTrue(order1.getOrderLines().remove(R3));
+        order2.addOrderLine(R3);
+        order2.removeOrderline(R3);
+        Boolean notfound = Boolean.TRUE;
+        for(OrderLine r: order2.getOrderLines()){
+            if(r==R3){
+                notfound=Boolean.FALSE;
+            }
+        }
+        assertTrue(notfound);
+
+
+
 
     }
 

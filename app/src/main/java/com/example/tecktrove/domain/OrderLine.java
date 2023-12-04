@@ -80,6 +80,6 @@ public class OrderLine {
             return false;
         }
         OrderLine o = (OrderLine) other;
-        return this.productType.getName().equals(o.getProductType().getName());
+        return this.productType.getModelNo() == (o.getProductType().getModelNo());
     }
 }
