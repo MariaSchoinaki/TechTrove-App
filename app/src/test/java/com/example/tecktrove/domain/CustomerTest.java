@@ -18,8 +18,8 @@ public class CustomerTest {
     private Customer customer1, customer2;
    @Before
     public void setup() {
-       customer1 = new Customer(18, 18, "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
-       customer2 = new Customer(18, 18, "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+       customer1 = new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+       customer2 = new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
    }
    @Test
    public void checkDefaultConstructor(){
