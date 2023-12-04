@@ -15,13 +15,12 @@ public class Customer extends User {
     /**
      * Constructor of Customer
      *
-     * @param customerID       the id of a customer
+     *
      * @param savedSynthesis   a list that contains all saved synthesis of a customer
      * @param cart             the customer's cart
      */
-    public Customer(int customerID, int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone, ArrayList<Synthesis> savedSynthesis, ArrayList<ProductType>cart){
+    public Customer( int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone, ArrayList<Synthesis> savedSynthesis, ArrayList<ProductType>cart){
         super(id,username,password, firstName,lastName,email,telephone);
-        this.customerID=customerID;
         this.savedSynthesis=savedSynthesis;
         this.cart=cart;
     }
