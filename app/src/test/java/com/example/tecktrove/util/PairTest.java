@@ -1,0 +1,39 @@
+package com.example.tecktrove.util;
+import org.junit.*;
+
+import java.util.ArrayList;
+
+public class PairTest {
+
+    @Test
+    public void checkDefaultConstructor(){
+        Port port = new Port();
+        Assert.assertNotNull(port);
+    }
+
+    @Test
+    public void  check(){
+        Pair port1 = new Pair("PCIExpress", 1);
+
+        ArrayList<Pair> available_ports = new ArrayList<Pair>();
+        available_ports.add(port1);
+        Port availablePorts = new Port(available_ports);
+
+
+        Assert.assertNotNull(available_ports);
+
+        Assert.assertEquals(1, availablePorts.getPorts().size());
+        Pair c = new Pair("HDMI",4);
+        availablePorts.add(c);
+        Assert.assertEquals(4, availablePorts.getPortNumber("HDMI"));
+        Assert.assertEquals(1, availablePorts.getPortNumber("PCIExpress"));
+
+        Assert.assertEquals(-1, availablePorts.getPortNumber("hchc"));
+
+        available_ports.remove(c);
+        Assert.assertEquals(-1, availablePorts.getPortNumber("HDMI"));
+
+
+
+    }
+}
