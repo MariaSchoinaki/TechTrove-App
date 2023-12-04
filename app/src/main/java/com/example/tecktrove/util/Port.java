@@ -11,7 +11,7 @@ public class Port {
 
     private ArrayList<Pair<String, Integer>> ports;
     public Port(){
-        ports = new ArrayList<Pair<String, Integer>>();
+        this.ports = new ArrayList<Pair<String, Integer>>();
     }
 
     public Port(ArrayList<Pair<String, Integer>> ports){
@@ -21,11 +21,16 @@ public class Port {
         ports.add(port);
     }
 
-    public int getPortNumber(String key){
-        for(Pair<String, Integer> p : ports){
-            if(p.getKey().equals(key)) {
-                return p.getValue();
+    public void remove(Pair<String, Integer> port){
+        ports.remove(port);
+    }
+
+    public int getPortNumber(String key) {
+        for (Pair<String, Integer> p : ports) {
+            if (p.first.equals(key)) {
+                return p.second;
             }
         }
+        return -1;
     }
 }
