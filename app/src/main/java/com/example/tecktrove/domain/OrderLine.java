@@ -1,5 +1,8 @@
 package com.example.tecktrove.domain;
 import com.example.tecktrove.util.Money;
+
+import java.math.BigDecimal;
+
 public class OrderLine {
     private int quantity;
     private Money subTotal;
@@ -11,12 +14,10 @@ public class OrderLine {
      * Constructor of OrderLine
      *
      * @param quantity         the quantity of a specific product inside the customers order
-     * @param subTotal         the price of a specific product inside the customers order
      * @param productType      the type of a product
      */
-    public OrderLine(int quantity, Money subTotal, ProductType productType){
+    public OrderLine(int quantity, ProductType productType){
         this.quantity=quantity;
-        this.subTotal=subTotal;
         this.productType=productType;
     }
     /**
@@ -41,8 +42,9 @@ public class OrderLine {
      * @return the subTotal
      */
     public Money getSubTotal() {
-        return subTotal;
+        return this.subTotal;
     }
+
     /**
      * Sets the quantity of a product
      *
@@ -50,6 +52,14 @@ public class OrderLine {
      */
     void setQuantity(int quantity) {
         this.quantity = quantity;
+        calculateSubTotal();
+    }
+
+    /**
+     * Calculates the total of this product
+     */
+    private void calculateSubTotal(){
+        this.subTotal = this.productType.getPrice().times(new BigDecimal(this.quantity));
     }
 
 }
