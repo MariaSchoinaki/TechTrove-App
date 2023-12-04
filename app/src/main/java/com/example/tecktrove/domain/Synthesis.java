@@ -8,8 +8,9 @@ public class Synthesis extends ProductType{
     private int numberOfRatings;
     private double subRating;
     private double rating;
+    private Customer customer;
     private ArrayList<Component> components;
-    private ArrayList<Customer, Double> ratings;
+    private ArrayList<Pair<Double, Customer>> ratings;
 
     public Synthesis(){}
 
@@ -83,7 +84,8 @@ public class Synthesis extends ProductType{
      * @param subRating   Synthesis's sub rating
      */
     public void setSubRating(double subRating, Customer customer) {
-        ratings.add(customer, subRating);
+        ratings.add(new Pair<>(subRating, customer));
+        this.customer = customer;
         this.subRating = subRating;
         setNumberOfRatings(numberOfRatings + 1);
         calcRating(subRating);
@@ -111,7 +113,11 @@ public class Synthesis extends ProductType{
         return this.components;
     }
 
-    public ArrayList<Customer, Double> getRatingsList(){
+    public ArrayList<Pair<Double, Customer>> getRatingsList(){
         return ratings;
+    }
+
+    public Customer getCustomer(){
+        return this.customer;
     }
 }
