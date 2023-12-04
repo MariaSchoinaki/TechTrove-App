@@ -17,7 +17,7 @@ public class EmployerTest {
 
     @BeforeEach
     public void setUp(){
-        this.employer = new Employer(3456, "employer1", "emp78", "Joanna", "Legrange",8990 ,new Email("joanna@gmail.com"), new Telephone("6970876734"));
+        this.employer = new Employer(3456, "employer1", "emp78", "Joanna", "Legrange" ,new Email("joanna@gmail.com"), new Telephone("6970876734"));
     }
 
     @Test
@@ -30,12 +30,12 @@ public class EmployerTest {
 
     @Test
     public void checkEquals(){
-        Employer e1 = new Employer(5673, "george", "george56", "George", "Kennedy", 7890, new Email("klap@yahoo.com"), new Telephone("6898909678"));
-        Employer e2 = new Employer(8956, "kenny1999", "ken1256k", "Kenny", "Jonhson", 4565, new Email("kennyjonhson@gmail.com"), new Telephone("6984564578"));
+        Employer e1 = new Employer(5673, "george", "george56", "George", "Kennedy", new Email("klap@yahoo.com"), new Telephone("6898909678"));
+        Employer e2 = new Employer(8956, "kenny1999", "ken1256k", "Kenny", "Jonhson", new Email("kennyjonhson@gmail.com"), new Telephone("6984564578"));
 
         assertNotEquals(e1, e2);
 
-        Employer e3 = new Employer(8956, "kenny1999", "ken1256k", "Kenny", "Jonhson", 4565, new Email("kennyjonhson@gmail.com"), new Telephone("6984564578"));
+        Employer e3 = new Employer(8956, "kenny1999", "ken1256k", "Kenny", "Jonhson", new Email("kennyjonhson@gmail.com"), new Telephone("6984564578"));
         assertEquals(e2,e3);
 
         Object other = new Object();
