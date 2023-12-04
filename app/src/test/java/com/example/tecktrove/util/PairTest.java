@@ -1,39 +1,32 @@
 package com.example.tecktrove.util;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import org.junit.*;
 
-import java.util.ArrayList;
-
 public class PairTest {
-
+    private Pair p1;
+    private Pair p2;
+    @Before
+    public void setUp(){
+         p1 = new Pair("SATA3",2);
+         p2 = new Pair("FIREWIRE",1);
+    }
     @Test
     public void checkDefaultConstructor(){
-        Port port = new Port();
-        Assert.assertNotNull(port);
+        Pair p =new Pair();
+        p.setFirst("VGA");
+        p.setSecond(1);
+        assertEquals(p.getFirst(),"VGA");
+        assertEquals(p.getSecond(),1);
+
     }
 
     @Test
-    public void  check(){
-        Pair port1 = new Pair("PCIExpress", 1);
-
-        ArrayList<Pair> available_ports = new ArrayList<Pair>();
-        available_ports.add(port1);
-        Port availablePorts = new Port(available_ports);
-
-
-        Assert.assertNotNull(available_ports);
-
-        Assert.assertEquals(1, availablePorts.getPorts().size());
-        Pair c = new Pair("HDMI",4);
-        availablePorts.add(c);
-        Assert.assertEquals(4, availablePorts.getPortNumber("HDMI"));
-        Assert.assertEquals(1, availablePorts.getPortNumber("PCIExpress"));
-
-        Assert.assertEquals(-1, availablePorts.getPortNumber("hchc"));
-
-        available_ports.remove(c);
-        Assert.assertEquals(-1, availablePorts.getPortNumber("HDMI"));
-
-
-
+    public void checkGetSet(){
+        assertNotEquals(this.p1.getSecond(),this.p2.getSecond());
+        p1.setFirst("FIREWIRE");
+        assertEquals(this.p1.getFirst(),this.p2.getFirst());
+        p2.setSecond(2);
+        assertEquals(this.p1.getSecond(),this.p2.getSecond());
     }
 }
