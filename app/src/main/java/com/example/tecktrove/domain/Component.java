@@ -1,15 +1,16 @@
 package com.example.tecktrove.domain;
 
 import com.example.tecktrove.util.Money;
+import com.example.tecktrove.util.Port;
+
 import java.util.ArrayList;
 
 public class Component extends ProductType{
-
     private String name;
     private String description;
     private String manufacturer;
-    private ArrayList<T, K> availablePorts;
-    private ArrayList<T, K> requiredPorts;
+    private Port availablePorts;
+    private Port requiredPorts;
 
     public Component(){}
 
@@ -23,7 +24,7 @@ public class Component extends ProductType{
      * @param modelNo         the model number of the Component as an Integer
      * @param price           the price of the Component as Money
      */
-    public Component(int modelNo, Money price, String name, String description, String manufacturer, ArrayList<T, K> availablePorts, ArrayList<T, K> requiredPorts){
+    public Component(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts){
         super(modelNo, price);
         this.name = name;
         this.description = description;
@@ -64,7 +65,7 @@ public class Component extends ProductType{
      *
      * @return  the available ports
      */
-    public ArrayList<T, K> getAvailablePorts() {
+    public Port getAvailablePorts() {
         return availablePorts;
     }
 
@@ -73,7 +74,7 @@ public class Component extends ProductType{
      *
      * @return  the required ports
      */
-    public ArrayList<T, K> getRequiredPorts() {
+    public Port getRequiredPorts() {
         return requiredPorts;
     }
 
@@ -109,7 +110,7 @@ public class Component extends ProductType{
      *
      * @param availablePorts   Component's available ports
      */
-    public void setAvailablePorts(ArrayList<T, K> availablePorts) {
+    public void setAvailablePorts(Port availablePorts) {
         this.availablePorts = availablePorts;
     }
 
@@ -118,7 +119,7 @@ public class Component extends ProductType{
      *
      * @param requiredPorts   Component's required ports
      */
-    public void setRequiredPorts(ArrayList<T, K> requiredPorts) {
+    public void setRequiredPorts(Port requiredPorts) {
         this.requiredPorts = requiredPorts;
     }
 }
