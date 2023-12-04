@@ -21,8 +21,8 @@ public class OrderLineTest {
 
     @Before
     public void setUp(){
-        orderl1 = new OrderLine(2,new Component(235456, Money.euros(BigDecimal.valueOf(30.5)) , "AMD Ryzen 7", "Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί", "AMD", new Port(), new Port() ));
-        orderl2 = new OrderLine(5,new Component(12345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ));
+        orderl1 = new OrderLine(2,new Component(235456, Money.euros(BigDecimal.valueOf(30.5)) , "AMD Ryzen 7", "Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί", "AMD", new Port(), new Port(), 10 ));
+        orderl2 = new OrderLine(5,new Component(12345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
         orderl3 = new OrderLine(1,new Synthesis(235456, Money.euros(1500),"lola" , new ArrayList<Component>()));
         orderl4 = new OrderLine(2,new Synthesis(235456, Money.euros(1500), "abcd ",new ArrayList<Component>()));
     }
