@@ -1,6 +1,6 @@
 package com.example.tecktrove.util;
 
-import android.util.Pair;
+
 import java.util.ArrayList;
 
 /**
@@ -9,28 +9,42 @@ import java.util.ArrayList;
  */
 public class Port {
 
-    private ArrayList<Pair<String, Integer>> ports;
+    private ArrayList<Pair> ports;
     public Port(){
-        this.ports = new ArrayList<Pair<String, Integer>>();
+        this.ports = new ArrayList<Pair>();
     }
 
-    public Port(ArrayList<Pair<String, Integer>> ports){
+    public Port(ArrayList<Pair> ports){
         this.ports = ports;
     }
-    public void add(Pair<String, Integer> port){
+    public void add(Pair port){
         ports.add(port);
     }
 
-    public void remove(Pair<String, Integer> port){
-        ports.remove(port);
+    public void remove(Pair p){
+        ports.remove(p);
     }
 
     public int getPortNumber(String key) {
-        for (Pair<String, Integer> p : ports) {
-            if (p.first.equals(key)) {
-                return p.second;
+        Pair p1 = findPortPair(key);
+        for (Pair p : ports) {
+            if (p.getFirst() == key) {
+                return  p.getSecond();
             }
         }
         return -1;
+    }
+
+    public ArrayList<Pair> getPorts(){
+        return this.ports;
+    }
+
+    public Pair findPortPair(String key){
+        for (Pair p : ports) {
+            if (p.getFirst() == key) {
+                return p;
+            }
+        }
+        return null;
     }
 }

@@ -1,8 +1,11 @@
 package com.example.tecktrove.domain;
 
+import com.example.tecktrove.contacts.Email;
+import com.example.tecktrove.contacts.Telephone;
+
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer extends User {
     private int customerID;
     private ArrayList<Synthesis> savedSynthesis;
     private ArrayList<ProductType> cart;
@@ -16,7 +19,8 @@ public class Customer {
      * @param savedSynthesis   a list that contains all saved synthesis of a customer
      * @param cart             the customer's cart
      */
-    public Customer(int customerID, ArrayList<Synthesis> savedSynthesis, ArrayList<ProductType>cart){
+    public Customer(int customerID, int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone, ArrayList<Synthesis> savedSynthesis, ArrayList<ProductType>cart){
+        super(id,username,password, firstName,lastName,email,telephone);
         this.customerID=customerID;
         this.savedSynthesis=savedSynthesis;
         this.cart=cart;
@@ -68,5 +72,42 @@ public class Customer {
      */
     void setCart(ArrayList<ProductType> cart) {
         this.cart = cart;
+    }
+
+    void addToSavedSynthesis(Synthesis synthesis){
+        this.savedSynthesis.add(synthesis);
+    }
+
+    void removeFromSaved(Synthesis synthesis){
+        this.savedSynthesis.remove(synthesis);
+    }
+
+    void addToCart(ProductType product){
+        this.cart.add(product);
+    }
+
+    void removeFromCart(ProductType product){
+        this.cart.remove(product);
+    }
+
+    ProductType getProduct(int ProductID){
+        int i = this.cart.size() - 1;
+        int j = this.savedSynthesis.size()-1;
+        ProductType p;
+        while(i>=0){
+            p = this.cart.get(i);
+            if(p.getModelNo() == ProductID){
+                return p;
+            }
+            i-=1;
+        }
+        while(j>=0){
+            p = this.savedSynthesis.get(j);
+            if(p.getModelNo() == ProductID){
+                return p;
+            }
+            j-=1;
+        }
+        return null;
     }
 }
