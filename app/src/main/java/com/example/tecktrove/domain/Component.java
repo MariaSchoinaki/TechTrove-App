@@ -6,7 +6,6 @@ import com.example.tecktrove.util.Port;
 import java.util.ArrayList;
 
 public class Component extends ProductType{
-    private String name;
     private String description;
     private String manufacturer;
     private Port availablePorts;
@@ -25,22 +24,13 @@ public class Component extends ProductType{
      * @param price           the price of the Component as Money
      */
     public Component(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts){
-        super(modelNo, price);
-        this.name = name;
+        super(modelNo, price,name);
         this.description = description;
         this.manufacturer = manufacturer;
         this.availablePorts = availablePorts;
         this.requiredPorts = requiredPorts;
     }
 
-    /**
-     * Gets the name of the component
-     *
-     * @return  the name
-     */
-    public String getName() {
-        return name;
-    }
 
     /**
      * Gets the description of the component
@@ -78,14 +68,6 @@ public class Component extends ProductType{
         return requiredPorts;
     }
 
-    /**
-     * Sets the name of a Component
-     *
-     * @param name   Component's name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 
     /**
      * Sets the description of a Component

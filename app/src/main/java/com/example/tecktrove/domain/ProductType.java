@@ -4,6 +4,7 @@ import com.example.tecktrove.util.Money;
 public class ProductType {
     private int modelNo;
     private Money price;
+    private String name;
 
     public ProductType(){}
 
@@ -12,9 +13,10 @@ public class ProductType {
      * @param modelNo       the model number as an Integer
      * @param price         the price of the ProductType
      */
-    public ProductType(int modelNo, Money price){
+    public ProductType(int modelNo, Money price, String name){
         this.modelNo = modelNo;
         this.price = price;
+        this.name = name;
     }
 
     /**
@@ -35,6 +37,10 @@ public class ProductType {
         return price;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     /**
      * Sets the model number of a ProductType
      *
@@ -51,6 +57,10 @@ public class ProductType {
      */
     public void setPrice(Money price) {
         this.price = price;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
 }
