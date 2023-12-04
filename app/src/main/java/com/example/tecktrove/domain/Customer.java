@@ -90,9 +90,8 @@ public class Customer extends User {
         this.cart.remove(product);
     }
 
-    ProductType getProduct(int ProductID){
+    ProductType getProductFromCart(int ProductID){
         int i = this.cart.size() - 1;
-        int j = this.savedSynthesis.size()-1;
         ProductType p;
         while(i>=0){
             p = this.cart.get(i);
@@ -101,6 +100,13 @@ public class Customer extends User {
             }
             i-=1;
         }
+        return null;
+    }
+    ProductType getProductFromSaved(int ProductID){
+
+        int j = this.savedSynthesis.size()-1;
+        ProductType p;
+
         while(j>=0){
             p = this.savedSynthesis.get(j);
             if(p.getModelNo() == ProductID){
