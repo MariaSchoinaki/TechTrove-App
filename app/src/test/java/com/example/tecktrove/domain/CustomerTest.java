@@ -1,6 +1,7 @@
 package com.example.tecktrove.domain;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -77,5 +78,19 @@ public class CustomerTest {
 
       assertNotEquals(p, customer1.getProductFromSaved(16627));
 
+   }
+   @Test
+   public void checkEquality(){
+      Customer c1 = new Customer(5673, "george", "g5797j6", "George", "Johnson", new Email("klap@yahoo.com"), new Telephone("6898909678"), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+      Customer c2 = new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+      assertNotEquals(c1, c2);
+
+      Customer c3 = new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+      assertEquals(c2,c3);
+
+      Object other = new Object();
+      assertNotEquals(c1, other);
+      assertEquals(c1,c1);
+      assertFalse(c2.equals(null));
    }
 }

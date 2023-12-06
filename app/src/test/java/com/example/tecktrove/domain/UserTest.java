@@ -10,6 +10,8 @@ import com.example.tecktrove.contacts.Telephone;
 
 import org.junit.*;
 
+import java.util.ArrayList;
+
 public class UserTest {
 
     private User user1;
@@ -60,5 +62,16 @@ public class UserTest {
         user2.setTelephone(new Telephone("6987036565"));
         assertEquals(new Telephone("6987036565"), user2.getTelephone());
 
+    }
+    @Test
+    public void checkEquality(){
+        assertNotEquals(user1, user2);
+        User user3 = new User(45, "leana", "les34", "Leana", "Triantafillidi", new Email("lean@gmail.com"), new Telephone("6987563456"));
+        assertEquals(user2,user3);
+
+        Object other = new Object();
+        assertNotEquals(user1, other);
+        assertEquals(user1,user1);
+        assertFalse(user2.equals(null));
     }
 }
