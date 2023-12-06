@@ -41,7 +41,7 @@ public class UserTest {
         assertNotEquals(this.user1.getLastName(),this.user2.getLastName());
 
         this.user1.setName("Leana");
-        assertEquals(this.user1.getName(), this.user2.getName());
+        assertEquals("Leana", this.user1.getName());
 
         assertEquals(user1,user1);
         assertNotEquals(user1, new User());
