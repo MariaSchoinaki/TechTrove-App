@@ -50,19 +50,19 @@ public class OrderTest {
         SimpleCalendar s = new SimpleCalendar(2023,8,25);
         order1.setDate(s);
         Assert.assertEquals(s, order1.getDate());
-        order1.setCardNumber(25101);
-        assertEquals(this.order1.getCardNumber(), this.order2.getCardNumber());
+        order1.setCardNumber(25102);
+        assertEquals(25102, this.order1.getCardNumber());
         order2.setTelephone(new Telephone("210984367"));
-        assertEquals(this.order1.getTelephone(), this.order2.getTelephone());
+        assertEquals(new Telephone("210984367"), this.order2.getTelephone());
         order2.setEmail(new Email("ok@gmail.com"));
-        assertEquals(this.order1.getEmail(), this.order2.getEmail());
+        assertEquals(new Email("ok@gmail.com"), this.order2.getEmail());
         ArrayList<OrderLine> l1 = new ArrayList<OrderLine>();
         order1.setOrderLines(l1);
         order2.setOrderLines(l1);
-        assertEquals(this.order1.getOrderLines(), this.order2.getOrderLines());
+        assertEquals(l1, this.order2.getOrderLines());
+        assertEquals(l1,this.order1.getOrderLines());
         order1.setCustomer(new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()));
-        order2.setCustomer(new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()));
-        assertEquals(this.order1.getCustomer(),this.order1.getCustomer());
+        assertEquals(new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()),this.order1.getCustomer());
 
     }
     @Test
