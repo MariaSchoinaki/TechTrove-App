@@ -23,19 +23,18 @@ public class Order {
      * Constructor of Order
      *
      * @param date         the date that order was placed as Date type
-     * @param total        the total customer charge as Money type
      * @param cardNumber   the card number of user as Integer
      * @param telephone    the telephone number of the user as telephone number form
      * @param email        the email address of the user as email Mail type
      * @param orderLines   the elements of each order
      */
-    public Order(SimpleCalendar date, Money total, int cardNumber, Telephone telephone, Email email, ArrayList<OrderLine>orderLines){
+    public Order(SimpleCalendar date, int cardNumber, Telephone telephone, Email email, ArrayList<OrderLine>orderLines){
         this.date=date;
-        this.total=total;
         this.cardNumber=cardNumber;
         this.telephone=telephone;
         this.orderLines=orderLines;
         this.email=email;
+        setTotal();
     }
 
     /**
@@ -135,23 +134,27 @@ public class Order {
      */
     public void setOrderLines(ArrayList<OrderLine> orderLines) {
         this.orderLines = orderLines;
+        setTotal();
     }
 
     /**
      * Sets total price for each order
-     *
-     * @param  total  of each order
      */
-    public void setTotal(Money total){
-        this.total = total;
+    private void setTotal(){
+        this.total = Money.euros(0);
+        for (OrderLine o: this.orderLines){
+            this.total = this.total.plus(o.getSubTotal());
+        }
     }
 
      public void addOrderLine(OrderLine orderLine) {
         this.orderLines.add(orderLine);
+        setTotal();
      }
 
      public void removeOrderline(OrderLine orderLine){
         this.orderLines.remove(orderLine);
+        setTotal();
      }
 
      public void setCustomer(Customer customer){
