@@ -1,9 +1,8 @@
-<diagram program="umletino" version="15.1"><zoom_level>5</zoom_level><help_text>Space for diagram note</help_text><element><id>UMLClass</id><coordinates><x>515</x><y>10</y><w>130</w><h>200</h></coordinates><panel_attributes>_User_
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram note</help_text><element><id>UMLClass</id><coordinates><x>576</x><y>6</y><w>156</w><h>210</h></coordinates><panel_attributes>_User_
 --
 -userID: Integer
 -username: String
 -password: String
--isEmployer: Boolean
 -firstName: String
 -lastName: String
 -email: Email
@@ -11,69 +10,70 @@
 --
 +getUserID(): Integer
 +getUsername(): String
-+getIsEmployer(): String
-+getFirstName(): String
++getName(): String
 +getLastName(): String
 +getEmail(): Email
 +getTelephone(): Telephone
 +setUserID(userID: Integer)
 +setUsername(usrname: String)
-+setIsEmployer(isEmployer: Boolean)
-+setFirstName(firstName: String)
++setName(Name: String)
 +setLastName(lastName: String)
 +setEmail(email: Email)
 +setTelephone(telephone: Telephone)
-+setPasswrod(password: Password)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>245</y><w>180</w><h>130</h></coordinates><panel_attributes>_Customer_
++setPasswrod(password: Password)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>426</x><y>258</y><w>216</w><h>138</h></coordinates><panel_attributes>_Customer_
 --
--customerID: Integer
 -savedSynthesis: ArrayList&lt;Synthesis&gt;
 -cart: ArrayList&lt;ProductType&gt;
 --
-+getCustomerID(): Integer
 +getSavedSynthesis(): ArrayList&lt;Synthesis&gt;
 +getCart(): ArrayList&lt;ProductType&gt;
-+setCustomerID(customerID: Integer)
 +setSavedSynthesis(savedSynthesis: ArrayList&lt;Synthesis&gt;)
 +setCart(cart: ArrayList&lt;ProductType&gt;)
 +addToSavedSynthesis(sunthesis: Synthesis)
 +removeFromSaved(synthesis: Synthesis)
 +addToCart(product: ProductType)
 +removeFromCart(product: ProductType)
-+getProduct(ProductID: Integer): ProductType
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>205</y><w>15</w><h>35</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>225</x><y>295</y><w>105</w><h>65</h></coordinates><panel_attributes>_ProductType_
++getProductFromCart(ProductID: Integer): ProductType
++getProductFromSaved(ProductID: Integer): Synthesis</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>642</x><y>210</y><w>18</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>264</x><y>258</y><w>126</w><h>108</h></coordinates><panel_attributes>_ProductType_
 --
 -modelNo: Integer
 -price: Money
+-name: String
 --
 +getModelNo(): Integer
 +getPrice(): Money
++getName(): String
 +setModelNo(modelNo: Integer)
-+setPrice(price: Money)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>105</y><w>145</w><h>175</h></coordinates><panel_attributes>_Order_
++setPrice(price: Money)
++setName(name: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>192</x><y>0</y><w>174</w><h>252</h></coordinates><panel_attributes>_Order_
 --
--date: SystemDate
--total: Money
+-date: SimpleCalendar
+-/total: Money
 -cardNumber: Integer
 -telephone: Telephone
 -eMail: Email
 -customer: Customer
 --
-+getDate(): Date
++getDate(): SimpleCalendar
 +getTotal(): Money
++getCardNumber(): Integer
 +getTelephone(): Telephone
 +getEmail(): EmailAdress
 +getCustomer(): Customer
 +getOrderLines(): ArrayList&lt;OrderLine&gt; 
-+setDate(date: SystemDate)
++getCustomer(): Customer
++setDate(date: SimpleCalendar)
 +setTotal(total: Money)
++setCardNumber(cardNumber: Integer)
 +setTelephone(telephone: Telephone)
 +setEmail(email: Email)
 +setCustomer(customer: Customer)
 +setOrderLines(orderLines: ArrayList&lt;OrderLine&gt;) 
 +addOrderLine(orderLine: OrderLine)
 +removeOrderline(orderLine: OrderLine)
++setCustomer(customer: Customer)
 
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>75</x><y>290</y><w>95</w><h>75</h></coordinates><panel_attributes>_OrderLine_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>48</x><y>264</y><w>162</w><h>114</h></coordinates><panel_attributes>_OrderLine_
 --
 -quantity: Integer
 -/subTotal: Money
@@ -82,61 +82,66 @@
 +getQuantity(): Integer
 +getSubTotal(): Money
 +getProductType(): ProductType
-+setQuantity(quantity: Integer)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>255</y><w>70</w><h>25</h></coordinates><panel_attributes>lt=-
++setQuantity(quantity: Integer)
++setProductType(productType: ProductType)
++calculateSubTotal()
++equals(other: Object): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>132</y><w>138</w><h>138</h></coordinates><panel_attributes>lt=-
 &lt; places
 m1=*
 m2=1
-</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>235</y><w>85</w><h>65</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;10;160;10;160;210</additional_attributes></element><element><id>Relation</id><coordinates><x>96</x><y>138</y><w>108</w><h>138</h></coordinates><panel_attributes>lt=-
 &lt; includes
 m1=1..*
 m2=1
-</panel_attributes><additional_attributes>10;110;10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>165</x><y>310</y><w>70</w><h>25</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;210;10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>204</x><y>288</y><w>72</w><h>30</h></coordinates><panel_attributes>lt=-
 consists of &gt;
 m1=*
 m2=1
-</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>355</y><w>15</w><h>35</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>370</y><w>195</w><h>40</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>360</y><w>18</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>186</x><y>408</y><w>234</w><h>48</h></coordinates><panel_attributes>lt=-
 
 
-</panel_attributes><additional_attributes>10;60;10;20;370;20;370;60</additional_attributes></element><element><id>Relation</id><coordinates><x>275</x><y>410</y><w>65</w><h>25</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;60;10;20;370;20;370;60</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>456</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=-
 &lt; Contains
 m1=*
 m2=1..*
-</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>475</x><y>370</y><w>60</w><h>90</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>390</y><w>72</w><h>126</h></coordinates><panel_attributes>lt=-
 creates &gt;
 m1=*
 m2=1..*
-</panel_attributes><additional_attributes>50;10;50;150;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>400</y><w>150</w><h>135</h></coordinates><panel_attributes>_Component_
+</panel_attributes><additional_attributes>50;10;50;180;10;180</additional_attributes></element><element><id>UMLClass</id><coordinates><x>114</x><y>444</y><w>180</w><h>174</h></coordinates><panel_attributes>_Component_
 --
--name: String
+-quantity: Integer
 -description: String
 -manufacturer: String
 -availablePorts: ArrayList&lt;T, K&gt;
 -requiredPorts: AttayList&lt;T, K&gt;
 --
-+getName(): String
++getQuantity(): Integer
 +getDescription(): String
 +getManufacturer(): String
 +getAvailablePorts(): ArrayList&lt;T,K&gt;
 +getRequiredPorts(): ArrayList&lt;T,K&gt;
-+setName(name: String)
 +setDescription(description: String)
 +setManufacturer(manufacturer: String) 
 +setAvailablePorts(available: ArrayList&lt;T, K&gt;)
-+setRequiredPorts(requiredPorts: ArrayList&lt;T, K&gt;)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>225</x><y>585</y><w>80</w><h>45</h></coordinates><panel_attributes>_Item_
++setRequiredPorts(requiredPorts: ArrayList&lt;T, K&gt;)
++addQuantity(quantity: Integer)
++removeQuantity(quantity: Integer)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>228</x><y>666</y><w>96</w><h>54</h></coordinates><panel_attributes>_Item_
 --
 -serialNo: Integer
 --
 +setSerialNo(serial: Integer)
-+getSerialNo(): Integer</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>530</y><w>55</w><h>65</h></coordinates><panel_attributes>lt=-
++getSerialNo(): Integer</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>612</y><w>66</w><h>66</h></coordinates><panel_attributes>lt=-
 consisted of &gt;
 m1=*
 m2=1
-</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>400</y><w>150</w><h>105</h></coordinates><panel_attributes>_Synthesis_
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>354</x><y>444</y><w>180</w><h>192</h></coordinates><panel_attributes>_Synthesis_
 --
 -publishState: Boolean
 -numberOfRatings: Integer
 -subRating: Double
 -/rating: Double
+-ratings:  ArrayList&lt;Pair&lt;Double, Customer&gt;&gt;
 --
 +getPublishState(): Boolean
 +getNumberOfRatings(): Integer
@@ -145,14 +150,15 @@ m2=1
 +setPublishState(publishState: Boolean)
 +setNumberOfRatings(numberOfRatings: Integer)
 +setSubRating(subRating: Double)
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>615</x><y>255</y><w>115</w><h>50</h></coordinates><panel_attributes>_Employer_
++calcRating(subRating: Double)
++add(component: Component)
++remove(component: Component)
++getComponentList(): ArrayList&lt;Component&gt;
++getRatingsList(): ArrayList&lt;Pair&lt;Double, Customer&gt;&gt;
++getCustomer(): Customer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>696</x><y>270</y><w>138</w><h>36</h></coordinates><panel_attributes>_Employer_
 --
--employerID: Intenger
 --
-+getEmployerID(): Integer
-+setEmployerID(employerID: Integer)
-+equals(other: Object): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>220</y><w>210</w><h>45</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;50;10;20;400;20;400;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>585</y><w>115</w><h>65</h></coordinates><panel_attributes>_Port_
++equals(other: Object): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>228</y><w>252</w><h>54</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;50;10;20;400;20;400;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>66</x><y>666</y><w>138</w><h>78</h></coordinates><panel_attributes>_Port_
 --
 -ports: ArrayList&lt;Pair&gt;
 --
@@ -161,11 +167,11 @@ m2=1
 +getPortNumber(key: String): Integer
 +getPorts(): ArrayList&lt;Pair&gt;
 +findPortPair(key: String): Pair
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>530</y><w>30</w><h>65</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>126</x><y>612</y><w>36</w><h>66</h></coordinates><panel_attributes>lt=-
 has &gt;
 m1=*
 m2=*
-</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>790</x><y>240</y><w>90</w><h>65</h></coordinates><panel_attributes>_Pair_
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>858</x><y>252</y><w>108</w><h>78</h></coordinates><panel_attributes>_Pair_
 --
 -first: String
 -second: Integer
@@ -174,7 +180,7 @@ m2=*
 +setSecond(second: Integer)
 +getFirst(): String
 +getSecond(): Integer
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>85</y><w>140</w><h>135</h></coordinates><panel_attributes>_SimpleCalendar_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1038</x><y>72</y><w>168</w><h>162</h></coordinates><panel_attributes>_SimpleCalendar_
 --
 -MILLIS_PER_DAY: long
 -date: Calendar
@@ -192,14 +198,14 @@ m2=*
 +compareTo(other: SimpleCalendar): Integer
 +equals(other: Object): Boolean
 +hashCode(): Integer
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>945</x><y>255</y><w>110</w><h>50</h></coordinates><panel_attributes>_SystemDate_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1038</x><y>270</y><w>132</w><h>60</h></coordinates><panel_attributes>_SystemDate_
 --
 -stub: SimpleCalendar
 --
 +setStub(stubDate: SimpleCalendar)
 +removeStub()
 +now(): SimpleCalendar
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>790</x><y>65</y><w>130</w><h>160</h></coordinates><panel_attributes>_Money_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>858</x><y>42</y><w>156</w><h>192</h></coordinates><panel_attributes>_Money_
 --
 -amount: BigDecimal
 currency: Currency
@@ -219,13 +225,13 @@ currency: Currency
 +dollars(amount: long): Money
 +equals(other: Object): Boolean
 +hashCode(): Integer
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>790</x><y>325</y><w>95</w><h>50</h></coordinates><panel_attributes>_Email_
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>858</x><y>354</y><w>114</w><h>60</h></coordinates><panel_attributes>_Email_
 --
 -email: String
 --
 +getEmail(): String
 +isValid(): Boolean
-+equals(other: Object): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>950</x><y>325</y><w>95</w><h>50</h></coordinates><panel_attributes>_Telephone_
++equals(other: Object): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1038</x><y>354</y><w>114</w><h>60</h></coordinates><panel_attributes>_Telephone_
 --
 -telephone: String
 --
