@@ -36,19 +36,5 @@ public class Employer extends User{
      *
      * @param other another object
      */
-    @Override
-    public boolean equals(Object other) {
 
-        if (other == null){
-            return false;
-        }
-        if (this == other){
-            return true;
-        }
-        if (!(other instanceof Employer)){
-            return false;
-        }
-        Employer emp = (Employer) other;
-        return this.getId() == emp.getId();
-    }
 }

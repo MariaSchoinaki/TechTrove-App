@@ -164,4 +164,20 @@ public class User {
     public Telephone getTelephone() {
         return this.telephone;
     }
+
+    @Override
+    public boolean equals(Object other) {
+
+        if (other == null){
+            return false;
+        }
+        if (this == other){
+            return true;
+        }
+        if (!(other instanceof User)){
+            return false;
+        }
+        User user = (User) other;
+        return this.getId() == user.getId();
+    }
 }
