@@ -28,15 +28,15 @@ public class OrderTest {
         ArrayList<OrderLine> R1 = new ArrayList<OrderLine>();
         R1.add(new OrderLine(2,new ProductType(123,new Money(new BigDecimal(2100.0), euroCurrency),"chris")));
         ArrayList<OrderLine> R2 = new ArrayList<OrderLine>();
-        order1 = new Order(SystemDate.now(),new Money(new BigDecimal(2100.0), euroCurrency),25100,new Telephone("210984367"),new Email("ok@gmail.com"),R1);
-        order2 = new Order(new SimpleCalendar(2023,6,25),new Money(new BigDecimal(2100.1), euroCurrency),25101,new Telephone("110984367"),new Email("oka1@gmail.com"),R2);
+        order1 = new Order(new SimpleCalendar(2023,11,26),25100,new Telephone("210984367"),new Email("ok@gmail.com"),R1);
+        order2 = new Order(new SimpleCalendar(2023,6,25),25101,new Telephone("110984367"),new Email("oka1@gmail.com"),R2);
 
     }
     @Test
     public void checkDefaultConstructor(){
         Order o = new Order();
-        o.setTotal(Money.euros(20));
-        assertEquals(Money.euros(20), o.getTotal());
+        o.setEmail(new Email("ok@gmail.com"));
+        Assert.assertEquals("ok@gmail.com", o.getEmail().getEmail());
     }
     @Test
     public void checkGetSet() {
@@ -47,10 +47,9 @@ public class OrderTest {
         assertNotEquals(this.order1.getEmail(), this.order2.getEmail());
         assertNotEquals(this.order1.getOrderLines(), this.order2.getOrderLines());
 
-        order2.setDate(SystemDate.now());
-        assertEquals(order1.getDate(), order2.getDate());
-        order2.setTotal(new Money(new BigDecimal(2100.0), euroCurrency));
-        assertEquals(this.order1.getTotal(), this.order2.getTotal());
+        SimpleCalendar s = new SimpleCalendar(2023,8,25);
+        order1.setDate(s);
+        Assert.assertEquals(s, order1.getDate());
         order1.setCardNumber(25101);
         assertEquals(this.order1.getCardNumber(), this.order2.getCardNumber());
         order2.setTelephone(new Telephone("210984367"));
@@ -80,11 +79,5 @@ public class OrderTest {
             }
         }
         assertTrue(notfound);
-
-
-
-
     }
-
-
 }
