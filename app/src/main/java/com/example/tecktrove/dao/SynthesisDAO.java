@@ -1,4 +1,5 @@
 package com.example.tecktrove.dao;
 
-public class SynthesisDAO {
+public interface SynthesisDAO {
+
 }
