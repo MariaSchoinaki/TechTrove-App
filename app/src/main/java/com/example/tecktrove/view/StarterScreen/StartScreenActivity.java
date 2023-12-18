@@ -2,10 +2,13 @@ package com.example.tecktrove.view.StarterScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.tecktrove.R;
+import com.example.tecktrove.view.SignUp.SignUpActivity;
+import com.example.tecktrove.view.login.UserLoginActivity;
 
 public class StartScreenActivity extends AppCompatActivity implements StarterScreenView{
 
@@ -34,12 +37,14 @@ public class StartScreenActivity extends AppCompatActivity implements StarterScr
 
     @Override
     public void logInForm() {
-
+        Intent intent = new Intent(StartScreenActivity.this, UserLoginActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void signUpForm() {
-
+        Intent intent = new Intent(StartScreenActivity.this, SignUpActivity.class);
+        startActivity(intent);
     }
 
     //protected void onStart()
