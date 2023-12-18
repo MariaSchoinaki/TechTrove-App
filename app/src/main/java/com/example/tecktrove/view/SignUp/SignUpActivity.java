@@ -9,25 +9,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tecktrove.R;
 import com.example.tecktrove.view.login.UserLoginActivity;
 
+import android.util.Log;
+
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_user_signup);
+        Log.d("gi", "onCreate");
         SignUpPresenter presenter = new SignUpPresenter(this);
 
         findViewById(R.id.txtSignIn).setOnClickListener(new View.OnClickListener() {
 
+            @Override
             public void onClick(View view) {
+                Log.d("gi", "txtSignIn clicked");
                 presenter.onLogIn();
 
             }
         });
     }
 
-    @Override
+
     public void logIn(){
+        Log.d("gi", "logIn");
         Intent intent = new Intent(SignUpActivity.this, UserLoginActivity.class);
         startActivity(intent);
     }
