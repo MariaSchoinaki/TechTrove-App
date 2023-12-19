@@ -1,7 +1,6 @@
-package com.example.tecktrove.view.login;
+package com.example.tecktrove.view.LogIn;
 
 public class LogInPresenter {
-
     LogInView view;
 
     public LogInPresenter(LogInView view){
