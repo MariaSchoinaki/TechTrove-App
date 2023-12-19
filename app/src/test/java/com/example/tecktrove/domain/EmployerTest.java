@@ -9,13 +9,13 @@ import com.example.tecktrove.contacts.Email;
 import com.example.tecktrove.contacts.Telephone;
 
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;;
+import org.junit.Before;
 
 public class EmployerTest {
 
     private Employer employer;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         this.employer = new Employer(3456, "employer1", "emp78", "Joanna", "Legrange" ,new Email("joanna@gmail.com"), new Telephone("6970876734"));
     }

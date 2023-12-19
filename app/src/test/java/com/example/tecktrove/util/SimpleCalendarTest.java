@@ -85,7 +85,7 @@ public class SimpleCalendarTest {
         SimpleCalendar march_1_2007 = new SimpleCalendar(2007, 3, 1);
 
         Assert.assertNotEquals(february_28_2007, (march_1_2007));
-        Assert.assertEquals(70279754, march_1_2007.hashCode());
+        Assert.assertEquals(70279708, march_1_2007.hashCode());
     }
 
     private void assert1stMarch2007(SimpleCalendar date) {

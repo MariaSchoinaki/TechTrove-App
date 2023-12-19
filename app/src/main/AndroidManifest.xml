@@ -13,13 +13,13 @@
         android:theme="@style/Theme.TeckTrove"
         tools:targetApi="31">
         <activity
-            android:name=".view.login.LogInActivity"
+            android:name=".view.LogIn.LogInActivity"
             android:exported="false" />
         <activity
             android:name=".view.SignUp.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".view.StarterScreen.StartScreenActivity"
+            android:name=".view.StartScreen.StartScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
