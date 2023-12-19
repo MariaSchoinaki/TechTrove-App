@@ -1,10 +1,10 @@
 package com.example.tecktrove.view.login;
 
-public class UserLoginPresenter {
+public class LogInPresenter {
 
-    UserLoginView view;
+    LogInView view;
 
-    public UserLoginPresenter(UserLoginView view){
+    public LogInPresenter(LogInView view){
         this.view = view;
     }
 

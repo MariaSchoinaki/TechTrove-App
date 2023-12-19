@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tecktrove.R;
-import com.example.tecktrove.view.login.UserLoginActivity;
+import com.example.tecktrove.view.login.LogInActivity;
 
 import android.util.Log;
 
@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     public void logIn(){
         Log.d("gi", "logIn");
-        Intent intent = new Intent(SignUpActivity.this, UserLoginActivity.class);
+        Intent intent = new Intent(SignUpActivity.this, LogInActivity.class);
         startActivity(intent);
     }
 }

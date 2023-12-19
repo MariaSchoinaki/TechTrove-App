@@ -4,26 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
 import android.util.Log;
 
 
-public class UserLoginActivity extends AppCompatActivity implements UserLoginView{
+public class LogInActivity extends AppCompatActivity implements LogInView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_user_login);
 
-        Log.d("UserLoginActivity", "onCreate");
+        Log.d("LogInActivity", "onCreate");
 
-        UserLoginPresenter presenter = new UserLoginPresenter(this);
+        LogInPresenter presenter = new LogInPresenter(this);
 
         findViewById(R.id.txtSignUp).setOnClickListener(view -> {
-            Log.d("UserLoginActivity", "txtSignUp clicked");
+            Log.d("LogInActivity", "txtSignUp clicked");
             presenter.onSignUp();
 
         });
@@ -31,8 +30,8 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
 
 
     public void signUp(){
-        Log.d("UserLoginActivity", "signUp");
-        Intent intent = new Intent(UserLoginActivity.this, SignUpActivity.class);
+        Log.d("LogInActivity", "signUp");
+        Intent intent = new Intent(LogInActivity.this, SignUpActivity.class);
         startActivity(intent);
     }
 }

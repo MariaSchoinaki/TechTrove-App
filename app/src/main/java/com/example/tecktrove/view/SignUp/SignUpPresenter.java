@@ -1,7 +1,5 @@
 package com.example.tecktrove.view.SignUp;
 
-import com.example.tecktrove.view.login.UserLoginView;
-
 public class SignUpPresenter {
 
     SignUpView view;

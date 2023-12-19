@@ -1,6 +1,6 @@
 package com.example.tecktrove.view.login;
 
-public interface UserLoginView {
+public interface LogInView {
 
     void signUp();
 }

@@ -8,11 +8,10 @@ import android.view.View;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
-import com.example.tecktrove.view.SignUp.SignUpPresenter;
-import com.example.tecktrove.view.login.UserLoginActivity;
+import com.example.tecktrove.view.login.LogInActivity;
 import android.util.Log;
 
-public class StartScreenActivity extends AppCompatActivity implements StarterScreenView{
+public class StartScreenActivity extends AppCompatActivity implements StartScreenView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,7 @@ public class StartScreenActivity extends AppCompatActivity implements StarterScr
         super.setContentView(R.layout.activity_start_screen);
 
         Log.d("StartScreenActivity", "txtSignIn clicked");
-        StarterScreenPresenter presenter = new StarterScreenPresenter(this);
+        StartScreenPresenter presenter = new StartScreenPresenter(this);
         findViewById(R.id.login_button).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -44,7 +43,7 @@ public class StartScreenActivity extends AppCompatActivity implements StarterScr
 
     public void logInForm() {
         Log.d("StartScreenActivity", "txtSignIn 52");
-        Intent intent = new Intent(StartScreenActivity.this, UserLoginActivity.class);
+        Intent intent = new Intent(StartScreenActivity.this, LogInActivity.class);
         startActivity(intent);
     }
 
