@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#0F0F0F"
     android:scrollbars="none"
     tools:context=".view.SignUp.SignUpActivity">
 
@@ -15,36 +15,14 @@
         android:layout_marginEnd="22dp"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="arial"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="50sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -53,8 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="@string/full_name"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black">
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignUpFullName"
@@ -63,7 +42,7 @@
                 android:fontFamily="arial"
                 android:inputType="text"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,8 +52,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Email"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black">
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignUpEmail"
@@ -83,7 +63,7 @@
                 android:fontFamily="arial"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
                 android:text="+ 30"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -108,8 +88,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:hint="Mobile Number"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black">
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSignUpMobile"
@@ -118,7 +99,7 @@
                     android:fontFamily="arial"
                     android:inputType="number"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,8 +111,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -141,7 +123,7 @@
                 android:fontFamily="arial"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,8 +133,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Confirm Password"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -162,10 +145,24 @@
                 android:fontFamily="arial"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="131dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:foregroundTint="#FF0000"
+            android:text="@string/employer"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="17sp"
+            android:thumbTint="#FFFFFF"
+            android:trackTint="#FF0000" />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -181,14 +178,18 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
+                android:layout_height="match_parent"
+                android:backgroundTint="#202020"
                 android:fontFamily="arial"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="20dp"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textColorLink="@color/white"
+                android:textSize="20sp"
                 app:cornerRadius="10dp" />
 
         </FrameLayout>
@@ -196,7 +197,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -205,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
                 android:text="Already have an Account ?"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="14sp" />
 
             <TextView
@@ -214,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="arial"
-                android:text="Sign In"
+                android:text="@string/log_in"
                 android:textColor="#E60B0B"
                 android:textSize="14sp" />
 
