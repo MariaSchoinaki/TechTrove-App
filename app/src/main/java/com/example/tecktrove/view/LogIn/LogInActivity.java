@@ -26,7 +26,6 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
             }
         });
     }
-
     public void signUp(){
         Intent intent = new Intent(LogInActivity.this, SignUpActivity.class);
         startActivity(intent);

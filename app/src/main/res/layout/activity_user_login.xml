@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="#0F0F0F"
     android:scrollbars="none"
-    tools:context=".view.LogIn.LogInActivity"
-    >
+    tools:context=".view.LogIn.LogInActivity" >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,21 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -53,17 +38,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:hint="Email"
+            android:hint="@string/username"
             android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/black"
             app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignInEmail"
+                android:id="@+id/SignInUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:singleLine="true"
                 android:textColor="@color/white" />
 
@@ -74,25 +59,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Password"
+            android:hint="@string/prompt_password"
             android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/black"
             app:boxBackgroundMode="outline"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignInPassword"
+                android:id="@+id/SignInPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:singleLine="true"
                 android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/switchLogIn"
             android:layout_width="131dp"
             android:layout_height="52dp"
             android:layout_gravity="center_horizontal"
@@ -107,7 +92,7 @@
             android:trackTint="#FF0000" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnLogIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -117,7 +102,7 @@
             android:paddingTop="15dp"
             android:paddingEnd="20dp"
             android:paddingBottom="15dp"
-            android:text="@string/action_sign_in_short"
+            android:text="@string/log_in"
             android:textColor="@color/white"
             android:textColorHighlight="@color/white"
             android:textColorLink="@color/white"
@@ -135,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
-                android:text="Don't Have an Account ?"
+                android:text="@string/dont_have_acount"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -145,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="arial"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
                 android:textColor="#E31313"
                 android:textSize="14sp" />
 

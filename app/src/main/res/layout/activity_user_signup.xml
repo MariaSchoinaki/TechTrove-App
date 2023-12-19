@@ -17,8 +17,9 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-20dp"
             android:fontFamily="arial"
             android:text="@string/sign_up"
             android:textAlignment="center"
@@ -36,9 +37,10 @@
             app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignUpFullName"
+                android:id="@+id/SignUpFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="arial"
                 android:inputType="text"
                 android:singleLine="true"
@@ -51,13 +53,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Email"
+            android:hint="@string/prompt_email"
             android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/black"
             app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignUpEmail"
+                android:id="@+id/SignUpEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
@@ -78,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
-                android:text="+ 30"
+                android:text="@string/phone"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -87,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:hint="Mobile Number"
+                android:hint="@string/mobile_number"
                 android:textColorHint="@color/white"
                 app:boxBackgroundColor="@color/black"
                 app:boxBackgroundMode="outline">
@@ -110,18 +112,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Password"
+            android:hint="@string/username"
             android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/black"
             app:boxBackgroundMode="outline"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignUpPassword"
+                android:id="@+id/SignUpUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:singleLine="true"
                 android:textColor="@color/white" />
 
@@ -132,7 +134,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Confirm Password"
+            android:hint="@string/prompt_password"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSignUpPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/confirm_password"
             android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/black"
             app:boxBackgroundMode="outline"
@@ -143,7 +167,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:singleLine="true"
                 android:textColor="@color/white" />
 
@@ -154,7 +178,8 @@
             android:layout_width="131dp"
             android:layout_height="52dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="-30dp"
             android:foregroundTint="#FF0000"
             android:text="@string/employer"
             android:textColor="#FFFFFF"
@@ -163,6 +188,7 @@
             android:textSize="17sp"
             android:thumbTint="#FFFFFF"
             android:trackTint="#FF0000" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -182,9 +208,9 @@
                 android:backgroundTint="#202020"
                 android:fontFamily="arial"
                 android:paddingStart="20dp"
-                android:paddingTop="10dp"
+                android:paddingTop="15dp"
                 android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
+                android:paddingBottom="15dp"
                 android:text="@string/sign_up"
                 android:textColor="@color/white"
                 android:textColorHighlight="@color/white"
@@ -197,15 +223,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="0dp"
                 android:fontFamily="arial"
-                android:text="Already have an Account ?"
+                android:text="@string/already_have_acount"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
