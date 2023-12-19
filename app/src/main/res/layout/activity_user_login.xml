@@ -44,7 +44,7 @@
             app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/SignInUsername"
+                android:id="@+id/logIn_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
@@ -66,7 +66,7 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/SignInPassword"
+                android:id="@+id/logIn_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="arial"
