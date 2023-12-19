@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.StarterScreen;
+package com.example.tecktrove.view.StartScreen;
 
 public interface StartScreenView {
     void logInForm();
