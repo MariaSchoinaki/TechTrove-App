@@ -17,6 +17,7 @@ public class Order {
     private Email email;
     private ArrayList<OrderLine> orderLines;
     private Customer customer;
+    private int id;
     public Order(){}
 
     /**
@@ -164,4 +165,7 @@ public class Order {
      public Customer getCustomer(){
         return this.customer;
      }
+
+     public void setId(int id){ this.id = id;}
+     public int getId(){ return this.id; }
 }
