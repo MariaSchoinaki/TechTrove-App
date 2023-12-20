@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.tecktrove.R;
+import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
 import com.example.tecktrove.view.LogIn.LogInActivity;
 
 public class StartScreenActivity extends AppCompatActivity implements StartScreenView {
-
+    private static boolean initialized = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -32,6 +33,12 @@ public class StartScreenActivity extends AppCompatActivity implements StartScree
                 presenter.onSignUp();
             }
         });
+
+        if(!initialized)
+        {
+            new MemoryInitializer().prepareData();
+            initialized = true;
+        }
     }
 
     public void logInForm() {
