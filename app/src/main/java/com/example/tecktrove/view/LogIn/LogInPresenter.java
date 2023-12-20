@@ -40,10 +40,10 @@ public class LogInPresenter {
         if(username.equals("")){}
         if(password.equals("")){}
         if(!(password.equals("") || username.equals(""))){
-            Customer customer= null;// = customers.findCustomerByUsernameAndPassword(username,password);
+            Customer customer = customers.findCustomerByUsernameAndPassword(username,password);
             Employer employer = null;// = employers.findEmployerByUsernameAndPassword(username,password);
-            if (customer != null || employer != null){
-                //view.login();
+            if (customer != null){
+                view.login();
             }else{
                 view.showErrorMessage("", "User does not exist with this combo. Try again");
             }

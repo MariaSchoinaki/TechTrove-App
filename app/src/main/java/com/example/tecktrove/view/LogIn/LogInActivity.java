@@ -9,12 +9,17 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.tecktrove.R;
+import com.example.tecktrove.dao.CustomerDAO;
+import com.example.tecktrove.memorydao.CustomerDAOMemory;
+import com.example.tecktrove.memorydao.EmployerDAOMemory;
+import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
 import com.example.tecktrove.view.StartScreen.StartScreenActivity;
 
 public class LogInActivity extends AppCompatActivity implements LogInView {
 
     LogInPresenter presenter;
+    MemoryInitializer init;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,8 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_user_login);
 
-        presenter = new LogInPresenter(this);
+        init = new MemoryInitializer();
+        presenter = new LogInPresenter(this,init.getCustomerDAO(), init.getEmployerDAO());
         findViewById(R.id.txtSignUp).setOnClickListener(new View.OnClickListener() {
 
             @Override
