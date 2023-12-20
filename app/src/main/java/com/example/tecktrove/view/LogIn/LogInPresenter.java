@@ -18,6 +18,8 @@ public class LogInPresenter {
     LogInView view;
     CustomerDAO customers;
     EmployerDAO employers;
+    Employer employer;
+    Customer customer;
 
     public LogInPresenter(LogInView view, CustomerDAO customers, EmployerDAO employers){
         this.view = view;
@@ -36,18 +38,43 @@ public class LogInPresenter {
     public void startProcess(){
         String username = view.getUsername();
         String password = view.getPassword();
+        boolean isEmployer = view.isEmployer();
+
 
         if(username.equals("")){}
         if(password.equals("")){}
         if(!(password.equals("") || username.equals(""))){
-            Customer customer = customers.findCustomerByUsernameAndPassword(username,password);
-            Employer employer = null;// = employers.findEmployerByUsernameAndPassword(username,password);
-            if (customer != null){
-                view.login();
+            if(isEmployer){
+                employer = employers.findEmployerByUsernameAndPassword(username,password);
+                if (employer != null){
+                    view.login();
+                }else{
+                    view.showErrorMessage("", "User does not exist with this combo. Try again");
+                }
             }else{
-                view.showErrorMessage("", "User does not exist with this combo. Try again");
+                customer = customers.findCustomerByUsernameAndPassword(username,password);
+                if (customer != null){
+                    view.login();
+                }else{
+                    view.showErrorMessage("", "User does not exist with this combo. Try again");
+                }
             }
+
+
         }
 
+    }
+
+    public String getUserName(){
+        if(view.isEmployer()){
+            if(employer != null){
+                return employer.getName();
+            }
+        }else{
+            if(customer != null){
+                return customer.getName();
+            }
+        }
+        return "";
     }
 }

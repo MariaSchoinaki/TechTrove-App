@@ -11,4 +11,6 @@ public interface LogInView {
     void showErrorMessage(String title, String msg);
 
     void login();
+
+    boolean isEmployer();
 }
