@@ -7,14 +7,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.memorydao.CustomerDAOMemory;
 import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
+import com.example.tecktrove.view.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.HomeScreen.HomeScreenView;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
-import com.example.tecktrove.view.StartScreen.StartScreenActivity;
 
 public class LogInActivity extends AppCompatActivity implements LogInView {
 
@@ -64,6 +66,11 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
     }
 
     @Override
+    public boolean isEmployer(){
+        return ((Switch)findViewById(R.id.login_isEmployer)).isChecked();
+    }
+
+    @Override
     public void showErrorMessage(String title, String msg) {
         new AlertDialog.Builder(LogInActivity.this)
                 .setCancelable(true)
@@ -74,7 +81,8 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
 
     @Override
     public void login(){
-        Intent intent = new Intent(LogInActivity.this, SignUpActivity.class);
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        intent.putExtra("user_id", presenter.getUserName());
         startActivity(intent);
     }
 }
