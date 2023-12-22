@@ -27,7 +27,8 @@ public interface CustomerDAO {
      * @param       id the id of the customer
      * @return      an customer if it exists or null
      */
-    public Customer findEmployerByID(int id);
+    public Customer findCustomerByID(int id);
+
 
     /**
      * Save the customer if they don't exist in the dao

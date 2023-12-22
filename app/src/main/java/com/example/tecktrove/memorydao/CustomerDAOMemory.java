@@ -44,7 +44,7 @@ public class CustomerDAOMemory implements CustomerDAO {
      * @return      an customer if it exists or null
      */
     @Override
-    public Customer findEmployerByID(int id){
+    public Customer findCustomerByID(int id){
         for (Customer customer: customers){
             if (customer.getId() == id){
                 return customer;
