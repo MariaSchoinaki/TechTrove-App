@@ -10,12 +10,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 
 import com.example.tecktrove.R;
-import com.example.tecktrove.dao.CustomerDAO;
-import com.example.tecktrove.memorydao.CustomerDAOMemory;
-import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.view.HomeScreen.HomeScreenActivity;
-import com.example.tecktrove.view.HomeScreen.HomeScreenView;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
 
 public class LogInActivity extends AppCompatActivity implements LogInView {

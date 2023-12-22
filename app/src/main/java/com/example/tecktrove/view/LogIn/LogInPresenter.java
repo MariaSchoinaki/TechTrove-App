@@ -1,18 +1,9 @@
 package com.example.tecktrove.view.LogIn;
 
-import android.util.Log;
-
-import com.example.tecktrove.contacts.Email;
-import com.example.tecktrove.contacts.Telephone;
 import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.EmployerDAO;
 import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
-import com.example.tecktrove.domain.ProductType;
-import com.example.tecktrove.domain.Synthesis;
-
-
-import java.util.ArrayList;
 
 public class LogInPresenter {
     LogInView view;
