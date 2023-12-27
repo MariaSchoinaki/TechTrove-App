@@ -1,5 +1,6 @@
 package com.example.tecktrove.memorydao;
 
+import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
 import com.example.tecktrove.dao.EmployerDAO;
 import java.util.ArrayList;
@@ -29,6 +30,16 @@ public class EmployerDAOMemory implements EmployerDAO{
     public Employer findEmployerByUsernameAndPassword(String username, String password){
         for (Employer employer: employers){
             if (employer.getUsername().equals(username) && employer.getPassword().equals(password)){
+                return employer;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Employer findEmployerByUsername(String username) {
+        for (Employer employer: employers){
+            if (employer.getUsername().equals(username)){
                 return employer;
             }
         }
