@@ -38,14 +38,17 @@ public class SignUpPresenter {
         if(username.equals("") || password.equals("") || email.equals("") || telephone.equals("") || confPassword.equals("") || fullname.equals("")) {
             view.showErrorMessage("Error", "Please fill all the fields.");
         }
-        else if(username.length() < 4 && username.length() > 20){
+        else if(username.length() < 4 || username.length() > 20){
             view.showErrorMessage("Error", "Please write a username between 4 and 20 letters.");
+        }
+        else if(username.contains(" ")){
+            view.showErrorMessage("Error", "Username must not have spaces");
         }
         else if(telephone.length() != 10){
             view.showErrorMessage("Error", "Please write a valid phone number.");
         }
-        else if(password.length()<8){
-            view.showErrorMessage("Error","Password must be at least 8 letters.");
+        else if(password.length()<8 || password.contains(" ")){
+            view.showErrorMessage("Error","Password must be at least 8 letters and cannot contain spaces.");
         }
         else if(!(email.contains("@") && (email.contains(".com") || email.contains(".gr")))){
             view.showErrorMessage("Error", "Please write a valid email.");
@@ -54,11 +57,12 @@ public class SignUpPresenter {
             view.showErrorMessage("Error", "Password and confirmation password must match.");
         }
         else{
+            String[] name = fullname.split(" ", 2);
             if(isEmployer){
                 if(employers.findEmployerByUsername(username) != null){
                     view.showErrorMessage("Error", "Username already exists.");
                 }else {
-                    Employer employer = new Employer(employers.nextId(), username, password, fullname, fullname, new Email(email), new Telephone(telephone));
+                    Employer employer = new Employer(employers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone));
                     employers.save(employer);
                     allgood=true;
                 }
@@ -66,7 +70,7 @@ public class SignUpPresenter {
                 if(customers.findCustomerByUsername(username) != null){
                     view.showErrorMessage("Error", "Username already exists.");
                 }else{
-                    Customer customer = new Customer(customers.nextId(), username, password, fullname, fullname, new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+                    Customer customer = new Customer(customers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
                     customers.save(customer);
                     allgood=true;
                 }
