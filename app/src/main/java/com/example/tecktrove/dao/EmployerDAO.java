@@ -1,5 +1,6 @@
 package com.example.tecktrove.dao;
 
+import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
 import java.util.ArrayList;
 
@@ -13,6 +14,8 @@ public interface EmployerDAO {
      * @return              an employer if it exists or null
      */
     Employer findEmployerByUsernameAndPassword(String username, String password);
+
+    public Employer findEmployerByUsername(String username);
 
     /**
      *Get an employer based on the employer id

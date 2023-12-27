@@ -37,6 +37,16 @@ public class CustomerDAOMemory implements CustomerDAO {
         return null;
     }
 
+    @Override
+    public Customer findCustomerByUsername(String username) {
+        for (Customer customer: customers){
+            if (customer.getUsername().equals(username)){
+                return customer;
+            }
+        }
+        return null;
+    }
+
     /**
      *Get an customer based on the customer id
      *

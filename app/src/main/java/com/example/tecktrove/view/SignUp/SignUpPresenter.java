@@ -26,8 +26,7 @@ public class SignUpPresenter {
     void onLogIn(){ view.logIn(); }
 
     public void startProcess(){
-        boolean allgood = true;
-
+        boolean allgood = false;
         String username = view.getUsername();
         String password = view.getPassword();
         String email = view.getEmail();
@@ -56,14 +55,26 @@ public class SignUpPresenter {
         }
         else{
             if(isEmployer){
-                Employer employer = new Employer(employers.nextId(), username, password, fullname,fullname,new Email(email), new Telephone(telephone));
-                employers.save(employer);
+                if(employers.findEmployerByUsername(username) != null){
+                    view.showErrorMessage("Error", "Username already exists.");
+                }else {
+                    Employer employer = new Employer(employers.nextId(), username, password, fullname, fullname, new Email(email), new Telephone(telephone));
+                    employers.save(employer);
+                    allgood=true;
+                }
             }else{
-                Customer customer = new Customer(customers.nextId(), username, password, fullname, fullname, new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
-                customers.save(customer);
+                if(customers.findCustomerByUsername(username) != null){
+                    view.showErrorMessage("Error", "Username already exists.");
+                }else{
+                    Customer customer = new Customer(customers.nextId(), username, password, fullname, fullname, new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+                    customers.save(customer);
+                    allgood=true;
+                }
             }
-            view.showErrorMessage("Success", "The account was created!");
-            view.signUp();
+            if(allgood){
+                view.showErrorMessage("Success", "The account was created!");
+                view.signUp();
+            }
         }
     }
 }

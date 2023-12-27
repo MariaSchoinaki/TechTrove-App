@@ -21,6 +21,8 @@ public interface CustomerDAO {
      */
     public Customer findCustomerByUsernameAndPassword(String username, String password);
 
+    public Customer findCustomerByUsername(String username);
+
     /**
      *Get an customer based on the customer id
      *
