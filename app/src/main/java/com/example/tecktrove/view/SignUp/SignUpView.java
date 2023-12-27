@@ -11,12 +11,15 @@ public interface SignUpView {
 
     String getPassword();
 
-    String fullName();
+    String getfullName();
 
     String getEmail();
 
     String getTelephone();
 
+    String getConfPassword();
+
+    boolean isEmployer();
 
     void signUp();
 

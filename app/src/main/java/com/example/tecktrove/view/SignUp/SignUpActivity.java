@@ -11,15 +11,12 @@ import android.widget.Switch;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.memorydao.MemoryInitializer;
+import com.example.tecktrove.view.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.view.LogIn.LogInActivity;
-import com.example.tecktrove.view.LogIn.LogInPresenter;
 import com.example.tecktrove.view.StartScreen.StartScreenActivity;
-
-import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
     SignUpPresenter presenter;
-    ArrayList<String> info = new ArrayList<String>();
     MemoryInitializer init;
 
 
@@ -45,9 +42,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     @Override
     public void onStart(){
         super.onStart();
-        findViewById(R.id.signup_button).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.btnSignUp).setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                    presenter.startProcess(info);
+                    presenter.startProcess();
 
             }
         });
@@ -63,16 +60,16 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public String getUsername() {
-        return ((EditText)findViewById(R.id.logIn_username)).getText().toString().trim();
+        return ((EditText)findViewById(R.id.SignUpUsername)).getText().toString().trim();
     }
 
     @Override
     public String getPassword() {
-        return ((EditText)findViewById(R.id.logIn_password)).getText().toString().trim();
+        return ((EditText)findViewById(R.id.edtSignUpPassword)).getText().toString().trim();
     }
 
     @Override
-    public String fullName() {
+    public String getfullName() {
         return ((EditText)findViewById(R.id.SignUpFullName)).getText().toString().trim();
     }
 
@@ -86,6 +83,15 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         return ((EditText)findViewById(R.id.edtSignUpMobile)).getText().toString().trim();
     }
 
+    @Override
+    public String getConfPassword() {
+        return ((EditText)findViewById(R.id.edtSignUpConfirmPassword)).getText().toString().trim();
+    }
+    @Override
+    public boolean isEmployer(){
+        return ((Switch)findViewById(R.id.signup_isEmployer)).isChecked();
+    }
+
 
     public void showErrorMessage(String title, String msg) {
         new AlertDialog.Builder(SignUpActivity.this)
@@ -97,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void signUp(){
-        Intent intent = new Intent(SignUpActivity.this, StartScreenActivity.class);
+        Intent intent = new Intent(SignUpActivity.this, HomeScreenActivity.class);
         startActivity(intent);
     }
 }
