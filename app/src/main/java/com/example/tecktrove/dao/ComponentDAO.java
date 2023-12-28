@@ -44,6 +44,11 @@ public interface ComponentDAO {
       * given component
       */
      void delete(Component component);
+
+     void delete(String entity);
+
+     void delete(int entity);
+
      /**
       * Function that deletes all
       * the components
@@ -72,4 +77,8 @@ public interface ComponentDAO {
       * given component
       */
      void save(Component component);
+
+     Component find(String name);
+
+     Component find(int modelNo);
 }

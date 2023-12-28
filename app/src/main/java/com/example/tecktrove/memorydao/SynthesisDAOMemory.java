@@ -46,13 +46,49 @@ public class SynthesisDAOMemory implements SynthesisDAO {
     }
 
     @Override
+    public void delete(String entity) {
+        synthesis.remove(find(entity));
+    }
+
+    @Override
+    public void delete(int entity) {
+        synthesis.remove(find(entity));
+    }
+
+    @Override
     public void deleteAllByRating(Double number) {
         synthesis.remove(findAllByRating(number));
 
     }
 
     @Override
+    public void deleteAllByNumberOfRatings(int number) {
+        synthesis.remove(findAllByNumberOfRatings(number));
+
+    }
+
+    @Override
     public void save(Synthesis entity) {
-        synthesis.remove(entity);
+        synthesis.add(entity);
+    }
+
+    @Override
+    public Synthesis find(int modelNo) {
+        for (Synthesis s : synthesis) {
+            if (s.getModelNo() == modelNo) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Synthesis find(String name) {
+        for (Synthesis s : synthesis) {
+            if (s.getName() == name) {
+                return s;
+            }
+        }
+        return null;
     }
 }

@@ -40,16 +40,27 @@ public interface SynthesisDAO {
      * given synthesis
      */
     void delete(Synthesis entity);
+
+    void delete(String entity);
+
+    void delete(int entity);
+
     /**
      * Function that delete
      * all the synthesis by
      * the given rating
      */
     void deleteAllByRating(Double number);
+
+    void deleteAllByNumberOfRatings(int number);
+
     /**
      Save the current synthsesis
      */
     void save(Synthesis entity);
 
 
+    Synthesis find(int i);
+
+    Synthesis find(String name);
 }

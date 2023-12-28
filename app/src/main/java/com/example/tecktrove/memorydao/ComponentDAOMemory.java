@@ -54,27 +54,36 @@ public class ComponentDAOMemory implements ComponentDAO {
         components.remove(component);
     }
 
+    @Override
+    public void delete(String entity) {
+        components.remove(find(entity));
+    }
+
+    @Override
+    public void delete(int entity) {
+        components.remove(find(entity));
+    }
     public void deleteAll() {
         components.clear();
     }
 
     @Override
     public void deleteByAvailablePorts(Port ports) {
-        for (int i =0; i<= findAllByAvailablePorts(ports).size();){
+        for (int i =0; i< findAllByAvailablePorts(ports).size();){
             components.remove(findAllByAvailablePorts(ports).get(i));
         }
     }
 
     @Override
     public void deleteByRequiredPorts(Port ports) {
-        for (int i =0; i<= findAllByRequiredPorts(ports).size();){
+        for (int i =0; i< findAllByRequiredPorts(ports).size();){
             components.remove(findAllByRequiredPorts(ports).get(i));
         }
     }
 
     @Override
     public void deleteByManufacturer(String manufacturer) {
-        for (int i =0; i<= findByManufacturer(manufacturer).size();){
+        for (int i =0; i< findByManufacturer(manufacturer).size();){
             components.remove(findByManufacturer(manufacturer).get(i));
         }
     }
@@ -85,4 +94,25 @@ public class ComponentDAOMemory implements ComponentDAO {
     public void save(Component component) {
         components.add(component);
     }
+
+    @Override
+    public Component find(int modelNo) {
+        for (Component c : components) {
+            if (c.getModelNo() == modelNo) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Component find(String name) {
+        for (Component c : components) {
+            if (c.getName() == name) {
+                return c;
+            }
+        }
+        return null;
+    }
 }
+
