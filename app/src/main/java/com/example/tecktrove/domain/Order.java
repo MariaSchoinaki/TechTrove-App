@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Order {
     private SimpleCalendar date;
     private Money total;
-    private int cardNumber;
+    private long cardNumber;
     private Telephone telephone;
     private Email email;
     private ArrayList<OrderLine> orderLines;
@@ -29,7 +29,7 @@ public class Order {
      * @param email        the email address of the user as email Mail type
      * @param orderLines   the elements of each order
      */
-    public Order(SimpleCalendar date, int cardNumber, Telephone telephone, Email email, ArrayList<OrderLine>orderLines){
+    public Order(SimpleCalendar date, long cardNumber, Telephone telephone, Email email, ArrayList<OrderLine>orderLines){
         this.date=date;
         this.cardNumber=cardNumber;
         this.telephone=telephone;
@@ -61,7 +61,7 @@ public class Order {
      *
      * @return the cardNumber
      */
-    public int getCardNumber(){
+    public long getCardNumber(){
         return this.cardNumber;
     }
 
@@ -106,7 +106,7 @@ public class Order {
      *
      * @param cardNumber the customer's card number
      */
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(long cardNumber) {
         this.cardNumber = cardNumber;
     }
 
