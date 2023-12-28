@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F0F"
+    android:backgroundTint="#D0FFFFFF"
+    android:backgroundTintMode="src_atop"
+    tools:context="com.example.tecktrove.view.HomeScreen.HomeScreenActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="251dp"
+        android:layout_height="50dp"
+        android:textColorHint="@color/white"
+        app:boxBackgroundColor="@color/black"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <!--android:layout_marginStart="76dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="516dp"-->
+        <SearchView
+            android:id="@+id/home_screen_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0F0F0F"
+            android:editTextColor="@color/white"
+            android:queryHint="@string/search"
+            android:textColor="@color/white"
+            android:textColorPrimary="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.327"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.32" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textInputLayout"
+        android:layout_marginTop="45dp"
+        android:background="#D0FFFFFF"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/CustomerHomePageTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/CustomerHomePageTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView"
+        app:tabIndicatorColor="#FFA400"
+        app:tabRippleColor="#020101"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="679dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/homeScreen_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Home"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/homeScreen_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cart"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="195dp"
+            tools:layout_editor_absoluteY="129dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/homeScreen_gloy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="gloy"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/homeScreen_myaccount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="My Account"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
