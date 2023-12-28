@@ -20,7 +20,7 @@ import com.example.tecktrove.util.SimpleCalendar;
 import com.example.tecktrove.util.SystemDate;
 
 
-public class OrderTest {
+public class OrderTest  {
     private Order order1,order2;
     private Currency euroCurrency = Currency.getInstance("EUR");
     @Before
@@ -28,8 +28,8 @@ public class OrderTest {
         ArrayList<OrderLine> R1 = new ArrayList<OrderLine>();
         R1.add(new OrderLine(2,new ProductType(123,new Money(new BigDecimal(2100.0), euroCurrency),"chris")));
         ArrayList<OrderLine> R2 = new ArrayList<OrderLine>();
-        order1 = new Order(new SimpleCalendar(2023,11,26),25100,new Telephone("210984367"),new Email("ok@gmail.com"),R1);
-        order2 = new Order(new SimpleCalendar(2023,6,25),25101,new Telephone("110984367"),new Email("oka1@gmail.com"),R2);
+        order1 = new Order(new SimpleCalendar(2023,11,26),2510000000000000L,new Telephone("2109843678"),new Email("ok@gmail.com"),R1);
+        order2 = new Order(new SimpleCalendar(2023,6,25),2510100000000000L,new Telephone("1109843674"),new Email("oka1@gmail.com"),R2);
 
     }
     @Test
@@ -50,10 +50,10 @@ public class OrderTest {
         SimpleCalendar s = new SimpleCalendar(2023,8,25);
         order1.setDate(s);
         Assert.assertEquals(s, order1.getDate());
-        order1.setCardNumber(25102);
-        assertEquals(25102, this.order1.getCardNumber());
-        order2.setTelephone(new Telephone("210984367"));
-        assertEquals(new Telephone("210984367"), this.order2.getTelephone());
+        order1.setCardNumber(2510200000000000L);
+        assertEquals(2510200000000000L, this.order1.getCardNumber());
+        order2.setTelephone(new Telephone("2109843673"));
+        assertEquals(new Telephone("2109843673"), this.order2.getTelephone());
         order2.setEmail(new Email("ok@gmail.com"));
         assertEquals(new Email("ok@gmail.com"), this.order2.getEmail());
         ArrayList<OrderLine> l1 = new ArrayList<OrderLine>();
@@ -61,8 +61,8 @@ public class OrderTest {
         order2.setOrderLines(l1);
         assertEquals(l1, this.order2.getOrderLines());
         assertEquals(l1,this.order1.getOrderLines());
-        order1.setCustomer(new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()));
-        assertEquals(new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()),this.order1.getCustomer());
+        order1.setCustomer(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()));
+        assertEquals(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()),this.order1.getCustomer());
 
     }
     @Test
