@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 public class ComponentDAOMemory implements ComponentDAO {
-    protected ArrayList<Component> components = new ArrayList<Component>();
+    protected static ArrayList<Component> components = new ArrayList<Component>();
 
     @Override
     public ArrayList<Component> findAll(){

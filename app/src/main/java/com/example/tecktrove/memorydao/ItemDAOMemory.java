@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ItemDAOMemory implements ItemDAO {
 
-    protected ArrayList<Item> items = new ArrayList<Item>();
+    protected static ArrayList<Item> items = new ArrayList<Item>();
 
     /**
      * Gets the item for some input number.

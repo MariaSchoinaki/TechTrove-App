@@ -6,7 +6,7 @@ import com.example.tecktrove.domain.Synthesis;
 import java.util.ArrayList;
 
 public class SynthesisDAOMemory implements SynthesisDAO {
-    ArrayList<Synthesis> synthesis = new ArrayList<Synthesis>();
+    protected static  ArrayList<Synthesis> synthesis = new ArrayList<Synthesis>();
 
     @Override
     public ArrayList<Synthesis> findAll() {

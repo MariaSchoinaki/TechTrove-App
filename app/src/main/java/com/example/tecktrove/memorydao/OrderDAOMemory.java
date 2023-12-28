@@ -10,7 +10,7 @@ import java.util.List;
 
 public class OrderDAOMemory implements OrderDAO{
 
-    protected ArrayList<Order> orders = new ArrayList<Order>();
+    protected static ArrayList<Order> orders = new ArrayList<Order>();
 
     /**
      * Gets the order for some input number.
