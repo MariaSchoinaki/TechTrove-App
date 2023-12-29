@@ -57,15 +57,19 @@ public class SynthesisDAOMemory implements SynthesisDAO {
 
     @Override
     public void deleteAllByRating(Double number) {
-        synthesis.remove(findAllByRating(number));
-
+        for (int i =0; i< findAllByRating(number).size();){
+            synthesis.remove(findAllByRating(number).get(i));
+        }
     }
 
     @Override
     public void deleteAllByNumberOfRatings(int number) {
-        synthesis.remove(findAllByNumberOfRatings(number));
-
+        for (int i =0; i< findAllByNumberOfRatings(number).size();){
+            synthesis.remove(findAllByNumberOfRatings(number).get(i));
+        }
     }
+
+
 
     @Override
     public void save(Synthesis entity) {

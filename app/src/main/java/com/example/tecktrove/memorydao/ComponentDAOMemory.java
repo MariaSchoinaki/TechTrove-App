@@ -30,7 +30,7 @@ public class ComponentDAOMemory implements ComponentDAO {
     public ArrayList<Component> findAllByAvailablePorts(Port ports) {
         ArrayList <Component> available = new ArrayList<Component>();
         for(Component component :components){
-            if(component.getAvailablePorts()==ports){
+            if(component.getAvailablePorts().equals(ports)){
                 available.add(component);
             }
         }
@@ -41,7 +41,7 @@ public class ComponentDAOMemory implements ComponentDAO {
     public ArrayList<Component> findAllByRequiredPorts(Port ports) {
         ArrayList <Component> required = new ArrayList<Component>();
         for(Component component :components){
-            if(component.getRequiredPorts()==ports){
+            if(component.getRequiredPorts().getPorts().equals(ports.getPorts())){
                 required.add(component);
             }
         }
