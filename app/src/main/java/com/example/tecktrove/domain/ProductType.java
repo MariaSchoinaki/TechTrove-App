@@ -2,9 +2,9 @@ package com.example.tecktrove.domain;
 
 import com.example.tecktrove.util.Money;
 public class ProductType {
-    private int modelNo;
-    private Money price;
-    private String name;
+    protected int modelNo;
+    protected Money price;
+    protected String name;
 
     public ProductType(){}
 
@@ -12,6 +12,7 @@ public class ProductType {
      * Constructor of ProductType
      * @param modelNo       the model number as an Integer
      * @param price         the price of the ProductType
+     * @param name          the name of the ProductType
      */
     public ProductType(int modelNo, Money price, String name){
         this.modelNo = modelNo;

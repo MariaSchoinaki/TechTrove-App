@@ -12,6 +12,8 @@ public class Component extends ProductType{
     private Port requiredPorts;
     private int quantity;
 
+    private ArrayList<Item> items;
+
     public Component(){this.quantity = 0;}
 
     /**
