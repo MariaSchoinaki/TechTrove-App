@@ -2,6 +2,7 @@ package com.example.tecktrove.dao;
 
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import com.example.tecktrove.contacts.Email;
@@ -44,9 +45,9 @@ public class DAOTest {
 
 
     private static final int INITIAL_COMPONENTS_COUNT = 16;
-    private static final int INITIAL_AVAILABLE_COUNT = 0;
+    private static  int INITIAL_AVAILABLE_COUNT = 1;
 
-    private static final int INITIAL_REQUIRED_COUNT = 0;
+    private static final int INITIAL_REQUIRED_COUNT = 2;
     private static final int INITIAL_SYNTHESIS_COUNT = 2;
 
     @Before
@@ -148,14 +149,18 @@ public class DAOTest {
 
     @Test
     public void findNonExistingRequiredPorts(){
-        Port p = new Port();
-        Assert.assertEquals(new ArrayList<Component>(),componentDAO.findAllByRequiredPorts(p));
+        Pair p = new Pair("HDMI535",1);
+        Port port = new Port();
+        port.add(p);
+        Assert.assertEquals(new ArrayList<Component>(),componentDAO.findAllByRequiredPorts(port));
     }
 
     @Test
     public void findNonExistingAvailablePorts(){
-        Port p = new Port();
-        Assert.assertEquals(new ArrayList<Component>(),componentDAO.findAllByAvailablePorts(p));
+        Pair p = new Pair("HDMI535",1);
+        Port port = new Port();
+        port.add(p);
+        Assert.assertEquals(new ArrayList<Component>(),componentDAO.findAllByAvailablePorts(port));
     }
 
     @Test
@@ -193,24 +198,48 @@ public class DAOTest {
         Assert.assertNotNull(synthesisDAO.find("Best Synthesis"));
         Assert.assertTrue(synthesisDAO.findAll().contains(s1));
     }
+    @Test
+    public void findSynthesis(){
+        Synthesis s3 = new Synthesis();
+        s3.setSubRating(5.0,new Customer());
+        s3.setSubRating(5.0,new Customer());
+        synthesisDAO.save(s3);
+        Assert.assertEquals(1,synthesisDAO.findAllByRating(5.0).size());
+        Assert.assertEquals(1,synthesisDAO.findAllByNumberOfRatings(2).size());
+        synthesisDAO.deleteAllByRating(5.0);
+        Assert.assertEquals("Synthesis1",synthesisDAO.find("Synthesis1").getName());
+        Assert.assertEquals(9787,synthesisDAO.find(9787).getModelNo());
 
+    }
     @Test
     public void testAvailablePorts(){
 
-        Pair p = new Pair("HDMI",1);
-        Port port = new Port();
-        port.add(p);
 
-        ArrayList<Component> components = componentDAO.findAllByAvailablePorts(port);
-        Assert.assertEquals(INITIAL_AVAILABLE_COUNT,components.size());
+        Pair pair2_1 = new Pair("ATX Power Port",1);
+        Pair pair2_2 = new Pair("ATX 12V Power Port",1);
+        Pair pair2_3 = new Pair("SATA Power Port",2);
+        Pair pair2_4 = new Pair("Molex Connector",1);
+        Pair pair2_5 = new Pair("PCI Express Connector",1);
+        Pair pair2_6 = new Pair("PCI Floppy Drive Connector",1);
+
+
+
+        Port port2 = new Port();
+        port2.add(pair2_1);
+        port2.add(pair2_2);
+        port2.add(pair2_3);
+        port2.add(pair2_4);
+        port2.add(pair2_5);
+        port2.add(pair2_6);
+        Assert.assertEquals(INITIAL_AVAILABLE_COUNT,componentDAO.findAllByAvailablePorts(port2).size());
     }
 
     @Test
     public void testRequiredPorts(){
 
-        Pair p = new Pair("HDMI",1);
+        Pair pair7_1 = new Pair("PCI Express x16 2.0",1);
         Port port = new Port();
-        port.add(p);
+        port.add(pair7_1);
 
         ArrayList<Component> components = componentDAO.findAllByRequiredPorts(port);
         Assert.assertEquals(INITIAL_REQUIRED_COUNT,components.size());
@@ -219,43 +248,90 @@ public class DAOTest {
 
     @Test
     public void testDeleteByRequiredPorts(){
-        Pair p = new Pair("HDMI",1);
+        Pair p = new Pair("PCI Express x16 2.0",1);
         Port port = new Port();
         port.add(p);
 
         componentDAO.deleteByRequiredPorts(port);
         Assert.assertEquals(0,componentDAO.findAllByRequiredPorts(port).size());
+        Assert.assertEquals(INITIAL_COMPONENTS_COUNT-2,componentDAO.findAll().size());
 
     }
 
     @Test
     public void testDeleteByAvailablePorts(){
-        Pair p = new Pair("HDMI",1);
-        Port port = new Port();
-        port.add(p);
 
-        componentDAO.deleteByAvailablePorts(port);
-        Assert.assertEquals(0,componentDAO.findAllByAvailablePorts(port).size());
+        Pair pair2_1 = new Pair("ATX Power Port",1);
+        Pair pair2_2 = new Pair("ATX 12V Power Port",1);
+        Pair pair2_3 = new Pair("SATA Power Port",2);
+        Pair pair2_4 = new Pair("Molex Connector",1);
+        Pair pair2_5 = new Pair("PCI Express Connector",1);
+        Pair pair2_6 = new Pair("PCI Floppy Drive Connector",1);
+
+
+
+        Port port2 = new Port();
+        port2.add(pair2_1);
+        port2.add(pair2_2);
+        port2.add(pair2_3);
+        port2.add(pair2_4);
+        port2.add(pair2_5);
+        port2.add(pair2_6);
+        componentDAO.deleteByAvailablePorts(port2);
+        Assert.assertEquals(0,componentDAO.findAllByAvailablePorts(port2).size());
+        Assert.assertEquals(INITIAL_COMPONENTS_COUNT-1,componentDAO.findAll().size());
     }
 
     @Test
     public void testDeleteByManufacturer(){
+        Assert.assertEquals(2,componentDAO.findByManufacturer("Sharkoon").size());
         componentDAO.deleteByManufacturer("Sharkoon");
         Assert.assertEquals(0,componentDAO.findByManufacturer("Sharkoon").size());
+        Assert.assertEquals(INITIAL_COMPONENTS_COUNT-2,componentDAO.findAll().size());
 
     }
 
     @Test
     public void ComponentDelete(){
-        componentDAO.delete(new Component());
+        Component com1 = new Component();
+        componentDAO.save(com1);
+        Assert.assertEquals(INITIAL_COMPONENTS_COUNT+1,componentDAO.findAll().size());
+        componentDAO.delete(com1);
+        Assert.assertEquals(INITIAL_COMPONENTS_COUNT,componentDAO.findAll().size());
         componentDAO.delete("Turbo-X PSU Value III Series 550 W");
+        Assert.assertEquals(INITIAL_COMPONENTS_COUNT-1,componentDAO.findAll().size());
         componentDAO.delete(4191);
+        Assert.assertEquals(INITIAL_COMPONENTS_COUNT-2,componentDAO.findAll().size());
     }
 
     @Test
-    public void SynthesisDelete(){
-            synthesisDAO.delete(new Synthesis());
-            synthesisDAO.delete("Synthesis1");
-            synthesisDAO.delete(9485);
+    public void SynthesisDeleteAndSave(){
+        Synthesis s1 = new Synthesis();
+        synthesisDAO.save(s1);
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT+1,synthesisDAO.findAll().size());
+        synthesisDAO.delete(s1);
+
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT,synthesisDAO.findAll().size());
+        Synthesis s2 = new Synthesis();
+        s2.setNumberOfRatings(2);
+        synthesisDAO.save(s2);
+        Assert.assertEquals(1,synthesisDAO.findAllByNumberOfRatings(2).size());
+        synthesisDAO.deleteAllByNumberOfRatings(2);
+        Assert.assertEquals(0,synthesisDAO.findAllByNumberOfRatings(2).size());
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT,synthesisDAO.findAll().size());
+
+        Synthesis s3 = new Synthesis();
+        s3.setSubRating(5.0,new Customer());
+        s3.setSubRating(5.0,new Customer());
+        synthesisDAO.save(s3);
+        Assert.assertEquals(1,synthesisDAO.findAllByRating(5.0).size());
+        synthesisDAO.deleteAllByRating(5.0);
+        Assert.assertEquals(0,synthesisDAO.findAllByRating(5.0).size());
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT,synthesisDAO.findAll().size());
+
+        synthesisDAO.delete("Synthesis1");
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT-1,synthesisDAO.findAll().size());
+        synthesisDAO.delete(9485);
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT-2,synthesisDAO.findAll().size());
     }
 }
