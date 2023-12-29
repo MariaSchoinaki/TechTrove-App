@@ -26,4 +26,21 @@ public class Pair {
     public String getFirst() {
         return first;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null){
+            return false;
+        }
+        if (this == other){
+            return true;
+        }
+        if (!(other instanceof Pair)){
+            return false;
+        }
+        Pair o = (Pair) other;
+        return (this.first==o.first) && (this.second == this.second);
+    }
 }
+
+

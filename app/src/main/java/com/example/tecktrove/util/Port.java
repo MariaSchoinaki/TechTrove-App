@@ -1,7 +1,10 @@
 package com.example.tecktrove.util;
 
 
+import com.example.tecktrove.domain.OrderLine;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * The main purpose of this class is to provide
@@ -33,6 +36,30 @@ public class Port {
             }
         }
         return -1;
+    }
+    @Override
+    public boolean equals(Object other) {
+        if (other == null){
+            return false;
+        }
+        if (this == other){
+            return true;
+        }
+        if (!(other instanceof Port)){
+            return false;
+        }
+        Port o = (Port) other;
+        if (o.getPorts().size()!=this.getPorts().size()) {
+            return false;
+        }else{
+            boolean equals = Boolean.TRUE;
+            for (int i = 0; i<o.getPorts().size();i++){
+                if (!(o.getPorts().get(i).equals(this.ports.get(i)))){
+                    equals = Boolean.FALSE;
+                }
+            }
+            return  equals;
+        }
     }
 
     public ArrayList<Pair> getPorts(){
