@@ -35,8 +35,6 @@ public abstract class Initializer {
 
     public abstract OrderDAO getOrderDAO();
 
-    public abstract OrderLineDAO getOrderLineDAO();
-
     public abstract ItemDAO getItemDAO();
 
     public void prepareData(){
@@ -63,7 +61,6 @@ public abstract class Initializer {
 
 
         //Components
-
         Component com1 = new Component(4191, Money.euros(BigDecimal.valueOf(59.99)), "Case Kolink VOID RGB Midi Tower", "Το VOID Midi-Tower Case αντιπροσωπεύει ένα συναρπαστικό νέο κεφάλαιο στην ιστορία της Kolink, με εντυπωσιακό εφέ «απείρου» καθρεπτισμού σε σχήμα V, ανεμιστήρα 120mm ARGB και πληθώρα χαρακτηριστικών.","Kolink" , new Port(), new Port(), 80);
         getComponentDAO().save(com1);
 
@@ -85,23 +82,22 @@ public abstract class Initializer {
         port2.add(pair2_5);
         port2.add(pair2_6);
         port2_1.add(pair2_7);
+
         Component com2 = new Component(2936, Money.euros(BigDecimal.valueOf(36.90)), "Turbo-X PSU Value III Series 550 W", "Προσιτό αλλά αξιόπιστο τροφοδοτικό, με ισχύ 550W, προηγμένες δικλείδες ασφαλείας και αθόρυβο ανεμιστήρα 120mm.", "Turbo-X",  port2, port2_1, 75);
         getComponentDAO().save(com2);
-        Money total_cost1 = com1.getPrice().plus(com2.getPrice());
 
         Pair pair3_1 = new Pair("socket AM4",1);
         Port port3 = new Port();
         port3.add(pair3_1);
+
         Component com3 = new Component(3260, Money.euros(BigDecimal.valueOf(119.90)), "AMD CPU Ryzen 3 3200G", "Με τέσσερις πυρήνες Zen σε Socket AM4, μέγιστη συχνότητα λειτουργίας 4GHz, μνήμη cache 6MB και Radeon Vega 8 iGPU για αξεπέραστες επιδόσεις γραφικών.", "AMD",port3,port3, 60);
         getComponentDAO().save(com3);
-        total_cost1 = total_cost1.plus(com3.getPrice());
 
         Pair pair4_1 = new Pair("AM4,",1);
         Port port4 = new Port();
         port4.add(pair4_1);
         Component com4 = new Component(3888, Money.euros(BigDecimal.valueOf(32.90)), "Alpenföhn CPU Cooler Ben Nevis", "Ψύκτρα με ανεμιστήρα 130mm συμβατή με τα sockets 2066, 2011, 2011-v3, 1366, 115X, 1200, AM4, 775, AM4, AM3(+), AM3, AM2(+), AM2 και FM1.", "Alpenföhn", new Port(), port4, 20);
         getComponentDAO().save(com4);
-        total_cost1 = total_cost1.plus(com4.getPrice());
 
         Pair pair5_1 = new Pair("socket AM4",1);
         Pair pair5_2 = new Pair("DDR4",2);
@@ -116,7 +112,6 @@ public abstract class Initializer {
         port5.add(pair5_4);
         Component com5 = new Component(4188, Money.euros(BigDecimal.valueOf(129.90)), "Gigabyte Motherboard A520I AC", "Βασίζεται στο AMD® A520 Chipset και δέχεται επεξεργαστές AMD Ryzen™ 5000 και 3000 Series καθώς και 4000 G-Series. Υποστηρίζει DDR4 RAM ως 64GB, NVMe PCIe 3.0 M.2 και Intel® Dual Band 802.11ac Wi-Fi.", "AMD",port5, new Port(), 57);
         getComponentDAO().save(com5);
-        total_cost1 = total_cost1.plus(com5.getPrice());
 
         Pair pair6 = new Pair("DDR4",1);
         Port port6 = new Port();
@@ -124,7 +119,6 @@ public abstract class Initializer {
         port6.add(pair6);
         Component com6 = new Component(3935, Money.euros(BigDecimal.valueOf(44.90)), "Crucial Desktop RAM Value 16GB 3200MHz DDR4", "Μνήμη DDR4-3200 UDIMM χωρητικότητας 16GB από την Crucial® με συχνότητα λειτουργίας 3.200 MHz και CL22.", "Micron",new Port(),port6, 44);
         getComponentDAO().save(com6);
-        total_cost1 = total_cost1.plus(com6.getPrice());
 
         Pair pair7_1 = new Pair("PCI Express x16 2.0",1);
         Pair pair7_2 = new Pair("HDMI",1);
@@ -138,7 +132,6 @@ public abstract class Initializer {
         port7_1.add(pair7_1);
         Component com7 = new Component(4311, Money.euros(BigDecimal.valueOf(69.90)), "Asus VGA GeForce GT 730 Evo Low Profile BRK 2 GB", "Είναι ιδανική για υπολογιστές γραφείου, Small Form Factor (SFF) ή Home Theater PCs (HTPC). Είναι χαμηλής κατανάλωσης, με παθητική ψύξη και διαθέτει 3x εξόδους εικόνας.", "ASUS",  port7,port7_1, 28);
         getComponentDAO().save(com7);
-        total_cost1 = total_cost1.plus(com7.getPrice());
 
         Pair pair8 = new Pair("SATA III",1);
         Port port8 = new Port();
@@ -146,7 +139,6 @@ public abstract class Initializer {
         port8.add(pair8);
         Component com8 = new Component(2489, Money.euros(BigDecimal.valueOf(26.90)), "SanDisk SSD Plus 240GB", "Η τεχνολογία SSD 2,5” στο φορητό ή το σταθερό σου υπολογιστή, με χωρητικότητα 240GB, γρήγορες ταχύτητες λειτουργίας και σύνδεση SATA III.", "SanDisk",new Port(),port8, 35);
         getComponentDAO().save(com8);
-        total_cost1 = total_cost1.plus(com8.getPrice());
 
         Component com11 = new Component(3604, Money.euros(BigDecimal.valueOf(69.90)), "Sharkoon Midi ATX Tower VS4-V Midi Tower", "Μινιμαλιστική σχεδίαση, ευρύχωρο εσωτερικό και άφθονες θέσεις για SSDs/HDDs, προεγκατεστημένος ανεμιστήρας και φίλτρο σκόνης, πρακτικό πάνελ και συμβατότητα με συστήματα υδρόψυξης.", "Sharkoon", new Port(), new Port(), 10);
         getComponentDAO().save(com11);
@@ -163,21 +155,18 @@ public abstract class Initializer {
         port12.add(pair12_4);
         Component com12 = new Component(3740, Money.euros(BigDecimal.valueOf(69.90)), "Sharkoon PSU Series 500 W 80+ Bronze", "Τροφοδοτικό υπολογιστή Sharkoon 500W με πιστοποίηση 80+ Bronze, active PFC, αθόρυβη λειτουργεία με ανεμιστήρα 120mm και διακριτική μαύρη εμφάνιση.", "Sharkoon",  port12,port2_1, 17);
         getComponentDAO().save(com12);
-        Money total_cost2 = com11.getPrice().plus(com12.getPrice());
 
         Pair pair13_1 = new Pair("socket AM4+",1);
         Port port13 = new Port();
         port13.add(pair13_1);
         Component com13 = new Component(3740, Money.euros(BigDecimal.valueOf(84.90)), "AMD CPU Ryzen 5 4500", "Με πυρήνες αρχιτεκτονικής Zen 2 και υψηλότερους χρονισμούς, περισσότερο bandwidth, υποστήριξη PCIe 3.0 και αποκλειστικές τεχνολογίες AMD, επαναπροσδιορίζουν την απόδοση των Gaming PCs.", "AMD",port13,port13,33);
         getComponentDAO().save(com13);
-        total_cost2 = total_cost2.plus(com13.getPrice());
 
         Pair pair14_1 = new Pair("4-Pin PWM",1);
         Port port14 = new Port();
         port14.add(pair14_1);
         Component com14 = new Component(4188, Money.euros(BigDecimal.valueOf(34.90)), "Be Quiet! Be Quiet Light Wings 140mm PWM", "Ανεμιστήρας 140mm με PWM, 7 ειδικά βελτιστοποιημένα για χαμηλό θόρυβο και υψηλή απόδοση πτερύγια, rifle-bearing και δύο φωτιζόμενους δακτυλίους ARGB.", "Be Quiet!", new Port(),  port14, 54);
         getComponentDAO().save(com14);
-        total_cost2 = total_cost2.plus(com14.getPrice());
 
         Pair pair15_1 = new Pair("socket AM4+",1);
         Pair pair15_2 = new Pair("DDR5",2);
@@ -192,14 +181,12 @@ public abstract class Initializer {
         port15.add(pair15_4);
         Component com15 = new Component(3639, Money.euros(BigDecimal.valueOf(69.90)), "MSI Motherboard A520M-A PRO", "Βασίζεται στο AMD® A520 Chipset και δέχεται επεξεργαστές AMD Ryzen™ 5000 και 3000 Series καθώς και 4000 G-Series. Υποστηρίζει μνήμη DDR3 ως 64GB και έχει υποδοχές Μ.2 και PCI Express Gen3 x16.", "AMD", port15, new Port(), 85);
         getComponentDAO().save(com15);
-        total_cost2 = total_cost2.plus(com15.getPrice());
 
         Pair pair16 = new Pair("DDR5",1);
         Port port16 = new Port();
         port16.add(pair16);
         Component com16 = new Component(3290, Money.euros(BigDecimal.valueOf(69.90)), "Corsair Desktop RAM Vengeance PRO RGB 16GB Kit 3000MHz DDR5", "16GB μνήμης RAM DDR5 για υψηλές επιδόσεις και χρονισμούς, με built-in heat spreaders και multi-zone RGB φωτισμό που συμπληρώνει το στυλ κάθε gamer.", "Corsair",  port16, new Port(), 29);
         getComponentDAO().save(com16);
-        total_cost2 = total_cost2.plus(com16.getPrice());
 
 
         Pair pair17_2 = new Pair("HDMI",1);
@@ -213,7 +200,6 @@ public abstract class Initializer {
         port17.add(pair17_4);
         Component com17 = new Component(4311, Money.euros(BigDecimal.valueOf(189.90)), "Asus VGA GeForce GTX 1630 Phoenix EVO 4 GB", "Προσφέρει υψηλές επιδόσεις στα παιχνίδια χάρη στην αρχιτεκτονική NVIDIA Turing™. Διαθέτει 512 πυρήνες CUDA® και 4GB μνήμης GDDR6.", "Asus", port17, port7_1, 45);
         getComponentDAO().save(com17);
-        total_cost2 = total_cost2.plus(com17.getPrice());
 
         Pair pair18 = new Pair("M.2",1);
         Port port18 = new Port();
@@ -221,32 +207,29 @@ public abstract class Initializer {
         port18.add(pair18);
         Component com18 = new Component(3748, Money.euros(BigDecimal.valueOf(94.90)), "Samsung SSD 980 NVMe M.2 1TB", "Το Samsung NVMe SSD χρησιμοποιεί τεχνολογία μνήμης V-NAND και υποστηρίζει ταχύτητες ανάγνωσης και εγγραφής (sequential) έως 3.500MB/s και 3.000MB/s αντίστοιχα. Έχει χωρητικότητα 1TB", "Samsung", new Port() , port18, 66);
         getComponentDAO().save(com18);
-        total_cost2 = total_cost2.plus(com18.getPrice());
 
         //Synthesis
-        ArrayList<Component> components1 = new ArrayList<Component>();
-        components1.add(com1);
-        components1.add(com2);
-        components1.add(com3);
-        components1.add(com4);
-        components1.add(com5);
-        components1.add(com6);
-        components1.add(com7);
-        components1.add(com8);
-        Synthesis s1 = new Synthesis(9787, total_cost1, "Synthesis1", components1);
+        Synthesis s1 = new Synthesis(9787, Money.euros(BigDecimal.valueOf(0)), "Synthesis1");
+        s1.add(com1);
+        s1.add(com2);
+        s1.add(com3);
+        s1.add(com4);
+        s1.add(com5);
+        s1.add(com6);
+        s1.add(com7);
+        s1.add(com8);
         getSynthesisDAO().save(s1);
 
 
-        ArrayList<Component> components2 = new ArrayList<Component>();
-        components2.add(com11);
-        components2.add(com12);
-        components2.add(com13);
-        components2.add(com14);
-        components2.add(com15);
-        components2.add(com16);
-        components2.add(com17);
-        components2.add(com18);
-        Synthesis s2 = new Synthesis(9485, total_cost2, "Synthesis2", components2);
+        Synthesis s2 = new Synthesis(9485, Money.euros(BigDecimal.valueOf(0)), "Synthesis2");
+        s2.add(com11);
+        s2.add(com12);
+        s2.add(com13);
+        s2.add(com14);
+        s2.add(com15);
+        s2.add(com16);
+        s2.add(com17);
+        s2.add(com18);
         getSynthesisDAO().save(s2);
 
         //OrderLines-Orders

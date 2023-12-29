@@ -1,6 +1,8 @@
 package com.example.tecktrove.domain;
 
 import com.example.tecktrove.util.Money;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import android.util.Pair;
 
@@ -20,13 +22,11 @@ public class Synthesis extends ProductType{
 
     /**
      * Constructor of Synthesis
-     * @param components       the components of the Synthesis as an ArrayList<Component>
      * @param modelNo          the model number of the Synthesis as an Integer
      * @param price            the price of the Synthesis as Money
      */
-    public Synthesis(int modelNo, Money price, String name, ArrayList<Component> components){
+    public Synthesis(int modelNo, Money price, String name){
         super(modelNo, price, name);
-        this.components = components;
         this.ratings = new ArrayList<Pair<Double, Customer>>();
     }
     /**
@@ -106,23 +106,24 @@ public class Synthesis extends ProductType{
         this.rating = (this.rating + subRating)/numberOfRatings;
     }
 
+    private void calcPrice(){
+        price = Money.euros(BigDecimal.valueOf(0));
+        for(Component i : components){
+            price = price.plus(i.getPrice());
+        }
+    }
     public void add(Component component) {
         this.components.add(component);
+        calcPrice();
     }
 
-    public void remove(Component component){
-        this.components.remove(component);
-    }
+    public void remove(Component component){ this.components.remove(component); }
 
-    public ArrayList<Component> getComponentList(){
-        return this.components;
-    }
+    public ArrayList<Component> getComponentList(){ return this.components; }
 
-    public ArrayList<Pair<Double, Customer>> getRatingsList(){
-        return this.ratings;
-    }
+    public ArrayList<Pair<Double, Customer>> getRatingsList(){ return this.ratings; }
 
-    public Customer getCustomer(){
-        return this.customer;
-    }
+    public Money getPrice(){return price;}
+
+    public Customer getCustomer(){ return this.customer; }
 }
