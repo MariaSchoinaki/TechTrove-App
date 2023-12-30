@@ -35,7 +35,7 @@ public class CustomerTest {
        assertEquals(this.customer1.getSavedSynthesis(),this.customer2.getSavedSynthesis());
        assertEquals(this.customer1.getCart(),this.customer2.getCart());
        ArrayList<Synthesis> s1 = new ArrayList<Synthesis>();
-       s1.add(new Synthesis(1234, Money.euros(20),"", new ArrayList<Component>()));
+       s1.add(new Synthesis(1234, Money.euros(20),""));
        ArrayList<ProductType>p1 = new ArrayList<ProductType>();
        customer1.setSavedSynthesis(s1);
        customer2.setSavedSynthesis(new ArrayList<>());
@@ -65,9 +65,9 @@ public class CustomerTest {
    @Test
    public void checkSaved(){
       assertEquals(new ArrayList<>(), customer1.getSavedSynthesis());
-      Synthesis p = new Synthesis(1234, Money.euros(20), "bcd", new ArrayList<Component>());
+      Synthesis p = new Synthesis(1234, Money.euros(20), "bcd");
 
-      Synthesis k = new Synthesis(15627,Money.euros(10), "acb", new ArrayList<Component>());
+      Synthesis k = new Synthesis(15627,Money.euros(10), "acb");
       customer1.addToSavedSynthesis(p);
       customer1.addToSavedSynthesis(k);
       assertNotNull(customer1.getSavedSynthesis());

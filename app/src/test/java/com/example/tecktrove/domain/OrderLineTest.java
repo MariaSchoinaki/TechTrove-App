@@ -23,8 +23,8 @@ public class OrderLineTest {
     public void setUp(){
         orderl1 = new OrderLine(2,new Component(235456, Money.euros(BigDecimal.valueOf(30.5)) , "AMD Ryzen 7", "Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί", "AMD", new Port(), new Port(), 10 ));
         orderl2 = new OrderLine(5,new Component(12345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-        orderl3 = new OrderLine(1,new Synthesis(235456, Money.euros(1500),"lola" , new ArrayList<Component>()));
-        orderl4 = new OrderLine(2,new Synthesis(235456, Money.euros(1500), "abcd ",new ArrayList<Component>()));
+        orderl3 = new OrderLine(1,new Synthesis(235456, Money.euros(1500),"lola" ));
+        orderl4 = new OrderLine(2,new Synthesis(235456, Money.euros(1500), "abcd "));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class OrderLineTest {
         Assert.assertEquals(orderl5.getSubTotal(), null);
         Assert.assertEquals(orderl5.getProductType(), null);
 
-        orderl5.setProductType(new Synthesis(235456, Money.euros(1500), "Best Synthesis" ,  new ArrayList<Component>()));
+        orderl5.setProductType(new Synthesis(235456, Money.euros(1500), "Best Synthesis"));
         orderl5.setQuantity(3);
         Assert.assertEquals("4500 €", orderl5.getSubTotal().toString());
         Assert.assertEquals(3, orderl5.getQuantity());

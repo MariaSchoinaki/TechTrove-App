@@ -15,8 +15,8 @@ public class SynthesisTest {
     Synthesis s1,s2;
     @Before
     public void setUp(){
-        s1 = new Synthesis(235456, Money.euros(1500), "Best Synthesis", new ArrayList<Component>());
-        s2 = new Synthesis(456379, Money.euros(850), "Average Synthesis", new ArrayList<Component>());
+        s1 = new Synthesis(235456, Money.euros(1500), "Best Synthesis");
+        s2 = new Synthesis(456379, Money.euros(850), "Average Synthesis");
     }
 
     @Test
