@@ -9,10 +9,10 @@
     <!-- Define the layout for a single item in the RecyclerView -->
     <!-- This layout is set up to display two items per row -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="1">
 
         <!-- Example Views for the first product item -->
         <LinearLayout
@@ -55,47 +55,7 @@
         </LinearLayout>
 
 
-        <!-- Example Views for the second product item -->
-        <LinearLayout
-            android:id="@+id/gloytsi"
-            android:layout_width="2dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
 
-            <!-- TextView for product name -->
-            <!-- ImageView for product image -->
-            <!-- Customize this layout based on your product design -->
-            <TextView
-                android:id="@+id/productName2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Product Name 2"
-                android:textColor="#FFFAFA"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/productImage2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!-- ImageView for product image -->
-            <ImageView
-                android:id="@+id/productImage2"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="Product Image 2"
-                android:padding="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/cpu"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
 
     </LinearLayout>
 
