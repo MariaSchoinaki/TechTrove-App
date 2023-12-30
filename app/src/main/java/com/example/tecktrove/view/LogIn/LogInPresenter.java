@@ -32,22 +32,26 @@ public class LogInPresenter {
         boolean isEmployer = view.isEmployer();
 
 
-        if(username.equals("")){}
-        if(password.equals("")){}
-        if(!(password.equals("") || username.equals(""))){
+        if(username.equals("")){
+            view.showErrorMessage("Error", "Please fill in the username field");
+        }
+        else if(password.equals("")){
+            view.showErrorMessage("Error", "Please fill in the password field");
+        }
+        else if(!(password.equals("") || username.equals(""))){
             if(isEmployer){
                 employer = employers.findEmployerByUsernameAndPassword(username,password);
                 if (employer != null){
                     view.login();
                 }else{
-                    view.showErrorMessage("", "User does not exist with this combo. Try again");
+                    view.showErrorMessage("Error", "User does not exist with this combo. Try again");
                 }
             }else{
                 customer = customers.findCustomerByUsernameAndPassword(username,password);
                 if (customer != null){
                     view.login();
                 }else{
-                    view.showErrorMessage("", "User does not exist with this combo. Try again");
+                    view.showErrorMessage("Error", "User does not exist with this combo. Try again");
                 }
             }
 
