@@ -40,7 +40,6 @@ public class DAOTest {
     private EmployerDAO employerDAO;
     private ItemDAO itemDAO;
     private OrderDAO orderDAO;
-    private OrderLineDAO orderLineDAO;
     private SynthesisDAO synthesisDAO;
 
 
@@ -63,7 +62,6 @@ public class DAOTest {
         customerDAO = new CustomerDAOMemory();
 
         orderDAO = new OrderDAOMemory();
-        orderLineDAO = new OrderLineDAO();
     }
 
     @Test
@@ -191,7 +189,7 @@ public class DAOTest {
 
     @Test
     public void testSaveSynthesis(){
-        Synthesis s1 = new Synthesis(235456, Money.euros(1500), "Best Synthesis", new ArrayList<Component>());
+        Synthesis s1 = new Synthesis(235456, Money.euros(1500), "Best Synthesis");
         synthesisDAO.save(s1);
         Assert.assertEquals(INITIAL_SYNTHESIS_COUNT+1,synthesisDAO.findAll().size());
         Assert.assertNotNull(synthesisDAO.find(235456));

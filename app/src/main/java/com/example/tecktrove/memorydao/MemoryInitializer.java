@@ -7,7 +7,6 @@ import com.example.tecktrove.dao.EmployerDAO;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.dao.ItemDAO;
 import com.example.tecktrove.dao.OrderDAO;
-import com.example.tecktrove.dao.OrderLineDAO;
 import com.example.tecktrove.dao.SynthesisDAO;
 
 public class MemoryInitializer extends Initializer {
@@ -52,11 +51,6 @@ public class MemoryInitializer extends Initializer {
     @Override
     public OrderDAO getOrderDAO() {
         return DAOFactory.getFactory().getOrderDAO();
-    }
-
-    @Override
-    public OrderLineDAO getOrderLineDAO() {
-        return DAOFactory.getFactory().getOrderLineDAO();
     }
 
     @Override

@@ -31,7 +31,5 @@ public abstract class DAOFactory {
 
     public abstract OrderDAO getOrderDAO();
 
-    public abstract OrderLineDAO getOrderLineDAO();
-
     public abstract ItemDAO getItemDAO();
 }

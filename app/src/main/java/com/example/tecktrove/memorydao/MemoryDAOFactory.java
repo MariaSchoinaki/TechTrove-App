@@ -6,7 +6,6 @@ import com.example.tecktrove.dao.DAOFactory;
 import com.example.tecktrove.dao.EmployerDAO;
 import com.example.tecktrove.dao.ItemDAO;
 import com.example.tecktrove.dao.OrderDAO;
-import com.example.tecktrove.dao.OrderLineDAO;
 import com.example.tecktrove.dao.SynthesisDAO;
 
 public class MemoryDAOFactory extends DAOFactory {
@@ -16,7 +15,6 @@ public class MemoryDAOFactory extends DAOFactory {
     private ComponentDAOMemory componentDAOMemory = new ComponentDAOMemory();
     private SynthesisDAOMemory synthesisDAOMemory = new SynthesisDAOMemory();
     private OrderDAOMemory orderDAOMemory =new OrderDAOMemory();
-    //private OrderLineDAO orderLineDAO = new OrderDAOMemory();
     private ItemDAOMemory itemDAOMemory = new ItemDAOMemory();
 
     @Override
@@ -42,11 +40,6 @@ public class MemoryDAOFactory extends DAOFactory {
     @Override
     public OrderDAO getOrderDAO() {
         return orderDAOMemory;
-    }
-
-    @Override
-    public OrderLineDAO getOrderLineDAO() {
-        return null;
     }
 
     @Override
