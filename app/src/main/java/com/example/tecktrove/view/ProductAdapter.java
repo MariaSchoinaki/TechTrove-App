@@ -37,13 +37,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         // Bind data to the ViewHolder for the first product in the row
         if (firstProductPosition < productList.size()) {
             ProductType firstProduct = productList.get(firstProductPosition);
-            holder.bindProduct(firstProduct);
+            holder.bindProduct(firstProduct, firstProductPosition);
         }
 
         // Bind data to the ViewHolder for the second product in the row
         if (secondProductPosition < productList.size()) {
             ProductType secondProduct = productList.get(secondProductPosition);
-            holder.bindProduct(secondProduct);
+            holder.bindProduct(secondProduct, secondProductPosition);
         }
     }
 
@@ -64,9 +64,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
 
         // Helper method to bind product data to the views
-        void bindProduct(ProductType product) {
+        void bindProduct(ProductType product, int position) {
+            if (position % 2 == 0) {
+                // Even position, use views for the second product
+                productNameTextView = itemView.findViewById(R.id.productName2);
+                productImageView = itemView.findViewById(R.id.productImage2);
+            } else {
+                // Odd position, use views for the first product
+                productNameTextView = itemView.findViewById(R.id.productName1);
+                productImageView = itemView.findViewById(R.id.productImage1);
+            }
             productNameTextView.setText(product.getName());
-            //productImageView.setImageResource(product.getProductImage());
+            String s = product.getImg();
+            //productImageView.setImageResource(R.drawable.s);
             // You can add more bindings here based on your product data
         }
     }

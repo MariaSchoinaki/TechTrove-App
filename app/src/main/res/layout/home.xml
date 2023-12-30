@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F0F0F"
-    android:backgroundTint="#D0FFFFFF"
+    android:backgroundTint="#0F0F0F"
     android:backgroundTintMode="src_atop"
     tools:context="com.example.tecktrove.view.HomeScreen.HomeScreenActivity">
 
@@ -28,7 +28,7 @@
             android:id="@+id/home_screen_search_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#0F0F0F"
+            android:background="#191919"
             android:editTextColor="@color/white"
             android:queryHint="@string/search"
             android:textColor="@color/white"
@@ -43,29 +43,30 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="592dp"
         android:layout_below="@+id/textInputLayout"
         android:layout_marginTop="45dp"
-        android:background="#D0FFFFFF"
+        android:background="#0F0F0F"
         android:clipToPadding="false"
         android:orientation="horizontal"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/CustomerHomePageTabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/CustomerHomePageTabLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/recyclerView"
         app:layout_constraintTop_toBottomOf="@id/recyclerView"
         app:tabIndicatorColor="#FFA400"
-        app:tabRippleColor="#020101"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="679dp">
+        app:tabRippleColor="#020101">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/homeScreen_"
