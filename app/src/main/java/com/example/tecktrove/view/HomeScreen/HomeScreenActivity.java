@@ -1,6 +1,7 @@
 package com.example.tecktrove.view.HomeScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,9 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
     private RecyclerView recyclerView;
     private CategoryAdapter categoryAdapter;
+    private ProductAdapter productAdapter;
     private Initializer init;
+    private HomeScreenPresenter presenter;
 
     public HomeScreenActivity() {
     }
@@ -42,15 +45,16 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
         // Sample product list (replace with your actual product data)
         ArrayList<String> categoryList = generateCategories();
-
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
         // Initialize the adapter with the product list
         categoryAdapter = new CategoryAdapter(new ArrayList<String>(categoryList), this);
 
         // Set the layout manager and adapter to the RecyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(categoryAdapter);
 
-        HomeScreenPresenter presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
+        presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
     }
 
     private ArrayList<String> generateCategories() {
@@ -71,5 +75,80 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public void onCategoryClick(String category) {
         // Handle the clicked category here
         Log.d("Category Clicked", category);
+        switch (category){
+            case "all":
+                presenter.onAll();
+                break;
+            case "ram":
+                presenter.onRam();
+                break;
+            case "cpu":
+                presenter.onCpu();
+                break;
+            case "box":
+                presenter.onBox();
+                break;
+            case "motherboard":
+                presenter.onMotherboard();
+                break;
+            case "vga":
+                presenter.onVga();
+                break;
+            case "disk":
+                presenter.onDisk();
+                break;
+            case "cooler":
+                presenter.onCooler();
+                break;
+            case "trofodotiko":
+                presenter.ontrofodotiko();
+                break;
+        }
+    }
+
+    @Override
+    public void All() {
+        productAdapter = new ProductAdapter(new ArrayList<ProductType>(init.getComponentDAO().findAll()));
+        recyclerView.setAdapter(productAdapter);
+    }
+
+    @Override
+    public void Ram() {
+
+    }
+
+    @Override
+    public void Cpu() {
+
+    }
+
+    @Override
+    public void Box() {
+
+    }
+
+    @Override
+    public void Motherboard() {
+
+    }
+
+    @Override
+    public void Vga() {
+
+    }
+
+    @Override
+    public void Disk() {
+
+    }
+
+    @Override
+    public void Cooler() {
+
+    }
+
+    @Override
+    public void trofodotiko() {
+
     }
 }

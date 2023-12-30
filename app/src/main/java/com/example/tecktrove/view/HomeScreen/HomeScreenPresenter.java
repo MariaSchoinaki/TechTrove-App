@@ -14,4 +14,22 @@ public class HomeScreenPresenter {
         this.customers = customers;
         this.employers = employers;
     }
+
+    void onAll(){
+        view.All();
+    }
+    void onRam(){
+        view.Ram();
+    }
+    void onCpu(){
+        view.Cpu();
+    }
+    void onBox(){
+        view.Box();
+    }
+    void onMotherboard(){view.Motherboard();}
+    void onVga(){view.Vga();}
+    void onDisk(){view.Disk();}
+    void onCooler(){view.Cooler();}
+    void ontrofodotiko(){view.trofodotiko();}
 }
