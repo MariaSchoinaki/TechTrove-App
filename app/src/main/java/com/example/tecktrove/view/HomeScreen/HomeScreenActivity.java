@@ -5,22 +5,27 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.tecktrove.R;
+import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
+import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.util.Money;
 import com.example.tecktrove.util.Port;
+import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.ProductAdapter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView{
+public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView, CategoryAdapter.OnCategoryClickListener{
 
     private RecyclerView recyclerView;
-    private ProductAdapter productAdapter;
+    private CategoryAdapter categoryAdapter;
+    private Initializer init;
 
     public HomeScreenActivity() {
     }
@@ -32,34 +37,39 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         super.setContentView(R.layout.home);
 
         recyclerView = findViewById(R.id.recyclerView);
+        init = new MemoryInitializer();
+
 
         // Sample product list (replace with your actual product data)
-        ArrayList<ProductType> productList = generateSampleProducts();
+        ArrayList<String> categoryList = generateCategories();
 
         // Initialize the adapter with the product list
-        productAdapter = new ProductAdapter(productList);
+        categoryAdapter = new CategoryAdapter(new ArrayList<String>(categoryList), this);
 
         // Set the layout manager and adapter to the RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(productAdapter);
+        recyclerView.setAdapter(categoryAdapter);
 
-        HomeScreenPresenter presenter = new HomeScreenPresenter(this);
+        HomeScreenPresenter presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
     }
 
-    private ArrayList<ProductType> generateSampleProducts() {
-        // Create and return a list of sample products
-        // Replace this with your actual product data retrieval logic
-        ArrayList<ProductType> productList = new ArrayList<ProductType>();
-        productList.add(new Component(235456, Money.euros(BigDecimal.valueOf(30.5)) , "AMD Ryzen 7", "Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί", "AMD", new Port(), new Port(), 10 ));
-        productList.add(new Component(12345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-        productList.add(new Component(32345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-        productList.add(new Component(42345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-        productList.add(new Component(62345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-        productList.add(new Component(72345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-        productList.add(new Component(02345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-        productList.add(new Component(62345, Money.euros(BigDecimal.valueOf(20)) , "Ryzen 7 5800 X", "Επεξεργαστής", "AMD", new Port(), new Port() ,5));
-
-        return productList;
+    private ArrayList<String> generateCategories() {
+        ArrayList<String> categories = new ArrayList<>();
+        categories.add("all");
+        categories.add("box");
+        categories.add("cpu");
+        categories.add("motherboard");
+        categories.add("ram");
+        categories.add("vga");
+        categories.add("disk");
+        categories.add("trofodotiko");
+        categories.add("cooler");
+        return categories;
     }
 
+    @Override
+    public void onCategoryClick(String category) {
+        // Handle the clicked category here
+        Log.d("Category Clicked", category);
+    }
 }
