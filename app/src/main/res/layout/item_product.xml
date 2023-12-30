@@ -57,6 +57,7 @@
 
         <!-- Example Views for the second product item -->
         <LinearLayout
+            android:id="@+id/gloytsi"
             android:layout_width="2dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
