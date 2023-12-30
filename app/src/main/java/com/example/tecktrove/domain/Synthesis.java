@@ -28,6 +28,7 @@ public class Synthesis extends ProductType{
     public Synthesis(int modelNo, Money price, String name){
         super(modelNo, price, name);
         this.ratings = new ArrayList<Pair<Double, Customer>>();
+        this.components = new ArrayList<Component>();
     }
     /**
      * Gets the publish state of the Synthesis
