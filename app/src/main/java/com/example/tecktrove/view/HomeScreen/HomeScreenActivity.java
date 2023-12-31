@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
@@ -18,6 +20,8 @@ import com.example.tecktrove.util.Money;
 import com.example.tecktrove.util.Port;
 import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.ProductAdapter;
+import com.example.tecktrove.view.SignUp.SignUpActivity;
+import com.google.android.material.tabs.TabLayout;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -55,6 +59,36 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         recyclerView.setAdapter(categoryAdapter);
 
         presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
+
+        TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                // Handle tab selection
+                int position = tab.getPosition();
+                switch (position) {
+                    case 0:
+                        // Handle the first tab
+                        break;
+                    case 1:
+                        presenter.onCart();
+                        break;
+                    // Add cases for other tabs as needed
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                // Handle tab unselection
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                // Handle tab reselection
+            }
+        });
+
     }
 
     private ArrayList<String> generateCategories() {
@@ -151,4 +185,13 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public void trofodotiko() {
 
     }
+
+    @Override
+    public void Cart() {
+        Log.d("HomeScreenActivity", "Cart");
+        Intent intent = new Intent(HomeScreenActivity.this, SignUpActivity.class);
+        startActivity(intent);
+    }
+
+
 }

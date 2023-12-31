@@ -1,5 +1,7 @@
 package com.example.tecktrove.view.HomeScreen;
 
+import android.util.Log;
+
 import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.EmployerDAO;
 
@@ -32,4 +34,7 @@ public class HomeScreenPresenter {
     void onDisk(){view.Disk();}
     void onCooler(){view.Cooler();}
     void ontrofodotiko(){view.trofodotiko();}
+
+    void onCart(){
+        Log.d("HomeScreenPresenter", "onCart");view.Cart();}
 }

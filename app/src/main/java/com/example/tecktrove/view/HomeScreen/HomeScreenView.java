@@ -11,4 +11,6 @@ public interface HomeScreenView {
     void Disk();
     void Cooler();
     void trofodotiko();
+
+    void Cart();
 }
