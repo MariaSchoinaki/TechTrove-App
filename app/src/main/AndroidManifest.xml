@@ -16,12 +16,6 @@
             android:name=".view.HomeScreen.HomeScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".view.Home.HomeScreen"
-            android:exported="false" />
-        <activity
-            android:name=".view.HomeScreen"
-            android:exported="false" />
-        <activity
             android:name=".view.LogIn.LogInActivity"
             android:exported="false" />
         <activity
