@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F0F"
+    android:backgroundTint="#0F0F0F">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="334dp"
+        android:layout_height="535dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="17dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_info_img">
+
+
+        <TextView
+            android:id="@+id/product_info_name"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:text="title"
+            android:textColor="#FFFAFA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="238dp" />
+
+        <TextView
+            android:id="@+id/product_info_price"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="1dp"
+            android:text="Price:"
+            android:textColor="#FFFAFA"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="599dp" />
+
+
+        <LinearLayout
+            android:layout_width="306dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="18dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="323dp">
+
+
+            <!-- Increase Quantity Button -->
+            <Button
+                android:id="@+id/product_info_decrease"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#50C878"
+                android:text="-"
+                android:textColor="#FFFAFA"
+                android:textSize="16sp"
+                app:cornerRadius="0dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="380dp" />
+
+            <TextView
+                android:id="@+id/product_info_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:text="1"
+                android:textColor="#FFFAFA"
+                android:textSize="16sp" />
+
+            <!-- Decrease Quantity Button -->
+            <Button
+                android:id="@+id/product_info_increase"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#50C878"
+                android:text="+"
+                android:textColor="#FFFAFA"
+                android:textSize="16sp"
+                app:cornerRadius="0dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="380dp" />
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/product_info_addToCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:backgroundTint="#50C878"
+                android:text="Add to Cart" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/product_info_descriptionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="1dp"
+            android:text="Description"
+            android:textColor="#FFFAFA"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="665dp" />
+
+        <TextView
+            android:id="@+id/product_info_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="18dp"
+            android:text="Description:"
+            android:textColor="#FFFAFA"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="665dp" />
+
+        <TextView
+            android:id="@+id/product_info_characteristics"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp"
+            android:text="Characteristics"
+            android:textColor="#FFFAFA"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="452dp" />
+
+        <TextView
+            android:id="@+id/product_info_modelNo"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:text="Model Number:"
+            android:textColor="#FFFAFA"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="452dp" />
+
+        <TextView
+            android:id="@+id/product_info_manufacturer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="18dp"
+            android:text="Manufacturer: "
+            android:textColor="#FFFAFA"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="526dp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/product_info_img"
+        android:layout_width="204dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginEnd="104dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Product Image 1"
+        android:padding="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/no_img"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
