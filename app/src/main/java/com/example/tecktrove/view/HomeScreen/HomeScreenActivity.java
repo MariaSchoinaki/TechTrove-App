@@ -21,6 +21,7 @@ import com.example.tecktrove.util.Port;
 import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
+import com.example.tecktrove.view.cart.CartActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.math.BigDecimal;
@@ -189,7 +190,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     @Override
     public void Cart() {
         Log.d("HomeScreenActivity", "Cart");
-        Intent intent = new Intent(HomeScreenActivity.this, SignUpActivity.class);
+        Intent intent = new Intent(HomeScreenActivity.this, CartActivity.class);
         startActivity(intent);
     }
 

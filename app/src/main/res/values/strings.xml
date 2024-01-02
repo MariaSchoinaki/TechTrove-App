@@ -21,4 +21,9 @@
     <string name="employer">Employer</string>
     <string name="ok">OK</string>
     <string name="search">search</string>
+    <string name="Cart">Cart</string>
+    <string name="MyCart">My Cart</string>
+    <string name="Purchase">Purchase</string>
+
+
 </resources>

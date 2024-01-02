@@ -22,6 +22,10 @@
             android:name=".view.SignUp.SignUpActivity"
             android:exported="false" />
         <activity
+            android:name=".view.cart.CartActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".view.StartScreen.StartScreenActivity"
             android:exported="true">
             <intent-filter>
