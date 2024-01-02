@@ -47,7 +47,7 @@ public class Customer extends User {
      *
      * @param savedSynthesis the customer's saved synthesis list
      */
-    void setSavedSynthesis(ArrayList<Synthesis> savedSynthesis) {
+    public void setSavedSynthesis(ArrayList<Synthesis> savedSynthesis) {
         this.savedSynthesis = savedSynthesis;
     }
     /**
@@ -55,27 +55,27 @@ public class Customer extends User {
      *
      * @param cart the cart of the customer
      */
-    void setCart(ArrayList<ProductType> cart) {
+    public void setCart(ArrayList<ProductType> cart) {
         this.cart = cart;
     }
 
-    void addToSavedSynthesis(Synthesis synthesis){
+    public void addToSavedSynthesis(Synthesis synthesis){
         this.savedSynthesis.add(synthesis);
     }
 
-    void removeFromSaved(Synthesis synthesis){
+    public void removeFromSaved(Synthesis synthesis){
         this.savedSynthesis.remove(synthesis);
     }
 
-    void addToCart(ProductType product){
+    public void addToCart(ProductType product){
         this.cart.add(product);
     }
 
-    void removeFromCart(ProductType product){
+    public void removeFromCart(ProductType product){
         this.cart.remove(product);
     }
 
-    ProductType getProductFromCart(int ProductID){
+    public ProductType getProductFromCart(int ProductID){
         int i = this.cart.size() - 1;
         ProductType p;
         while(i>=0){
@@ -87,7 +87,7 @@ public class Customer extends User {
         }
         return null;
     }
-    ProductType getProductFromSaved(int ProductID){
+    public ProductType getProductFromSaved(int ProductID){
 
         int j = this.savedSynthesis.size()-1;
         ProductType p;
