@@ -2,6 +2,7 @@ package com.example.tecktrove.view.cart;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,11 +16,12 @@ import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.view.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.dao.ComponentDAO;
+import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 
 import java.util.ArrayList;
 
-public class CartActivity extends AppCompatActivity implements CartView{
+public class CartActivity extends AppCompatActivity implements CartView, ProductAdapter.OnProductClickListener{
     private RecyclerView recyclerView;
     private ProductAdapter productAdapter;
     private Initializer init;
@@ -39,7 +41,7 @@ public class CartActivity extends AppCompatActivity implements CartView{
         ArrayList<ProductType> items = getSelectedItems();
         GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(layoutManager);
-        productAdapter = new ProductAdapter(new ArrayList<ProductType>(componentDAO.findAll()));
+        productAdapter = new ProductAdapter(new ArrayList<ProductType>(componentDAO.findAll()), this);
         recyclerView.setAdapter(productAdapter);
 
 
@@ -61,5 +63,13 @@ public class CartActivity extends AppCompatActivity implements CartView{
     @Override
     public void cart() {
 
+    }
+
+    @Override
+    public void onProductClick(ProductType product) {
+        Log.d("Category Clicked", product.getName());
+        Intent intent = new Intent(this, ProductActivity.class);
+        intent.putExtra("modelNo",product.getModelNo() );
+        startActivity(intent);
     }
 }
