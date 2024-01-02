@@ -81,16 +81,16 @@
             tools:layout_editor_absoluteY="136dp" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/homeScreen_cart"
+            android:id="@+id/home_screen_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cart"
+            android:text="@string/Cart"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="195dp"
             tools:layout_editor_absoluteY="129dp" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/homeScreen_gloy"
+            android:id="@+id/home_screen_gloy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="gloy"
