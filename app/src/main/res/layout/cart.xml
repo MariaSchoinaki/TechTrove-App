@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F0F"
+    android:backgroundTint="#0F0F0F"
+    android:backgroundTintMode="src_atop">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="382dp"
+        android:layout_height="511dp"
+        android:layout_marginBottom="14dp"
+        android:background="#0F0F0F"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/button_purchase_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_cart"
+        app:spanCount="2" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/CustomerHomePageTabLayout"
+        android:layout_width="411dp"
+        android:layout_height="45dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tabIndicatorColor="#FFA400"
+        app:tabRippleColor="#020101">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/cart_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Home"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="-1dp"
+            tools:layout_editor_absoluteY="687dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/cart_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cart"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="686dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/cart_gloy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="gloy"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/cart_myaccount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="My Account"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <TextView
+        android:id="@+id/my_cart"
+        android:layout_width="237dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="155dp"
+
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="61dp"
+        android:fontFamily="arial"
+        android:text="@string/MyCart"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@id/CustomerHomePageTabLayout"
+        android:id="@+id/button_purchase_cart"
+        android:layout_width="238dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="544dp"
+        android:layout_marginEnd="155dp"
+        android:backgroundTint="#202020"
+        android:text="@string/Purchase"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorLink="@color/white"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
