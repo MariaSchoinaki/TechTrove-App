@@ -1,5 +1,7 @@
 package com.example.tecktrove.view.LogIn;
 
+import com.example.tecktrove.domain.User;
+
 public interface LogInView {
 
     void signUp();
@@ -10,7 +12,7 @@ public interface LogInView {
 
     void showErrorMessage(String title, String msg);
 
-    void login();
+    void login(User user);
 
     boolean isEmployer();
 }

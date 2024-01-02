@@ -1,5 +1,7 @@
 package com.example.tecktrove.view.LogIn;
 
+import com.example.tecktrove.domain.User;
+
 public class LogInViewStub implements LogInView {
 
     String username;
@@ -48,7 +50,7 @@ public class LogInViewStub implements LogInView {
     }
 
     @Override
-    public void login() {
+    public void login(User user) {
         logedIn++;
     }
 

@@ -2,15 +2,14 @@ package com.example.tecktrove.view.LogIn;
 
 import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.EmployerDAO;
-import com.example.tecktrove.domain.Customer;
-import com.example.tecktrove.domain.Employer;
+import com.example.tecktrove.domain.User;
 
 public class LogInPresenter {
     LogInView view;
     CustomerDAO customers;
     EmployerDAO employers;
-    Employer employer;
-    Customer customer;
+    User employer;
+    User customer;
 
     public LogInPresenter(LogInView view, CustomerDAO customers, EmployerDAO employers){
         this.view = view;
@@ -42,14 +41,14 @@ public class LogInPresenter {
             if(isEmployer){
                 employer = employers.findEmployerByUsernameAndPassword(username,password);
                 if (employer != null){
-                    view.login();
+                    view.login(employer);
                 }else{
                     view.showErrorMessage("Error", "User does not exist with this combo. Try again");
                 }
             }else{
                 customer = customers.findCustomerByUsernameAndPassword(username,password);
                 if (customer != null){
-                    view.login();
+                    view.login(customer);
                 }else{
                     view.showErrorMessage("Error", "User does not exist with this combo. Try again");
                 }

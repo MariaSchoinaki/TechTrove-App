@@ -1,6 +1,7 @@
 package com.example.tecktrove.view.LogIn;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -10,14 +11,18 @@ import android.widget.EditText;
 import android.widget.Switch;
 
 import com.example.tecktrove.R;
+import com.example.tecktrove.domain.Customer;
+import com.example.tecktrove.domain.User;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.view.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.SharedViewModel;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
 
 public class LogInActivity extends AppCompatActivity implements LogInView {
 
     LogInPresenter presenter;
     MemoryInitializer init;
+    private SharedViewModel sharedViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,8 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
                 presenter.onSignUp();
             }
         });
+
+        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
     }
 
     public void signUp(){
@@ -76,7 +83,10 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
     }
 
     @Override
-    public void login(){
+    public void login(User user){
+        if(!isEmployer()){
+            sharedViewModel.setSharedCustomer((Customer) user);
+        }
         Intent intent = new Intent(this, HomeScreenActivity.class);
         intent.putExtra("user_id", presenter.getUserName());
         startActivity(intent);
