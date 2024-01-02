@@ -17,9 +17,16 @@ import java.util.ArrayList;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
     private ArrayList<ProductType> productList;
+    private OnProductClickListener onProductClickListener;
 
-    public ProductAdapter(ArrayList<ProductType> productList) {
+    public interface OnProductClickListener {
+        void onProductClick(ProductType product);
+    }
+
+
+    public ProductAdapter(ArrayList<ProductType> productList, OnProductClickListener onCategoryClickListener) {
         this.productList = productList;
+        this.onProductClickListener = onCategoryClickListener;
     }
 
 
@@ -43,7 +50,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return productList.size();
     }
 
-    static class ProductViewHolder extends RecyclerView.ViewHolder {
+    class ProductViewHolder extends RecyclerView.ViewHolder {
 
         TextView productNameTextView;
         ImageView productImageView;
@@ -52,6 +59,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             super(itemView);
             productNameTextView = itemView.findViewById(R.id.productName1);
             productImageView = itemView.findViewById(R.id.productImage1);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int adapterPosition = getAdapterPosition();
+                    if (adapterPosition != RecyclerView.NO_POSITION) {
+
+                        int clickedProductIndex = adapterPosition;
+
+                        if (clickedProductIndex < productList.size()) {
+                            ProductType clickedProduct = productList.get(clickedProductIndex);
+                            onProductClickListener.onProductClick(clickedProduct);
+                        }
+                    }
+                }
+            });
         }
 
         // Helper method to bind product data to the views
