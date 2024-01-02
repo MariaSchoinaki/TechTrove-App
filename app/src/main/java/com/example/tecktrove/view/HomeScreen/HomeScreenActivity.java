@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
@@ -19,6 +21,7 @@ import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.util.Money;
 import com.example.tecktrove.util.Port;
 import com.example.tecktrove.view.CategoryAdapter;
+import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SignUp.SignUpActivity;
 import com.example.tecktrove.view.cart.CartActivity;
@@ -27,16 +30,15 @@ import com.google.android.material.tabs.TabLayout;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView, CategoryAdapter.OnCategoryClickListener{
+public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView, CategoryAdapter.OnCategoryClickListener, ProductAdapter.OnProductClickListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener{
 
     private RecyclerView recyclerView;
     private CategoryAdapter categoryAdapter;
     private ProductAdapter productAdapter;
     private Initializer init;
     private HomeScreenPresenter presenter;
-
-    public HomeScreenActivity() {
-    }
+    private String submittedText;
+    private SearchView searchListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         //recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(categoryAdapter);
 
+
         presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
 
         TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);
@@ -70,10 +73,14 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
                 int position = tab.getPosition();
                 switch (position) {
                     case 0:
-                        // Handle the first tab
+                        presenter.onHome();
                         break;
                     case 1:
                         presenter.onCart();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
                         break;
                     // Add cases for other tabs as needed
                 }
@@ -90,6 +97,9 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
             }
         });
 
+        searchListView = (SearchView) findViewById(R.id.home_screen_search_bar);
+        searchListView.setIconifiedByDefault(false);
+        searchListView.setOnQueryTextListener(this);
     }
 
     private ArrayList<String> generateCategories() {
@@ -143,7 +153,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
     @Override
     public void All() {
-        productAdapter = new ProductAdapter(new ArrayList<ProductType>(init.getComponentDAO().findAll()));
+        productAdapter = new ProductAdapter(new ArrayList<ProductType>(init.getComponentDAO().findAll()),this);
         recyclerView.setAdapter(productAdapter);
     }
 
@@ -194,5 +204,71 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         startActivity(intent);
     }
 
+    @Override
+    public void goToHome() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
+    }
+
+    public boolean onQueryTextChange(String text)
+    {
+        if (text.isEmpty()) {
+            // The query is empty, meaning the "X" button was clicked
+            Log.d("SearchView", "SearchView closed (X button clicked)");
+            // Perform any additional actions here
+            recyclerView.setAdapter(categoryAdapter);
+        }
+        return true;
+    }
+
+
+    public boolean onQueryTextSubmit(String query) {
+        submittedText = query;
+        searchComponents(submittedText);
+        Log.d("SearchView", "Query submitted: " + query);
+        return true;
+    }
+
+    public boolean onClose(){
+        recyclerView.setAdapter(categoryAdapter);
+        return true;
+    }
+
+    private void searchComponents(String query) {
+        ArrayList<Component> searchResults = new ArrayList<>();
+        ArrayList<Component> allComponents = init.getComponentDAO().findAll();
+
+
+        for (Component component : allComponents) {
+            if (component.getName().toLowerCase().contains(query.toLowerCase()) ||
+                    (String.valueOf(component.getModelNo())).equals(query.toLowerCase())) {
+                searchResults.add(component);
+            }
+        }
+
+        updateUI(searchResults);
+    }
+
+    private void updateUI(ArrayList<Component> searchResults) {
+        if (searchResults.isEmpty()) {
+            TextView noResultsTextView = findViewById(R.id.homeScreen_noResultsTextView);
+            noResultsTextView.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            findViewById(R.id.homeScreen_noResultsTextView).setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+
+            productAdapter = new ProductAdapter(new ArrayList<ProductType>(searchResults), this);
+            recyclerView.setAdapter(productAdapter);
+        }
+    }
+
+    @Override
+    public void onProductClick(ProductType product) {
+        Intent intent = new Intent(this, ProductActivity.class);
+        intent.putExtra("modelNo",product.getModelNo() );
+        startActivity(intent);
+    }
 
 }
+

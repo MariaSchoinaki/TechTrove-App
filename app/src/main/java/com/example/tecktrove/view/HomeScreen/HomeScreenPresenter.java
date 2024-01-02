@@ -37,4 +37,6 @@ public class HomeScreenPresenter {
 
     void onCart(){
         Log.d("HomeScreenPresenter", "onCart");view.Cart();}
+
+    void onHome(){view.goToHome();}
 }

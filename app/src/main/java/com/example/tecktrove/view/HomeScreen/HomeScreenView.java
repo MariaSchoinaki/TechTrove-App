@@ -13,4 +13,5 @@ public interface HomeScreenView {
     void trofodotiko();
 
     void Cart();
+    void goToHome();
 }
