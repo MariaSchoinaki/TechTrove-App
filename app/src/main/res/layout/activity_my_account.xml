@@ -6,49 +6,271 @@
     android:layout_height="match_parent"
     android:background="#0F0F0F">
 
-    <ImageView
-        android:id="@+id/my_account_image"
-        android:layout_width="208dp"
-        android:layout_height="182dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="12dp"
-        android:src="@drawable/image_4"
-        app:layout_constraintBottom_toTopOf="@+id/my_account_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ViewFlipper
+        android:id="@+id/my_account_view_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/my_account_name"
-        android:layout_width="299dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginBottom="77dp"
-        android:text="My name"
-        android:textColor="#FFFAFA"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/my_account_change_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_account_image" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/my_account_change_button"
-        android:layout_width="164dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginBottom="273dp"
-        android:text="change"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_account_name" />
+            <ImageView
+                android:id="@+id/my_account_image"
+                android:layout_width="208dp"
+                android:layout_height="182dp"
+                android:layout_marginStart="101dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="102dp"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/image_4"
+                app:layout_constraintBottom_toTopOf="@+id/my_account_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/my_account_name"
+                android:layout_width="299dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="54dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="58dp"
+                android:layout_marginBottom="77dp"
+                android:text="My name"
+                android:textColor="#FFFAFA"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/my_account_change_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_account_image" />
+
+
+            <Button
+                android:id="@+id/my_account_change_button"
+                android:layout_width="164dp"
+                android:layout_height="54dp"
+                android:text="Αλλαγή Στοιχείων"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/my_account_logout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_account_name" />
+
+            <Button
+                android:id="@+id/my_account_delete_account"
+                android:layout_width="164dp"
+                android:layout_height="54dp"
+                android:text="Διαγραφή λογαριασμού"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_account_logout"/>
+
+            <Button
+                android:id="@+id/my_account_logout"
+                android:layout_width="164dp"
+                android:layout_height="54dp"
+                android:text="Έξοδος"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/my_account_delete_account"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_account_change_button"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="390dp"
+            android:layout_height="610dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="76dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/my_acount_exit_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:contentDescription="exit"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/exit" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:hint="@string/full_name"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/my_account_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="arial"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/prompt_email"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/my_account_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="@string/mobile_number"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@color/black"
+                    app:boxBackgroundMode="outline">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/my_account_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="arial"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/username"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/my_account_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:focusable="true"
+                    android:fontFamily="arial"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/prompt_password"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/my_account_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/confirm_password"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/my_account_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/my_account_save_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#202020"
+                android:fontFamily="arial"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="20dp"
+                android:text="save"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textColorLink="@color/white"
+                android:textSize="20sp"
+                app:cornerRadius="10dp"
+                tools:layout_editor_absoluteX="148dp"
+                tools:layout_editor_absoluteY="554dp" />
+
+
+        </LinearLayout>
+
+
+    </ViewFlipper>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
