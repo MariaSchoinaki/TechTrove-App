@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.LogIn;
+package com.example.tecktrove.view.Authentication.LogIn;
 
 import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.EmployerDAO;
@@ -6,7 +6,6 @@ import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.memorydao.CustomerDAOMemory;
 import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.view.Authentication.LogIn.LogInPresenter;
 
 import org.junit.Assert;
 import org.junit.Before;

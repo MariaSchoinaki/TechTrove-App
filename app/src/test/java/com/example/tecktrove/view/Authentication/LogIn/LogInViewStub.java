@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.LogIn;
+package com.example.tecktrove.view.Authentication.LogIn;
 
 import com.example.tecktrove.domain.User;
 import com.example.tecktrove.view.Authentication.LogIn.LogInView;

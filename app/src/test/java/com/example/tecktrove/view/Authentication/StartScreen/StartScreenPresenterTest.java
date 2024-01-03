@@ -1,6 +1,4 @@
-package com.example.tecktrove.view.StartScreen;
-import com.example.tecktrove.view.Authentication.StartScreen.StartScreenPresenter;
-import com.example.tecktrove.view.Authentication.StartScreen.StartScreenView;
+package com.example.tecktrove.view.Authentication.StartScreen;
 
 import org.junit.Assert;
 import org.junit.Before;
