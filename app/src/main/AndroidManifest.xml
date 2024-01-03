@@ -16,6 +16,12 @@
             android:name=".view.Customer.HomeScreen.HomeScreenActivity"
             android:exported="false" />
         <activity
+            android:name=".view.Employer.HomeScreen.HomeScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MyAccount.MyAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.Product.ProductActivity"
             android:exported="false" />
         <activity
