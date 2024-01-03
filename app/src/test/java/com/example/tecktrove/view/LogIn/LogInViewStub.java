@@ -1,6 +1,7 @@
 package com.example.tecktrove.view.LogIn;
 
 import com.example.tecktrove.domain.User;
+import com.example.tecktrove.view.Authentication.LogIn.LogInView;
 
 public class LogInViewStub implements LogInView {
 

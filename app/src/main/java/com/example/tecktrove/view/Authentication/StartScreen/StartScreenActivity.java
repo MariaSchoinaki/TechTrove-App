@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.StartScreen;
+package com.example.tecktrove.view.Authentication.StartScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,8 @@ import android.view.View;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.view.SignUp.SignUpActivity;
-import com.example.tecktrove.view.LogIn.LogInActivity;
+import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
+import com.example.tecktrove.view.Authentication.LogIn.LogInActivity;
 
 public class StartScreenActivity extends AppCompatActivity implements StartScreenView {
     private static boolean initialized = false;

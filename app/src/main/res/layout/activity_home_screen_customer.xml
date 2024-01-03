@@ -7,7 +7,7 @@
     android:background="#0F0F0F"
     android:backgroundTint="#0F0F0F"
     android:backgroundTintMode="src_atop"
-    tools:context="com.example.tecktrove.view.HomeScreen.HomeScreenActivity">
+    tools:context="com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"

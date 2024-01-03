@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.LogIn;
+package com.example.tecktrove.view.Authentication.LogIn;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,9 +14,9 @@ import com.example.tecktrove.R;
 import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.User;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.view.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.view.SharedViewModel;
-import com.example.tecktrove.view.SignUp.SignUpActivity;
+import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
 
 public class LogInActivity extends AppCompatActivity implements LogInView {
 

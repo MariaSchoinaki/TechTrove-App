@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.SignUp;
+package com.example.tecktrove.view.Authentication.SignUp;
 
 import com.example.tecktrove.contacts.Email;
 import com.example.tecktrove.contacts.Telephone;

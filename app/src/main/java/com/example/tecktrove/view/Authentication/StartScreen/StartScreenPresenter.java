@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.StartScreen;
+package com.example.tecktrove.view.Authentication.StartScreen;
 
 public class StartScreenPresenter {
     private StartScreenView view;

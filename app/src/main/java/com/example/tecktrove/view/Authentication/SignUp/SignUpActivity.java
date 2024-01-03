@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.SignUp;
+package com.example.tecktrove.view.Authentication.SignUp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,8 @@ import android.widget.Switch;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.view.HomeScreen.HomeScreenActivity;
-import com.example.tecktrove.view.LogIn.LogInActivity;
-import com.example.tecktrove.view.StartScreen.StartScreenActivity;
+import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.Authentication.LogIn.LogInActivity;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
     SignUpPresenter presenter;

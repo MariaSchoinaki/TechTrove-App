@@ -1,8 +1,7 @@
-package com.example.tecktrove.view.HomeScreen;
+package com.example.tecktrove.view.Customer.HomeScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -15,19 +14,14 @@ import android.widget.TextView;
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.Component;
-import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.util.Money;
-import com.example.tecktrove.util.Port;
 import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
-import com.example.tecktrove.view.SignUp.SignUpActivity;
-import com.example.tecktrove.view.cart.CartActivity;
+import com.example.tecktrove.view.Customer.Cart.CartActivity;
 import com.google.android.material.tabs.TabLayout;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView, CategoryAdapter.OnCategoryClickListener, ProductAdapter.OnProductClickListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener{
@@ -44,7 +38,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.home);
+        super.setContentView(R.layout.activity_home_screen_customer);
 
         recyclerView = findViewById(R.id.recyclerView);
         init = new MemoryInitializer();

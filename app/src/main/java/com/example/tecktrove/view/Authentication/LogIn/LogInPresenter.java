@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.LogIn;
+package com.example.tecktrove.view.Authentication.LogIn;
 
 import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.EmployerDAO;

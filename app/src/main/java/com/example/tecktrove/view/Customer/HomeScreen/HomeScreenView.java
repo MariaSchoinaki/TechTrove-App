@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.HomeScreen;
+package com.example.tecktrove.view.Customer.HomeScreen;
 
 public interface HomeScreenView {
 
