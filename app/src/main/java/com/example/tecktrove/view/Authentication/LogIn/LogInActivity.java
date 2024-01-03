@@ -86,9 +86,14 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
     public void login(User user){
         if(!isEmployer()){
             sharedViewModel.setSharedCustomer((Customer) user);
+            Intent intent = new Intent(this, com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity.class);
+            intent.putExtra("user_id", presenter.getUserName());
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(this, com.example.tecktrove.view.Employer.HomeScreen.HomeScreenActivity.class);
+            intent.putExtra("user_id", presenter.getUserName());
+            startActivity(intent);
         }
-        Intent intent = new Intent(this, HomeScreenActivity.class);
-        intent.putExtra("user_id", presenter.getUserName());
-        startActivity(intent);
+
     }
 }

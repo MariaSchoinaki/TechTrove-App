@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.Customer.HomeScreen;
+package com.example.tecktrove.view.Employer.HomeScreen;
 
 public interface HomeScreenView {
 
@@ -12,7 +12,7 @@ public interface HomeScreenView {
     void Cooler();
     void trofodotiko();
 
-    void Cart();
     void goToHome();
+
     void goToMyAccount();
 }

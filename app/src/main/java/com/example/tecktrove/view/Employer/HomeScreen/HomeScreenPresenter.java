@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.Customer.HomeScreen;
+package com.example.tecktrove.view.Employer.HomeScreen;
 
 import android.util.Log;
 
@@ -6,7 +6,6 @@ import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.EmployerDAO;
 
 public class HomeScreenPresenter {
-
     private HomeScreenView view;
     CustomerDAO customers;
     EmployerDAO employers;
@@ -35,8 +34,6 @@ public class HomeScreenPresenter {
     void onCooler(){view.Cooler();}
     void ontrofodotiko(){view.trofodotiko();}
 
-    void onCart(){
-        Log.d("HomeScreenPresenter", "onCart");view.Cart();}
 
     void onHome(){view.goToHome();}
 

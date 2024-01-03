@@ -1,8 +1,4 @@
-package com.example.tecktrove.view.Customer.HomeScreen;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.tecktrove.view.Employer.HomeScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
@@ -20,13 +20,11 @@ import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
-import com.example.tecktrove.view.Customer.Cart.CartActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView, CategoryAdapter.OnCategoryClickListener, ProductAdapter.OnProductClickListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener{
-
+public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView, CategoryAdapter.OnCategoryClickListener, ProductAdapter.OnProductClickListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener {
     private RecyclerView recyclerView;
     private CategoryAdapter categoryAdapter;
     private ProductAdapter productAdapter;
@@ -39,9 +37,9 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.activity_home_screen_customer);
+        super.setContentView(R.layout.activity_home_screen_employer);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.home_screen_employer_recyclerView);
         init = new MemoryInitializer();
 
 
@@ -59,7 +57,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
         presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
 
-        TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);
+        TabLayout tabLayout = findViewById(R.id.home_screen_employer_tabs);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -71,11 +69,8 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
                         presenter.onHome();
                         break;
                     case 1:
-                        presenter.onCart();
                         break;
                     case 2:
-                        break;
-                    case 3:
                         presenter.onMyAccount();
                         break;
                     // Add cases for other tabs as needed
@@ -93,7 +88,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
             }
         });
 
-        searchListView = (SearchView) findViewById(R.id.home_screen_search_bar);
+        searchListView = (SearchView) findViewById(R.id.home_screen_employer_search_bar);
         searchListView.setIconifiedByDefault(false);
         searchListView.setOnQueryTextListener(this);
     }
@@ -194,13 +189,6 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     }
 
     @Override
-    public void Cart() {
-        Log.d("HomeScreenActivity", "Cart");
-        Intent intent = new Intent(HomeScreenActivity.this, CartActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
     public void goToHome() {
         Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
@@ -253,11 +241,11 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
     private void updateUI(ArrayList<Component> searchResults) {
         if (searchResults.isEmpty()) {
-            TextView noResultsTextView = findViewById(R.id.homeScreen_noResultsTextView);
+            TextView noResultsTextView = findViewById(R.id.homeScreen_employer_noResultsTextView);
             noResultsTextView.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
         } else {
-            findViewById(R.id.homeScreen_noResultsTextView).setVisibility(View.GONE);
+            findViewById(R.id.homeScreen_employer_noResultsTextView).setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
 
             productAdapter = new ProductAdapter(new ArrayList<ProductType>(searchResults), this);
@@ -273,4 +261,3 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     }
 
 }
-
