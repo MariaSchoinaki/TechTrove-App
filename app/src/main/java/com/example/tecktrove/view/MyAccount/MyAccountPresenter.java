@@ -9,6 +9,7 @@ import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
+import com.example.tecktrove.domain.User;
 
 import java.util.ArrayList;
 
@@ -31,7 +32,7 @@ public class MyAccountPresenter {
         view.logout();
     }
 
-    public void onSaveChanges() {
+    public void onSaveChanges(User user) {
         boolean allgood = false;
 
         if (username.equals("") || password.equals("") || email.equals("") || phone.equals("") || confirm_password.equals("") || fullname.equals("")) {
@@ -52,7 +53,7 @@ public class MyAccountPresenter {
             String[] name = fullname.split(" ", 2);
             if (isEmployer) {
                 Employer employer = employerDAO.findEmployerByUsername(username);
-                if ( employer!= null) {
+                if ( employer!= null && !employer.equals(user)) {
                     view.showMessage("Λάθος!", "Το όνομα χρήστη υπάρχει ήδη.");
                 } else {
                     employer.setName(name[0]); employer.setLastName(name[1]); employer.setEmail(new Email(email)); employer.setUsername(username);
@@ -61,7 +62,7 @@ public class MyAccountPresenter {
                 }
             } else {
                 Customer customer = customerDAO.findCustomerByUsername(username);
-                if (customer != null) {
+                if (customer != null && !customer.equals(user)) {
                     view.showMessage("Λάθος!", "Το όνομα χρήστη υπάρχει ήδη.");
                 } else {
                     customer.setName(name[0]); customer.setLastName(name[1]); customer.setEmail(new Email(email)); customer.setUsername(username);
@@ -83,6 +84,16 @@ public class MyAccountPresenter {
         this.password = password;
         this.confirm_password = confirm_password;
         this.isEmployer = isemployer;
+    }
+
+    public void onDeleteAccount(){
+        /*
+        if(isEmployer){
+            employerDAO.delete(employerDAO.findEmployerByUsernameAndPassword(username, password));
+        }else{
+            customerDAO.delete(customerDAO.findCustomerByUsernameAndPassword(username, password));
+        }*/
+        view.logout();
     }
 
 }
