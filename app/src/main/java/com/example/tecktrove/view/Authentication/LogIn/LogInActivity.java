@@ -12,6 +12,7 @@ import android.widget.Switch;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.domain.Customer;
+import com.example.tecktrove.domain.Employer;
 import com.example.tecktrove.domain.User;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
@@ -86,10 +87,13 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
     public void login(User user){
         if(!isEmployer()){
             sharedViewModel.setSharedCustomer((Customer) user);
+            sharedViewModel.setIsEmployer(false);
             Intent intent = new Intent(this, com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity.class);
             intent.putExtra("user_id", presenter.getUserName());
             startActivity(intent);
         }else{
+            sharedViewModel.setSharedEmployer((Employer) user);
+            sharedViewModel.setIsEmployer(true);
             Intent intent = new Intent(this, com.example.tecktrove.view.Employer.HomeScreen.HomeScreenActivity.class);
             intent.putExtra("user_id", presenter.getUserName());
             startActivity(intent);
