@@ -26,4 +26,9 @@ public class SharedViewModel extends ViewModel {
 
     public Employer getEmployer(){return this.employer;}
     public void setIsEmployer(boolean isEmployer){this.isEmployer = isEmployer;}
+    public void clear(){
+        customer = null;
+        employer = null;
+        isEmployer = false;
+    }
 }
