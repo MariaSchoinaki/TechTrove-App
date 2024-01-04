@@ -1,5 +1,7 @@
 package com.example.tecktrove.view.Product;
 
+import android.util.Log;
+
 import com.example.tecktrove.dao.ComponentDAO;
 import com.example.tecktrove.dao.SynthesisDAO;
 import com.example.tecktrove.domain.Component;
@@ -29,13 +31,25 @@ public class ProductPresenter {
         }
     }
 
-    public void goToCart(int asked_quantity){
-        if(asked_quantity <= comp.getQuantity() && asked_quantity!=0){
-            comp.addQuantity(-asked_quantity);
-            view.Cart(comp);
-        }else{
-            view.showMessage("Error", "The quantity you want is larger than what we have.");
+    public void goToCart(int asked_quantity, int modelNo){
+        comp = components.find(modelNo);
+        synthesi = synthesisDAO.find(modelNo);
+        if(comp!=null){
+            if(asked_quantity <= comp.getQuantity() && asked_quantity!=0){
+                comp.addQuantity(-asked_quantity);
+                view.Cart(comp);
+            }else{
+                view.showMessage("Error", "The quantity you want is larger than what we have.");
+            }
+        }else if(synthesi!=null){
+            if(asked_quantity <= synthesi.getQuantity() && asked_quantity!=0){
+                view.Cart(synthesi);
+            }else{
+                Log.d("ProductPresenter",String.valueOf(synthesi.getQuantity()));
+                view.showMessage("Error", "The quantity you want is larger than what we have.");
+            }
         }
+
     }
     public void onIncreaseQuantity(){
         view.increaseQuantity();

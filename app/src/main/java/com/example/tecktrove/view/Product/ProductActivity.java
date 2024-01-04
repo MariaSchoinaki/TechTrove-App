@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -22,6 +21,7 @@ import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.util.Money;
+import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.Port;
 import com.example.tecktrove.view.PortAdapter;
 import com.example.tecktrove.view.ProductAdapter;
@@ -75,7 +75,7 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         findViewById(R.id.product_info_addToCart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.goToCart(quantity);
+                presenter.goToCart(quantity, modelNo);
             }
         });
 
