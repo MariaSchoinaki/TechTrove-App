@@ -1,5 +1,7 @@
 package com.example.tecktrove.domain;
 
+import android.annotation.SuppressLint;
+import android.util.Log;
 import android.util.Pair;
 
 import com.example.tecktrove.contacts.Email;
@@ -70,20 +72,26 @@ public class Customer extends User {
         this.savedSynthesis.remove(synthesis);
     }
 
+
     public void addToCart(Pair<ProductType,Integer> pair){
         SharedViewModel model =  new SharedViewModel();
+        Boolean found = Boolean.FALSE;
         ArrayList<Pair<ProductType,Integer>> cart = model.getCustomer().getCart();
-        if(cart.contains(pair)){
-            Pair<ProductType,Integer> pair1 = getProductFromCart(pair.first.getModelNo());
-            cart.remove(pair);
-            int q = pair1.second;
-            q=q+ pair.second;
-            Pair<ProductType,Integer> Pair = new Pair<ProductType,Integer>(pair1.first,q);
-            model.getCustomer().getCart().add(Pair);
-        }else{
+        if(cart.size()>0)
+        for(Pair<ProductType,Integer> product : cart) {
+            if (product.first.getModelNo()==pair.first.getModelNo()) {
+                found = Boolean.TRUE;
+                Pair<ProductType, Integer> pair1 = getProductFromCart(product.first.getModelNo());
+                model.getCustomer().getCart().remove(product);
+                int q = pair1.second;
+                q = q + pair.second;
+                Pair<ProductType, Integer> Pair = new Pair<ProductType, Integer>(pair1.first, q);
+                model.getCustomer().getCart().add(Pair);
+            }
+        }
+        if(!found){
             this.cart.add(pair);
         }
-
     }
 
     public void removeFromCart(ProductType product){
