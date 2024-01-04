@@ -20,8 +20,10 @@ public class ProductActivity extends AppCompatActivity implements ProductView{
 
     private ProductPresenter presenter;
     private Initializer init;
-    private int quantity;
+    private  int quantity;
     private SharedViewModel sharedViewModel;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class ProductActivity extends AppCompatActivity implements ProductView{
         presenter.setInfo(modelNo);
 
         sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+
 
 
         findViewById(R.id.product_info_addToCart).setOnClickListener(new View.OnClickListener() {
@@ -60,18 +63,21 @@ public class ProductActivity extends AppCompatActivity implements ProductView{
     }
 
     @Override
-    public void showInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity) {
+    public void showInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts ,int quantity) {
         ((TextView) findViewById(R.id.product_info_name)).setText(name);
         ((TextView) findViewById(R.id.product_info_modelNo)).setText("Model Number: " + (String.valueOf(modelNo)));
         ((TextView) findViewById(R.id.product_info_manufacturer)).setText("Manufacturer: " + manufacturer);
         ((TextView) findViewById(R.id.product_info_description)).setText((description));
         ((TextView) findViewById(R.id.product_info_price)).setText(price.toString());
+
     }
 
     @Override
     public void Cart(ProductType product) {
+        product.setQuantityOnCart(quantity);
         sharedViewModel.getCustomer().addToCart(product);
         showMessage("Success", "Added to cart!");
+
     }
 
     @Override
@@ -84,6 +90,7 @@ public class ProductActivity extends AppCompatActivity implements ProductView{
     public void decreaseQuantity() {
         if (quantity > 0) {
             quantity--;
+
             ((TextView) findViewById(R.id.product_info_quantity)).setText(String.valueOf(quantity));
         }
     }
@@ -96,4 +103,7 @@ public class ProductActivity extends AppCompatActivity implements ProductView{
                 .setMessage(msg)
                 .setPositiveButton(R.string.ok, null).create().show();
     }
+
+
+
 }
