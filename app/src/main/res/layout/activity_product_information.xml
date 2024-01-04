@@ -57,11 +57,12 @@
 
 
             <!-- Increase Quantity Button -->
+
             <Button
                 android:id="@+id/product_info_decrease"
-                android:layout_width="44dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#50C878"
+                android:backgroundTint="#0F0F0F"
                 android:text="-"
                 android:textColor="#FFFAFA"
                 android:textSize="16sp"
@@ -82,9 +83,9 @@
             <!-- Decrease Quantity Button -->
             <Button
                 android:id="@+id/product_info_increase"
-                android:layout_width="44dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#50C878"
+                android:backgroundTint="#0F0F0F"
                 android:text="+"
                 android:textColor="#FFFAFA"
                 android:textSize="16sp"
