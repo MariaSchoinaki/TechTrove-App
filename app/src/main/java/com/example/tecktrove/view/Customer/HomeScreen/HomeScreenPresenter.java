@@ -20,20 +20,10 @@ public class HomeScreenPresenter {
     void onAll(){
         view.All();
     }
-    void onRam(){
-        view.Ram();
+
+    void onDisplayProducts(String filter){
+        view.displayProducts(filter);
     }
-    void onCpu(){
-        view.Cpu();
-    }
-    void onBox(){
-        view.Box();
-    }
-    void onMotherboard(){view.Motherboard();}
-    void onVga(){view.Vga();}
-    void onDisk(){view.Disk();}
-    void onCooler(){view.Cooler();}
-    void ontrofodotiko(){view.trofodotiko();}
 
     void onCart(){
         Log.d("HomeScreenPresenter", "onCart");view.Cart();}

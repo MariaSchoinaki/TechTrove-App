@@ -116,35 +116,16 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public void onCategoryClick(String category) {
         // Handle the clicked category here
         Log.d("Category Clicked", category);
-        switch (category){
-            case "all":
-                presenter.onAll();
-                break;
-            case "ram":
-                presenter.onRam();
-                break;
-            case "cpu":
-                presenter.onCpu();
-                break;
-            case "box":
-                presenter.onBox();
-                break;
-            case "motherboard":
-                presenter.onMotherboard();
-                break;
-            case "vga":
-                presenter.onVga();
-                break;
-            case "disk":
-                presenter.onDisk();
-                break;
-            case "cooler":
-                presenter.onCooler();
-                break;
-            case "trofodotiko":
-                presenter.ontrofodotiko();
-                break;
+        if(category.equals("all")) {
+            presenter.onAll();
+        }else if(category.equals("box")) {
+            presenter.onDisplayProducts("case tower");
+        }else if(category.equals("disk")) {
+            presenter.onDisplayProducts("disk ssd");
+        }else {
+            presenter.onDisplayProducts(category);
         }
+
     }
 
     @Override
@@ -154,43 +135,8 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     }
 
     @Override
-    public void Ram() {
-
-    }
-
-    @Override
-    public void Cpu() {
-
-    }
-
-    @Override
-    public void Box() {
-
-    }
-
-    @Override
-    public void Motherboard() {
-
-    }
-
-    @Override
-    public void Vga() {
-
-    }
-
-    @Override
-    public void Disk() {
-
-    }
-
-    @Override
-    public void Cooler() {
-
-    }
-
-    @Override
-    public void trofodotiko() {
-
+    public void displayProducts(String filter) {
+        searchComponents(filter);
     }
 
     @Override
@@ -240,11 +186,15 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         ArrayList<Component> searchResults = new ArrayList<>();
         ArrayList<Component> allComponents = init.getComponentDAO().findAll();
 
+        String[] queries = query.split(" ");
+
 
         for (Component component : allComponents) {
-            if (component.getName().toLowerCase().contains(query.toLowerCase()) ||
-                    (String.valueOf(component.getModelNo())).equals(query.toLowerCase())) {
-                searchResults.add(component);
+            for(String q : queries){
+                if (component.getName().toLowerCase().contains(q.toLowerCase()) ||
+                        (String.valueOf(component.getModelNo())).equals(q.toLowerCase())) {
+                    searchResults.add(component);
+                }
             }
         }
 
