@@ -67,31 +67,31 @@ public class DAOTest {
     @Test
     public void CustomerCheckFindAll(){
         Assert.assertEquals(3, customerDAO.findAll().size());
-        Assert.assertTrue(customerDAO.findAll().contains(new Customer(5673, "george", "ok123456", "George", "Johnson", new Email("klap@yahoo.com"), new Telephone("6898909678"), new ArrayList<Synthesis>(), new ArrayList<ProductType>())));
+        Assert.assertTrue(customerDAO.findAll().contains(new Customer(5673, "george", "ok123456", "George", "Johnson", new Email("klap@yahoo.com"), new Telephone("6898909678"), new ArrayList<Synthesis>(), new ArrayList<android.util.Pair<ProductType,Integer>>())));
     }
 
     @Test
     public void CustomerCheckFindByUsernameAndPassword(){
         Assert.assertEquals("Maria", customerDAO.findCustomerByUsernameAndPassword("maria5", "31m@ria5").getName());
         Assert.assertNull(customerDAO.findCustomerByUsernameAndPassword("abcd","ljhg7yhb"));
-        Assert.assertEquals(new Customer(2598, "chris", "chr!s598", "Christos", "Papaioanou", new Email("papaio54@gmail.com"), new Telephone("6985369825"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()), customerDAO.findCustomerByUsernameAndPassword("chris","chr!s598"));
+        Assert.assertEquals(new Customer(2598, "chris", "chr!s598", "Christos", "Papaioanou", new Email("papaio54@gmail.com"), new Telephone("6985369825"), new ArrayList<Synthesis>(), new ArrayList<android.util.Pair<ProductType,Integer>>()), customerDAO.findCustomerByUsernameAndPassword("chris","chr!s598"));
     }
 
     @Test
     public void CustomerCheckFindById(){
-        Assert.assertEquals(new Customer(2598, "chris", "chr!s598", "Christos", "Papaioanou", new Email("papaio54@gmail.com"), new Telephone("6985369825"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()), customerDAO.findCustomerByID(2598));
+        Assert.assertEquals(new Customer(2598, "chris", "chr!s598", "Christos", "Papaioanou", new Email("papaio54@gmail.com"), new Telephone("6985369825"), new ArrayList<Synthesis>(), new ArrayList<android.util.Pair<ProductType,Integer>>()), customerDAO.findCustomerByID(2598));
         Assert.assertNull(customerDAO.findCustomerByID(4));
     }
 
     @Test
     public void CustomerCheckSave(){
-        customerDAO.save(new Customer(34, "leon", "leon2001", "leonidas","fragkias", new Email("leon@gmail.com"), new Telephone("6972342376"), new ArrayList<Synthesis>(),new ArrayList<ProductType>()));
+        customerDAO.save(new Customer(34, "leon", "leon2001", "leonidas","fragkias", new Email("leon@gmail.com"), new Telephone("6972342376"), new ArrayList<Synthesis>(),new ArrayList<android.util.Pair<ProductType,Integer>>()));
         Assert.assertEquals(4, customerDAO.findAll().size());
     }
 
     @Test
     public void CustomerCheckDelete(){
-        customerDAO.delete(new Customer(7859, "maria5", "31m@ria5", "Maria", "Papadaki", new Email("papadaki27@gmail.com"), new Telephone("6984596936"), new ArrayList<Synthesis>(), new ArrayList<ProductType>()));
+        customerDAO.delete(new Customer(7859, "maria5", "31m@ria5", "Maria", "Papadaki", new Email("papadaki27@gmail.com"), new Telephone("6984596936"), new ArrayList<Synthesis>(), new ArrayList<android.util.Pair<ProductType,Integer>>()));
         Assert.assertEquals(2, customerDAO.findAll().size());
     }
 
