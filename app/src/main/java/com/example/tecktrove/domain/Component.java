@@ -10,7 +10,6 @@ public class Component extends ProductType{
     private String manufacturer;
     private Port availablePorts;
     private Port requiredPorts;
-    private int quantity;
 
     private ArrayList<Item> items;
 
@@ -28,12 +27,11 @@ public class Component extends ProductType{
      * @param quantity        the quantity of the Component as Integer
      */
     public Component(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity){
-        super(modelNo, price,name);
+        super(modelNo, price,name,quantity);
         this.description = description;
         this.manufacturer = manufacturer;
         this.availablePorts = availablePorts;
         this.requiredPorts = requiredPorts;
-        this.quantity = quantity;
     }
 
 
@@ -71,10 +69,6 @@ public class Component extends ProductType{
      */
     public Port getRequiredPorts() {
         return requiredPorts;
-    }
-
-    public int getQuantity(){
-        return this.quantity;
     }
 
     /**

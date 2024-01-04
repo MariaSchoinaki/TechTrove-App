@@ -1,10 +1,12 @@
 package com.example.tecktrove.domain;
 
+
 import com.example.tecktrove.util.Money;
 public class ProductType {
     protected int modelNo;
     protected Money price;
     protected String name;
+    protected int quantity;
 
     public ProductType(){}
 
@@ -14,11 +16,11 @@ public class ProductType {
      * @param price         the price of the ProductType
      * @param name          the name of the ProductType
      */
-    public ProductType(int modelNo, Money price, String name){
+    public ProductType(int modelNo, Money price, String name, int quantity){
         this.modelNo = modelNo;
         this.price = price;
         this.name = name;
-
+        this.quantity = quantity;
     }
 
     /**
@@ -65,6 +67,26 @@ public class ProductType {
         this.name = name;
     }
 
+    public void setQuantity(int q){
+        this.quantity = q;
+    }
 
+    public int getQuantity(){
+        return quantity;
+    }
 
+    @Override
+    public boolean equals(Object other) {
+        if (other == null){
+            return false;
+        }
+        if (this == other){
+            return true;
+        }
+        if (!(other instanceof ProductType)){
+            return false;
+        }
+        ProductType product = (ProductType) other;
+        return this.getModelNo() == product.getModelNo();
+    }
 }
