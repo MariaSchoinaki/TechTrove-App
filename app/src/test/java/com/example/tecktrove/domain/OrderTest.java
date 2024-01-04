@@ -38,6 +38,8 @@ public class OrderTest  {
         Order o = new Order();
         o.setEmail(new Email("ok@gmail.com"));
         Assert.assertEquals("ok@gmail.com", o.getEmail().getEmail());
+        o.setId(5);
+        Assert.assertEquals(5, o.getId());
     }
     @Test
     public void checkGetSet() {

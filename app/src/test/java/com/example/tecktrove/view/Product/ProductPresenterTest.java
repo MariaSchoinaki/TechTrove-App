@@ -52,7 +52,10 @@ public class ProductPresenterTest {
         presenter.goToCart(2, 2936);
         Assert.assertEquals(73, view.getQuantity());
 
+        presenter.setInfo(9787);
         presenter.goToCart(1, 9787);
+        presenter.goToCart(100, 9787);
+        Assert.assertEquals(2, view.getTimesShowingMessage());
     }
 
     @Test

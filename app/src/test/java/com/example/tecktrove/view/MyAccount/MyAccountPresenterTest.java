@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelStore;
 
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.Customer;
+import com.example.tecktrove.domain.Employer;
 import com.example.tecktrove.memorydao.CustomerDAOMemory;
 import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
@@ -88,5 +89,16 @@ public class MyAccountPresenterTest {
         c = init.getCustomerDAO().findCustomerByUsernameAndPassword("georgie", "ok123456");
         Assert.assertNotNull(c);
         Assert.assertEquals("kallifanakis", c.getLastName());
+
+        Employer e = init.getEmployerDAO().findEmployerByUsernameAndPassword("eleni3", "elen!562");
+
+        presenter.setInfo("eleni maria", e.getEmail().getEmail(), "6987020265", "elenara", e.getPassword(), e.getPassword(), true);
+        presenter.onSaveChanges(e, 1252);
+
+        e = init.getEmployerDAO().findEmployerByUsernameAndPassword("eleni3", "elen!562");
+        Assert.assertNull(e);
+        e = init.getEmployerDAO().findEmployerByUsernameAndPassword("elenara", "elen!562");
+        Assert.assertNotNull(e);
+        Assert.assertEquals("eleni", e.getName());
     }
 }

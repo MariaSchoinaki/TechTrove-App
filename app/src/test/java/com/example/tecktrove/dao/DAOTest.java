@@ -96,6 +96,11 @@ public class DAOTest {
     }
 
     @Test
+    public void CustomerCheckNextId(){
+        Assert.assertEquals(2599,customerDAO.nextId());
+    }
+
+    @Test
     public void EmployerCheckFindAll(){
         Assert.assertEquals(3, employerDAO.findAll().size());
         Assert.assertTrue(employerDAO.findAll().contains(new Employer(1252, "eleni3", "elen!562", "Eleni", "Georgali", new Email("eleniii2@gmail.com"), new Telephone("6988745961"))));
@@ -106,6 +111,17 @@ public class DAOTest {
         Assert.assertEquals("Konstantinos", employerDAO.findEmployerByUsernameAndPassword("kostas34", "13k023m32").getName());
         Assert.assertNull(employerDAO.findEmployerByUsernameAndPassword("abcd","ljhg7yhb"));
         Assert.assertEquals(new Employer(5698, "faihh1", "faihskoni1", "Foteini", "Soultatou", new Email("apple3r@yahoo.com"), new Telephone("6978451236")), employerDAO.findEmployerByUsernameAndPassword("faihh1","faihskoni1"));
+    }
+
+    @Test
+    public void EmployerCheckFindByUsername(){
+        Assert.assertNull(employerDAO.findEmployerByUsername("yolo"));
+        Assert.assertNotNull(employerDAO.findEmployerByUsername("eleni3"));
+    }
+
+    @Test
+    public void EmployerCheckNextId(){
+        Assert.assertEquals(8597,employerDAO.nextId());
     }
 
     @Test

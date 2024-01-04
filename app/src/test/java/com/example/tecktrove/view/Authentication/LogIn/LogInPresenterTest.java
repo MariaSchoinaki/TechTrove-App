@@ -56,6 +56,11 @@ public class LogInPresenterTest {
         presenter.startProcess();
         Assert.assertEquals(4, view.getErrorMessage());
 
+        view.setUser("eleni3", "elen!552", true);
+        presenter.startProcess();
+        Assert.assertEquals(5, view.getErrorMessage());
+
+
     }
 
     @Test

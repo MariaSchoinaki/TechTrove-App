@@ -29,4 +29,12 @@ public class PairTest {
         p2.setSecond(2);
         assertEquals(this.p1.getSecond(),this.p2.getSecond());
     }
+
+    @Test
+    public void checkEquals(){
+        Assert.assertFalse(p1.equals(null));
+        Assert.assertEquals(p1,p1);
+        Assert.assertEquals(p1, new Pair<String, Integer>("SATA3",2));
+        Assert.assertNotEquals(p1,p2);
+    }
 }

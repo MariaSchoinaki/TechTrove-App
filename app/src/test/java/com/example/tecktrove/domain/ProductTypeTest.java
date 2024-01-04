@@ -30,6 +30,8 @@ public class ProductTypeTest {
         assertEquals(23,t3.getModelNo());
         assertEquals(new Money(new BigDecimal(2100.0),euroCurrency),t3.getPrice());
         assertEquals("a",t3.getName());
+        t3.setQuantity(5);
+        assertEquals(5, t3.getQuantity());
     }
 
     @Test

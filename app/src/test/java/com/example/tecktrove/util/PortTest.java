@@ -10,6 +10,18 @@ import org.junit.*;
 import java.util.ArrayList;
 public class PortTest {
 
+    private ArrayList<Pair<String,Integer>> available_ports;
+    private Port availablePorts;
+
+    @Before
+    public void setUp(){
+        Pair<String,Integer> port1 = new Pair<String,Integer>("PCIExpress", 1);
+
+        available_ports = new ArrayList<Pair<String,Integer>>();
+        available_ports.add(port1);
+        availablePorts = new Port(available_ports);
+    }
+
     @Test
     public void checkDefaultConstructor(){
         Port port = new Port();
@@ -18,13 +30,6 @@ public class PortTest {
 
     @Test
     public void  checkPortFunctionality(){
-        Pair<String,Integer> port1 = new Pair<String,Integer>("PCIExpress", 1);
-
-        ArrayList<Pair<String,Integer>> available_ports = new ArrayList<Pair<String,Integer>>();
-        available_ports.add(port1);
-        Port availablePorts = new Port(available_ports);
-
-
         Assert.assertNotNull(available_ports);
 
         Assert.assertEquals(1, availablePorts.getPorts().size());
@@ -38,5 +43,12 @@ public class PortTest {
         availablePorts.remove(c);
         Assert.assertEquals(-1, availablePorts.getPortNumber("HDMI"));
 
+    }
+
+    @Test
+    public void testEquals(){
+        Assert.assertEquals(availablePorts, availablePorts);
+        Assert.assertNotEquals(availablePorts, null);
+        Assert.assertNotEquals(availablePorts, new Port());
     }
 }

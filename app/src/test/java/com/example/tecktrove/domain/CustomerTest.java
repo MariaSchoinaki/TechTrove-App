@@ -61,8 +61,8 @@ public class CustomerTest {
       assertEquals(k, customer1.getProductFromCart(15627).getFirst());
 
       customer1.removeFromCart(p);
-
-      assertNotEquals(p, customer1.getProductFromCart(16627).getFirst());
+      assertEquals(p, customer1.getProductFromCart(16627).getFirst());
+      customer1.addToCart(new Pair<ProductType,Integer>(p,1));
    }
 
    @Test
