@@ -18,9 +18,9 @@ public class PortTest {
 
     @Test
     public void  checkPortFunctionality(){
-        Pair port1 = new Pair("PCIExpress", 1);
+        Pair<String,Integer> port1 = new Pair<String,Integer>("PCIExpress", 1);
 
-        ArrayList<Pair> available_ports = new ArrayList<Pair>();
+        ArrayList<Pair<String,Integer>> available_ports = new ArrayList<Pair<String,Integer>>();
         available_ports.add(port1);
         Port availablePorts = new Port(available_ports);
 
@@ -28,7 +28,7 @@ public class PortTest {
         Assert.assertNotNull(available_ports);
 
         Assert.assertEquals(1, availablePorts.getPorts().size());
-        Pair c = new Pair("HDMI",4);
+        Pair<String,Integer> c = new Pair<String,Integer>("HDMI",4);
         availablePorts.add(c);
         Assert.assertEquals(4, availablePorts.getPortNumber("HDMI"));
         Assert.assertEquals(1, availablePorts.getPortNumber("PCIExpress"));

@@ -3,6 +3,7 @@ package com.example.tecktrove.view.Product;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
+import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,7 +20,7 @@ public class ProductPresenterTest {
         init.prepareData();
 
         view = new ProductViewStub();
-        presenter = new ProductPresenter(new ComponentDAOMemory(), view);
+        presenter = new ProductPresenter(new ComponentDAOMemory(), new SynthesisDAOMemory(),view);
     }
 
     @Test
@@ -44,12 +45,14 @@ public class ProductPresenterTest {
         presenter.setInfo(2936);
 
         Assert.assertEquals(0, view.getTimesShowingMessage());
-        presenter.goToCart(80);
+        presenter.goToCart(80, 2936);
         Assert.assertEquals(1, view.getTimesShowingMessage());
         Assert.assertEquals(75, view.getQuantity());
 
-        presenter.goToCart(2);
+        presenter.goToCart(2, 2936);
         Assert.assertEquals(73, view.getQuantity());
+
+        presenter.goToCart(1, 9787);
     }
 
     @Test

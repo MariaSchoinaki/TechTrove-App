@@ -14,19 +14,19 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 public class ComponentTest {
     private Component component;
-    private ArrayList<Pair> available_ports,required_ports;
+    private ArrayList<Pair<String, Integer>> available_ports,required_ports;
     private Port availablePorts, requiredPorts;
 
     @Before
     public void setUp(){;
-        Pair port = new Pair ("HDMI", 2);
-        Pair port2 = new Pair("PCIExpress", 1);
+        Pair<String, Integer> port = new Pair<String, Integer> ("HDMI", 2);
+        Pair<String, Integer> port2 = new Pair<String, Integer>("PCIExpress", 1);
 
-        available_ports = new ArrayList<Pair>();
+        available_ports = new ArrayList<Pair<String, Integer>>();
         available_ports.add(port);
         availablePorts = new Port(available_ports);
 
-        required_ports = new ArrayList<Pair>();
+        required_ports = new ArrayList<Pair<String, Integer>>();
         required_ports.add(port2);
         requiredPorts = new Port(required_ports);
         availablePorts.add(port);

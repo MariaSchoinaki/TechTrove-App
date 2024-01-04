@@ -16,6 +16,7 @@ import java.util.Currency;
 import org.junit.*;
 
 
+import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.SimpleCalendar;
 import com.example.tecktrove.util.SystemDate;
 
@@ -26,7 +27,7 @@ public class OrderTest  {
     @Before
     public void setUp(){
         ArrayList<OrderLine> R1 = new ArrayList<OrderLine>();
-        R1.add(new OrderLine(2,new ProductType(123,new Money(new BigDecimal(2100.0), euroCurrency),"chris")));
+        R1.add(new OrderLine(2,new ProductType(123,new Money(new BigDecimal(2100.0), euroCurrency),"chris", 8)));
         ArrayList<OrderLine> R2 = new ArrayList<OrderLine>();
         order1 = new Order(new SimpleCalendar(2023,11,26),2510000000000000L,new Telephone("2109843678"),new Email("ok@gmail.com"),R1);
         order2 = new Order(new SimpleCalendar(2023,6,25),2510100000000000L,new Telephone("1109843674"),new Email("oka1@gmail.com"),R2);
@@ -61,13 +62,13 @@ public class OrderTest  {
         order2.setOrderLines(l1);
         assertEquals(l1, this.order2.getOrderLines());
         assertEquals(l1,this.order1.getOrderLines());
-        order1.setCustomer(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<android.util.Pair<ProductType,Integer>>()));
-        assertEquals(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<android.util.Pair<ProductType,Integer>>()),this.order1.getCustomer());
+        order1.setCustomer(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>()));
+        assertEquals(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>()),this.order1.getCustomer());
 
     }
     @Test
     public void testAddRemove(){
-        OrderLine R3 = new OrderLine(2,new ProductType(125,new Money(new BigDecimal(2100.1), euroCurrency),"chris"));
+        OrderLine R3 = new OrderLine(2,new ProductType(125,new Money(new BigDecimal(2100.1), euroCurrency),"chris", 2));
         order1.addOrderLine(R3);
         assertTrue(order1.getOrderLines().remove(R3));
         order2.addOrderLine(R3);

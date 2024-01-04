@@ -18,8 +18,8 @@ public class ProductTypeTest {
     ProductType t1,t2;
     @Before
     public void Setup(){
-        t1 = new ProductType(25,new Money(new BigDecimal(2100.0),euroCurrency),"apple");
-        t2 = new ProductType(26,new Money(new BigDecimal(2100.1),euroCurrency),"arp");
+        t1 = new ProductType(25,new Money(new BigDecimal(2100.0),euroCurrency),"apple", 4);
+        t2 = new ProductType(26,new Money(new BigDecimal(2100.1),euroCurrency),"arp", 3);
     }
     @Test
     public void checkDefaultConstructor(){
