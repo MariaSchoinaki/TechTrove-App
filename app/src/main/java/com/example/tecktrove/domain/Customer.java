@@ -1,12 +1,9 @@
 package com.example.tecktrove.domain;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
-import android.util.Pair;
 
 import com.example.tecktrove.contacts.Email;
 import com.example.tecktrove.contacts.Telephone;
-import com.example.tecktrove.view.SharedViewModel;
+import com.example.tecktrove.util.Pair;
 
 import java.util.ArrayList;
 
@@ -74,19 +71,12 @@ public class Customer extends User {
 
 
     public void addToCart(Pair<ProductType,Integer> pair){
-        SharedViewModel model =  new SharedViewModel();
-        Boolean found = Boolean.FALSE;
-        ArrayList<Pair<ProductType,Integer>> cart = model.getCustomer().getCart();
-        if(cart.size()>0)
+        Boolean found = false;
         for(Pair<ProductType,Integer> product : cart) {
-            if (product.first.getModelNo()==pair.first.getModelNo()) {
-                found = Boolean.TRUE;
-                Pair<ProductType, Integer> pair1 = getProductFromCart(product.first.getModelNo());
-                model.getCustomer().getCart().remove(product);
-                int q = pair1.second;
-                q = q + pair.second;
-                Pair<ProductType, Integer> Pair = new Pair<ProductType, Integer>(pair1.first, q);
-                model.getCustomer().getCart().add(Pair);
+            if ((product.getFirst()).equals(pair.getFirst())) {
+                found = true;
+                int new_quantity = product.getSecond() + pair.getSecond();
+                product.setSecond(new_quantity);
             }
         }
         if(!found){
@@ -103,7 +93,7 @@ public class Customer extends User {
         Pair<ProductType,Integer> p;
         while(i>=0){
             p = this.cart.get(i);
-            if(p.first.getModelNo() == ProductID){
+            if(p.getFirst().getModelNo() == ProductID){
                 return p;
             }
             i-=1;
