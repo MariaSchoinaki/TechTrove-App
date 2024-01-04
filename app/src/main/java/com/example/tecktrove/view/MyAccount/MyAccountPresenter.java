@@ -52,13 +52,14 @@ public class MyAccountPresenter {
             view.showMessage("Λάθος!", "Ο κωδικός και ο κωδικός επιβεβαίωσης δεν ταιριάζουν.");
         } else {
             String[] name = fullname.split(" ", 2);
-            if (isEmployer) {
+            if (user instanceof Employer) {
                 Employer employer = employerDAO.findEmployerByUsername(username);
                 if ( employer!= null && !employer.equals(user)) {
                     view.showMessage("Λάθος!", "Το όνομα χρήστη υπάρχει ήδη.");
                 } else {
-                    employer.setName(name[0]); employer.setLastName(name[1]); employer.setEmail(new Email(email)); employer.setUsername(username);
-                    employer.setPassword(password); employer.setTelephone(new Telephone(phone));
+                    Employer e = employerDAO.findEmployerByID(userID);
+                    e.setName(name[0]); e.setLastName(name[1]); e.setEmail(new Email(email)); e.setUsername(username);
+                    e.setPassword(password); e.setTelephone(new Telephone(phone));
                     allgood = true;
                 }
             } else {

@@ -22,6 +22,8 @@ import android.widget.ViewFlipper;
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.User;
+import com.example.tecktrove.memorydao.CustomerDAOMemory;
+import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
 import com.example.tecktrove.view.Authentication.StartScreen.StartScreenActivity;
@@ -45,7 +47,7 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
 
         init = new MemoryInitializer();
 
-        presenter = new MyAccountPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
+        presenter = new MyAccountPresenter(this, new CustomerDAOMemory(), new EmployerDAOMemory());
         sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
 
         isEmployer = sharedViewModel.isEmployer();
@@ -122,6 +124,7 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
 
     @Override
     public void logout() {
+        sharedViewModel.clear();
         Intent intent = new Intent(this, StartScreenActivity.class);
         startActivity(intent);
     }

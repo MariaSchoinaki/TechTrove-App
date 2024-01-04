@@ -45,7 +45,6 @@ public class ProductPresenter {
             if(asked_quantity <= synthesi.getQuantity() && asked_quantity!=0){
                 view.Cart(synthesi);
             }else{
-                Log.d("ProductPresenter",String.valueOf(synthesi.getQuantity()));
                 view.showMessage("Error", "The quantity you want is larger than what we have.");
             }
         }
