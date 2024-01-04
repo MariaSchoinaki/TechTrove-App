@@ -1,10 +1,10 @@
 package com.example.tecktrove.domain;
 
 import com.example.tecktrove.util.Money;
+import com.example.tecktrove.util.Pair;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import android.util.Pair;
 
 public class Synthesis extends ProductType{
     private boolean publishState;
@@ -26,7 +26,7 @@ public class Synthesis extends ProductType{
      * @param price            the price of the Synthesis as Money
      */
     public Synthesis(int modelNo, Money price, String name){
-        super(modelNo, price, name);
+        super(modelNo, price, name, 0);
         this.ratings = new ArrayList<Pair<Double, Customer>>();
         this.components = new ArrayList<Component>();
     }
@@ -116,9 +116,10 @@ public class Synthesis extends ProductType{
     public void add(Component component) {
         this.components.add(component);
         calcPrice();
+        calculate_quantity();
     }
 
-    public void remove(Component component){ this.components.remove(component); }
+    public void remove(Component component){ this.components.remove(component); calculate_quantity();}
 
     public ArrayList<Component> getComponentList(){ return this.components; }
 
@@ -127,4 +128,14 @@ public class Synthesis extends ProductType{
     public Money getPrice(){return price;}
 
     public Customer getCustomer(){ return this.customer; }
+
+    private void calculate_quantity(){
+        int q = this.components.get(0).getQuantity();
+        for(Component comp:this.components){
+            if(comp.getQuantity()<q){
+                q = comp.getQuantity();
+            }
+        }
+        this.quantity = q;
+    }
 }
