@@ -20,6 +20,7 @@ public class MyAccountPresenter {
     private boolean isEmployer;
     private EmployerDAO employerDAO;
     private CustomerDAO customerDAO;
+    private int userID;
 
 
     public MyAccountPresenter(MyAccountView view, CustomerDAO customerDAO, EmployerDAO employerDAO){
@@ -32,7 +33,7 @@ public class MyAccountPresenter {
         view.logout();
     }
 
-    public void onSaveChanges(User user) {
+    public void onSaveChanges(User user, int userID) {
         boolean allgood = false;
 
         if (username.equals("") || password.equals("") || email.equals("") || phone.equals("") || confirm_password.equals("") || fullname.equals("")) {
@@ -65,8 +66,9 @@ public class MyAccountPresenter {
                 if (customer != null && !customer.equals(user)) {
                     view.showMessage("Λάθος!", "Το όνομα χρήστη υπάρχει ήδη.");
                 } else {
-                    customer.setName(name[0]); customer.setLastName(name[1]); customer.setEmail(new Email(email)); customer.setUsername(username);
-                    customer.setPassword(password); customer.setTelephone(new Telephone(phone));
+                    Customer c = customerDAO.findCustomerByID(userID);
+                    c.setName(name[0]); c.setLastName(name[1]); c.setEmail(new Email(email)); c.setUsername(username);
+                    c.setPassword(password); c.setTelephone(new Telephone(phone));
                     allgood = true;
                 }
             }

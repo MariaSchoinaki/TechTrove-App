@@ -76,9 +76,9 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
                         ((EditText) findViewById(R.id.my_account_password)).getText().toString().trim(),
                         ((EditText) findViewById(R.id.my_account_confirm_password)).getText().toString().trim(), sharedViewModel.isEmployer());
                 if(sharedViewModel.isEmployer()){
-                    presenter.onSaveChanges((User) sharedViewModel.getEmployer());
+                    presenter.onSaveChanges((User) sharedViewModel.getEmployer(),sharedViewModel.getEmployer().getId() );
                 }else{
-                    presenter.onSaveChanges((User) sharedViewModel.getCustomer());
+                    presenter.onSaveChanges((User) sharedViewModel.getCustomer(), sharedViewModel.getCustomer().getId());
                 }
             }
         });
