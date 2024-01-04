@@ -1,29 +1,29 @@
 package com.example.tecktrove.util;
 
-public class Pair {
+public class Pair<T, K> {
 
-    private String first;
-    private int second;
+    private T first;
+    private K second;
     public Pair(){}
 
-    public Pair(String s, int i){
+    public Pair(T s, K i){
         this.first = s;
         this.second = i;
     }
 
-    public void setFirst(String first) {
+    public void setFirst(T first) {
         this.first = first;
     }
 
-    public void setSecond(int second) {
+    public void setSecond(K second) {
         this.second = second;
     }
 
-    public int getSecond() {
+    public K getSecond() {
         return second;
     }
 
-    public String getFirst() {
+    public T getFirst() {
         return first;
     }
 
