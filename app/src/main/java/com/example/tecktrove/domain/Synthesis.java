@@ -119,7 +119,10 @@ public class Synthesis extends ProductType{
         calculate_quantity();
     }
 
-    public void remove(Component component){ this.components.remove(component); calculate_quantity();}
+    public void remove(Component component){
+        this.components.remove(component);
+        calculate_quantity();
+    }
 
     public ArrayList<Component> getComponentList(){ return this.components; }
 
@@ -130,12 +133,16 @@ public class Synthesis extends ProductType{
     public Customer getCustomer(){ return this.customer; }
 
     private void calculate_quantity(){
-        int q = this.components.get(0).getQuantity();
-        for(Component comp:this.components){
-            if(comp.getQuantity()<q){
-                q = comp.getQuantity();
+        if(this.components.size()>0) {
+            int q = this.components.get(0).getQuantity();
+            for (Component comp : this.components) {
+                if (comp.getQuantity() < q) {
+                    q = comp.getQuantity();
+                }
             }
+            this.quantity = q;
+        }else{
+            this.quantity = 0;
         }
-        this.quantity = q;
     }
 }
