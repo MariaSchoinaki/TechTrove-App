@@ -12,12 +12,12 @@ import java.util.Objects;
  */
 public class Port {
 
-    private ArrayList<Pair> ports;
+    private ArrayList<Pair<String,Integer>> ports;
     public Port(){
-        this.ports = new ArrayList<Pair>();
+        this.ports = new ArrayList<Pair<String,Integer>>();
     }
 
-    public Port(ArrayList<Pair> ports){
+    public Port(ArrayList<Pair<String,Integer>> ports){
         this.ports = ports;
     }
     public void add(Pair port){
@@ -29,8 +29,8 @@ public class Port {
     }
 
     public int getPortNumber(String key) {
-        Pair p1 = findPortPair(key);
-        for (Pair p : ports) {
+        Pair<String,Integer> p1 = findPortPair(key);
+        for (Pair<String,Integer> p : ports) {
             if (p.getFirst() == key) {
                 return  p.getSecond();
             }
@@ -62,12 +62,12 @@ public class Port {
         }
     }
 
-    public ArrayList<Pair> getPorts(){
+    public ArrayList<Pair<String,Integer>> getPorts(){
         return this.ports;
     }
 
-    public Pair findPortPair(String key){
-        for (Pair p : ports) {
+    public Pair<String,Integer> findPortPair(String key){
+        for (Pair<String,Integer> p : ports) {
             if (p.getFirst() == key) {
                 return p;
             }

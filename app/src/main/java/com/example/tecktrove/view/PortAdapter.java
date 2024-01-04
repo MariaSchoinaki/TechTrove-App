@@ -33,7 +33,7 @@ public class PortAdapter extends RecyclerView.Adapter<PortAdapter.PortViewHolder
         int port = position;
 
         // Bind data to the ViewHolder for the first product in the row
-        Pair p= ports.getPorts().get(port);
+        Pair<String,Integer> p= ports.getPorts().get(port);
         holder.bindProduct(p);
     }
 
@@ -55,7 +55,7 @@ public class PortAdapter extends RecyclerView.Adapter<PortAdapter.PortViewHolder
         }
 
         // Helper method to bind product data to the views
-        void bindProduct(Pair pair) {
+        void bindProduct(Pair<String,Integer> pair) {
             portName.setText(pair.getFirst());
             portNumber.setText(String.valueOf(pair.getSecond()));
         }

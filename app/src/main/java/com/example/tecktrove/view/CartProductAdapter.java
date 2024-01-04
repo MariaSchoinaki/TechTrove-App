@@ -4,33 +4,28 @@ import static android.app.PendingIntent.getActivity;
 import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Intent;
-import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.R;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.view.Customer.Cart.CartActivity;
-
-
 import java.util.ArrayList;
 
 public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.CartProductViewHolder>{
 
-    private ArrayList<android.util.Pair<ProductType,Integer>> productList;
+    private ArrayList<Pair<ProductType,Integer>> productList;
     private CartProductAdapter.OnCartProductClickListener onProductClickListener;
 
     public interface OnCartProductClickListener {
         void onCartProductClick(ProductType product);
     }
-    public CartProductAdapter(ArrayList<android.util.Pair<ProductType,Integer>> productList, OnCartProductClickListener onCategoryClickListener) {
+    public CartProductAdapter(ArrayList<Pair<ProductType,Integer>> productList, OnCartProductClickListener onCategoryClickListener) {
         this.productList = productList;
         this.onProductClickListener = onCategoryClickListener;
 
@@ -47,7 +42,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
         int ProductPosition = position;
 
         // Bind data to the ViewHolder for the first product in the row
-        ProductType Product = productList.get(ProductPosition).first;
+        ProductType Product = productList.get(ProductPosition).getFirst();
         SharedViewModel viewModel = new SharedViewModel();
         holder.bindProduct(Product);
     }
@@ -83,7 +78,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
                         int clickedProductIndex = adapterPosition;
 
                         if (clickedProductIndex < productList.size()) {
-                            ProductType clickedProduct = productList.get(clickedProductIndex).first;
+                            ProductType clickedProduct = productList.get(clickedProductIndex).getFirst();
                             onProductClickListener.onCartProductClick(clickedProduct);
                         }
                     }
@@ -109,7 +104,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
             productPriceView.setText(product.getPrice().toString());
             productNameTextView.setText(product.getName());
             int i = sharedViewModel.getCustomer().getCart().indexOf(sharedViewModel.getCustomer().getProductFromCart(product.getModelNo()));
-            productQuantityView.setText("x"+sharedViewModel.getCustomer().getCart().get(i).second);
+            productQuantityView.setText("x"+sharedViewModel.getCustomer().getCart().get(i).getSecond());
 
             itemView.findViewById(R.id.remove_button).setOnClickListener(new View.OnClickListener() {
 
