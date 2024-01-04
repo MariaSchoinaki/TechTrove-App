@@ -11,8 +11,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="382dp"
-        android:layout_height="511dp"
+        android:layout_width="361dp"
+        android:layout_height="461dp"
         android:layout_marginBottom="14dp"
         android:background="#0F0F0F"
         android:clipToPadding="false"
@@ -21,18 +21,19 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/button_purchase_cart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_cart"
         app:spanCount="2" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/CustomerHomePageTabLayout"
-        android:layout_width="411dp"
-        android:layout_height="45dp"
+        android:layout_width="391dp"
+        android:layout_height="48dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:tabIndicatorColor="#FFA400"
         app:tabRippleColor="#020101">
 
@@ -96,17 +97,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/recyclerView"
-        app:layout_constraintBottom_toTopOf="@id/CustomerHomePageTabLayout"
         android:id="@+id/button_purchase_cart"
         android:layout_width="238dp"
         android:layout_height="61dp"
         android:layout_marginStart="155dp"
-        android:layout_marginTop="544dp"
         android:layout_marginEnd="155dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="#202020"
         android:text="@string/Purchase"
         android:textColor="@color/white"
@@ -114,7 +110,29 @@
         android:textColorLink="@color/white"
         android:textSize="20sp"
         app:cornerRadius="10dp"
-         />
+        app:layout_constraintBottom_toTopOf="@id/CustomerHomePageTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView" />
+
+    <TextView
+        android:id="@+id/sum"
+        android:layout_width="389dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="13dp"
+        android:fontFamily="arial"
+        android:text="Total: 0EUR"
+
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_purchase_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.47" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
