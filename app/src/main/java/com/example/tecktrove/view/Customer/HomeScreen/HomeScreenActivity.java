@@ -15,7 +15,11 @@ import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.ProductType;
+import com.example.tecktrove.memorydao.ComponentDAOMemory;
+import com.example.tecktrove.memorydao.CustomerDAOMemory;
+import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
+import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
@@ -57,7 +61,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         recyclerView.setAdapter(categoryAdapter);
 
 
-        presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
+        presenter = new HomeScreenPresenter(this, new CustomerDAOMemory(), new EmployerDAOMemory(), new ComponentDAOMemory(), new SynthesisDAOMemory());
 
         TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);
 
@@ -117,7 +121,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         // Handle the clicked category here
         Log.d("Category Clicked", category);
         if(category.equals("all")) {
-            presenter.onAll();
+            presenter.onDisplayProducts("all");
         }else if(category.equals("box")) {
             presenter.onDisplayProducts("case tower");
         }else if(category.equals("disk")) {
@@ -129,14 +133,8 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     }
 
     @Override
-    public void All() {
-        productAdapter = new ProductAdapter(new ArrayList<ProductType>(init.getComponentDAO().findAll()),this);
-        recyclerView.setAdapter(productAdapter);
-    }
-
-    @Override
-    public void displayProducts(String filter) {
-        searchComponents(filter);
+    public void displayProducts(ArrayList<ProductType> products) {
+        updateUI(products);
     }
 
     @Override
@@ -161,9 +159,6 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public boolean onQueryTextChange(String text)
     {
         if (text.isEmpty()) {
-            // The query is empty, meaning the "X" button was clicked
-            Log.d("SearchView", "SearchView closed (X button clicked)");
-            // Perform any additional actions here
             recyclerView.setAdapter(categoryAdapter);
         }
         return true;
@@ -171,9 +166,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
 
     public boolean onQueryTextSubmit(String query) {
-        submittedText = query;
-        searchComponents(submittedText);
-        Log.d("SearchView", "Query submitted: " + query);
+        presenter.onDisplayProducts(query);
         return true;
     }
 
@@ -182,26 +175,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         return true;
     }
 
-    private void searchComponents(String query) {
-        ArrayList<Component> searchResults = new ArrayList<>();
-        ArrayList<Component> allComponents = init.getComponentDAO().findAll();
-
-        String[] queries = query.split(" ");
-
-
-        for (Component component : allComponents) {
-            for(String q : queries){
-                if (component.getName().toLowerCase().contains(q.toLowerCase()) ||
-                        (String.valueOf(component.getModelNo())).equals(q.toLowerCase())) {
-                    searchResults.add(component);
-                }
-            }
-        }
-
-        updateUI(searchResults);
-    }
-
-    private void updateUI(ArrayList<Component> searchResults) {
+    private void updateUI(ArrayList<ProductType> searchResults) {
         if (searchResults.isEmpty()) {
             TextView noResultsTextView = findViewById(R.id.homeScreen_noResultsTextView);
             noResultsTextView.setVisibility(View.VISIBLE);
@@ -210,7 +184,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
             findViewById(R.id.homeScreen_noResultsTextView).setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
 
-            productAdapter = new ProductAdapter(new ArrayList<ProductType>(searchResults), this);
+            productAdapter = new ProductAdapter(searchResults, this);
             recyclerView.setAdapter(productAdapter);
         }
     }
