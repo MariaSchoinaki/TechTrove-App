@@ -6,20 +6,38 @@
     android:layout_height="match_parent"
     android:background="#0F0F0F"
     android:backgroundTint="#0F0F0F">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="334dp"
-        android:layout_height="535dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="17dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_info_img">
+        app:layout_constraintStart_toStartOf="parent">
 
+        <ImageView
+            android:id="@+id/product_info_img"
+            android:layout_width="204dp"
+            android:layout_height="135dp"
+            android:layout_marginStart="103dp"
+            android:layout_marginEnd="104dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="Product Image 1"
+            android:padding="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/no_img"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/product_info_name"
@@ -27,7 +45,7 @@
             android:layout_height="59dp"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="18dp"
-            android:text="title"
+            android:text="Τίτλος"
             android:textColor="#FFFAFA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -37,10 +55,10 @@
         <TextView
             android:id="@+id/product_info_price"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="1dp"
-            android:text="Price:"
+            android:text="Τιμή:"
             android:textColor="#FFFAFA"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="599dp" />
@@ -100,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:backgroundTint="#50C878"
-                android:text="Add to Cart" />
+                android:text="Προσθήκη στο καλάθι" />
 
         </LinearLayout>
 
@@ -110,7 +128,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="1dp"
-            android:text="Description"
+            android:text="Περιγραφή"
             android:textColor="#FFFAFA"
             android:textSize="16sp"
             tools:layout_editor_absoluteX="53dp"
@@ -122,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="18dp"
-            android:text="Description:"
+            android:text="Περιγραφή"
             android:textColor="#FFFAFA"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="665dp" />
@@ -133,7 +151,7 @@
             android:layout_height="43dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="1dp"
-            android:text="Characteristics"
+            android:text="Χαρακτηριστικά"
             android:textColor="#FFFAFA"
             android:textSize="16sp"
             tools:layout_editor_absoluteX="51dp"
@@ -142,10 +160,10 @@
         <TextView
             android:id="@+id/product_info_modelNo"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="5dp"
-            android:text="Model Number:"
+            android:text="Κωδικός Μοντέλου:"
             android:textColor="#FFFAFA"
             tools:layout_editor_absoluteX="51dp"
             tools:layout_editor_absoluteY="452dp" />
@@ -153,32 +171,84 @@
         <TextView
             android:id="@+id/product_info_manufacturer"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="18dp"
-            android:text="Manufacturer: "
+            android:layout_marginBottom="1dp"
+            android:text="Κατασκευαστής: "
             android:textColor="#FFFAFA"
             tools:layout_editor_absoluteX="53dp"
             tools:layout_editor_absoluteY="526dp" />
 
+        <ViewFlipper
+            android:id="@+id/product_info_view_flipper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/product_info_recyc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/product_info_available_ports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="154dp"
+                    android:layout_marginBottom="19dp"
+                    android:text="Διαθέσιμες Θύρες "
+                    android:textColor="#FFFAFA"
+                    app:layout_constraintBottom_toTopOf="@+id/product_info_recycler_available_port"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/product_info_recycler_available_port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginBottom="11dp"
+                    app:layout_constraintBottom_toTopOf="@+id/product_info_required_ports"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_available_ports" />
+
+                <TextView
+                    android:id="@+id/product_info_required_ports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Απαιτούμενες Θύρες "
+                    android:textColor="#FFFAFA"
+                    app:layout_constraintBottom_toTopOf="@+id/product_info_recycler_required_port"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_recycler_available_port" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/product_info_recycler_required_port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_required_ports" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ViewFlipper>
+
+
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/product_info_img"
-        android:layout_width="204dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="103dp"
-        android:layout_marginEnd="104dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="Product Image 1"
-        android:padding="8dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/no_img"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
