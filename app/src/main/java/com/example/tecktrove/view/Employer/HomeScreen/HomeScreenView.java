@@ -1,16 +1,13 @@
 package com.example.tecktrove.view.Employer.HomeScreen;
 
+import com.example.tecktrove.domain.ProductType;
+
+import java.util.ArrayList;
+
 public interface HomeScreenView {
 
-    void All();
-    void Ram();
-    void Cpu();
-    void Box();
-    void Motherboard();
-    void Vga();
-    void Disk();
-    void Cooler();
-    void trofodotiko();
+
+    void displayProducts(ArrayList<ProductType> products);
 
     void goToHome();
 

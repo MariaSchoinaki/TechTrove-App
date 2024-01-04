@@ -15,7 +15,9 @@ import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.ProductType;
+import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
+import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
@@ -55,7 +57,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         recyclerView.setAdapter(categoryAdapter);
 
 
-        presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO());
+        presenter = new HomeScreenPresenter(this, init.getCustomerDAO(), init.getEmployerDAO(), new ComponentDAOMemory(), new SynthesisDAOMemory());
 
         TabLayout tabLayout = findViewById(R.id.home_screen_employer_tabs);
 
@@ -104,88 +106,23 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         categories.add("disk");
         categories.add("trofodotiko");
         categories.add("cooler");
+        categories.add("synthesis");
         return categories;
     }
 
     @Override
     public void onCategoryClick(String category) {
-        // Handle the clicked category here
-        Log.d("Category Clicked", category);
-        switch (category){
-            case "all":
-                presenter.onAll();
-                break;
-            case "ram":
-                presenter.onRam();
-                break;
-            case "cpu":
-                presenter.onCpu();
-                break;
-            case "box":
-                presenter.onBox();
-                break;
-            case "motherboard":
-                presenter.onMotherboard();
-                break;
-            case "vga":
-                presenter.onVga();
-                break;
-            case "disk":
-                presenter.onDisk();
-                break;
-            case "cooler":
-                presenter.onCooler();
-                break;
-            case "trofodotiko":
-                presenter.ontrofodotiko();
-                break;
+        if(category.equals("box")) {
+            presenter.onDisplayProducts("case tower");
+        }else if(category.equals("disk")) {
+            presenter.onDisplayProducts("disk ssd");
+        }else {
+            presenter.onDisplayProducts(category);
         }
     }
-
     @Override
-    public void All() {
-        productAdapter = new ProductAdapter(new ArrayList<ProductType>(init.getComponentDAO().findAll()),this);
-        recyclerView.setAdapter(productAdapter);
-    }
-
-    @Override
-    public void Ram() {
-
-    }
-
-    @Override
-    public void Cpu() {
-
-    }
-
-    @Override
-    public void Box() {
-
-    }
-
-    @Override
-    public void Motherboard() {
-
-    }
-
-    @Override
-    public void Vga() {
-
-    }
-
-    @Override
-    public void Disk() {
-
-    }
-
-    @Override
-    public void Cooler() {
-
-    }
-
-    @Override
-    public void trofodotiko() {
-
+    public void displayProducts(ArrayList<ProductType> products) {
+        updateUI(products);
     }
 
     @Override
@@ -203,9 +140,6 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public boolean onQueryTextChange(String text)
     {
         if (text.isEmpty()) {
-            // The query is empty, meaning the "X" button was clicked
-            Log.d("SearchView", "SearchView closed (X button clicked)");
-            // Perform any additional actions here
             recyclerView.setAdapter(categoryAdapter);
         }
         return true;
@@ -213,9 +147,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
 
     public boolean onQueryTextSubmit(String query) {
-        submittedText = query;
-        searchComponents(submittedText);
-        Log.d("SearchView", "Query submitted: " + query);
+        presenter.onDisplayProducts(query);
         return true;
     }
 
@@ -224,22 +156,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         return true;
     }
 
-    private void searchComponents(String query) {
-        ArrayList<Component> searchResults = new ArrayList<>();
-        ArrayList<Component> allComponents = init.getComponentDAO().findAll();
-
-
-        for (Component component : allComponents) {
-            if (component.getName().toLowerCase().contains(query.toLowerCase()) ||
-                    (String.valueOf(component.getModelNo())).equals(query.toLowerCase())) {
-                searchResults.add(component);
-            }
-        }
-
-        updateUI(searchResults);
-    }
-
-    private void updateUI(ArrayList<Component> searchResults) {
+    private void updateUI(ArrayList<ProductType> searchResults) {
         if (searchResults.isEmpty()) {
             TextView noResultsTextView = findViewById(R.id.homeScreen_employer_noResultsTextView);
             noResultsTextView.setVisibility(View.VISIBLE);
@@ -248,7 +165,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
             findViewById(R.id.homeScreen_employer_noResultsTextView).setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
 
-            productAdapter = new ProductAdapter(new ArrayList<ProductType>(searchResults), this);
+            productAdapter = new ProductAdapter(searchResults, this);
             recyclerView.setAdapter(productAdapter);
         }
     }
