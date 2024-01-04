@@ -4,7 +4,6 @@ import com.example.tecktrove.util.Money;
 public class ProductType {
     protected int modelNo;
     protected Money price;
-    protected int quantityOnCart;
     protected String name;
 
     public ProductType(){}
@@ -19,7 +18,7 @@ public class ProductType {
         this.modelNo = modelNo;
         this.price = price;
         this.name = name;
-        this.quantityOnCart=0;
+
     }
 
     /**
@@ -66,12 +65,6 @@ public class ProductType {
         this.name = name;
     }
 
-    public void setQuantityOnCart(int quantity){
-        this.quantityOnCart = quantity;
-    }
 
-    public  int getQuantityOnCart(){
-        return this.quantityOnCart;
-    }
 
 }

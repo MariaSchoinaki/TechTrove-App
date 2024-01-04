@@ -3,6 +3,7 @@ package com.example.tecktrove.view.Customer.Cart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -135,8 +136,8 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
     @Override
         public void ShowTotal(){
             Money total = Money.euros(0);
-            for (ProductType p : sharedViewModel.getCustomer().getCart()){
-                total= total.plus(p.getPrice().times(p.getQuantityOnCart()));
+            for (Pair<ProductType,Integer> p : sharedViewModel.getCustomer().getCart()){
+                total= total.plus(p.first.getPrice().times(p.second));
             }
             ((TextView) findViewById(R.id.sum)).setText("Total: "+total.toString());
         }

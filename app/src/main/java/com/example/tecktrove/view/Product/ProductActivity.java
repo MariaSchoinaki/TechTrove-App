@@ -2,6 +2,7 @@ package com.example.tecktrove.view.Product;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.widget.TextView;
 
@@ -74,8 +75,7 @@ public class ProductActivity extends AppCompatActivity implements ProductView{
 
     @Override
     public void Cart(ProductType product) {
-        product.setQuantityOnCart(quantity);
-        sharedViewModel.getCustomer().addToCart(product);
+        sharedViewModel.getCustomer().addToCart(new Pair<ProductType,Integer>(product,quantity));
         showMessage("Success", "Added to cart!");
 
     }

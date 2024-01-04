@@ -5,6 +5,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Intent;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +24,13 @@ import java.util.ArrayList;
 
 public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.CartProductViewHolder>{
 
-    private ArrayList<ProductType> productList;
+    private ArrayList<android.util.Pair<ProductType,Integer>> productList;
     private CartProductAdapter.OnCartProductClickListener onProductClickListener;
 
     public interface OnCartProductClickListener {
         void onCartProductClick(ProductType product);
     }
-    public CartProductAdapter(ArrayList<ProductType> productList, OnCartProductClickListener onCategoryClickListener) {
+    public CartProductAdapter(ArrayList<android.util.Pair<ProductType,Integer>> productList, OnCartProductClickListener onCategoryClickListener) {
         this.productList = productList;
         this.onProductClickListener = onCategoryClickListener;
 
@@ -46,7 +47,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
         int ProductPosition = position;
 
         // Bind data to the ViewHolder for the first product in the row
-        ProductType Product = productList.get(ProductPosition);
+        ProductType Product = productList.get(ProductPosition).first;
         SharedViewModel viewModel = new SharedViewModel();
         holder.bindProduct(Product);
     }
@@ -82,7 +83,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
                         int clickedProductIndex = adapterPosition;
 
                         if (clickedProductIndex < productList.size()) {
-                            ProductType clickedProduct = productList.get(clickedProductIndex);
+                            ProductType clickedProduct = productList.get(clickedProductIndex).first;
                             onProductClickListener.onCartProductClick(clickedProduct);
                         }
                     }
@@ -107,14 +108,15 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
 
             productPriceView.setText(product.getPrice().toString());
             productNameTextView.setText(product.getName());
-            productQuantityView.setText("x"+product.getQuantityOnCart());
+            int i = sharedViewModel.getCustomer().getCart().indexOf(sharedViewModel.getCustomer().getProductFromCart(product.getModelNo()));
+            productQuantityView.setText("x"+sharedViewModel.getCustomer().getCart().get(i).second);
 
             itemView.findViewById(R.id.remove_button).setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
                     SharedViewModel sharedViewModel = new SharedViewModel();
-                    sharedViewModel.getCustomer().getCart().remove(product);
+                    sharedViewModel.getCustomer().getCart().remove(sharedViewModel.getCustomer().getProductFromCart(product.getModelNo()));
 
                     Intent intent = new Intent(view.getContext(), CartActivity.class);
                     startActivity(view.getContext(),intent,null);
