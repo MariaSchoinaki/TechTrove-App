@@ -1,23 +1,31 @@
 package com.example.tecktrove.view.Product;
 
 import com.example.tecktrove.dao.ComponentDAO;
+import com.example.tecktrove.dao.SynthesisDAO;
 import com.example.tecktrove.domain.Component;
+import com.example.tecktrove.domain.Synthesis;
 
 public class ProductPresenter {
 
     private ProductView view;
     private ComponentDAO components;
+    private SynthesisDAO synthesisDAO;
     private Component comp;
+    private Synthesis synthesi;
 
-    ProductPresenter(ComponentDAO components, ProductView view){
+    ProductPresenter(ComponentDAO components, SynthesisDAO synthesisDAO,ProductView view){
         this.components = components;
         this.view = view;
+        this.synthesisDAO = synthesisDAO;
     }
 
     public void setInfo(int modelNo) {
         comp = components.find(modelNo);
+        synthesi = synthesisDAO.find(modelNo);
         if (comp != null) {
-            view.showInfo(comp.getModelNo(), comp.getPrice(), comp.getName(), comp.getDescription(), comp.getManufacturer(), comp.getAvailablePorts(), comp.getRequiredPorts(), comp.getQuantity());
+            view.showProductInfo(comp.getModelNo(), comp.getPrice(), comp.getName(), comp.getDescription(), comp.getManufacturer(), comp.getAvailablePorts(), comp.getRequiredPorts(), comp.getQuantity());
+        }else if(synthesi != null){
+            view.showSynthesisInfo(synthesi.getModelNo(),synthesi.getName(), synthesi.getPrice().toString(), synthesi.getComponentList());
         }
     }
 

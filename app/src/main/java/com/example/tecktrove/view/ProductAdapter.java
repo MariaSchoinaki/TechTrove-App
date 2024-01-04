@@ -83,7 +83,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             productImageView = itemView.findViewById(R.id.productImage1);
 
             productNameTextView.setText(product.getName());
-            String s = product.getImg();
+            //String s = product.getImg();
             //productImageView.setImageResource(R.drawable.s);
         }
     }
