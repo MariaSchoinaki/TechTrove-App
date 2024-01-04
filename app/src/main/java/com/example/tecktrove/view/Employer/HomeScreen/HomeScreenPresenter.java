@@ -26,14 +26,14 @@ public class HomeScreenPresenter {
         this.synthesisDAO = synthesisDAO;
     }
 
-    void onDisplayProducts(String filter){
+    public void onDisplayProducts(String filter){
         searchProducts(filter);
         view.displayProducts(searchResults);
     }
 
-    void onHome(){view.goToHome();}
+    public void onHome(){view.goToHome();}
 
-    void onMyAccount(){view.goToMyAccount();}
+    public void onMyAccount(){view.goToMyAccount();}
 
     private void searchProducts(String query) {
         searchResults = new ArrayList<>();
