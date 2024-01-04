@@ -69,7 +69,7 @@ public class SignUpPresenter {
                 if(customers.findCustomerByUsername(username) != null){
                     view.showErrorMessage("Error", "Username already exists.");
                 }else{
-                    Customer customer = new Customer(customers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<ProductType>());
+                    Customer customer = new Customer(customers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<android.util.Pair<ProductType,Integer>>());
                     customers.save(customer);
                     allgood=true;
                 }
