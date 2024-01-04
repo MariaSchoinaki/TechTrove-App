@@ -40,6 +40,10 @@ public class HomeScreenPresenter {
 
     void onMyAccount(){view.goToMyAccount();}
 
+    void onDIYSyntesis(){
+        view.diySynthesis();
+    }
+
     private void searchProducts(String query) {
         searchResults = new ArrayList<>();
         ArrayList<ProductType> allProducts = new ArrayList<>(componentDAO.findAll());

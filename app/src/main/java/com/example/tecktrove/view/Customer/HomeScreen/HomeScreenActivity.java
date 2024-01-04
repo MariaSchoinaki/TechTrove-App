@@ -104,6 +104,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
     private ArrayList<String> generateCategories() {
         ArrayList<String> categories = new ArrayList<>();
+        categories.add("makeyourownsynthesis");
         categories.add("all");
         categories.add("box");
         categories.add("cpu");
@@ -113,15 +114,14 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         categories.add("disk");
         categories.add("trofodotiko");
         categories.add("cooler");
+        categories.add("synthesis");
         return categories;
     }
 
     @Override
     public void onCategoryClick(String category) {
-        // Handle the clicked category here
-        Log.d("Category Clicked", category);
-        if(category.equals("all")) {
-            presenter.onDisplayProducts("all");
+        if(category.equals("makeyourownsynthesis")) {
+            presenter.onDIYSyntesis();
         }else if(category.equals("box")) {
             presenter.onDisplayProducts("case tower");
         }else if(category.equals("disk")) {
@@ -154,6 +154,11 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public void goToMyAccount() {
         Intent intent = new Intent(this, MyAccountActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void diySynthesis() {
+
     }
 
     public boolean onQueryTextChange(String text)

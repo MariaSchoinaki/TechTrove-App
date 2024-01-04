@@ -11,4 +11,6 @@ public interface HomeScreenView {
     void Cart();
     void goToHome();
     void goToMyAccount();
+
+    void diySynthesis();
 }
