@@ -12,11 +12,29 @@ public class OrderDAOMemory implements OrderDAO{
 
     protected static ArrayList<Order> orders = new ArrayList<Order>();
 
+
     /**
-     * Gets the order for some input number.
+     * Saves an object order in the dao
      *
-     * @param orderId   the input number
-     * @return          the order
+     * @param entity    the order object
+     */
+    @Override
+    public void save(Order entity){ orders.add(entity); }
+
+    /**
+     * Returns a new ArrayList of all the orders in the dao
+     *
+     * @return          the ArrayList of Order objects
+     */
+    @Override
+    public List<Order> findAll() { return new ArrayList<Order>(orders); }
+
+
+    /**
+     * Finds an order by the order id.
+     *
+     * @param orderId   the order id
+     * @return          the order object or null
      */
     @Override
     public Order find(int orderId){ //maybe in an exel san eggrafh na prosdiorizetai apo to id
@@ -29,17 +47,11 @@ public class OrderDAOMemory implements OrderDAO{
     }
 
     /**
-     * Gets a list of all the orders in the dao
+     * Finds all the orders in the dao completed
+     * by the given customer
      *
-     * @return          the list of all the orders
-     */
-    @Override
-    public List<Order> findAll() { return new ArrayList<Order>(orders); }
-
-    /**
-     * Gets a list of all the orders in the dao of the input customer
-     *
-     * @return          the list of all the orders of the customer
+     * @param customer
+     * @return the list of all the orders of the customer
      */
     @Override
     public List<Order> findByCustomer(Customer customer){
@@ -53,14 +65,6 @@ public class OrderDAOMemory implements OrderDAO{
     }
 
     /**
-     * Saves an object order in the dao
-     *
-     * @param entity    the order object
-     */
-    @Override
-    public void save(Order entity){ orders.add(entity); }
-
-    /**
      * Deletes the order object from the dao
      *
      * @param entity    an order object
@@ -69,7 +73,8 @@ public class OrderDAOMemory implements OrderDAO{
     public void delete(Order entity){ orders.remove(entity); }
 
     /**
-     * Deletes the order object from the dao if it exists based on the id of the order
+     * Deletes the order object from the dao based on the order id
+     * if it exists
      *
      * @param orderId      the order id
      */

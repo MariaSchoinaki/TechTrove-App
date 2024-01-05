@@ -10,9 +10,21 @@ public class EmployerDAOMemory implements EmployerDAO{
     protected static ArrayList<Employer> employers = new ArrayList<>();
 
     /**
-     * Get a List of all employers
+     * Stores an employer if they don't exist in the dao
      *
-     * @return      a list of employer objects
+     * @param entity    the employer object
+     */
+    @Override
+    public void save(Employer entity) {
+        if (!employers.contains(entity)){
+            employers.add(entity);
+        }
+    }
+
+    /**
+     * Returns a new ArrayList with all the employers in the dao
+     *
+     * @return      an ArrayList of employer objects
      */
     @Override
     public ArrayList<Employer> findAll() {
@@ -20,7 +32,7 @@ public class EmployerDAOMemory implements EmployerDAO{
     }
 
     /**
-     * Get an employer based on the username and the password
+     * Finds an employer based on the username and the password
      *
      * @param username      the username of the employer as a String
      * @param password      the password of the employer as a String
@@ -36,6 +48,12 @@ public class EmployerDAOMemory implements EmployerDAO{
         return null;
     }
 
+    /**
+     * Finds an employer based on the username
+     *
+     * @param username the username
+     * @return  an Employer object or null
+     */
     @Override
     public Employer findEmployerByUsername(String username) {
         for (Employer employer: employers){
@@ -47,7 +65,7 @@ public class EmployerDAOMemory implements EmployerDAO{
     }
 
     /**
-     *Get an employer based on the employer id
+     * Finds an employer based on the employer id
      *
      * @param       id the id of the employer
      * @return      an employer if it exists or null
@@ -63,19 +81,7 @@ public class EmployerDAOMemory implements EmployerDAO{
     }
 
     /**
-     * Save the employer if they don't exist in the dao
-     *
-     * @param entity    the employer object
-     */
-    @Override
-    public void save(Employer entity) {
-        if (!employers.contains(entity)){
-            employers.add(entity);
-        }
-    }
-
-    /**
-     * Delete the employer if they don't exist in the dao
+     * Deletes an employer
      *
      * @param entity    the employer object
      */
@@ -85,7 +91,7 @@ public class EmployerDAOMemory implements EmployerDAO{
     }
 
     /**
-     * Delete all the employers in the dao
+     * Deletes all the employers in the dao
      */
     @Override
     public void deleteAll(){

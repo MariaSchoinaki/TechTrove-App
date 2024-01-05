@@ -6,41 +6,47 @@ import java.util.ArrayList;
 public interface CustomerDAO {
 
     /**
-     * Get a List of all customers
-     *
-     * @return      a list of customer objects
-     */
-    ArrayList<Customer> findAll();
-
-    /**
-     * Get an customer based on the username and the password
-     *
-     * @param username      the username of the customer as a String
-     * @param password      the password of the customer as a String
-     * @return              an customer if it exists or null
-     */
-    public Customer findCustomerByUsernameAndPassword(String username, String password);
-
-    public Customer findCustomerByUsername(String username);
-
-    /**
-     *Get an customer based on the customer id
-     *
-     * @param       id the id of the customer
-     * @return      an customer if it exists or null
-     */
-    public Customer findCustomerByID(int id);
-
-
-    /**
-     * Save the customer if they don't exist in the dao
+     * Stores a customer if they don't exist in the dao
      *
      * @param entity    the customer object
      */
     public void save(Customer entity);
 
     /**
-     * Delete the customer if they don't exist in the dao
+     * Get a List of all customers
+     *
+     * @return an ArrayList of customer objects
+     */
+    ArrayList<Customer> findAll();
+
+    /**
+     * Finds a customer based on the username and the password
+     *
+     * @param username      the username of the customer as a String
+     * @param password      the password of the customer as a String
+     * @return              a customer if it exists or null
+     */
+    public Customer findCustomerByUsernameAndPassword(String username, String password);
+
+    /**
+     * Finds a customer based on the username
+     *
+     * @param username the username
+     * @return         a Customer object or null
+     */
+    public Customer findCustomerByUsername(String username);
+
+    /**
+     * Finds a customer based on the customer id
+     *
+     * @param       id the id of the customer
+     * @return      a customer if it exists or null
+     */
+    public Customer findCustomerByID(int id);
+
+
+    /**
+     * Deletes a customer
      *
      * @param entity    the customer object
      */

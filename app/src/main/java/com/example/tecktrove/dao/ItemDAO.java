@@ -8,26 +8,26 @@ import java.util.List;
 public interface ItemDAO {
 
     /**
-     * Gets the item for some input number.
-     *
-     * @param serialNo  the input number
-     * @return          the item
-     */
-    Item find(int serialNo);
-
-    /**
-     * Gets a list of all the items in the dao
-     *
-     * @return
-     */
-    ArrayList<Item> findAll();
-
-    /**
-     * Saves an object item in the dao
+     * Stores an object item in the dao
      *
      * @param entity    the item object
      */
     void save(Item entity);
+
+    /**
+     * Returns a new ArrayList of all the items in the dao
+     *
+     * @return  a ArrayList of Item objects.
+     */
+    ArrayList<Item> findAll();
+
+    /**
+     * Finds an item by its serial number.
+     *
+     * @param serialNo  the serial number
+     * @return          an Item object or null
+     */
+    Item find(int serialNo);
 
     /**
      * Deletes the item object from the dao if it exists

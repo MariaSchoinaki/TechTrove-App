@@ -7,7 +7,21 @@ import java.util.ArrayList;
 public interface EmployerDAO {
 
     /**
-     * Get an employer based on the username and the password
+     * Stores an employer if they don't exist in the dao
+     *
+     * @param entity    the employer object
+     */
+    void save(Employer entity);
+
+    /**
+     * Returns a new ArrayList with all the employers in the dao
+     *
+     * @return      an ArrayList of employer objects
+     */
+    ArrayList<Employer> findAll();
+
+    /**
+     * Finds an employer based on the username and the password
      *
      * @param username      the username of the employer as a String
      * @param password      the password of the employer as a String
@@ -15,10 +29,16 @@ public interface EmployerDAO {
      */
     Employer findEmployerByUsernameAndPassword(String username, String password);
 
-    public Employer findEmployerByUsername(String username);
+    /**
+     * Finds an employer based on the username
+     *
+     * @param username the username
+     * @return  an Employer object or null
+     */
+    Employer findEmployerByUsername(String username);
 
     /**
-     *Get an employer based on the employer id
+     * Finds an employer based on the employer id
      *
      * @param       id the id of the employer
      * @return      an employer if it exists or null
@@ -26,28 +46,14 @@ public interface EmployerDAO {
     Employer findEmployerByID(int id);
 
     /**
-     * Get a List of all employers
-     *
-     * @return      a list of employer objects
-     */
-    ArrayList<Employer> findAll();
-
-    /**
-     * Save the employer if they don't exist in the dao
-     *
-     * @param entity    the employer object
-     */
-    void save(Employer entity);
-
-    /**
-     * Delete the employer if they don't exist in the dao
+     * Deletes an employer
      *
      * @param entity    the employer object
      */
     void delete(Employer entity);
 
     /**
-     * Delete all the employers in the dao
+     * Deletes all the employers in the dao
      */
     void deleteAll();
 
