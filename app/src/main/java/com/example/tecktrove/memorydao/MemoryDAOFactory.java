@@ -17,31 +17,61 @@ public class MemoryDAOFactory extends DAOFactory {
     private OrderDAOMemory orderDAOMemory =new OrderDAOMemory();
     private ItemDAOMemory itemDAOMemory = new ItemDAOMemory();
 
+    /**
+     * Returns the object for the interface {@link CustomerDAO}
+     *
+     * @return  the DAO object
+     */
     @Override
     public CustomerDAO getCustomerDAO() {
         return customerDAOMemory;
     }
 
+    /**
+     * Returns the object for the interface {@link EmployerDAO}
+     *
+     * @return  the DAO object
+     */
     @Override
     public EmployerDAO getEmployerDAO() {
         return employerDAOMemory;
     }
 
+    /**
+     * Returns the object for the interface {@link ComponentDAO}
+     *
+     * @return  the DAO object
+     */
     @Override
     public ComponentDAO getComponentDAO() {
         return componentDAOMemory;
     }
 
+    /**
+     * Returns the object for the interface {@link SynthesisDAO}
+     *
+     * @return  the DAO object
+     */
     @Override
     public SynthesisDAO getSynthesisDAO() {
         return synthesisDAOMemory;
     }
 
+    /**
+     * Returns the object for the interface {@link OrderDAO}
+     *
+     * @return  the DAO object
+     */
     @Override
     public OrderDAO getOrderDAO() {
         return orderDAOMemory;
     }
 
+    /**
+     * Returns the object for the interface {@link ItemDAO}
+     *
+     * @return  the DAO object
+     */
     @Override
     public ItemDAO getItemDAO() {
         return itemDAOMemory;

@@ -11,9 +11,21 @@ public class CustomerDAOMemory implements CustomerDAO {
     protected static ArrayList<Customer> customers = new ArrayList<>();
 
     /**
+     * Stores a customer if they don't exist in the dao
+     *
+     * @param entity    the customer object
+     */
+    @Override
+    public void save(Customer entity) {
+        if (!customers.contains(entity)){
+            customers.add(entity);
+        }
+    }
+
+    /**
      * Get a List of all customers
      *
-     * @return      a list of customer objects
+     * @return an ArrayList of customer objects
      */
     @Override
     public ArrayList<Customer> findAll() {
@@ -21,11 +33,11 @@ public class CustomerDAOMemory implements CustomerDAO {
     }
 
     /**
-     * Get an customer based on the username and the password
+     * Finds a customer based on the username and the password
      *
      * @param username      the username of the customer as a String
      * @param password      the password of the customer as a String
-     * @return              an customer if it exists or null
+     * @return              a customer if it exists or null
      */
     @Override
     public Customer findCustomerByUsernameAndPassword(String username, String password){
@@ -37,6 +49,12 @@ public class CustomerDAOMemory implements CustomerDAO {
         return null;
     }
 
+    /**
+     * Finds a customer based on the username
+     *
+     * @param username the username
+     * @return         a Customer object or null
+     */
     @Override
     public Customer findCustomerByUsername(String username) {
         for (Customer customer: customers){
@@ -48,10 +66,10 @@ public class CustomerDAOMemory implements CustomerDAO {
     }
 
     /**
-     *Get an customer based on the customer id
+     * Finds a customer based on the customer id
      *
      * @param       id the id of the customer
-     * @return      an customer if it exists or null
+     * @return      a customer if it exists or null
      */
     @Override
     public Customer findCustomerByID(int id){
@@ -64,19 +82,7 @@ public class CustomerDAOMemory implements CustomerDAO {
     }
 
     /**
-     * Save the customer if they don't exist in the dao
-     *
-     * @param entity    the customer object
-     */
-    @Override
-    public void save(Customer entity) {
-        if (!customers.contains(entity)){
-            customers.add(entity);
-        }
-    }
-
-    /**
-     * Delete the customer if they don't exist in the dao
+     * Deletes a customer
      *
      * @param entity    the customer object
      */

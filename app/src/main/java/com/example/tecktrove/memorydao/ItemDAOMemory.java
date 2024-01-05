@@ -10,10 +10,31 @@ public class ItemDAOMemory implements ItemDAO {
     protected static ArrayList<Item> items = new ArrayList<Item>();
 
     /**
-     * Gets the item for some input number.
+     * Stores an object item in the dao
      *
-     * @param serialNo  the input number
-     * @return          the item
+     * @param entity    the item object
+     */
+    @Override
+    public void save(Item entity){
+        items.add(entity);
+    }
+
+    /**
+     * Returns a new ArrayList of all the items in the dao
+     *
+     * @return  a ArrayList of Item objects.
+     */
+    @Override
+    public ArrayList<Item> findAll(){
+        return new ArrayList<Item>(items);
+    }
+
+
+    /**
+     * Finds an item by its serial number.
+     *
+     * @param serialNo  the serial number
+     * @return          an Item object or null
      */
     @Override
     public Item find(int serialNo){
@@ -23,26 +44,6 @@ public class ItemDAOMemory implements ItemDAO {
             }
         }
         return null;
-    }
-
-    /**
-     * Gets a list of all the items in the dao
-     *
-     * @return
-     */
-    @Override
-    public ArrayList<Item> findAll(){
-        return new ArrayList<Item>(items);
-    }
-
-    /**
-     * Saves an object item in the dao
-     *
-     * @param entity    the item object
-     */
-    @Override
-    public void save(Item entity){
-        items.add(entity);
     }
 
     /**
