@@ -29,42 +29,42 @@ public abstract class DAOFactory {
     /**
      * Returns the object for the interface {@link CustomerDAO}
      *
-     * @return  the DAO object
+     * @return  the static customer DAO
      */
     public abstract CustomerDAO getCustomerDAO();
 
     /**
      * Returns the object for the interface {@link EmployerDAO}
      *
-     * @return  the DAO object
+     * @return  the static employer DAO
      */
     public abstract EmployerDAO getEmployerDAO();
 
     /**
      * Returns the object for the interface {@link ComponentDAO}
      *
-     * @return  the DAO object
+     * @return  the static component DAO
      */
     public abstract ComponentDAO getComponentDAO();
 
     /**
      * Returns the object for the interface {@link SynthesisDAO}
      *
-     * @return  the DAO object
+     * @return  the static synthesis DAO
      */
     public abstract SynthesisDAO getSynthesisDAO();
 
     /**
      * Returns the object for the interface {@link OrderDAO}
      *
-     * @return  the DAO object
+     * @return  the static order DAO
      */
     public abstract OrderDAO getOrderDAO();
 
     /**
      * Returns the object for the interface {@link ItemDAO}
      *
-     * @return  the DAO object
+     * @return  the static item DAO
      */
     public abstract ItemDAO getItemDAO();
 }
