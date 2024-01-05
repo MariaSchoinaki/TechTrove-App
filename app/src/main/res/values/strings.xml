@@ -24,6 +24,15 @@
     <string name="Cart">Cart</string>
     <string name="MyCart">My Cart</string>
     <string name="Purchase">Purchase</string>
+    <string name="MySynthesis">Η Σύνθεση μου</string>
+    <string name="MySynthesisContains">Η Σύνθεση μου περιέχει:</string>
+    <string name="MySynthesisAdd">Πρόσθεσε στην σύνθεση:</string>
+    <string name="CreateSynthesis">Τέλος και προσθήκη στο καλάθι</string>
+    <string name="category">Επιλέξετε μια κατηγορία:</string>
+    <string name="addToS">Προσθέστε στην σύνθεση:</string>
+    <string name="synthesysC">H σύνθεση σας περιέχει:</string>
+    <string name="complete">Ολοκλήρωση</string>
+
 
 
 </resources>

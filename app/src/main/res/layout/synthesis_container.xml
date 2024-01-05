@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#0F0F0F"
+    android:backgroundTint="#0F0F0F"
+    android:backgroundTintMode="src_atop">
+
+    <TextView
+        android:id="@+id/my_Synthesis"
+        android:layout_width="312dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="155dp"
+
+        android:layout_marginEnd="155dp"
+        android:fontFamily="arial"
+        android:text="@string/MySynthesis"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/SynthesisHomePageTabLayout"
+        android:layout_width="391dp"
+        android:layout_height="48dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabIndicatorColor="#FFA400"
+        app:tabRippleColor="#020101">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/synthesis_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Home"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="-1dp"
+            tools:layout_editor_absoluteY="687dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/synthesis_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cart"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="686dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/synthesis_gloy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="gloy"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/synthesis_myaccount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="My Account"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <Button
+        android:id="@+id/completeted"
+        android:layout_width="183dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginEnd="114dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/complete"
+        app:layout_constraintBottom_toTopOf="@+id/SynthesisHomePageTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="214dp"
+        android:layout_height="436dp"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="119dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
