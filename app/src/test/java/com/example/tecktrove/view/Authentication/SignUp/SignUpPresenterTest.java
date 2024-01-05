@@ -36,51 +36,68 @@ public class SignUpPresenterTest {
 
     @Test
     public void testStartProcess() {
-        view.setUser("george", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+        view.setUser("george", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "George Johnson",Boolean.FALSE);
         presenter.startProcess();
         Assert.assertEquals(0, view.timesSignedUp());
         Assert.assertEquals(1,view.getErrorMessage());
 
-        view.setUser("", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+        view.setUser("", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "George Johnson",Boolean.FALSE);
         presenter.startProcess();
         Assert.assertEquals(0, view.timesSignedUp());
         Assert.assertEquals(2,view.getErrorMessage());
 
-        view.setUser("geo", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+        view.setUser("geo", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "George Johnson",Boolean.FALSE);
         presenter.startProcess();
         Assert.assertEquals(0, view.timesSignedUp());
         Assert.assertEquals(3,view.getErrorMessage());
 
-        view.setUser("geo rge", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+        view.setUser("geo rge", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "George Johnson",Boolean.FALSE);
         presenter.startProcess();
         Assert.assertEquals(0, view.timesSignedUp());
         Assert.assertEquals(4,view.getErrorMessage());
 
-        view.setUser("george", "ok123456","ok123456", "klap@yahoo.com", "689", "GeorgeJohnson",Boolean.FALSE);
+        view.setUser("george", "ok123456","ok123456", "klap@yahoo.com", "689", "George Johnson",Boolean.FALSE);
         presenter.startProcess();
         Assert.assertEquals(0, view.timesSignedUp());
         Assert.assertEquals(5,view.getErrorMessage());
 
-        view.setUser("george", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+
+        view.setUser("george", "ok123456","ok123456", "klap@yahoo.baloon", "6898909678", "George Johnson",Boolean.FALSE);
         presenter.startProcess();
         Assert.assertEquals(0, view.timesSignedUp());
         Assert.assertEquals(6,view.getErrorMessage());
 
-        view.setUser("george", "ok123456","ok123456", "klap@yahoo.baloon", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+        view.setUser("georgasss", "ok11111111111","ok123456", "klap@yahoo.gr", "6898909678", "George Johnson",Boolean.FALSE);
         presenter.startProcess();
         Assert.assertEquals(0, view.timesSignedUp());
         Assert.assertEquals(7,view.getErrorMessage());
 
-        view.setUser("george", "ok11111111111","ok123456", "klap@yahoo.baloon", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+        view.setUser("georga", "ok111991","ok111991", "klp@yahoo.com", "6898909679", "Georga Johnon",Boolean.FALSE);
         presenter.startProcess();
-        Assert.assertEquals(0, view.timesSignedUp());
-        Assert.assertEquals(8,view.getErrorMessage());
+        Assert.assertEquals(1, view.timesSignedUp());
 
-        view.setUser("george", "ok11111111111","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+
+        view.setUser("georgas", "ok111991","ok111991", "klp@yahoo.com", "6898909679", "Georga Johnon",Boolean.TRUE);
         presenter.startProcess();
-        Assert.assertEquals(0, view.timesSignedUp());
-        Assert.assertEquals(8,view.getErrorMessage());
+        Assert.assertEquals(2, view.timesSignedUp());
 
 
+        view.setUser("georgas", "ok111991","ok111991", "klp@yahoo.com", "6898909679", "Georga Johnon",Boolean.TRUE);
+        presenter.startProcess();
+        Assert.assertEquals(2, view.timesSignedUp());
+        Assert.assertEquals(10,view.getErrorMessage());
+
+        view.setUser("george", "ok","ok", "klap@yahoo.baloon", "6898909678", "George Johnson",Boolean.FALSE);
+        presenter.startProcess();
+        Assert.assertEquals(2, view.timesSignedUp());
+        Assert.assertEquals(11,view.getErrorMessage());
+
+
+    }
+
+    @Test
+    public void testLogin(){
+        presenter.onLogIn();
+        Assert.assertEquals(1,view.getTimesVisitedLogIn());
     }
 }

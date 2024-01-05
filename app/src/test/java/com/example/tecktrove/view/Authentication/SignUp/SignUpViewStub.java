@@ -14,7 +14,7 @@ public class SignUpViewStub implements SignUpView{
 
     boolean role;
     int signedUp = 0;
-    private String confirmPassword;
+    String confPassword;
 
 
     @Override
@@ -49,7 +49,7 @@ public class SignUpViewStub implements SignUpView{
 
     @Override
     public String getConfPassword() {
-        return this.password;
+        return this.confPassword;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class SignUpViewStub implements SignUpView{
         this.fullName = fullName;
         this.telephone = telephone;
         this.email = email;
-        this.confirmPassword = confirmPassword;
+        this.confPassword = confirmPassword;
     }
 
     public int timesSignedUp() {
@@ -85,5 +85,7 @@ public class SignUpViewStub implements SignUpView{
         return this. message;
     }
 
-
+    public int getTimesVisitedLogIn() {
+        return timesVisitedLogIn;
+    }
 }
