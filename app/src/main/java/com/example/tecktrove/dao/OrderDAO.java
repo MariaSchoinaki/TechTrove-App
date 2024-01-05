@@ -6,34 +6,37 @@ import com.example.tecktrove.domain.Customer;
 import java.util.List;
 
 public interface OrderDAO {
-    /**
-     * Gets the order for some input number.
-     *
-     * @param orderId   the input number
-     * @return          the order
-     */
-    Order find(int orderId); //maybe in an exel san eggrafh na prosdiorizetai apo to id
 
     /**
-     * Gets a list of all the orders in the dao
-     *
-     * @return          the list of all the orders
-     */
-    List<Order> findAll();
-
-    /**
-     * Gets a list of all the orders in the dao of the input customer
-     *
-     * @return          the list of all the orders of the customer
-     */
-    List<Order> findByCustomer(Customer customer);
-
-    /**
-     * Saves an object order in the dao
+     * Stores an order object in the dao
      *
      * @param entity    the order object
      */
     void save(Order entity);
+
+    /**
+     * Returns a new ArrayList of all the orders in the dao
+     *
+     * @return          the ArrayList of Order objects
+     */
+    List<Order> findAll();
+
+    /**
+     * Finds an order by the order id.
+     *
+     * @param orderId   the order id
+     * @return          the order object or null
+     */
+    Order find(int orderId); //maybe in an exel san eggrafh na prosdiorizetai apo to id
+
+    /**
+     * Finds all the orders in the dao completed
+     * by the given customer
+     *
+     * @param customer
+     * @return the list of all the orders of the customer
+     */
+    List<Order> findByCustomer(Customer customer);
 
     /**
      * Deletes the order object from the dao
@@ -43,7 +46,8 @@ public interface OrderDAO {
     void delete(Order entity);
 
     /**
-     * Deletes the order object from the dao if it exists based on the id of the order
+     * Deletes the order object from the dao based on the order id
+     * if it exists
      *
      * @param orderId      the order id
      */

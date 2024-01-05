@@ -5,80 +5,113 @@ import java.util.ArrayList;
 import com.example.tecktrove.util.Port;
 
 public interface ComponentDAO {
-     /**
-      * Function that returns the entire
-      * component list
-      *
-      * @return  the components
-      */
-     ArrayList<Component> findAll();
-     /**
-      * Function that returns all
-      * the components witch has
-      * the given manufacturer defined
-      * by the user
-      *
-      * @return  the manufacturers
-      */
-     ArrayList<Component> findByManufacturer(String manufacturer);
-     /**
-      * Function that returns all
-      * the components witch has
-      * the given required ports defined
-      * by the user
-      *
-      * @return  the required
-      */
-     ArrayList<Component> findAllByRequiredPorts(Port ports);
-     /**
-      * Function that returns all
-      * the components witch has
-      * the given available ports defined
-      * by the user
-      *
-      * @return  the available
-      */
-     ArrayList<Component> findAllByAvailablePorts(Port ports);
-     /**
-      * Function that deletes the
-      * given component
-      */
-     void delete(Component component);
-
-     void delete(String entity);
-
-     void delete(int entity);
 
      /**
-      * Function that deletes all
-      * the components
-      */
-     void deleteAll();
-     /**
-      * Function that deletes all
-      * the components with the
-      * given available ports
-      */
-     void deleteByAvailablePorts(Port ports);
-     /**
-      * Function that deletes all
-      * the components with the
-      * given required ports
-      */
-     void deleteByRequiredPorts(Port ports);
-     /**
-      * Function that deletes all
-      * the components with the
-      * given manufacturer
-      */
-     void deleteByManufacturer(String manufacturer);
-     /**
-      * Function that saves the
-      * given component
+      * Stores the component in the dao
+      *
+      * @param component the component
       */
      void save(Component component);
 
+     /**
+      * Returns all the components in the dao.
+      *
+      * @return new ArrayList with the components
+      */
+     ArrayList<Component> findAll();
+
+     /**
+      * Finds a component by its name
+      *
+      * @param name the component's name
+      * @return     a Component object or null
+      */
      Component find(String name);
 
+     /**
+      * Finds a component by its model number
+      *
+      * @param modelNo component's model number
+      * @return     a Component object or null
+      */
      Component find(int modelNo);
+
+     /**
+      * Returns all the components made by
+      * the given manufacturer
+      *
+      * @param manufacturer the manufacturer
+      * @return ArrayList with the components or null
+      */
+     ArrayList<Component> findByManufacturer(String manufacturer);
+
+     /**
+      * Returns all the components which have
+      * the given required ports.
+      *
+      * @param ports the required ports
+      * @return     Arraylist with the components or null
+      */
+     ArrayList<Component> findAllByRequiredPorts(Port ports);
+
+
+     /**
+      * Returns all the components which have
+      * the given available ports.
+      *
+      * @param ports the available ports
+      * @return  Arraylist with the components or null
+      */
+     ArrayList<Component> findAllByAvailablePorts(Port ports);
+
+     /**
+      * Deletes the given component
+      *
+      * @param component the component
+      */
+     void delete(Component component);
+
+     /**
+      * Deletes a component based on their name
+      *
+      * @param name the name of the component
+      */
+     void delete(String name);
+
+     /**
+      * Deletes a component based on the model number
+      *
+      * @param modelNo the model number
+      */
+     void delete(int modelNo);
+
+     /**
+      * Function that deletes all
+      * the components in the dao
+      */
+     void deleteAll();
+
+     /**
+      * Deletes all the components which have the
+      * given available ports
+      *
+      * @param ports the available ports
+      */
+     void deleteByAvailablePorts(Port ports);
+
+     /**
+      * Deletes all the components which have the
+      * given required ports
+      *
+      * @param ports the required ports
+      */
+     void deleteByRequiredPorts(Port ports);
+
+     /**
+      * Deletes all the components made by
+      * given manufacturer
+      *
+      * @param manufacturer the manufacturer
+      */
+     void deleteByManufacturer(String manufacturer);
 }
