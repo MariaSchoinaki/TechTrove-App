@@ -11,6 +11,12 @@ public class LogInPresenter {
     User employer;
     User customer;
 
+    /**
+     * Constructor
+     * @param view          login view
+     * @param customers     Customer dao
+     * @param employers     Employer dao
+     */
     public LogInPresenter(LogInView view, CustomerDAO customers, EmployerDAO employers){
         this.view = view;
         this.customers = customers;
@@ -21,10 +27,17 @@ public class LogInPresenter {
         this.view = view;
     }
 
+    /**
+     * Go to sign up
+     */
     void onSignUp(){
         view.signUp();
     }
 
+    /**
+     * Checks if the combination username-password-isEmployer is correct
+     * and them navigates the app in the correct home screen
+     */
     public void startProcess(){
         String username = view.getUsername();
         String password = view.getPassword();

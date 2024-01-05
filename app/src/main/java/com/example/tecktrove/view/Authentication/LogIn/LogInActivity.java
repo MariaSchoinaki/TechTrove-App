@@ -25,6 +25,10 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
     MemoryInitializer init;
     private SharedViewModel sharedViewModel;
 
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -44,11 +48,17 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
         sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
     }
 
+    /**
+     * Navigates the app to the sign up page
+     */
     public void signUp(){
         Intent intent = new Intent(LogInActivity.this, SignUpActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Waits for the screen to be clicked
+     */
     @Override
     public void onStart(){
         super.onStart();
@@ -59,21 +69,42 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
         });
     }
 
+    /**
+     * Gets the username
+     *
+     * @return the username a String
+     */
     @Override
     public String getUsername() {
         return ((EditText)findViewById(R.id.logIn_username)).getText().toString().trim();
     }
 
+    /**
+     * Gets the password
+     *
+     * @return the password as a String
+     */
     @Override
     public String getPassword() {
         return ((EditText)findViewById(R.id.logIn_password)).getText().toString().trim();
     }
 
+    /**
+     * Gets if the user is an employer or not
+     *
+     * @return  {@code true} if the user is an employer, false otherwise
+     */
     @Override
     public boolean isEmployer(){
         return ((Switch)findViewById(R.id.login_isEmployer)).isChecked();
     }
 
+    /**
+     * Shows a pop up window with a customized message
+     *
+     * @param title the title of the window
+     * @param msg   the text of the window
+     */
     @Override
     public void showErrorMessage(String title, String msg) {
         new AlertDialog.Builder(LogInActivity.this)
@@ -83,6 +114,11 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
                 .setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * Navigates the user to the correct home screen
+     *
+     * @param user  the user trying to login
+     */
     @Override
     public void login(User user){
         if(!isEmployer()){

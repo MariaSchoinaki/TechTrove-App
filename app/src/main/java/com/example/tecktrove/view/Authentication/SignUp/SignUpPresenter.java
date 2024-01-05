@@ -17,16 +17,28 @@ public class SignUpPresenter {
     CustomerDAO customers;
     EmployerDAO employers;
 
+    /**
+     * Constructor of the presenter
+     * @param view          sign up view
+     * @param customers     customer dao
+     * @param employers     employer dao
+     */
     public SignUpPresenter(SignUpView view, CustomerDAO customers, EmployerDAO employers){
         this.view = view;
         this.customers = customers;
         this.employers = employers;
     }
 
+    /**
+     * Go to log in
+     */
     void onLogIn(){ view.logIn(); }
 
+    /**
+     * Checks if the combination of all of the user's elements
+     * are correct and navigates the app to the correct home screen
+     */
     public void startProcess(){
-        boolean allgood = false;
         String username = view.getUsername();
         String password = view.getPassword();
         String email = view.getEmail();
@@ -64,7 +76,7 @@ public class SignUpPresenter {
                 }else {
                     Employer employer = new Employer(employers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone));
                     employers.save(employer);
-                    allgood=true;
+                    view.signUp(employer);
                 }
             }else{
                 if(customers.findCustomerByUsername(username) != null){
@@ -72,12 +84,8 @@ public class SignUpPresenter {
                 }else{
                     Customer customer = new Customer(customers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>());
                     customers.save(customer);
-                    allgood=true;
+                    view.signUp(customer);
                 }
-            }
-            if(allgood){
-                view.showErrorMessage("Success", "The account was created!");
-                view.signUp();
             }
         }
     }

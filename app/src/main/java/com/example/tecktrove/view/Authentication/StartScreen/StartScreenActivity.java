@@ -13,6 +13,11 @@ import com.example.tecktrove.view.Authentication.LogIn.LogInActivity;
 
 public class StartScreenActivity extends AppCompatActivity implements StartScreenView {
     private static boolean initialized = false;
+
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -41,11 +46,17 @@ public class StartScreenActivity extends AppCompatActivity implements StartScree
         }
     }
 
+    /**
+     * Navigates the app to the log in page
+     */
     public void logInForm() {
         Intent intent = new Intent(StartScreenActivity.this, LogInActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the app to the sign up page
+     */
     public void signUpForm() {
         Intent intent = new Intent(StartScreenActivity.this, SignUpActivity.class);
         startActivity(intent);
