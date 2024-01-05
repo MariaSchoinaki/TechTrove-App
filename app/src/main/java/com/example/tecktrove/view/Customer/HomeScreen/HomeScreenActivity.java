@@ -25,6 +25,7 @@ import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.Customer.Cart.CartActivity;
+import com.example.tecktrove.view.Synthesis.SynthesisActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -158,7 +159,8 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
     @Override
     public void diySynthesis() {
-
+        Intent intent = new Intent(this, SynthesisActivity.class);
+        startActivity(intent);
     }
 
     public boolean onQueryTextChange(String text)

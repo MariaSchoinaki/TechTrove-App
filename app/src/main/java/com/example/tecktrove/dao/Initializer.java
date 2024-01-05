@@ -83,23 +83,23 @@ public abstract class Initializer {
         port2.add(pair2_6);
         port2_1.add(pair2_7);
 
-        Component com2 = new Component(2936, Money.euros(BigDecimal.valueOf(36.90)), "Turbo-X PSU Value III Series 550 W", "Προσιτό αλλά αξιόπιστο τροφοδοτικό, με ισχύ 550W, προηγμένες δικλείδες ασφαλείας και αθόρυβο ανεμιστήρα 120mm.", "Turbo-X",  port2, port2_1, 75);
+        Component com2 = new Component(2936, Money.euros(BigDecimal.valueOf(36.90)), "Turbo-X PSU Value III Series 550 W", "Προσιτό αλλά αξιόπιστο τροφοδοτικό, με ισχύ 550W, προηγμένες δικλείδες ασφαλείας και αθόρυβο ανεμιστήρα 120mm.", "Turbo-X",  port2, new Port(), 75);
         getComponentDAO().save(com2);
 
-        Pair<String, Integer> pair3_1 = new Pair<String, Integer>("socket AM4",1);
+        Pair<String, Integer> pair3_1 = new Pair<String, Integer>("AM4",1);
         Port port3 = new Port();
         port3.add(pair3_1);
 
-        Component com3 = new Component(3260, Money.euros(BigDecimal.valueOf(119.90)), "AMD CPU Ryzen 3 3200G", "Με τέσσερις πυρήνες Zen σε Socket AM4, μέγιστη συχνότητα λειτουργίας 4GHz, μνήμη cache 6MB και Radeon Vega 8 iGPU για αξεπέραστες επιδόσεις γραφικών.", "AMD",port3,port3, 60);
+        Component com3 = new Component(3260, Money.euros(BigDecimal.valueOf(119.90)), "AMD CPU Ryzen 3 3200G", "Με τέσσερις πυρήνες Zen σε Socket AM4, μέγιστη συχνότητα λειτουργίας 4GHz, μνήμη cache 6MB και Radeon Vega 8 iGPU για αξεπέραστες επιδόσεις γραφικών.", "AMD",port3,new Port(), 60);
         getComponentDAO().save(com3);
 
         Pair<String, Integer> pair4_1 = new Pair<String, Integer>("AM4,",1);
         Port port4 = new Port();
         port4.add(pair4_1);
-        Component com4 = new Component(3888, Money.euros(BigDecimal.valueOf(32.90)), "Alpenföhn CPU Cooler Ben Nevis", "Ψύκτρα με ανεμιστήρα 130mm συμβατή με τα sockets 2066, 2011, 2011-v3, 1366, 115X, 1200, AM4, 775, AM4, AM3(+), AM3, AM2(+), AM2 και FM1.", "Alpenföhn", new Port(), port4, 20);
+        Component com4 = new Component(3888, Money.euros(BigDecimal.valueOf(32.90)), "Alpenföhn CPU Cooler Ben Nevis", "Ψύκτρα με ανεμιστήρα 130mm συμβατή με τα sockets 2066, 2011, 2011-v3, 1366, 115X, 1200, AM4, 775, AM4, AM3(+), AM3, AM2(+), AM2 και FM1.", "Alpenföhn",  port4, new Port(), 20);
         getComponentDAO().save(com4);
 
-        Pair<String, Integer> pair5_1 = new Pair<String, Integer>("socket AM4",1);
+        Pair<String, Integer> pair5_1 = new Pair<String, Integer>("AM4",1);
         Pair<String, Integer> pair5_2 = new Pair<String, Integer>("DDR4",2);
         Pair<String, Integer> pair5_3 = new Pair<String, Integer>("PCI Express x16 3.0",1);
         Pair<String, Integer> pair5_4 = new Pair<String, Integer>("SATA III",4);
@@ -120,7 +120,7 @@ public abstract class Initializer {
         Component com6 = new Component(3935, Money.euros(BigDecimal.valueOf(44.90)), "Crucial Desktop RAM Value 16GB 3200MHz DDR4", "Μνήμη DDR4-3200 UDIMM χωρητικότητας 16GB από την Crucial® με συχνότητα λειτουργίας 3.200 MHz και CL22.", "Micron",new Port(),port6, 44);
         getComponentDAO().save(com6);
 
-        Pair<String, Integer> pair7_1 = new Pair<String, Integer>("PCI Express x16 2.0",1);
+        Pair<String, Integer> pair7_1 = new Pair<String, Integer>("PCI Express x16 3.0",1);
         Pair<String, Integer> pair7_2 = new Pair<String, Integer>("HDMI",1);
         Pair<String, Integer> pair7_3 = new Pair<String, Integer>("DVI-D",1);
 
@@ -137,7 +137,7 @@ public abstract class Initializer {
         Port port8 = new Port();
 
         port8.add(pair8);
-        Component com8 = new Component(2489, Money.euros(BigDecimal.valueOf(26.90)), "SanDisk SSD Plus 240GB", "Η τεχνολογία SSD 2,5” στο φορητό ή το σταθερό σου υπολογιστή, με χωρητικότητα 240GB, γρήγορες ταχύτητες λειτουργίας και σύνδεση SATA III.", "SanDisk",new Port(),port8, 35);
+        Component com8 = new Component(2489, Money.euros(BigDecimal.valueOf(26.90)), "SanDisk SSD Plus 240GB", "Η τεχνολογία SSD 2,5” στο φορητό ή το σταθερό σου υπολογιστή, με χωρητικότητα 240GB, γρήγορες ταχύτητες λειτουργίας και σύνδεση SATA III.", "SanDisk",null,port8, 35);
         getComponentDAO().save(com8);
 
         Component com11 = new Component(3604, Money.euros(BigDecimal.valueOf(69.90)), "Sharkoon Midi ATX Tower VS4-V Midi Tower", "Μινιμαλιστική σχεδίαση, ευρύχωρο εσωτερικό και άφθονες θέσεις για SSDs/HDDs, προεγκατεστημένος ανεμιστήρας και φίλτρο σκόνης, πρακτικό πάνελ και συμβατότητα με συστήματα υδρόψυξης.", "Sharkoon", new Port(), new Port(), 10);
@@ -165,13 +165,13 @@ public abstract class Initializer {
         Pair<String, Integer> pair14_1 = new Pair<String, Integer>("4-Pin PWM",1);
         Port port14 = new Port();
         port14.add(pair14_1);
-        Component com14 = new Component(4188, Money.euros(BigDecimal.valueOf(34.90)), "Be Quiet! Be Quiet Light Wings 140mm PWM", "Ανεμιστήρας 140mm με PWM, 7 ειδικά βελτιστοποιημένα για χαμηλό θόρυβο και υψηλή απόδοση πτερύγια, rifle-bearing και δύο φωτιζόμενους δακτυλίους ARGB.", "Be Quiet!", new Port(),  port14, 54);
+        Component com14 = new Component(4188, Money.euros(BigDecimal.valueOf(34.90)), "Be Quiet! Be Quiet Light Wings 140mm PWM", "Ανεμιστήρας 140mm με PWM, 7 ειδικά βελτιστοποιημένα για χαμηλό θόρυβο και υψηλή απόδοση πτερύγια, rifle-bearing και δύο φωτιζόμενους δακτυλίους ARGB.", "Be Quiet!", new Port(),new Port(), 54);
         getComponentDAO().save(com14);
 
         Pair<String, Integer> pair15_1 = new Pair<String, Integer>("socket AM4+",1);
         Pair<String, Integer> pair15_2 = new Pair<String, Integer>("DDR5",2);
         Pair<String, Integer> pair15_3 = new Pair<String, Integer>("PCI Express x16 3.0",1);
-        Pair<String, Integer> pair15_4 = new Pair<String, Integer>("SATA III",4);
+        Pair<String, Integer> pair15_4 = new Pair<String, Integer>("M.2",4);
 
         Port port15 = new Port();
 
