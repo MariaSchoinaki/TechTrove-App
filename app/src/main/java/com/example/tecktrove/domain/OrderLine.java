@@ -9,6 +9,9 @@ public class OrderLine {
     private Money subTotal;
     private ProductType productType;
 
+    /**
+     * Deafult Constructor
+     */
     public OrderLine(){}
 
     /**
@@ -22,6 +25,7 @@ public class OrderLine {
         this.productType=productType;
         calculateSubTotal();
     }
+
     /**
      * Gets the quantity of a product
      *
@@ -30,16 +34,18 @@ public class OrderLine {
     public int getQuantity() {
         return this.quantity;
     }
+
     /**
-     * Gets the type of a product
+     * Gets the product of the orderline
      *
      * @return the ProductType
      */
     public ProductType getProductType(){
         return this.productType;
     }
+
     /**
-     * Gets the price of a product
+     * Gets the price of the product of the orderline
      *
      * @return the subTotal
      */
@@ -57,6 +63,11 @@ public class OrderLine {
         calculateSubTotal();
     }
 
+    /**
+     * Sets the product for this orderline
+     *
+     * @param productType   the product
+     */
     public void setProductType(ProductType productType){
         this.productType = productType;
     }
@@ -68,6 +79,13 @@ public class OrderLine {
         this.subTotal = this.productType.getPrice().times(new BigDecimal(this.quantity));
     }
 
+    /**
+     * Returns {@code true} if an object is equals
+     * with the object orderline
+     *
+     * @param other the other object
+     * @return  true if the objects are equal, false otherwise
+     */
     @Override
     public boolean equals(Object other) {
         if (other == null){
@@ -80,6 +98,6 @@ public class OrderLine {
             return false;
         }
         OrderLine o = (OrderLine) other;
-        return this.productType.getModelNo() == (o.getProductType().getModelNo());
+        return this.productType.equals(o.getProductType()) && this.quantity == o.getQuantity();
     }
 }

@@ -14,18 +14,21 @@ public class User {
     private Email email;
     private Telephone telephone;
 
+    /**
+     * Default Constructor
+     */
     public User(){}
 
     /**
      * Constructor of User
      *
-     * @param id         the id of the user as integer
-     * @param username   the username of user
-     * @param password   the password of user
-     * @param firstName       the name of the user
-     * @param lastName    the surname of the user
-     * @param email      the email address of the user
-     * @param telephone  the phone number of the user
+     * @param id        the id of the user as integer
+     * @param username  the username of user
+     * @param password  the password of user
+     * @param firstName the name of the user
+     * @param lastName  the surname of the user
+     * @param email     the email address of the user
+     * @param telephone the phone number of the user
      */
 
     public User(int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone){
@@ -37,7 +40,6 @@ public class User {
         this.email = email;
         this.telephone = telephone;
     }
-
 
     /**
      * Sets the id of the user
@@ -165,6 +167,13 @@ public class User {
         return this.telephone;
     }
 
+    /**
+     * Returns {@code true} if an object is equals
+     * with the object User
+     *
+     * @param other the other object
+     * @return  true if the objects are equal, false otherwise
+     */
     @Override
     public boolean equals(Object other) {
 

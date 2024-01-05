@@ -12,33 +12,43 @@ public class Customer extends User {
     private ArrayList<Synthesis> savedSynthesis;
     private ArrayList<Pair<ProductType,Integer>> cart;
 
+    /**
+     * Default Constructor
+     */
     public Customer(){}
 
     /**
-     * Constructor of Customer
+     * Helper Constructor
      *
-     *
-     * @param savedSynthesis   a list that contains all saved synthesis of a customer
-     * @param cart             the customer's cart
+     * @param id                the id of the customer
+     * @param username          username of the customer
+     * @param password          password of the customer
+     * @param firstName         first name of the customer
+     * @param lastName          last name of the customer
+     * @param email             email address of the customer
+     * @param telephone         telephone number of the customer
+     * @param savedSynthesis    saved synthesis of the customer
+     * @param cart              cart of the customer
      */
     public Customer( int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone, ArrayList<Synthesis> savedSynthesis, ArrayList<Pair<ProductType,Integer>>cart){
         super(id,username,password, firstName,lastName,email,telephone);
         this.savedSynthesis=savedSynthesis;
         this.cart=cart;
     }
-    /**
-     * Gets the id of the Customer
-     *
-     * @return the customer id
-     */
 
+    /**
+     * Gets the saved sythesis of the customer
+     *
+     * @return an ArrayList of Synthesis objects
+     */
     public ArrayList<Synthesis> getSavedSynthesis() {
         return this.savedSynthesis;
     }
+
     /**
-     * Gets the list of the customer's cart
+     * Gets customer's cart
      *
-     * @return the cart
+     * @return an ArrayList of {@link Pair} objects (Product, quantity)
      */
     public ArrayList<Pair<ProductType,Integer>> getCart() {
         return this.cart;
@@ -52,6 +62,7 @@ public class Customer extends User {
     public void setSavedSynthesis(ArrayList<Synthesis> savedSynthesis) {
         this.savedSynthesis = savedSynthesis;
     }
+
     /**
      * Sets the customer's cart
      *
@@ -61,15 +72,29 @@ public class Customer extends User {
         this.cart = cart;
     }
 
+    /**
+     * Adds a syntesis to customer's saves
+     *
+     * @param synthesis a synthesis object
+     */
     public void addToSavedSynthesis(Synthesis synthesis){
         this.savedSynthesis.add(synthesis);
     }
 
+    /**
+     * Removes a synthesis from customer's saves
+     *
+     * @param synthesis a synthesis object
+     */
     public void removeFromSaved(Synthesis synthesis){
         this.savedSynthesis.remove(synthesis);
     }
 
-
+    /**
+     * Adds to cart a product, with it's quantity
+     *
+     * @param pair  a pair of (product, quantity)
+     */
     public void addToCart(Pair<ProductType,Integer> pair){
         Boolean found = false;
         for(Pair<ProductType,Integer> product : cart) {
@@ -84,10 +109,21 @@ public class Customer extends User {
         }
     }
 
+    /**
+     * Removes from customer's cart a product
+     *
+     * @param product a product
+     */
     public void removeFromCart(ProductType product){
         this.cart.remove(product);
     }
 
+    /**
+     * Gets a product from customer's cart
+     *
+     * @param ProductID the product's id
+     * @return  a product or null
+     */
     public Pair<ProductType,Integer> getProductFromCart(int ProductID){
         int i = this.cart.size() - 1;
         Pair<ProductType,Integer> p;
@@ -100,6 +136,13 @@ public class Customer extends User {
         }
         return null;
     }
+
+    /**
+     * Gets product from customer's saves
+     *
+     * @param ProductID the product's id
+     * @return  a product object or null
+     */
     public ProductType getProductFromSaved(int ProductID){
 
         int j = this.savedSynthesis.size()-1;

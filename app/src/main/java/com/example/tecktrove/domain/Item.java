@@ -1,10 +1,12 @@
 package com.example.tecktrove.domain;
 
-import com.example.tecktrove.util.Money;
 
 public class Item {
     private int serialNo;
 
+    /**
+     * Default Constructor
+     */
     public Item(){}
 
     /**

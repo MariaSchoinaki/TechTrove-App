@@ -8,13 +8,18 @@ public class ProductType {
     protected String name;
     protected int quantity;
 
+    /**
+     * Default Constructor
+     */
     public ProductType(){}
 
     /**
      * Constructor of ProductType
-     * @param modelNo       the model number as an Integer
-     * @param price         the price of the ProductType
-     * @param name          the name of the ProductType
+     *
+     * @param modelNo       the model number of the product
+     * @param price         the price of the product
+     * @param name          the name of the product
+     * @param quantity      the quantity of the product
      */
     public ProductType(int modelNo, Money price, String name, int quantity){
         this.modelNo = modelNo;
@@ -41,6 +46,10 @@ public class ProductType {
         return price;
     }
 
+    /**
+     * Gets the name of the ProductType
+     * @return
+     */
     public String getName(){
         return this.name;
     }
@@ -63,18 +72,40 @@ public class ProductType {
         this.price = price;
     }
 
+    /**
+     * Sets the name of the ProductType
+     *
+     * @param name the name
+     */
     public void setName(String name){
         this.name = name;
     }
 
+    /**
+     * Sets the quantity of the ProductType
+     *
+     * @param q the quantity
+     */
     public void setQuantity(int q){
         this.quantity = q;
     }
 
+    /**
+     * Gets the quantity of the ProductType
+     *
+     * @return the quantity
+     */
     public int getQuantity(){
         return quantity;
     }
 
+    /**
+     * Returns {@code true} if an object is equals
+     * with the object ProductType
+     *
+     * @param other the other object
+     * @return  true if the objects are equal, false otherwise
+     */
     @Override
     public boolean equals(Object other) {
         if (other == null){

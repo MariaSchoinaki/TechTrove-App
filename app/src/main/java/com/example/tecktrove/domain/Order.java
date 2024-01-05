@@ -18,6 +18,10 @@ public class Order {
     private ArrayList<OrderLine> orderLines;
     private Customer customer;
     private int id;
+
+    /**
+     * Default Constructor
+     */
     public Order(){}
 
     /**
@@ -86,7 +90,7 @@ public class Order {
     /**
      * Gets the list of products that an order has
      *
-     * @return the oerderlines
+     * @return the orderlines
      */
     public ArrayList<OrderLine> getOrderLines() {
         return this.orderLines;
@@ -148,24 +152,54 @@ public class Order {
         }
     }
 
+    /**
+     * Adds an orderline to the order
+     *
+     * @param orderLine an orderline
+     */
      public void addOrderLine(OrderLine orderLine) {
         this.orderLines.add(orderLine);
         setTotal();
      }
 
+    /**
+     * Removes an orderline from the order
+     * @param orderLine
+     */
      public void removeOrderline(OrderLine orderLine){
         this.orderLines.remove(orderLine);
         setTotal();
      }
 
+    /**
+     * Sets the customer who made the order
+     *
+     * @param customer the customer
+     */
      public void setCustomer(Customer customer){
         this.customer = customer;
      }
 
+    /**
+     * Gets the customer who placed the order
+     *
+     * @return  a customer object
+     */
      public Customer getCustomer(){
         return this.customer;
      }
 
+    /**
+     * Sets id for the order
+     *
+     * @param id order's id
+     */
      public void setId(int id){ this.id = id;}
+
+    /**
+     * Gets the id of the order
+     *
+     * @return  the order's id
+     */
      public int getId(){ return this.id; }
 }

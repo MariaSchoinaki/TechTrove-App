@@ -13,10 +13,14 @@ public class Component extends ProductType{
 
     private ArrayList<Item> items;
 
+    /**
+     * Default Constructor
+     */
     public Component(){this.quantity = 0;}
 
     /**
      * Constructor of Component
+     *
      * @param name            the name of the component as a String
      * @param description     the description of the component as a String
      * @param manufacturer    the manufacturer of the component as a String
@@ -107,10 +111,20 @@ public class Component extends ProductType{
         this.requiredPorts = requiredPorts;
     }
 
+    /**
+     * Adds quantity to the component
+     *
+     * @param quantity the quantity
+     */
     public void addQuantity(int quantity) {
         this.quantity += quantity;
     }
 
+    /**
+     * Removes quantity from the product
+     *
+     * @param quantity the quantity
+     */
     public void removeQuantity(int quantity) {
         if(this.quantity <= quantity){
             this.quantity = 0;
