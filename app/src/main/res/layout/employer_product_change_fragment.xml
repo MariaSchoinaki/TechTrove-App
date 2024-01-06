@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#0F0F0F">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="731dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/employer_product_change_exit_button"
+            app:srcCompat="@drawable/exit"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="exit"
+            android:scaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/employer_product_change_img"
+            android:layout_width="204dp"
+            android:layout_height="135dp"
+            android:layout_marginStart="103dp"
+            android:layout_marginEnd="104dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="Product Image 1"
+            android:padding="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/no_img" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="Όνομα"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/employer_product_change_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="arial"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Κωδικός Προϊόντος"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/employer_product_change_modelNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Τιμή"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/employer_product_change_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Περιγραφή"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/employer_product_change_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:focusable="true"
+                android:fontFamily="arial"
+                android:inputType="textMultiLine"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Κατασκευαστής"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/employer_product_change_manufacturer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Διαθέσιμες Θύρες(μορφή: Όνομα:Αριθμός)"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/employer_product_change_available_ports"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="textMultiLine"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Απαιτούμενες Θύρες(μορφή: Όνομα:Αριθμός)"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/employer_product_change_required_ports"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="textMultiLine"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/employer_product_change_save_button"
+            app:cornerRadius="10dp"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="554dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#202020"
+            android:fontFamily="arial"
+            android:paddingStart="20dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="20dp"
+            android:text="save"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

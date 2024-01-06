@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/employer_product_view_flipper">
+
+        <include layout="@layout/employer_product_info_fragment"
+            android:id="@+id/employer_product_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <include layout="@layout/employer_product_change_fragment"
+            android:id="@+id/employer_product_change"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </ViewFlipper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
