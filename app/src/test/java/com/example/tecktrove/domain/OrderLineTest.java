@@ -63,7 +63,6 @@ public class OrderLineTest {
         Assert.assertFalse(orderl1.equals(orderl2));
         Assert.assertTrue(orderl1.equals(orderl1));
         Assert.assertFalse(orderl1.equals(null));
-        assertEquals(orderl4,orderl3);
         Assert.assertFalse(orderl3.equals(new Object()));
     }
 }

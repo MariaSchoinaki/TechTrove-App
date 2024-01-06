@@ -67,8 +67,13 @@ public class SynthesisTest {
         Component c = new Component(235456,Money.euros(BigDecimal.valueOf(73.45)) , "AMD Ryzen 7", "Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί", "AMD", new Port(), new Port() ,9);
         s1.add(c);
         Assert.assertTrue(s1.getComponentList().get(0).getName().equals(c.getName()));
-        Assert.assertEquals(1, s1.getComponentList().size());
+
+        Component k = new Component(678542,Money.euros(BigDecimal.valueOf(45)) , "CPU 7", "", "AMD", new Port(), new Port() ,7);
+        s1.add(k);
+        Assert.assertEquals(2, s1.getComponentList().size());
+        Assert.assertEquals(7, s1.getQuantity());
+
         s1.remove(c);
-        Assert.assertEquals(0, s1.getComponentList().size());
+        Assert.assertEquals(1, s1.getComponentList().size());
     }
 }
