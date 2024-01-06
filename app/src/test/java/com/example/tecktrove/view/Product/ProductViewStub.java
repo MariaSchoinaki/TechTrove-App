@@ -16,7 +16,7 @@ public class ProductViewStub implements ProductView{
     private int timesIncreasedQuantity = 0;
     private int timesDecreasedQuantity = 0;
     private int timesShowInfoOfSynthesi = 0;
-
+    private int timesExited = 0;
 
     @Override
     public void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity) {
@@ -53,6 +53,11 @@ public class ProductViewStub implements ProductView{
         timesShowingMessage++;
     }
 
+    @Override
+    public void goToHome() {
+        timesExited++;
+    }
+
     public int getTimesShowInfoOfProduct() {
         return timesShowInfoOfProduct;
     }
@@ -83,5 +88,9 @@ public class ProductViewStub implements ProductView{
 
     public int getTimesShowInfoOfSynthesi() {
         return timesShowInfoOfSynthesi;
+    }
+
+    public int getTimesExited() {
+        return timesExited;
     }
 }

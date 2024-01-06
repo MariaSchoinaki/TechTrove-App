@@ -2,6 +2,7 @@ package com.example.tecktrove.view.Authentication.SignUp;
 
 import com.example.tecktrove.contacts.Email;
 import com.example.tecktrove.contacts.Telephone;
+import com.example.tecktrove.domain.User;
 
 public class SignUpViewStub implements SignUpView{
     String username;
@@ -58,6 +59,11 @@ public class SignUpViewStub implements SignUpView{
     }
 
     @Override
+    public void signUp(User user) {
+
+    }
+
+    //@Override
     public void signUp() {
         signedUp++;
     }

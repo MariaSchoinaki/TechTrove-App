@@ -40,6 +40,15 @@ public class HomeScreenPresenterTest {
         Assert.assertEquals(0, view.getTimesVisitedMyAccount());
         presenter.onMyAccount();
         Assert.assertEquals(1, view.getTimesVisitedMyAccount());
+
+        Assert.assertEquals(0, view.getTimesVisitedDiySynthesis());
+        presenter.onDIYSyntesis();
+        Assert.assertEquals(0, view.getTimesVisitedDiySynthesis());
+
+        Assert.assertEquals(0, view.getGoback());
+        presenter.onBack();
+        Assert.assertEquals(1, view.getGoback());
+
     }
 
     @Test

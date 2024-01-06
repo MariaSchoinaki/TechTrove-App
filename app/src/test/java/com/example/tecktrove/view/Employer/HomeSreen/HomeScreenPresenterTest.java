@@ -36,6 +36,16 @@ public class HomeScreenPresenterTest {
         Assert.assertEquals(0, view.getTimesVisitedMyAccount());
         presenter.onMyAccount();
         Assert.assertEquals(1, view.getTimesVisitedMyAccount());
+
+
+        Assert.assertEquals(0, view.getTimesGoBack());
+        presenter.onBack();
+        Assert.assertEquals(1, view.getTimesGoBack());
+
+
+        Assert.assertEquals(0, view.getTimesAddedProducts());
+        presenter.onAddProduct();
+        Assert.assertEquals(1, view.getTimesAddedProducts());
     }
 
     @Test
@@ -47,5 +57,8 @@ public class HomeScreenPresenterTest {
 
         presenter.onDisplayProducts("ram");
         Assert.assertEquals(2, view.getNumberOfProducts());
+
+        presenter.onDisplayProducts("hmmmm");
+        Assert.assertEquals(0, view.getNumberOfProducts());
     }
 }

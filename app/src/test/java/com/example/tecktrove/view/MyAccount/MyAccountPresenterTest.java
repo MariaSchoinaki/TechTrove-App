@@ -80,6 +80,10 @@ public class MyAccountPresenterTest {
         presenter.onSaveChanges(c,5673);
         Assert.assertEquals(7, view.getTimesShowingMessage());
 
+        presenter.setInfo(c.getName()+" "+c.getLastName(), "el.gr", c.getTelephone().getTelephone(),  c.getUsername(), c.getPassword(), c.getPassword(), false);
+        presenter.onSaveChanges(c,5673);
+        Assert.assertEquals(8, view.getTimesShowingMessage());
+
         presenter.setInfo("George kallifanakis", c.getEmail().getEmail(), "6987898956", "georgie", c.getPassword(), c.getPassword(), false);
         presenter.onSaveChanges(c,5673);
 
@@ -91,6 +95,10 @@ public class MyAccountPresenterTest {
         Assert.assertEquals("kallifanakis", c.getLastName());
 
         Employer e = init.getEmployerDAO().findEmployerByUsernameAndPassword("eleni3", "elen!562");
+
+        presenter.setInfo("eleni maria", e.getEmail().getEmail(), "6987020265", "faihh1", e.getPassword(), e.getPassword(), true);
+        presenter.onSaveChanges(e, 1252);
+        Assert.assertEquals(9, view.getTimesShowingMessage());
 
         presenter.setInfo("eleni maria", e.getEmail().getEmail(), "6987020265", "elenara", e.getPassword(), e.getPassword(), true);
         presenter.onSaveChanges(e, 1252);

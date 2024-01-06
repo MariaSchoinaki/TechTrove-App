@@ -7,11 +7,12 @@ import java.util.ArrayList;
 
 public class HomeScreenViewStub implements HomeScreenView {
 
-    private int timesShownAll = 0;
     private int timesShownCategory = 0;
     private int timesVisitedHome = 0;
     private int timesVisitedMyAccount = 0;
     private int numberOfProducts;
+    private int timesGoBack =0;
+    private int timesAddedProducts = 0;
 
     @Override
     public void displayProducts(ArrayList<ProductType> products) {
@@ -29,6 +30,16 @@ public class HomeScreenViewStub implements HomeScreenView {
         timesVisitedMyAccount++;
     }
 
+    @Override
+    public void goToAddProduct() {
+        timesAddedProducts++;
+    }
+
+    @Override
+    public void goBack() {
+        timesGoBack++;
+    }
+
     public int getTimesShownCategory() {
         return timesShownCategory;
     }
@@ -43,5 +54,13 @@ public class HomeScreenViewStub implements HomeScreenView {
 
     public int getNumberOfProducts() {
         return numberOfProducts;
+    }
+
+    public int getTimesAddedProducts() {
+        return timesAddedProducts;
+    }
+
+    public int getTimesGoBack() {
+        return timesGoBack;
     }
 }

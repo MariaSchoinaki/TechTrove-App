@@ -30,14 +30,16 @@ public class ProductPresenterTest {
 
         presenter.setInfo(2936);
         Assert.assertEquals(1, view.getTimesShowInfoOfProduct());
+
+        Assert.assertEquals(0, view.getTimesExited());
+        presenter.onExit();
+        Assert.assertEquals(1, view.getTimesExited());
     }
 
     @Test
     public void test(){
         Assert.assertEquals(view, view.getProductView());
         Assert.assertNotNull(view.getProductView());
-
-        //Assert.assertNull(new Object());
     }
 
     @Test
