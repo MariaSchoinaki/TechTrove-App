@@ -22,6 +22,14 @@ android:backgroundTint="#0F0F0F">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <ImageButton
+            android:id="@+id/employer_product_info_exit_button"
+            app:srcCompat="@drawable/exit"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="exit"
+            android:scaleType="fitCenter" />
+
         <ImageView
             android:id="@+id/employer_product_info_img"
             android:layout_width="204dp"
