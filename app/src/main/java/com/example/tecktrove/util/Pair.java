@@ -65,6 +65,11 @@ public class Pair<T, K> {
         Pair o = (Pair) other;
         return (this.first==o.first) && (this.second == this.second);
     }
+
+    @Override
+    public String toString() {
+        return first + ": " + second;
+    }
 }
 
 
