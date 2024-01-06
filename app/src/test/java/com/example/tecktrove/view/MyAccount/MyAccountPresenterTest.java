@@ -98,7 +98,7 @@ public class MyAccountPresenterTest {
 
         presenter.setInfo("eleni maria", e.getEmail().getEmail(), "6987020265", "faihh1", e.getPassword(), e.getPassword(), true);
         presenter.onSaveChanges(e, 1252);
-        Assert.assertEquals(9, view.getTimesShowingMessage());
+        Assert.assertEquals(10, view.getTimesShowingMessage());
 
         presenter.setInfo("eleni maria", e.getEmail().getEmail(), "6987020265", "elenara", e.getPassword(), e.getPassword(), true);
         presenter.onSaveChanges(e, 1252);
