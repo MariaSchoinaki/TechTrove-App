@@ -23,6 +23,7 @@ import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.util.Money;
 import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.Port;
+import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.view.PortAdapter;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
@@ -92,6 +93,12 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
                 presenter.onIncreaseQuantity();
             }
         });
+        findViewById(R.id.product_info_exit_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.onExit();
+            }
+        });
     }
 
     @Override
@@ -109,7 +116,6 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         recyclerViewForAvailablePorts.setLayoutManager( new GridLayoutManager(this, 1));
         recyclerViewForRequiredPorts.setAdapter(reqports);
         recyclerViewForRequiredPorts.setLayoutManager( new GridLayoutManager(this, 1));
-        //flipper.showNext();
     }
 
     @Override
@@ -124,7 +130,6 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         componentAdapter = new ProductAdapter(new ArrayList<>(components), this);
         recyclerViewForSynthesis.setAdapter(componentAdapter);
         recyclerViewForSynthesis.setLayoutManager(new GridLayoutManager(this, 1));
-        //flipper.showPrevious();
     }
 
 
@@ -157,6 +162,12 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
                 .setTitle(title)
                 .setMessage(msg)
                 .setPositiveButton(R.string.ok, null).create().show();
+    }
+
+    @Override
+    public void goToHome() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
     }
 
 

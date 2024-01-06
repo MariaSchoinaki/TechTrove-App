@@ -15,6 +15,8 @@ public interface ProductView {
 
     void ChangeComponentInfo(Component component);
 
+    void onExit();
+
     int getQuantity();
     void showMessage(String title, String msg);
 

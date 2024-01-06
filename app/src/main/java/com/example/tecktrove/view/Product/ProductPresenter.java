@@ -56,4 +56,8 @@ public class ProductPresenter {
     public void onDecreaseQuantity(){
         view.decreaseQuantity();
     }
+
+    public void onExit(){
+        view.goToHome();
+    }
 }

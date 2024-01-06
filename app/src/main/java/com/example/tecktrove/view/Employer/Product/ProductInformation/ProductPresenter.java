@@ -54,24 +54,31 @@ public class ProductPresenter {
                 view.showMessage("Προσοχή!", "Υπάρχει προϊόν με αυτόν τον κωδικό.");
             }else{
                 comp.setDescription(description); comp.setManufacturer(manufacturer); comp.setName(name);
-                comp.setModelNo(Integer.parseInt(modelNumber)); comp.setPrice(Money.euros(new BigDecimal(Double.parseDouble(price))));
+                comp.setModelNo(Integer.parseInt(modelNumber));
+                if(price.contains("€")){
+                    price = price.replace("€", "").trim();
+                }
+                comp.setPrice(Money.euros(new BigDecimal(Double.parseDouble(price))));
                 Port avport = new Port();
                 String[] avpairs = avports.split(",");
                 Port reqport = new Port();
                 String[] reqpairs = reqports.split(",");
                 for(String pair: avpairs){
+                    if(pair.equals("") || !pair.contains(":")) break;
                     Pair<String, Integer> p = new Pair<>();
                     String[] values = pair.split(":");
                     p.setFirst(values[0].trim()); p.setSecond(Integer.parseInt(values[1].trim()));
                     avport.add(p);
                 }
                 for(String pair: reqpairs){
+                    if(pair.equals("") || !pair.contains(":")) break;
                     Pair<String, Integer> p = new Pair<>();
                     String[] values = pair.split(":");
                     p.setFirst(values[0].trim()); p.setSecond(Integer.parseInt(values[1].trim()));
                     reqport.add(p);
                 }
                 comp.setAvailablePorts(avport); comp.setRequiredPorts(reqport);
+                view.showMessage("", "Οι αλλαγές έγιναν.");
             }
         }
     }
@@ -79,6 +86,10 @@ public class ProductPresenter {
     public void goToChange(int modelNo){
         comp = components.find(modelNo);
         view.ChangeComponentInfo(comp);
+    }
+
+    public void goToHomeScreen(){
+        view.onExit();
     }
     public void onIncreaseQuantity(int modelNo){
         comp = components.find(modelNo);

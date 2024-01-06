@@ -24,6 +24,7 @@ import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.util.Money;
 import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.Port;
+import com.example.tecktrove.view.Employer.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.view.PortAdapter;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
@@ -99,6 +100,8 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
             @Override
             public void onClick(View view) {
                 presenter.ChangeInfo(modelNo);
+                ActivityFlipper.setDisplayedChild(ActivityFlipper.indexOfChild(findViewById(R.id.employer_product_info)));
+                presenter.setInfo(Integer.parseInt(getModelNo()));
             }
         });
         findViewById(R.id.employer_product_change_exit_button).setOnClickListener(new View.OnClickListener() {
@@ -106,6 +109,13 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
             public void onClick(View view) {
                 ActivityFlipper.setDisplayedChild(ActivityFlipper.indexOfChild(findViewById(R.id.employer_product_info)));
                 presenter.setInfo(modelNo);
+            }
+        });
+
+        findViewById(R.id.employer_product_info_exit_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.goToHomeScreen();
             }
         });
     }
@@ -156,6 +166,12 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         ((EditText) findViewById(R.id.employer_product_change_available_ports)).setText(listString);
         listString = component.getRequiredPorts().getPorts().stream().map(Object::toString).collect(Collectors.joining(", "));
         ((EditText) findViewById(R.id.employer_product_change_required_ports)).setText(listString);
+    }
+
+    @Override
+    public void onExit() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
     }
 
     @Override

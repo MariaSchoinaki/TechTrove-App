@@ -9,13 +9,15 @@ import java.util.ArrayList;
 
 public interface ProductView {
 
-    public void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity);
+    void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity);
 
-    public void showSynthesisInfo(int modelNo,String name, String price, ArrayList<Component> components);
+    void showSynthesisInfo(int modelNo,String name, String price, ArrayList<Component> components);
 
-    public void Cart(ProductType product);
+    void Cart(ProductType product);
 
-    public void increaseQuantity();
-    public void decreaseQuantity();
-    public void showMessage(String title, String msg);
+    void increaseQuantity();
+    void decreaseQuantity();
+    void showMessage(String title, String msg);
+
+    void goToHome();
 }
