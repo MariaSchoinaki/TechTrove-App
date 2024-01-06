@@ -15,6 +15,7 @@ import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.view.CategoryAdapter;
+import com.example.tecktrove.view.Employer.Product.AddProduct.AddProductActivity;
 import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Employer.Product.ProductInformation.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
@@ -67,6 +68,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
                         presenter.onHome();
                         break;
                     case 1:
+                        presenter.onAddProduct();
                         break;
                     case 2:
                         presenter.onMyAccount();
@@ -130,6 +132,12 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     @Override
     public void goToMyAccount() {
         Intent intent = new Intent(this, MyAccountActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void goToAddProduct() {
+        Intent intent = new Intent(this, AddProductActivity.class);
         startActivity(intent);
     }
 

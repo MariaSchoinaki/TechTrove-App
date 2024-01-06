@@ -56,4 +56,8 @@ public class HomeScreenPresenter {
             }
         }
     }
+
+    public void onAddProduct(){
+        view.goToAddProduct();
+    }
 }
