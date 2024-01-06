@@ -28,20 +28,24 @@ public class HomeScreenPresenter {
         this.synthesisDAO = synthesisDAO;
     }
 
-    void onDisplayProducts(String filter){
+    public void onDisplayProducts(String filter){
         searchProducts(filter);
         view.displayProducts(searchResults);
     }
 
-    void onCart(){
+    public void onCart(){
         view.Cart();}
 
-    void onHome(){view.goToHome();}
+    public void onHome(){view.goToHome();}
 
-    void onMyAccount(){view.goToMyAccount();}
+    public void onMyAccount(){view.goToMyAccount();}
 
-    void onDIYSyntesis(){
+    public void onDIYSyntesis(){
         view.diySynthesis();
+    }
+
+    public void onBack(){
+        view.goBack();
     }
 
     private void searchProducts(String query) {

@@ -35,6 +35,10 @@ public class HomeScreenPresenter {
 
     public void onMyAccount(){view.goToMyAccount();}
 
+    public void onBack(){
+        view.goBack();
+    }
+
     private void searchProducts(String query) {
         searchResults = new ArrayList<>();
         ArrayList<ProductType> allProducts = new ArrayList<>(componentDAO.findAll());

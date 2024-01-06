@@ -14,4 +14,6 @@ public interface HomeScreenView {
     void goToMyAccount();
 
     void goToAddProduct();
+
+    void goBack();
 }

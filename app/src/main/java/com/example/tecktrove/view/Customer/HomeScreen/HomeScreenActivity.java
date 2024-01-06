@@ -98,6 +98,13 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
             }
         });
 
+        findViewById(R.id.home_screen_back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.onBack();
+            }
+        });
+
         searchListView = (SearchView) findViewById(R.id.home_screen_search_bar);
         searchListView.setIconifiedByDefault(false);
         searchListView.setOnQueryTextListener(this);
@@ -161,6 +168,11 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public void diySynthesis() {
         Intent intent = new Intent(this, SynthesisActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void goBack() {
+        recyclerView.setAdapter(categoryAdapter);
     }
 
     public boolean onQueryTextChange(String text)
