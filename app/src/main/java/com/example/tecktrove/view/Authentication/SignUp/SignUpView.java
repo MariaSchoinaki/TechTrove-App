@@ -73,5 +73,5 @@ public interface SignUpView {
      * @param title the title of the window
      * @param msg   the text of the window
      */
-    void showErrorMessage(String error, String s);
+    void showErrorMessage(String title, String msg);
 }
