@@ -2,13 +2,21 @@ package com.example.tecktrove.view;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
+import com.example.tecktrove.domain.ProductType;
+import com.example.tecktrove.domain.Synthesis;
+
+import java.net.CookieManager;
+import java.util.ArrayList;
 
 public class SharedViewModel extends ViewModel {
     private static Customer customer;
     private static boolean isEmployer;
     private static Employer employer;
+
+    private static Synthesis synthesis;
 
     public Customer getCustomer() {
         return customer;
@@ -30,5 +38,17 @@ public class SharedViewModel extends ViewModel {
         customer = null;
         employer = null;
         isEmployer = false;
+        synthesis = null;
+    }
+
+    public void setSharedSynthesis(Synthesis synthesiss){
+        synthesis=synthesiss;
+    }
+    public ArrayList<Component> getComponentsFromSynthesis() {
+        return synthesis.getComponentList();
+    }
+
+    public static Synthesis getSynthesis() {
+        return synthesis;
     }
 }
