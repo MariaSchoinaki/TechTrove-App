@@ -56,6 +56,13 @@ public interface SynthesisDAO {
     Synthesis find(String name);
 
     /**
+     * Finds all published sunthesis in the dao
+     *
+     * @return an ArrayList of Synthesis objects
+     */
+    ArrayList<Synthesis> findAllPublished();
+
+    /**
      * Deletes all the synthesis objects in the dao
      */
     void deleteAll();

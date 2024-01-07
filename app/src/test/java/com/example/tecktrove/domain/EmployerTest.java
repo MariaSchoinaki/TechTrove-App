@@ -15,11 +15,17 @@ public class EmployerTest {
 
     private Employer employer;
 
+    /**
+     * Sets up the data used
+     */
     @Before
     public void setUp(){
         this.employer = new Employer(3456, "employer1", "emp78", "Joanna", "Legrange" ,new Email("joanna@gmail.com"), new Telephone("6970876734"));
     }
 
+    /**
+     * Tests default constructor, setters and getters
+     */
     @Test
     public void checkDefaultConstructor(){
         Employer emp = new Employer();
@@ -28,6 +34,9 @@ public class EmployerTest {
         assertEquals("Christos", emp.getName());
     }
 
+    /**
+     * Tests equality of employer objects
+     */
     @Test
     public void checkEquals(){
         Employer e1 = new Employer(5673, "george", "george56", "George", "Kennedy", new Email("klap@yahoo.com"), new Telephone("6898909678"));

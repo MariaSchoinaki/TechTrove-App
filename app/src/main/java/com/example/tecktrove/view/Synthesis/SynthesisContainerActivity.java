@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
+import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.memorydao.MemoryInitializer;
@@ -32,10 +34,7 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     private ProductAdapter productAdapter;
 
     private Initializer init;
-
-
-
-
+    private SharedViewModel sharedViewModel;
 
 
     @SuppressLint("MissingInflatedId")
@@ -44,17 +43,19 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
         super.onCreate(savedInstanceState);
         setContentView(R.layout.synthesis_container);
 
+        sharedViewModel  = new ViewModelProvider(this).get(SharedViewModel.class);
+
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
 
         recyclerView = findViewById(R.id.main_container);
         recyclerView.setLayoutManager(layoutManager);
-        presenter = new SynthesisContainerPresenter(this);
+        presenter = new SynthesisContainerPresenter(this,sharedViewModel);
 
 
         init = new MemoryInitializer();
 
         productAdapter = new ProductAdapter(new ArrayList<ProductType>(presenter.getComponents()), this);
-
+        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
 
 
         recyclerView.setAdapter(productAdapter);
@@ -101,8 +102,7 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     public void completeSynthesis() {
         if (presenter.completeSynthesis()) {
             showErrorMessage("Προσοχη!", "Προσοχή η παρούσα σύνθεση θα αποθηκευτεί στο καλάθι");
-            SharedViewModel model = new SharedViewModel();
-            model.getCustomer().getCart().add(new Pair<ProductType, Integer>(model.getSynthesis(), 1));
+            sharedViewModel.getCustomer().getCart().add(new OrderLine(1, sharedViewModel.getSynthesis()));
         } else {
             showErrorMessage("Προσοχη!", "Προσοχή η παρούσα σύνθεση δεν είναι ολοκληρωμένη!");
         }
@@ -111,8 +111,7 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     @Override
     public void save() {
         showErrorMessage("Προσοχη!", "Προσοχή η παρούσα σύνθεση θα αποθηκευτεί στην λίστα με τα αποθηκευμένα προϊόντα σας");
-        SharedViewModel model = new SharedViewModel();
-        model.getCustomer().getSavedSynthesis().add(SharedViewModel.getSynthesis());
+        sharedViewModel.getCustomer().getSavedSynthesis().add(sharedViewModel.getSynthesis());
     }
 
 }

@@ -17,6 +17,9 @@ public class ComponentTest {
     private ArrayList<Pair<String, Integer>> available_ports,required_ports;
     private Port availablePorts, requiredPorts;
 
+    /**
+     * Sets up the data used
+     */
     @Before
     public void setUp(){;
         Pair<String, Integer> port = new Pair<String, Integer> ("HDMI", 2);
@@ -35,31 +38,49 @@ public class ComponentTest {
     }
 
 
-
+    /**
+     * Tests the name of the component
+     */
     @Test
     public void getName(){
      assertEquals(component.getName(),"AMD Ryzen 7");
     }
+
+    /**
+     * Tests the description of the component
+     */
     @Test
     public void getDescription() {
         assertEquals(component.getDescription(),"Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί");
     }
 
+    /**
+     * Tests the manufacturer of the component
+     */
     @Test
     public void getManufacturer() {
         assertEquals(component.getManufacturer(), "AMD");
     }
 
+    /**
+     * Tests the model number of the component
+     */
     @Test
     public void getModelNo(){
         assertEquals(component.getModelNo(), 235456);
     }
 
+    /**
+     * Tests the price of the component
+     */
     @Test
     public void getPrice(){
         assertEquals(component.getPrice(), Money.euros(BigDecimal.valueOf(73.45)));
     }
 
+    /**
+     * Tests default constructor, setters and getters
+     */
     @Test
     public void checkDefaultConstructor(){
         Component c = new Component();
@@ -76,6 +97,9 @@ public class ComponentTest {
         Assert.assertEquals("hello", c.getDescription());
     }
 
+    /**
+     * Tests quantity of the component
+     */
     @Test
     public void checkQuantity(){
         Assert.assertEquals(10, component.getQuantity());

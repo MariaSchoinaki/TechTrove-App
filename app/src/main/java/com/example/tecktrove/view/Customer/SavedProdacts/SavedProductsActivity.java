@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tecktrove.R;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.view.Customer.Cart.CartActivity;
-import com.example.tecktrove.view.Employer.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;

@@ -85,7 +85,7 @@ public class SynthesisPresenter {
             return Boolean.TRUE;
         }
         for (Component comp : this.synthesis.getComponentList()) {
-            if (comp.getAvailablePorts().getPorts().size()==0 && component.getRequiredPorts().getPorts().size()==0&&component.getAvailablePorts().getPorts().size()==0){
+            if (  component.getRequiredPorts().getPorts().size()==0&&component.getAvailablePorts().getPorts().size()==0){
                 return true;
             }
         }
@@ -97,8 +97,6 @@ public class SynthesisPresenter {
     public void searchProducts(String query) {
         searchResults = new ArrayList<>();
         ArrayList<ProductType> allProducts = new ArrayList<>(componentDAO.findAll());
-        allProducts.addAll(new ArrayList<>(synthesisDAO.findAll()));
-
         if(query.equals("all")){
             searchResults = allProducts;
         }else {

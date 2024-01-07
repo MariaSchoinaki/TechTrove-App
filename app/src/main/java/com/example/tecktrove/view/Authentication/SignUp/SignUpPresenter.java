@@ -6,6 +6,7 @@ import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.EmployerDAO;
 import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
+import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.util.Pair;
@@ -82,7 +83,7 @@ public class SignUpPresenter {
                 if(customers.findCustomerByUsername(username) != null){
                     view.showErrorMessage("Error", "Username already exists.");
                 }else{
-                    Customer customer = new Customer(customers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>());
+                    Customer customer = new Customer(customers.nextId(), username, password, name[0], name[1], new Email(email), new Telephone(telephone), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());
                     customers.save(customer);
                     view.signUp(customer);
                 }

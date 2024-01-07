@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Customer extends User {
 
     private ArrayList<Synthesis> savedSynthesis;
-    private ArrayList<Pair<ProductType,Integer>> cart;
+    private ArrayList<OrderLine> cart;
 
     /**
      * Default Constructor
@@ -30,7 +30,7 @@ public class Customer extends User {
      * @param savedSynthesis    saved synthesis of the customer
      * @param cart              cart of the customer
      */
-    public Customer( int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone, ArrayList<Synthesis> savedSynthesis, ArrayList<Pair<ProductType,Integer>>cart){
+    public Customer( int id, String username, String password, String firstName, String lastName, Email email, Telephone telephone, ArrayList<Synthesis> savedSynthesis, ArrayList<OrderLine>cart){
         super(id,username,password, firstName,lastName,email,telephone);
         this.savedSynthesis=savedSynthesis;
         this.cart=cart;
@@ -50,7 +50,7 @@ public class Customer extends User {
      *
      * @return an ArrayList of {@link Pair} objects (Product, quantity)
      */
-    public ArrayList<Pair<ProductType,Integer>> getCart() {
+    public ArrayList<OrderLine> getCart() {
         return this.cart;
     }
 
@@ -68,7 +68,7 @@ public class Customer extends User {
      *
      * @param cart the cart of the customer
      */
-    public void setCart(ArrayList<Pair<ProductType,Integer>>cart) {
+    public void setCart(ArrayList<OrderLine>cart) {
         this.cart = cart;
     }
 
@@ -93,19 +93,19 @@ public class Customer extends User {
     /**
      * Adds to cart a product, with it's quantity
      *
-     * @param pair  a pair of (product, quantity)
+     * @param line  a pair of (product, quantity)
      */
-    public void addToCart(Pair<ProductType,Integer> pair){
+    public void addToCart(OrderLine line){
         Boolean found = false;
-        for(Pair<ProductType,Integer> product : cart) {
-            if ((product.getFirst()).equals(pair.getFirst())) {
+        for(OrderLine product : cart) {
+            if ((product.getProductType()).equals(line.getProductType())) {
                 found = true;
-                int new_quantity = product.getSecond() + pair.getSecond();
-                product.setSecond(new_quantity);
+                int new_quantity = product.getQuantity() + line.getQuantity();
+                product.setQuantity(new_quantity);
             }
         }
         if(!found){
-            this.cart.add(pair);
+            this.cart.add(line);
         }
     }
 
@@ -124,12 +124,12 @@ public class Customer extends User {
      * @param ProductID the product's id
      * @return  a product or null
      */
-    public Pair<ProductType,Integer> getProductFromCart(int ProductID){
+    public OrderLine getProductFromCart(int ProductID){
         int i = this.cart.size() - 1;
-        Pair<ProductType,Integer> p;
+        OrderLine p;
         while(i>=0){
             p = this.cart.get(i);
-            if(p.getFirst().getModelNo() == ProductID){
+            if(p.getProductType().getModelNo() == ProductID){
                 return p;
             }
             i-=1;

@@ -51,7 +51,7 @@ public class HomeScreenPresenter {
     private void searchProducts(String query) {
         searchResults = new ArrayList<>();
         ArrayList<ProductType> allProducts = new ArrayList<>(componentDAO.findAll());
-        allProducts.addAll(new ArrayList<>(synthesisDAO.findAll()));
+        allProducts.addAll(new ArrayList<>(synthesisDAO.findAllPublished()));
 
         if(query.equals("all")){
             searchResults = allProducts;

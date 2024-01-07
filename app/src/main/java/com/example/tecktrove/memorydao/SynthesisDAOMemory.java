@@ -98,6 +98,22 @@ public class SynthesisDAOMemory implements SynthesisDAO {
     }
 
     /**
+     * Finds all published sunthesis in the dao
+     *
+     * @return an ArrayList of Synthesis objects
+     */
+    @Override
+    public ArrayList<Synthesis> findAllPublished() {
+        ArrayList<Synthesis> Published = new ArrayList<Synthesis>();
+        for(Synthesis s: synthesis){
+            if(s.getPublishState()){
+                Published.add(s);
+            }
+        }
+        return Published;
+    }
+
+    /**
      * Deletes all the synthesis objects in the dao
      */
     @Override

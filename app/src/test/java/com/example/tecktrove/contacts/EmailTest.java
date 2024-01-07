@@ -4,6 +4,9 @@ import org.junit.*;
 
 public class EmailTest {
 
+    /**
+     * Testing equality of email objects
+     */
     @Test
     public void checkEquals(){
         Email e = new Email("elen@gmail.com");

@@ -14,12 +14,12 @@ public class SynthesisContainerPresenter {
 
     SharedViewModel sharedViewModel;
 
-    SynthesisContainerPresenter(  SynthesisContainerView view) {
+    SynthesisContainerPresenter(SynthesisContainerView view,SharedViewModel model) {
+        this.sharedViewModel= model;
         this.view = view;
     }
 
    public ArrayList<Component> getComponents(){
-        sharedViewModel = new SharedViewModel();
         return sharedViewModel.getComponentsFromSynthesis();
    }
 
