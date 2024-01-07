@@ -40,7 +40,13 @@
             android:name=".view.Customer.Cart.CartActivity"
             android:exported="false" />
         <activity
+            android:name=".view.Synthesis.SynthesisContainerActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.Synthesis.SynthesisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.Customer.SavedProdacts.SavedProductsActivity"
             android:exported="false" />
 
 
