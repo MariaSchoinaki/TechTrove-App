@@ -13,6 +13,7 @@ public class HomeScreenViewStub implements HomeScreenView{
     private int numberOfProducts;
     private int timesVisitedDiySynthesis = 0;
     private int goback = 0;
+    private int timesgotosaved = 0;
 
     @Override
     public void displayProducts(ArrayList<ProductType> products) {
@@ -45,6 +46,11 @@ public class HomeScreenViewStub implements HomeScreenView{
         goback++;
     }
 
+    @Override
+    public void saved() {
+        timesgotosaved++;
+    }
+
     public int getTimesShownCategory() {
         return timesShownCategory;
     }
@@ -71,5 +77,9 @@ public class HomeScreenViewStub implements HomeScreenView{
 
     public int getTimesVisitedDiySynthesis() {
         return timesVisitedDiySynthesis;
+    }
+
+    public int getTimesgotosaved() {
+        return timesgotosaved;
     }
 }

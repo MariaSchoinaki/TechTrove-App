@@ -18,6 +18,9 @@ public class HomeScreenPresenterTest {
     private Initializer init;
     private HomeScreenPresenter presenter;
 
+    /**
+     * Sets up the presenter and initializes the data
+     */
     @Before
     public void setUp(){
         init = new MemoryInitializer();
@@ -27,6 +30,9 @@ public class HomeScreenPresenterTest {
         presenter = new HomeScreenPresenter(view, new CustomerDAOMemory(), new EmployerDAOMemory(), new ComponentDAOMemory(), new SynthesisDAOMemory());
     }
 
+    /**
+     * Tests navigating the user to the correct pages
+     */
     @Test
     public void test(){
         Assert.assertEquals(0,view.getTimesVisitedHome());
@@ -48,6 +54,9 @@ public class HomeScreenPresenterTest {
         Assert.assertEquals(1, view.getTimesAddedProducts());
     }
 
+    /**
+     * Tests the display of the products in the categories
+     */
     @Test
     public void testDisplayProducts(){
         Assert.assertEquals(0, view.getTimesShownCategory());

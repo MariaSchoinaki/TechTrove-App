@@ -8,6 +8,9 @@ public class StartScreenPresenterTest {
     private StartScreenViewStub view;
     private StartScreenPresenter presenter;
 
+    /**
+     * Sets up the presenter and initializes the data
+     */
     @Before
     public void setUp() {
         view = new StartScreenViewStub();
@@ -23,6 +26,9 @@ public class StartScreenPresenterTest {
         Assert.assertEquals(1, view.getTimesVisitedLogIn());
     }
 
+    /**
+     * We test to see if the presenter calls the right method
+     **/
     @Test
     public void testSignUp(){
         presenter.onSignUp();

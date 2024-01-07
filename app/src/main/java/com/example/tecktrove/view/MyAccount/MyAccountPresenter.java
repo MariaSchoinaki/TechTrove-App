@@ -90,12 +90,11 @@ public class MyAccountPresenter {
     }
 
     public void onDeleteAccount(){
-        /*
         if(isEmployer){
             employerDAO.delete(employerDAO.findEmployerByUsernameAndPassword(username, password));
         }else{
             customerDAO.delete(customerDAO.findCustomerByUsernameAndPassword(username, password));
-        }*/
+        }
         view.logout();
     }
 
