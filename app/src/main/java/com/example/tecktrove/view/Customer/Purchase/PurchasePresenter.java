@@ -42,7 +42,7 @@ public class PurchasePresenter {
      * Checks if the given from the user values, are following
      * some of the basic rules, such as the card number must be 16 digits
      */
-    public void check_values(){
+    public void placeOrder(){
         String fullname = view.getFullName();
         String email = view.getEmail();
         String telephone = view.getTelephone();
@@ -94,9 +94,9 @@ public class PurchasePresenter {
         Customer customer = sharedViewModel.getCustomer();
 
 
-        LocalDateTime now = LocalDateTime.now();
-        Order order = new Order(new SimpleCalendar(2023, 12, 12), cardNumber, telephone, email, ArrayList< OrderLine > orderLines)
-        orders.save(order);
-        view.placeOrder(customer);
+        //LocalDateTime now = LocalDateTime.now();
+        //Order order = new Order(new SimpleCalendar(2023, 12, 12), cardNumber, telephone, email, ArrayList< OrderLine > orderLines)
+        //orders.save(order);
+        //view.placeOrder(customer);
     }
 }
