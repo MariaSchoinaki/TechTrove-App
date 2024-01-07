@@ -32,7 +32,7 @@
     <string name="addToS">Προσθέστε στην σύνθεση:</string>
     <string name="synthesysC">H σύνθεση σας περιέχει:</string>
     <string name="complete">Ολοκλήρωση</string>
-
-
+    <string name="saved">Αποθηκευμένα Προϊόντα</string>
+    <string name="saveButton">Αποθήκευση</string>
 
 </resources>

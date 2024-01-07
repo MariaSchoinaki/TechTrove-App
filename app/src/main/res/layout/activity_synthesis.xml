@@ -88,6 +88,7 @@
         android:text="@string/complete"
         app:layout_constraintBottom_toTopOf="@+id/SynthesisHomePageTabLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView7" />
 
@@ -118,21 +119,21 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView5" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView7"
-        android:layout_width="133dp"
-        android:layout_height="263dp"
+        android:layout_width="223dp"
+        android:layout_height="267dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/completeted"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addS" />
 

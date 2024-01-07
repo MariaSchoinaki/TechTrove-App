@@ -10,7 +10,7 @@
     android:backgroundTintMode="src_atop">
 
     <TextView
-        android:id="@+id/my_Synthesis"
+        android:id="@+id/my_Synthesis_container"
         android:layout_width="312dp"
         android:layout_height="64dp"
         android:layout_marginStart="155dp"
@@ -79,7 +79,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <Button
-        android:id="@+id/completeted"
+        android:id="@+id/completeted_container"
         android:layout_width="183dp"
         android:layout_height="47dp"
         android:layout_marginStart="115dp"
@@ -91,10 +91,29 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_container"
         android:layout_width="214dp"
         android:layout_height="436dp"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="119dp" />
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="99dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_Synthesis_container" />
+
+    <Button
+        android:id="@+id/completeted_container2"
+        android:layout_width="179dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="14dp"
+        android:text="@string/saveButton"
+        app:layout_constraintBottom_toTopOf="@+id/completeted_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_container" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
