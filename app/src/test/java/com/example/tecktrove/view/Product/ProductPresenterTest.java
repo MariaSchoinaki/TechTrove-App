@@ -14,6 +14,9 @@ public class ProductPresenterTest {
     private ProductViewStub view;
     private ProductPresenter presenter;
 
+    /**
+     * Sets up the presenter and initializes the data
+     */
     @Before
     public void setUp(){
         Initializer init = new MemoryInitializer();
@@ -23,6 +26,9 @@ public class ProductPresenterTest {
         presenter = new ProductPresenter(new ComponentDAOMemory(), new SynthesisDAOMemory(),view);
     }
 
+    /**
+     * Tests the page navigation
+     */
     @Test
     public void testShowInfo(){
         presenter.setInfo(1);
@@ -36,12 +42,18 @@ public class ProductPresenterTest {
         Assert.assertEquals(1, view.getTimesExited());
     }
 
+    /**
+     *
+     */
     @Test
     public void test(){
         Assert.assertEquals(view, view.getProductView());
         Assert.assertNotNull(view.getProductView());
     }
 
+    /**
+     * Tests add to cart button functionality
+     */
     @Test
     public void testCart(){
         presenter.setInfo(2936);
@@ -60,6 +72,9 @@ public class ProductPresenterTest {
         Assert.assertEquals(2, view.getTimesShowingMessage());
     }
 
+    /**
+     * Tests increase and decrease quantity buttons
+     */
     @Test
     public void testIncreaseDecrease(){
         presenter.setInfo(3260);

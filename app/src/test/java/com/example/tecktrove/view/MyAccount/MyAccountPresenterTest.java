@@ -22,6 +22,9 @@ public class MyAccountPresenterTest {
     private Initializer init;
     private SharedViewModel sharedViewModel;
 
+    /**
+     * Sets up the presenter and initializes the data
+     */
     @Before
     public void setUp(){
         init = new MemoryInitializer();
@@ -31,6 +34,9 @@ public class MyAccountPresenterTest {
         presenter = new MyAccountPresenter(view, new CustomerDAOMemory(), new EmployerDAOMemory());
     }
 
+    /**
+     * Testing loging out of the app, and navigating to the start screen
+     */
     @Test
     public void testLogOut(){
         Assert.assertEquals(0, view.getTimesLogedOut());
@@ -39,12 +45,31 @@ public class MyAccountPresenterTest {
         Assert.assertEquals(1, view.getTimesLogedOut());
     }
 
+    /**
+     * Tests deleting an account
+     */
     @Test
     public void testDeleteAccount(){
         presenter.onDeleteAccount();
         Assert.assertEquals(1, view.getTimesLogedOut());
+
+        Customer c = init.getCustomerDAO().findCustomerByUsernameAndPassword("george", "ok123456");
+        presenter.setInfo("George kallifanakis", c.getEmail().getEmail(), "6987898956", "georgie", c.getPassword(), c.getPassword(), false);
+        presenter.onSaveChanges(c,5673);
+        presenter.onDeleteAccount();
+        Assert.assertNull(init.getCustomerDAO().findCustomerByUsernameAndPassword("george",c.getPassword()));
+
+        Employer e = init.getEmployerDAO().findEmployerByUsernameAndPassword("eleni3", "elen!562");
+
+        presenter.setInfo("eleni maria", e.getEmail().getEmail(), "6987020265", "elenara", e.getPassword(), e.getPassword(), true);
+        presenter.onSaveChanges(e, 1252);
+        presenter.onDeleteAccount();
+        Assert.assertNull(init.getEmployerDAO().findEmployerByUsernameAndPassword("eleni3", e.getPassword() ));
     }
 
+    /**
+     * Tests changing information of the user
+     */
     @Test
     public void testChanges(){
         Customer c = init.getCustomerDAO().findCustomerByUsernameAndPassword("george", "ok123456");
