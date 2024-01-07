@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F0F"
+    android:scrollbars="none"
+    tools:context=".view.Customer.Purchase.PurchaseActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-20dp"
+            android:fontFamily="arial"
+            android:text="Στοιχεία Χρέωσης"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="@string/full_name"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/PurchaseFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="arial"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/prompt_email"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/PurchaseEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:text="@string/phone"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="@string/mobile_number"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPurchaseMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Address"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/PurchaseAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="50dp"
+            android:hint="Αριθμός Κάρτας"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPurchaseCardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="arial"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="97dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:hint="MM"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPurchaseCardMonth"
+                    android:layout_width="97dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="97dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:hint="YY"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPurchaseCardYear"
+                    android:layout_width="97dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="40dp"
+                android:hint="CVV"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/black"
+                app:boxBackgroundMode="outline"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPurchaseCardCvv"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp">
+
+            <ProgressBar
+                android:id="@+id/PurchaseProgressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:visibility="invisible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPurchase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#202020"
+                android:fontFamily="arial"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="Ολοκλήρωση Αγοράς"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textColorLink="@color/white"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>
