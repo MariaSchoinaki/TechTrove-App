@@ -322,7 +322,7 @@ public class DAOTest {
 
         Pair pair2_1 = new Pair("ATX Power Port",1);
         Pair pair2_2 = new Pair("ATX 12V Power Port",1);
-        Pair pair2_3 = new Pair("SATA Power Port",2);
+        Pair pair2_3 = new Pair("SATA Power Port",1);
         Pair pair2_4 = new Pair("Molex Connector",1);
         Pair pair2_5 = new Pair("PCI Express Connector",1);
         Pair pair2_6 = new Pair("PCI Floppy Drive Connector",1);
@@ -345,7 +345,7 @@ public class DAOTest {
     @Test
     public void testRequiredPorts(){
 
-        Pair pair7_1 = new Pair("PCI Express x16 2.0",1);
+        Pair pair7_1 = new Pair("PCI Express x16 3.0",1);
         Port port = new Port();
         port.add(pair7_1);
 
@@ -359,7 +359,7 @@ public class DAOTest {
      */
     @Test
     public void testDeleteByRequiredPorts(){
-        Pair p = new Pair("PCI Express x16 2.0",1);
+        Pair p = new Pair("PCI Express x16 3.0",1);
         Port port = new Port();
         port.add(p);
 
@@ -377,7 +377,7 @@ public class DAOTest {
 
         Pair pair2_1 = new Pair("ATX Power Port",1);
         Pair pair2_2 = new Pair("ATX 12V Power Port",1);
-        Pair pair2_3 = new Pair("SATA Power Port",2);
+        Pair pair2_3 = new Pair("SATA Power Port",1);
         Pair pair2_4 = new Pair("Molex Connector",1);
         Pair pair2_5 = new Pair("PCI Express Connector",1);
         Pair pair2_6 = new Pair("PCI Floppy Drive Connector",1);

@@ -63,7 +63,7 @@ public class Pair<T, K> {
             return false;
         }
         Pair o = (Pair) other;
-        return (this.first==o.first) && (this.second == this.second);
+        return (this.first==o.first) && (this.second == o.second);
     }
 
     @Override

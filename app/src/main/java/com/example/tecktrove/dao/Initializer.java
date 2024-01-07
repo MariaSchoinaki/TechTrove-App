@@ -100,7 +100,7 @@ public abstract class Initializer {
 
         Pair<String, Integer> pair2_1 = new Pair<String, Integer>("ATX Power Port",1);
         Pair<String, Integer> pair2_2 = new Pair<String, Integer>("ATX 12V Power Port",1);
-        Pair<String, Integer> pair2_3 = new Pair<String, Integer>("SATA Power Port",2);
+        Pair<String, Integer> pair2_3 = new Pair<String, Integer>("SATA Power Port",1);
         Pair<String, Integer> pair2_4 = new Pair<String, Integer>("Molex Connector",1);
         Pair<String, Integer> pair2_5 = new Pair<String, Integer>("PCI Express Connector",1);
         Pair<String, Integer> pair2_6 = new Pair<String, Integer>("PCI Floppy Drive Connector",1);
@@ -134,9 +134,9 @@ public abstract class Initializer {
         getComponentDAO().save(com4);
 
         Pair<String, Integer> pair5_1 = new Pair<String, Integer>("socket AM4",1);
-        Pair<String, Integer> pair5_2 = new Pair<String, Integer>("socket DDR4",2);
+        Pair<String, Integer> pair5_2 = new Pair<String, Integer>("socket DDR4",1);
         Pair<String, Integer> pair5_3 = new Pair<String, Integer>("PCI Express x16 3.0",1);
-        Pair<String, Integer> pair5_4 = new Pair<String, Integer>("SATA III",4);
+        Pair<String, Integer> pair5_4 = new Pair<String, Integer>("SATA III",1);
 
 
         Port port5 = new Port();
@@ -180,7 +180,7 @@ public abstract class Initializer {
         getComponentDAO().save(com11);
         Pair<String, Integer> pair12_1 = new Pair<String, Integer>("ATX Power Port",1);
         Pair<String, Integer> pair12_2 = new Pair<String, Integer>("ATX 12V Power Port",1);
-        Pair<String, Integer> pair12_3 = new Pair<String, Integer>("SATA Power Port",2);
+        Pair<String, Integer> pair12_3 = new Pair<String, Integer>("SATA Power Port",1);
         Pair<String, Integer> pair12_4 = new Pair<String, Integer>("PCI Express Connector",1);
 
         Port port12 = new Port();
@@ -205,9 +205,9 @@ public abstract class Initializer {
         getComponentDAO().save(com14);
 
         Pair<String, Integer> pair15_1 = new Pair<String, Integer>("socket AM4+",1);
-        Pair<String, Integer> pair15_2 = new Pair<String, Integer>("DDR5",2);
+        Pair<String, Integer> pair15_2 = new Pair<String, Integer>("DDR5",1);
         Pair<String, Integer> pair15_3 = new Pair<String, Integer>("PCI Express x16 3.0",1);
-        Pair<String, Integer> pair15_4 = new Pair<String, Integer>("M.2",4);
+        Pair<String, Integer> pair15_4 = new Pair<String, Integer>("M.2",1);
 
         Port port15 = new Port();
 
