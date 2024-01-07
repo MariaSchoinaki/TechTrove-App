@@ -251,6 +251,7 @@ public abstract class Initializer {
 
         //Synthesis
         Synthesis s1 = new Synthesis(9787, Money.euros(BigDecimal.valueOf(0)), "Synthesis1");
+        s1.setPublishState(true);
         s1.add(com1);
         s1.add(com2);
         s1.add(com3);
@@ -263,6 +264,7 @@ public abstract class Initializer {
 
 
         Synthesis s2 = new Synthesis(9485, Money.euros(BigDecimal.valueOf(0)), "Synthesis2");
+        s2.setPublishState(true);
         s2.add(com11);
         s2.add(com12);
         s2.add(com13);
