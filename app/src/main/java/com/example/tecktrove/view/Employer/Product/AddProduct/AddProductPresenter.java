@@ -13,15 +13,30 @@ public class AddProductPresenter {
     private AddProductView view;
     private ComponentDAO components;
 
+    /**
+     * Constructor of the presenter
+     *
+     * @param view          AddProductView view
+     * @param components    component dao
+     */
     public AddProductPresenter(AddProductView view, ComponentDAO components){
         this.view = view;
         this.components = components;
     }
 
+    /**
+     * Helps presenter call goToHomeScreen, so
+     * that the navigation return back to home screen
+     */
     void onHomeScreen(){
         view.goToHomeScreen();
     }
 
+    /**
+     * Checks if the given from the employer values, are following
+     * some of the basic rules. Sets the values of the new component.
+     * Stores the component at the component dao and returns to home screen
+     */
     void saveProduct(){
         String modelNumber = view.getModelNo();
         String name = view.getName();
