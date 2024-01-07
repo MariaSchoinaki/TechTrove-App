@@ -225,6 +225,7 @@ public class DAOTest {
         Assert.assertEquals("Synthesis1",synthesisDAO.find("Synthesis1").getName());
         Assert.assertEquals(9787,synthesisDAO.find(9787).getModelNo());
 
+        Assert.assertEquals(2, synthesisDAO.findAllPublished().size());
     }
     @Test
     public void testAvailablePorts(){
