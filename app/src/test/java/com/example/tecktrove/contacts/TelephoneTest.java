@@ -4,6 +4,9 @@ import org.junit.*;
 
 public class TelephoneTest {
 
+    /**
+     * Testing equality of telephone objects
+     */
     @Test
     public void checkEquals(){
         Telephone t = new Telephone("123");

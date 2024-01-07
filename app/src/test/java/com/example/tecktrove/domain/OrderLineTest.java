@@ -19,6 +19,9 @@ public class OrderLineTest {
     OrderLine orderl4;
     OrderLine orderl5;
 
+    /**
+     * Sets up the data used
+     */
     @Before
     public void setUp(){
         orderl1 = new OrderLine(2,new Component(235456, Money.euros(BigDecimal.valueOf(30.5)) , "AMD Ryzen 7", "Επεξεργαστής 8 Πυρήνων για Socket AM4 σε Κουτί", "AMD", new Port(), new Port(), 10 ));
@@ -27,6 +30,9 @@ public class OrderLineTest {
         orderl4 = new OrderLine(2,new Synthesis(235456, Money.euros(1500), "abcd "));
     }
 
+    /**
+     * Tests default constructor, setters and getters
+     */
     @Test
     public void checkDefaultConstructor(){
         orderl5 = new OrderLine();
@@ -39,6 +45,10 @@ public class OrderLineTest {
         Assert.assertEquals("4500 €", orderl5.getSubTotal().toString());
         Assert.assertEquals(3, orderl5.getQuantity());
     }
+
+    /**
+     * Tests setters and getters
+     */
     @Test
     public void checkGetSet(){
         Assert.assertEquals("61.0 €", orderl1.getSubTotal().toString());
@@ -52,12 +62,18 @@ public class OrderLineTest {
         Assert.assertEquals(1, orderl3.getQuantity());
     }
 
+    /**
+     * Tests calculating total price of the orderline
+     */
     @Test
     public void CalculateSubTotal(){
         orderl1.setQuantity(5);
         Assert.assertEquals("152.5 €", orderl1.getSubTotal().toString());
     }
 
+    /**
+     * Tests equality of orderline objects
+     */
     @Test
     public void checkEquality(){
         Assert.assertFalse(orderl1.equals(orderl2));

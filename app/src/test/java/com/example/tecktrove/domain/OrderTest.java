@@ -24,6 +24,10 @@ import com.example.tecktrove.util.SystemDate;
 public class OrderTest  {
     private Order order1,order2;
     private Currency euroCurrency = Currency.getInstance("EUR");
+
+    /**
+     * Sets up the data used
+     */
     @Before
     public void setUp(){
         ArrayList<OrderLine> R1 = new ArrayList<OrderLine>();
@@ -33,6 +37,10 @@ public class OrderTest  {
         order2 = new Order(new SimpleCalendar(2023,6,25),2510100000000000L,new Telephone("1109843674"),new Email("oka1@gmail.com"),R2);
 
     }
+
+    /**
+     * Tests default constructor, setters and getters
+     */
     @Test
     public void checkDefaultConstructor(){
         Order o = new Order();
@@ -41,6 +49,10 @@ public class OrderTest  {
         o.setId(5);
         Assert.assertEquals(5, o.getId());
     }
+
+    /**
+     * Tests setters and getters
+     */
     @Test
     public void checkGetSet() {
         assertNotEquals(this.order1.getDate(), this.order2.getDate());
@@ -68,6 +80,9 @@ public class OrderTest  {
         assertEquals(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>()),this.order1.getCustomer());
 
     }
+    /**
+     * Tests add and remove orderlines from the order
+     */
     @Test
     public void testAddRemove(){
         OrderLine R3 = new OrderLine(2,new ProductType(125,new Money(new BigDecimal(2100.1), euroCurrency),"chris", 2));

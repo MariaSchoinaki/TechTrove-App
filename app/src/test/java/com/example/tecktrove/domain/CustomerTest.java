@@ -18,11 +18,19 @@ import java.util.ArrayList;
 
 public class CustomerTest {
     private Customer customer1, customer2;
+
+   /**
+    * Sets up the data used
+    */
    @Before
     public void setup() {
        customer1 = new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());
        customer2 = new Customer(18,  "lola", "1234", "lo", "la", new Email("ok@gmail.com"), new Telephone("12345"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());
    }
+
+   /**
+    * Tests default constructor, setters and getters
+    */
    @Test
    public void checkDefaultConstructor(){
       Customer o = new Customer();
@@ -30,6 +38,10 @@ public class CustomerTest {
       o.setCart(c1);
       assertEquals(o.getCart(),c1);
    }
+
+   /**
+    * Tests getters and setters
+    */
     @Test
     public void testGetSet(){
 
@@ -46,6 +58,9 @@ public class CustomerTest {
        assertEquals(this.customer1.getCart(),this.customer2.getCart());
    }
 
+   /**
+    * Tests customer's cart functionality
+    */
    @Test
    public void checkCart(){
 
@@ -65,6 +80,9 @@ public class CustomerTest {
       customer1.addToCart(new OrderLine(1,p));
    }
 
+   /**
+    * Tests saved synthesis functionality
+    */
    @Test
    public void checkSaved(){
       assertEquals(new ArrayList<>(), customer1.getSavedSynthesis());
@@ -82,6 +100,10 @@ public class CustomerTest {
       assertNotEquals(p, customer1.getProductFromSaved(16627));
 
    }
+
+   /**
+    * Tests equality of Customer objects
+    */
    @Test
    public void checkEquality(){
       Customer c1 = new Customer(5673, "george", "g5797j6", "George", "Johnson", new Email("klap@yahoo.com"), new Telephone("6898909678"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());

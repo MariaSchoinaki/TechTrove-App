@@ -17,11 +17,18 @@ public class UserTest {
     private User user1;
     private User user2;
 
+    /**
+     * Sets up the data used
+     */
     @Before
     public void setUp(){
         this.user1 = new User(1, "george15", "12345", "George", "Papageorge", new Email("george@gmail.com"), new Telephone("6987402775"));
         this.user2 = new User(45, "leana", "les34", "Leana", "Triantafillidi", new Email("lean@gmail.com"), new Telephone("6987563456"));
     }
+
+    /**
+     * Tests default constructor, setters and getters
+     */
     @Test
     public void checkDefaultConstructor(){
         User user = new User();
@@ -30,6 +37,9 @@ public class UserTest {
         assertEquals(4534, user.getId());
     }
 
+    /**
+     * Tests setters and getters
+     */
     @Test
     public void checkGetSet(){
         assertNotEquals(this.user1.getEmail(), this.user2.getEmail());
@@ -63,6 +73,9 @@ public class UserTest {
         assertEquals(new Telephone("6987036565"), user2.getTelephone());
 
     }
+    /**
+     * Tests equality of employer objects
+     */
     @Test
     public void checkEquality(){
         assertNotEquals(user1, user2);
