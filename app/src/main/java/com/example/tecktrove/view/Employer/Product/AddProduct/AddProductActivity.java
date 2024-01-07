@@ -26,6 +26,7 @@ public class AddProductActivity extends AppCompatActivity implements AddProductV
      */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme(R.style.Base_Theme_TeckTrove);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employer_product_change_fragment);
 
