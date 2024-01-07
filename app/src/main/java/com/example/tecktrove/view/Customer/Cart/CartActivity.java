@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
+import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
@@ -136,8 +137,8 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
     @Override
         public void ShowTotal(){
             Money total = Money.euros(0);
-            for (Pair<ProductType,Integer> p : sharedViewModel.getCustomer().getCart()){
-                total= total.plus(p.getFirst().getPrice().times(p.getSecond()));
+            for (OrderLine p : sharedViewModel.getCustomer().getCart()){
+                total= total.plus(p.getProductType().getPrice().times(p.getQuantity()));
             }
             ((TextView) findViewById(R.id.sum)).setText("Total: "+total.toString());
         }

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.Component;
+import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
@@ -135,7 +136,7 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
 
     @Override
     public void Cart(ProductType product) {
-        sharedViewModel.getCustomer().addToCart(new Pair<ProductType,Integer>(product,quantity));
+        sharedViewModel.getCustomer().addToCart(new OrderLine(quantity,product));
         showMessage("Success", "Added to cart!");
 
     }

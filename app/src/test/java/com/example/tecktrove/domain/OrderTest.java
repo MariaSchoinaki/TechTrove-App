@@ -64,8 +64,8 @@ public class OrderTest  {
         order2.setOrderLines(l1);
         assertEquals(l1, this.order2.getOrderLines());
         assertEquals(l1,this.order1.getOrderLines());
-        order1.setCustomer(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>()));
-        assertEquals(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>()),this.order1.getCustomer());
+        order1.setCustomer(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>()));
+        assertEquals(new Customer(18,  "lola", "12345678", "lo", "la", new Email("ok@gmail.com"), new Telephone("1234567891"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>()),this.order1.getCustomer());
 
     }
     @Test

@@ -74,13 +74,13 @@ public abstract class Initializer {
     public void prepareData(){
         eraseData();
         //Customers
-        Customer c1 = new Customer(5673, "george", "ok123456", "George", "Johnson", new Email("klap@yahoo.com"), new Telephone("6898909678"), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>());
+        Customer c1 = new Customer(5673, "george", "ok123456", "George", "Johnson", new Email("klap@yahoo.com"), new Telephone("6898909678"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());
         getCustomerDAO().save(c1);
 
-        Customer c2 = new Customer(7859, "maria5", "31m@ria5", "Maria", "Papadaki", new Email("papadaki27@gmail.com"), new Telephone("6984596936"), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>());
+        Customer c2 = new Customer(7859, "maria5", "31m@ria5", "Maria", "Papadaki", new Email("papadaki27@gmail.com"), new Telephone("6984596936"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());
         getCustomerDAO().save(c2);
 
-        Customer c3 = new Customer(2598, "chris", "chr!s598", "Christos", "Papaioanou", new Email("papaio54@gmail.com"), new Telephone("6985369825"), new ArrayList<Synthesis>(), new ArrayList<Pair<ProductType,Integer>>());
+        Customer c3 = new Customer(2598, "chris", "chr!s598", "Christos", "Papaioanou", new Email("papaio54@gmail.com"), new Telephone("6985369825"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());
         getCustomerDAO().save(c3);
 
         //Employers
