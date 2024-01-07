@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
+import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.memorydao.MemoryInitializer;
@@ -42,11 +43,13 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
         super.onCreate(savedInstanceState);
         setContentView(R.layout.synthesis_container);
 
+        sharedViewModel  = new ViewModelProvider(this).get(SharedViewModel.class);
+
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
 
         recyclerView = findViewById(R.id.main_container);
         recyclerView.setLayoutManager(layoutManager);
-        presenter = new SynthesisContainerPresenter(this);
+        presenter = new SynthesisContainerPresenter(this,sharedViewModel);
 
 
         init = new MemoryInitializer();
@@ -99,7 +102,7 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     public void completeSynthesis() {
         if (presenter.completeSynthesis()) {
             showErrorMessage("Προσοχη!", "Προσοχή η παρούσα σύνθεση θα αποθηκευτεί στο καλάθι");
-            sharedViewModel.getCustomer().getCart().add(new Pair<ProductType, Integer>(sharedViewModel.getSynthesis(), 1));
+            sharedViewModel.getCustomer().getCart().add(new OrderLine(1, sharedViewModel.getSynthesis()));
         } else {
             showErrorMessage("Προσοχη!", "Προσοχή η παρούσα σύνθεση δεν είναι ολοκληρωμένη!");
         }
