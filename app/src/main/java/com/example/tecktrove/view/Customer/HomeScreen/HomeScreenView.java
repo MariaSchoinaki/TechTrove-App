@@ -15,4 +15,6 @@ public interface HomeScreenView {
     void diySynthesis();
 
     void goBack();
+
+    void saved();
 }

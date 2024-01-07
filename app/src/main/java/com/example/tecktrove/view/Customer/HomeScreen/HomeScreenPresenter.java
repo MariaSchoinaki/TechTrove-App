@@ -69,4 +69,10 @@ public class HomeScreenPresenter {
             }
         }
     }
+
+    public void onSaved() {
+        view.saved();
+    }
+
+
 }
