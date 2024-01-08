@@ -101,6 +101,9 @@ public class HomeScreenPresenter {
         }
     }
 
+    /**
+     * Navigates the app on my saved screen
+     */
     public void onSaved() {
         view.saved();
     }
