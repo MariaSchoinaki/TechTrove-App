@@ -3,6 +3,7 @@ package com.example.tecktrove.view.Customer.Cart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +19,10 @@ import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.dao.ComponentDAO;
 import com.example.tecktrove.util.Money;
-import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.view.CartProductAdapter;
 import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.Customer.Purchase.PurchaseActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
-import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
 import com.google.android.material.tabs.TabLayout;
 
@@ -94,10 +94,15 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
                     presenter.onCart();
                 }
             });
+
+            findViewById(R.id.button_purchase_cart).setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    presenter.onPurchase();
+                }
+            });
         }
-
-
-
 
 
 
@@ -141,5 +146,11 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
                 total= total.plus(p.getProductType().getPrice().times(p.getQuantity()));
             }
             ((TextView) findViewById(R.id.sum)).setText("Total: "+total.toString());
+        }
+
+        @Override
+        public void Purchase(){
+            Intent intent = new Intent(CartActivity.this, PurchaseActivity.class);
+            startActivity(intent);
         }
 }

@@ -6,4 +6,6 @@ public interface CartView {
     void cart();
 
     void ShowTotal();
+
+    void Purchase();
 }

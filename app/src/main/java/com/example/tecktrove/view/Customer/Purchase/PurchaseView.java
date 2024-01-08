@@ -66,4 +66,6 @@ public interface PurchaseView {
      * @param msg   the text of the window
      */
     void showMessage(String title, String msg);
+
+    void order();
 }

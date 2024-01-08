@@ -134,4 +134,7 @@ public class SynthesisPresenter {
     }
 
 
+    public void removeFromSynthesis(ProductType product) {
+        SharedViewModel.getSynthesis().remove((Component)product);
+    }
 }

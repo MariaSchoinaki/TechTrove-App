@@ -104,7 +104,10 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     @Override
     public void onProductClick(ProductType product) {
-        if(presenter.compatibilityCheck((Component)product)){
+        if (SharedViewModel.getSynthesis().getComponentList().contains(product)){
+            showErrorMessage("Προσοχή!","Το προϊόν θα αφερεθεί από την σύνθεση!");
+            presenter.removeFromSynthesis(product);
+        }else if(presenter.compatibilityCheck((Component)product)){
             showErrorMessage("Προσοχή!","Το προϊόν θα αποθηκευτεί στην σύνθεση!");
             presenter.saveToSynthesis((Component) product);
         }else {

@@ -6,4 +6,7 @@ public interface SynthesisContainerView {
     void completeSynthesis();
 
     void save();
+
+
+    String getName();
 }

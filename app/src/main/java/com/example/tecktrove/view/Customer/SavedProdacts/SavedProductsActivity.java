@@ -77,6 +77,7 @@ public class SavedProductsActivity extends AppCompatActivity implements SavedPro
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);
+        intent.putExtra("modelNo",product.getModelNo() );
         startActivity(intent);
     }
 

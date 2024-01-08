@@ -52,7 +52,7 @@ public class AddProductPresenter {
             view.showMessage("Προσοχή!" ,"Τα πεδία: Όνομα, Περιγραφή, Τιμή, Κατασκευαστής και Κωδικός Προϊόντος πρέπει να είναι συμπληρωμένα.");
         }else if(components.find(name) != null){
             view.showMessage("Προσοχή!", "Υπάρχει προϊόν με αυτό το όνομα.");
-        }else if(components.find(modelNumber) != null){
+        }else if(components.find(Integer.parseInt(modelNumber)) != null){
             view.showMessage("Προσοχή!", "Υπάρχει προϊόν με αυτόν τον κωδικό.");
         }else{
             comp.setDescription(description); comp.setManufacturer(manufacturer); comp.setName(name);

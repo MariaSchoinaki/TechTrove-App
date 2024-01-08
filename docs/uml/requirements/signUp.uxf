@@ -1,0 +1,61 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>280</x><y>30</y><w>300</w><h>200</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*SignUpView*
+--
+logIn() : void
+getUsername() : String
+getPassword() : String
+getfullName()  : String
+getEmail() : String
+getTelephone() : String
+getConfPassword() : String
+isEmployer() : boolean
+signUp(User user) : void
+showErrorMessage(String title, String msg) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>310</y><w>270</w><h>140</h></coordinates><panel_attributes>*SignUpActivity*
+--
+- presenter : SignUpPresenter 
+- init : MemoryInitializer
+- sharedViewModel : SharedViewModel 
+
+--
+# onCreate(Budle SavedInstanceState) : void
+# onStart() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>200</y><w>140</w><h>30</h></coordinates><panel_attributes>*AppCompatActivity*
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>220</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>220</y><w>170</w><h>110</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>150;10;150;70;10;70;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>310</y><w>520</w><h>100</h></coordinates><panel_attributes>*SignUpPresenter*
+--
+SignUpPresenter(SignUpView view, CustomerDAO customers, EmployerDAO employers)
+onLogIn() : void
+startProcess() : void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>510</y><w>500</w><h>170</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*CustomerDAO*
+--
+void save(Customer entity) : 
+findAll() :  ArrayList&lt;Customer&gt;
+findCustomerByUsernameAndPassword(String username, String password) : Customer
+findCustomerByUsername(String username) :  Customer
+findCustomerByID(int id) :  Customer 
+delete(Customer entity) :  void
+deleteAll() :  void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>890</x><y>510</y><w>510</w><h>170</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*EmployerDAO*
+--
+save(Employer entity) : void
+findAll() :   ArrayList&lt;Employer&gt;
+findEmployerByUsernameAndPassword(String username, String password) :  Employer 
+findEmployerByUsername(String username) :   Employer 
+findEmployerByID(int id) : Employer
+delete(Employer entity) : void
+deleteAll() : void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>400</y><w>170</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- customers
+1</panel_attributes><additional_attributes>10;110;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>850</x><y>400</y><w>220</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- employers
+1</panel_attributes><additional_attributes>200;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1140</x><y>310</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Customer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1140</x><y>390</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Employer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1030</x><y>320</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>340</y><w>280</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-presenter
+1</panel_attributes><additional_attributes>260;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>220</y><w>340</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-
+-view
+1</panel_attributes><additional_attributes>10;10;10;50;320;50;320;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>520</y><w>140</w><h>40</h></coordinates><panel_attributes>lw=2
+&lt;&lt;layout&gt;&gt;
+*activity_signup.xml*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>440</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1030</x><y>390</y><w>130</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;20;10;10</additional_attributes></element></diagram>

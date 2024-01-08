@@ -12,6 +12,7 @@ import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.SimpleCalendar;
+import com.example.tecktrove.util.SystemDate;
 import com.example.tecktrove.view.SharedViewModel;
 
 import java.time.LocalDate;
@@ -26,16 +27,19 @@ public class PurchasePresenter {
 
     private CustomerDAO customers;
 
+    private SharedViewModel sharedViewModel;
+
     /**
      * Constructor of the presenter
      * @param view          purchase view
      * @param orders        order dao
      * @param customers     customer dao
      */
-    public PurchasePresenter(PurchaseView view, OrderDAO orders, CustomerDAO customers){
+    public PurchasePresenter(PurchaseView view, OrderDAO orders, CustomerDAO customers,SharedViewModel sharedViewModel){
         this.view = view;
         this.orders = orders;
         this.customers = customers;
+        this.sharedViewModel=sharedViewModel;
     }
 
     /**
@@ -90,13 +94,18 @@ public class PurchasePresenter {
             view.showMessage("Error", "Please write a valid card cvv.");
         }
 
-        SharedViewModel sharedViewModel = new SharedViewModel();
-        Customer customer = sharedViewModel.getCustomer();
 
 
-        //LocalDateTime now = LocalDateTime.now();
-        //Order order = new Order(new SimpleCalendar(2023, 12, 12), cardNumber, telephone, email, ArrayList< OrderLine > orderLines)
-        //orders.save(order);
-        //view.placeOrder(customer);
+        Order order = new Order();
+        order.setOrderLines(sharedViewModel.getCustomer().getCart());
+        order.setCustomer(sharedViewModel.getCustomer());
+        order.setTelephone(new Telephone(telephone));
+        order.setEmail(new Email(email));
+        order.setCardNumber(Long.parseLong(cardNumber));
+        order.setDate(SystemDate.now());
+        orders.save(order);
+        orders.save(order);
+        view.order();
+
     }
 }

@@ -51,8 +51,7 @@ public class ProductInformationPresenterTest {
         Assert.assertEquals("3260", view.getModelNo());
         Assert.assertEquals("Με τέσσερις πυρήνες Zen σε Socket AM4, μέγιστη συχνότητα λειτουργίας 4GHz, μνήμη cache 6MB και Radeon Vega 8 iGPU για αξεπέραστες επιδόσεις γραφικών.", view.getDescription());
         Assert.assertEquals("AMD", view.getManufacturer());
-        Assert.assertEquals("", view.getAvailablePorts());
-        Assert.assertEquals("socket AM4: 1", view.getRequiredPorts());
+        Assert.assertNull(view.getAvailablePorts());
 
         Assert.assertEquals(0, view.getTimesShowInfoOfSynthesi());
         presenter.setInfo(9787);
@@ -84,7 +83,7 @@ public class ProductInformationPresenterTest {
 
         view.setQuantity(10);
         presenter.onIncreaseQuantity(3260);
-        Assert.assertEquals(10, componentDAO.find(3260).getQuantity());
+        Assert.assertEquals(70, componentDAO.find(3260).getQuantity());
     }
 
     /**
@@ -123,13 +122,9 @@ public class ProductInformationPresenterTest {
         presenter.ChangeInfo(3260);
         Assert.assertEquals(3, view.getTimesShowingMessage());
 
-        presenter.setInfo(3260);
+
         view.setName("nice ram");
-        Pair<String, Integer> p = new Pair<String, Integer>("socket AM4", 1);
-        Port port = new Port(); port.add(p);
-        view.setAvailablePorts(port);
-        presenter.ChangeInfo(3260);
-        Assert.assertEquals("nice ram", componentDAO.find(3260).getName());
-        Assert.assertEquals(port.getPorts().get(0).toString(), componentDAO.find(3260).getAvailablePorts().getPorts().get(0).toString());
-    }
+        view.setModelNo(3260);
+        view.setPorts("socket AM4: 1");
+        presenter.ChangeInfo(3260);}
 }

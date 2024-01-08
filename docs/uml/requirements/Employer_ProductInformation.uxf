@@ -1,0 +1,78 @@
+<diagram program="umletino" version="15.1"><zoom_level>5</zoom_level><element><id>UMLClass</id><coordinates><x>325</x><y>140</y><w>450</w><h>115</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*ProductView*
+--
+showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity) : void
+showSynthesisInfo(int modelNo,String name, String price, ArrayList&lt;Component&gt; components, double rating): void
+ChangeComponentInfo(Component component) : void
+onExit(): void
+showMessage(String title, String msg) : void
+getName() : String
+getPrice() : String
+getManufacturer() : String
+getDescription() : String
+getModelNo(): String
+getAvailablePorts() : String
+getRequiredPorts() : String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>320</y><w>135</w><h>35</h></coordinates><panel_attributes>*ProductActivity*
+--
+- init : MemoryInitializer
+--
+# onCreate(Budle SavedInstanceState) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>260</y><w>60</w><h>15</h></coordinates><panel_attributes>lw=2
+AppCompatActivity
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>270</y><w>15</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>390</y><w>125</w><h>20</h></coordinates><panel_attributes>&lt;&lt;layout&gt;&gt;
+*employer_product_change_fragment.xml*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>350</y><w>15</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>300</y><w>285</w><h>75</h></coordinates><panel_attributes>*AddProductPresenter*
+--
+ProductPresenter(ComponentDAO components, SynthesisDAO synthesisDAO, ProductView view)
+setInfo(int modelNo): void
+saveProduct(): void
+ChangeInfo(int modelNo): void
+goToChange(int modelNo): void
+goToHomeScreen(): void
+onIncreaseQuantity(int modelNo): void
+onDelete(int modelNo): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>605</x><y>425</y><w>195</w><h>130</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*ComponentDAO*
+--
+save(Component component) : void
+findAll() :   ArrayList&lt;Component&gt;
+find(String name) :   Component
+find(int modelNo) :   Component
+findByManufacturer(String manufacturer) :  ArrayList&lt;Component&gt;
+findAllByRequiredPorts(Port ports):  ArrayList&lt;Component&gt;
+findAllByAvailablePorts(Port ports): ArrayList&lt;Component&gt;
+delete(Component component) : void
+delete(String name): void
+delete(int modelNo): void
+deleteByAvailablePorts(Port ports): void
+deleteByRequiredPorts(Port ports): void
+deleteAll() : void
+deleteByManufacturer(String manufacturer): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>370</y><w>70</w><h>65</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- componentDAO
+1</panel_attributes><additional_attributes>10;110;10;80;100;80;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>315</y><w>350</w><h>25</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-presenter
+1</panel_attributes><additional_attributes>680;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>280</y><w>55</w><h>20</h></coordinates><panel_attributes>lw=2
+Component
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>285</y><w>70</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>120;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>320</y><w>55</w><h>20</h></coordinates><panel_attributes>lw=2
+Synthesis
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>325</y><w>70</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>835</x><y>425</y><w>195</w><h>130</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*SynthesisDAO*
+--
+save(Synthesis entity): void
+findAll():  ArrayList&lt;Synthesis&gt;
+findAllByNumberOfRatings(int number): V
+findAllByRating(Double number):   ArrayList&lt;Synthesis&gt;
+find(int modelNo): Synthesis
+find(String name): Synthesis
+findAllPublished():   ArrayList&lt;Synthesis&gt;
+deleteAll(): void
+delete(Synthesis entity): void
+delete(String name): void
+delete(int modelNo): void
+deleteAllByRating(Double rating): void
+deleteAllByNumberOfRatings(int number): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>785</x><y>370</y><w>140</w><h>65</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- synthesisDAO
+1</panel_attributes><additional_attributes>260;110;260;70;10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>245</x><y>250</y><w>220</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>420;10;420;100;10;100;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>555</x><y>250</y><w>200</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+-view
+1</panel_attributes><additional_attributes>10;10;10;80;380;80;380;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>140</w><h>35</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*ProductAdapter.OnProductClickListener*
+--
+onProductClick(ProductType product): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>335</y><w>35</w><h>15</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element></diagram>

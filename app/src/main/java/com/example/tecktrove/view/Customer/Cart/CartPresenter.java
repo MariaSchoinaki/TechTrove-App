@@ -15,4 +15,7 @@ public class CartPresenter {
     }
 
 
+    public void onPurchase() {
+        view.Purchase();
+    }
 }
