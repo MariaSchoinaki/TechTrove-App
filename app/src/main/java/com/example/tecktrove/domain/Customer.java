@@ -164,7 +164,7 @@ public class Customer extends User {
         return orderList;
     }
 
-    public void addOrderlist(ArrayList<Order> orderList){
-        this.orderList=orderList;
+    public void addOrderList(Order order){
+        this.orderList.add(order);
     }
 }
