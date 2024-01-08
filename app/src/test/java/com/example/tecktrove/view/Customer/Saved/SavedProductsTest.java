@@ -1,14 +1,8 @@
 package com.example.tecktrove.view.Customer.Saved;
 
 import com.example.tecktrove.dao.Initializer;
-import com.example.tecktrove.memorydao.ComponentDAOMemory;
-import com.example.tecktrove.memorydao.CustomerDAOMemory;
-import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.memorydao.SynthesisDAOMemory;
-import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenPresenter;
-import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenViewStub;
-import com.example.tecktrove.view.Customer.SavedProdacts.SavedProductsPresenter;
+import com.example.tecktrove.view.Customer.SavedProducts.SavedProductsPresenter;
 
 import org.junit.Assert;
 import org.junit.Before;

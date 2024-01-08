@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
-import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.CustomerDAOMemory;
@@ -21,7 +20,7 @@ import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.view.CategoryAdapter;
-import com.example.tecktrove.view.Customer.SavedProdacts.SavedProductsActivity;
+import com.example.tecktrove.view.Customer.SavedProducts.SavedProductsActivity;
 import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;

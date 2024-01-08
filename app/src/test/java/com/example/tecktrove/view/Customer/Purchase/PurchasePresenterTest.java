@@ -35,7 +35,7 @@ public class PurchasePresenterTest {
 
         view = new PurchaseViewStub();
         orderDAO = new OrderDAOMemory();
-        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        sharedViewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(SharedViewModel.class);
         presenter = new PurchasePresenter(view, orderDAO, sharedViewModel);
     }
 

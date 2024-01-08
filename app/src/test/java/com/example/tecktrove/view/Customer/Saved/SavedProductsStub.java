@@ -1,6 +1,6 @@
 package com.example.tecktrove.view.Customer.Saved;
 
-import com.example.tecktrove.view.Customer.SavedProdacts.SavedProductView;
+import com.example.tecktrove.view.Customer.SavedProducts.SavedProductView;
 
 public class SavedProductsStub implements SavedProductView {
     int home=0;

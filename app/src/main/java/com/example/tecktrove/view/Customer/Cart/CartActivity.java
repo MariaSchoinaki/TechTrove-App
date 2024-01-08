@@ -22,7 +22,7 @@ import com.example.tecktrove.util.Money;
 import com.example.tecktrove.view.CartProductAdapter;
 import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.view.Customer.Purchase.PurchaseActivity;
-import com.example.tecktrove.view.Customer.SavedProdacts.SavedProductsActivity;
+import com.example.tecktrove.view.Customer.SavedProducts.SavedProductsActivity;
 import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.SharedViewModel;
