@@ -60,11 +60,4 @@ public abstract class DAOFactory {
      * @return  the static order DAO
      */
     public abstract OrderDAO getOrderDAO();
-
-    /**
-     * Returns the object for the interface {@link ItemDAO}
-     *
-     * @return  the static item DAO
-     */
-    public abstract ItemDAO getItemDAO();
 }
