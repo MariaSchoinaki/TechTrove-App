@@ -109,7 +109,6 @@ public class PurchasePresenter {
                 order.setCardNumber(Long.parseLong(cardNumber));
                 order.setDate(SystemDate.now());
                 orders.save(order);
-                orders.save(order);
                 view.order();
             }
         }
