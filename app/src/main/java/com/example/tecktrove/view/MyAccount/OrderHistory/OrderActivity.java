@@ -37,7 +37,11 @@ public class OrderActivity extends OrderHistoryActivity implements OrderView, Pr
     OrderDAOMemory orderDAO;
 
 
-
+    /**
+     * Initializes the classes attributes
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -72,11 +76,13 @@ public class OrderActivity extends OrderHistoryActivity implements OrderView, Pr
         recyclerView2.setAdapter(adapter1);
         recyclerView1.setAdapter(adapter);
 
-
-
     }
 
-
+    /**
+     * Navigates the user to the product information page of the product they clicked
+     *
+     * @param product
+     */
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);
@@ -84,6 +90,11 @@ public class OrderActivity extends OrderHistoryActivity implements OrderView, Pr
         startActivity(intent);
     }
 
+    /**
+     * Sets publish state
+     *
+     * @param synthesis
+     */
     @Override
     public void onPublishClickListener(Synthesis synthesis) {
         synthesis.setPublishState(true);
