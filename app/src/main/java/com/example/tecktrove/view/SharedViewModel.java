@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
+import com.example.tecktrove.domain.Order;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 
@@ -15,6 +16,8 @@ public class SharedViewModel extends ViewModel {
     private static Customer customer;
     private static boolean isEmployer;
     private static Employer employer;
+
+    private static Order order;
 
     private static Synthesis synthesis;
 
@@ -46,6 +49,14 @@ public class SharedViewModel extends ViewModel {
     }
     public ArrayList<Component> getComponentsFromSynthesis() {
         return synthesis.getComponentList();
+    }
+
+    public static void setOrder(Order order) {
+        SharedViewModel.order = order;
+    }
+
+    public static Order getOrder(){
+        return order;
     }
 
     public static Synthesis getSynthesis() {

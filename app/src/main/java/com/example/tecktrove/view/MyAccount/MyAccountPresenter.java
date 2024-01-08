@@ -98,4 +98,7 @@ public class MyAccountPresenter {
         view.logout();
     }
 
+    public void onHistory() {
+        view.history();
+    }
 }

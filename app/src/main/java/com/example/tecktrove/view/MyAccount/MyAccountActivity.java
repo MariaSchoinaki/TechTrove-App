@@ -7,15 +7,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -25,8 +18,8 @@ import com.example.tecktrove.domain.User;
 import com.example.tecktrove.memorydao.CustomerDAOMemory;
 import com.example.tecktrove.memorydao.EmployerDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
 import com.example.tecktrove.view.Authentication.StartScreen.StartScreenActivity;
+import com.example.tecktrove.view.MyAccount.OrderHistory.OrderHistoryActivity;
 import com.example.tecktrove.view.SharedViewModel;
 
 public class MyAccountActivity extends AppCompatActivity implements MyAccountView{
@@ -99,6 +92,13 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
             }
         });
 
+        findViewById(R.id.history_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.onHistory();
+            }
+        });
+
         String fullname, username, password, email, phone;
         if(sharedViewModel.isEmployer()){
             fullname = sharedViewModel.getEmployer().getName() + " " + sharedViewModel.getEmployer().getLastName();
@@ -136,5 +136,10 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
                 .setTitle(title)
                 .setMessage(msg)
                 .setPositiveButton(R.string.ok, null).create().show();
+    }
+    @Override
+    public void history(){
+        Intent intent = new Intent(this, OrderHistoryActivity.class);
+        startActivity(intent);
     }
 }
