@@ -1,7 +1,6 @@
 package com.example.tecktrove.memorydao;
 
 import com.example.tecktrove.dao.OrderDAO;
-import com.example.tecktrove.domain.Item;
 import com.example.tecktrove.domain.Order;
 import com.example.tecktrove.domain.Customer;
 

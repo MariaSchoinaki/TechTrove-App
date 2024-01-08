@@ -6,7 +6,6 @@ import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
 import com.example.tecktrove.domain.Order;
 import com.example.tecktrove.domain.OrderLine;
-import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.util.Pair;

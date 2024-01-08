@@ -34,6 +34,7 @@ public class PurchasePresenter {
      * @param view          purchase view
      * @param orders        order dao
      * @param customers     customer dao
+     * @param sharedViewModel the shareViewModel
      */
     public PurchasePresenter(PurchaseView view, OrderDAO orders, CustomerDAO customers,SharedViewModel sharedViewModel){
         this.view = view;
