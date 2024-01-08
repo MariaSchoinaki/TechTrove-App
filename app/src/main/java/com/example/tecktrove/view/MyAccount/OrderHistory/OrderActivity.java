@@ -1,6 +1,7 @@
 package com.example.tecktrove.view.MyAccount.OrderHistory;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -49,7 +50,10 @@ public class OrderActivity extends OrderHistoryActivity implements OrderView, Ca
         orderDAO = new OrderDAOMemory();
         ArrayList<OrderLine> syntheses = new ArrayList<OrderLine>();
         ArrayList<ProductType> components = new ArrayList<ProductType>();
-        for(OrderLine orderLine : SharedViewModel.getOrder().getOrderLines()){
+        int orderid = getIntent().getIntExtra("orderid", 0);
+        Order order = orderDAO.find(orderid);
+        Log.d("Orderrrrrrr", String.valueOf(orderid));
+        for(OrderLine orderLine : order.getOrderLines()){
             if(orderLine.getProductType().getClass().equals(Synthesis.class)){
                 syntheses.add(orderLine);
             }else {

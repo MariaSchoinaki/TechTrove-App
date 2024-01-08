@@ -14,6 +14,7 @@ import com.example.tecktrove.domain.Order;
 import com.example.tecktrove.domain.ProductType;
 
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder>{
     private ArrayList<Order> OrderList;
@@ -21,7 +22,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     private OnOrderClickListener onOrderClickListener;
 
     public interface OnOrderClickListener {
-        void onOrderClick(Order Order);
+        void onOrderClick(Order order);
     }
 
    public OrderAdapter(ArrayList<Order> OrderList , OnOrderClickListener onOrderClickListener){
@@ -29,14 +30,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         this.onOrderClickListener=onOrderClickListener;
    }
     @Override
-    public OrderAdapter.OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_item, parent, false);
-        return new OrderAdapter.OrderViewHolder(view);
+        return new OrderViewHolder(view);
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
+    public void onBindViewHolder(OrderViewHolder holder, int position) {
         int ProductPosition = position;
         Order order = OrderList.get(ProductPosition);
         holder.bindOrder(order);
@@ -51,14 +52,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
     public class OrderViewHolder extends RecyclerView.ViewHolder {
 
-        TextView orderDateTextView;
-        ImageView orderImageView;
+        TextView orderDateTextView, orderNumberTextView;
         TextView orderPriceTextView;
+        int clickedProductIndex;
         public OrderViewHolder( View itemView){
             super(itemView);
-            orderImageView = itemView.findViewById(R.id.productImage1);
             orderPriceTextView = itemView.findViewById(R.id.order_price);
             orderDateTextView = itemView.findViewById(R.id.orderDate);
+            orderNumberTextView = itemView.findViewById(R.id.orderNumber);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,11 +67,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
                     int adapterPosition = getAdapterPosition();
                     if (adapterPosition != RecyclerView.NO_POSITION) {
 
-                        int clickedProductIndex = adapterPosition;
+                        clickedProductIndex = adapterPosition;
 
                         if (clickedProductIndex < OrderList.size()) {
-                            Order clickedOreder = OrderList.get(clickedProductIndex);
-                            onOrderClickListener.onOrderClick(clickedOreder);
+                            Order clickedOrder = OrderList.get(clickedProductIndex);
+                            onOrderClickListener.onOrderClick(clickedOrder);
                         }
                     }
                 }
@@ -78,11 +79,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         }
         void bindOrder(Order order){
             orderDateTextView = itemView.findViewById(R.id.orderDate);
-            orderImageView = itemView.findViewById(R.id.productImage1);
+            orderNumberTextView = itemView.findViewById(R.id.orderNumber);
             orderPriceTextView = itemView.findViewById(R.id.order_price);
 
-            orderDateTextView.setText(order.getDate().toString());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+            orderDateTextView.setText(dateFormat.format(order.getDate().getJavaCalendar().getTime()));
             orderPriceTextView.setText(order.getTotal().toString());
+            orderNumberTextView.setText(String.valueOf(clickedProductIndex+1));
 
         }
     }

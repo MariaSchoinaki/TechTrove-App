@@ -2,6 +2,7 @@ package com.example.tecktrove.view.MyAccount.OrderHistory;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,12 +13,9 @@ import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.dao.OrderDAO;
 import com.example.tecktrove.domain.Order;
-import com.example.tecktrove.domain.ProductType;
-import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.OrderDAOMemory;
 import com.example.tecktrove.view.OrderAdapter;
-import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
 
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class OrderHistoryActivity extends AppCompatActivity implements OrderHist
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.order_istory);
+        super.setContentView(R.layout.order_history);
 
         recyclerView = findViewById(R.id.Order_container);
         init = new MemoryInitializer();
@@ -47,11 +45,10 @@ public class OrderHistoryActivity extends AppCompatActivity implements OrderHist
 
     }
 
-
     @Override
-    public void onOrderClick(Order Order) {
-        SharedViewModel.setOrder(order);
-        Intent intent = new Intent(this,OrderActivity.class);
+    public void onOrderClick(Order order) {
+        Intent intent = new Intent(this, OrderActivity.class);
+        intent.putExtra("orderid", order.getId());
         startActivity(intent);
     }
 }
