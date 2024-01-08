@@ -66,4 +66,8 @@ setSharedSynthesis(Synthesis synthesiss): void
 getComponentsFromSynthesis()  ArrayList&lt;Component&gt;
 getSynthesis() : Synthesis </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>110</y><w>100</w><h>30</h></coordinates><panel_attributes>ViewModel
 bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>130</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>330</y><w>140</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.
--shareViewModel</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element></diagram>
+-shareViewModel</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>530</y><w>110</w><h>30</h></coordinates><panel_attributes>lw=2
+Initializer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>380</y><w>80</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-init
+1</panel_attributes><additional_attributes>10;150;60;10</additional_attributes></element></diagram>

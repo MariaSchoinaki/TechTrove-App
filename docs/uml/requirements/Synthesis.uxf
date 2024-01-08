@@ -99,4 +99,8 @@ bg=orange</panel_attributes><additional_attributes></additional_attributes></ele
 Synthesis
 bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1830</x><y>260</y><w>150</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>130;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1830</x><y>330</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>130;20;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>460</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>520</y><w>170</w><h>40</h></coordinates><panel_attributes>lw=2
 &lt;&lt;layout&gt;&gt;
-*activity_synthesis.xml*</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+*activity_synthesis.xml*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>140</y><w>110</w><h>30</h></coordinates><panel_attributes>lw=2
+Initializer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>160</y><w>80</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-init
+1</panel_attributes><additional_attributes>10;10;60;70</additional_attributes></element></diagram>
