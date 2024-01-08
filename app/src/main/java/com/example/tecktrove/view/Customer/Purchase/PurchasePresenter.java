@@ -137,18 +137,17 @@ public class PurchasePresenter {
                     for(OrderLine ol: sharedViewModel.getCustomer().getCart()) {
                         ProductType c = ol.getProductType();
                         if(c instanceof Synthesis){
-                            c.setQuantity(c.getQuantity()-1);
                             ArrayList<Component> componen = ((Synthesis) c).getComponentList();
                             for(Component comp: componen) {
                                 comp.removeQuantity(1);
                             }
                         }else{
-                            c.setQuantity(c.getQuantity()-1);
+                            c.setQuantity(c.getQuantity()-ol.getQuantity());
                         }
                     }
                     view.order();
                 }
-                else{view.showMessage("Προβλήμα", "Εκτος διαθεσιμότητας");}
+                else{view.showMessage("Πρόβλημα", "Εκτός διαθεσιμότητας");}
             }
         }
     }

@@ -67,5 +67,8 @@ public interface PurchaseView {
      */
     void showMessage(String title, String msg);
 
+    /**
+     * Calls showMessage to display success message
+     */
     void order();
 }

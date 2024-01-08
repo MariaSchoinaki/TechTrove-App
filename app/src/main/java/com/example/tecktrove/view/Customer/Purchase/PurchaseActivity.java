@@ -137,6 +137,10 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
                 .setMessage(msg)
                 .setPositiveButton(R.string.ok, null).create().show();
     }
+
+    /**
+     * Calls showMessage to display success message
+     */
     @Override
     public void order(){
         showMessage("Προσοχή!","Η παραγγελία σας ολοκληρώθηκε επιτιχώς!");
