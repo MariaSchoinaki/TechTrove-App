@@ -25,8 +25,13 @@ import com.example.tecktrove.view.Authentication.LogIn.LogInActivity;
 import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
 import com.example.tecktrove.view.CartProductAdapter;
 import com.example.tecktrove.view.CategoryAdapter;
+import com.example.tecktrove.view.Customer.Cart.CartActivity;
+import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.Customer.SavedProducts.SavedProductsActivity;
+import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -75,6 +80,40 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
         recyclerView2.setAdapter(productAdapter);
 
         presenter = new SynthesisPresenter(componentDAO,synthesisDao,this,model);
+
+        TabLayout tabLayout = findViewById(R.id.SynthesisHomePageTabLayout);
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                // Handle tab selection
+                int position = tab.getPosition();
+                switch (position) {
+                    case 0:
+                        presenter.onHome();
+                    case 1:
+                        presenter.onCart();
+                    case 2:
+
+                        presenter.onSaved();
+                    case 3:
+                        presenter.onMyAcount();
+                        // Add cases for other tabs as needed
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                presenter.onCart();
+            }
+        });
+
 
         findViewById(R.id.completeted).setOnClickListener(new View.OnClickListener() {
 
@@ -145,6 +184,31 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
         startActivity(intent);
     }
 
+    @Override
+    public void home() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void Cart() {
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void Saved() {
+        Intent intent = new Intent(this, SavedProductsActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void MyAcount() {
+        Intent intent = new Intent(this, MyAccountActivity.class);
+        startActivity(intent);
+    }
 
 
 }
