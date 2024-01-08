@@ -1,0 +1,102 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>830</x><y>0</y><w>340</w><h>110</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*SynthesisView*
+--
+showErrorMessage(String title, String msg): void
+displayProducts(ArrayList&lt;ProductType&gt; products) : void
+synthesisDisplay() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>230</y><w>340</w><h>240</h></coordinates><panel_attributes>*SynthesisActivity*
+--
+recyclerView1: RecyclerView
+recyclerView2: RecyclerView
+init: Initializer
+-componentDAO: ComponentDAO
+-CartproductAdapter: CartProductAdapter
+-synthesisDao: SynthesisDAO
+-productAdapter: ProductAdapter
+-categoryAdapter: CategoryAdapter
+-synthesis: Synthesis
+-model: SharedViewModel 
+--
+#onCreate(Bundle savedInstanceState): void
+generateCategories():  ArrayList&lt;String&gt;
+updateUI(ArrayList&lt;ProductType&gt; searchResults): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>130</y><w>140</w><h>30</h></coordinates><panel_attributes>*AppCompatActivity*
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>670</x><y>150</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>230</y><w>280</w><h>60</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*CategoryAdapter.OnCategoryClickListener*
+--
+onCategoryClick(String category): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>140</x><y>340</y><w>280</w><h>60</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*ProductAdapter.OnProductClickListener*
+--
+onProductClick(ProductType product): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>260</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;130;30</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>330</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;30;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>100</y><w>130</w><h>150</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>110;10;110;80;10;80;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>560</y><w>330</w><h>250</h></coordinates><panel_attributes>*ShareViewModel*
+--
+- customer : Customer
+-isEmployer : boolean 
+-employer :  Employer 
+-synthesis : Synthesis
+--
+getCustomer() : Customer
+setSharedCustomer(Customer customer): void
+isEmployer() : boolean
+setSharedEmployer(Employer employer): void
+getEmployer() : Employer
+setIsEmployer(boolean isEmployer): boolean
+setSharedSynthesis(Synthesis synthesiss): void
+getComponentsFromSynthesis()  ArrayList&lt;Component&gt;
+getSynthesis() : Synthesis </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>600</y><w>100</w><h>30</h></coordinates><panel_attributes>ViewModel
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>600</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>450</y><w>180</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- shareViewModel
+1</panel_attributes><additional_attributes>30;110;30;20;160;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1090</x><y>230</y><w>750</w><h>160</h></coordinates><panel_attributes>*SynthesisPresenter*
+--
+-searchResults: ArrayList&lt;ProductType&gt; 
+--
+SynthesisPresenter(ComponentDAO componentDAO, SynthesisDAO synthesisDAO, SynthesisView view ,SharedViewModel model)
+onDisplayProducts(String category): void
+compatibilityCheck(Component component): void
+searchProducts(String query): void
+saveToSynthesis(Component comp): void
+getSearchResults(): ArrayList&lt;ProductType&gt;
+removeFromSynthesis(ProductType product): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>860</x><y>300</y><w>250</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+-presenter</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1000</x><y>100</y><w>210</w><h>150</h></coordinates><panel_attributes>lt=&lt;-
+-view
+1</panel_attributes><additional_attributes>10;10;10;80;190;80;190;130</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>380</y><w>650</w><h>240</h></coordinates><panel_attributes>lt=&lt;-
+-model
+1</panel_attributes><additional_attributes>10;210;630;210;630;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1220</x><y>510</y><w>390</w><h>260</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*ComponentDAO*
+--
+save(Component component) : void
+findAll() :   ArrayList&lt;Component&gt;
+find(String name) :   Component
+find(int modelNo) :   Component
+findByManufacturer(String manufacturer) :  ArrayList&lt;Component&gt;
+findAllByRequiredPorts(Port ports):  ArrayList&lt;Component&gt;
+findAllByAvailablePorts(Port ports): ArrayList&lt;Component&gt;
+delete(Component component) : void
+delete(String name): void
+delete(int modelNo): void
+deleteByAvailablePorts(Port ports): void
+deleteByRequiredPorts(Port ports): void
+deleteAll() : void
+deleteByManufacturer(String manufacturer): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1360</x><y>380</y><w>110</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- componentDAO
+1</panel_attributes><additional_attributes>10;130;10;80;70;80;70;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1580</x><y>380</y><w>280</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- synthesisDAO
+1</panel_attributes><additional_attributes>260;130;260;70;10;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1660</x><y>510</y><w>390</w><h>260</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*SynthesisDAO*
+--
+save(Synthesis entity): void
+findAll():  ArrayList&lt;Synthesis&gt;
+findAllByNumberOfRatings(int number): V
+findAllByRating(Double number):   ArrayList&lt;Synthesis&gt;
+find(int modelNo): Synthesis
+find(String name): Synthesis
+findAllPublished():   ArrayList&lt;Synthesis&gt;
+deleteAll(): void
+delete(Synthesis entity): void
+delete(String name): void
+delete(int modelNo): void
+deleteAllByRating(Double rating): void
+deleteAllByNumberOfRatings(int number): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1960</x><y>250</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Component
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1960</x><y>330</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Synthesis
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1830</x><y>260</y><w>150</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>130;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1830</x><y>330</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>130;20;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>460</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>520</y><w>170</w><h>40</h></coordinates><panel_attributes>lw=2
+&lt;&lt;layout&gt;&gt;
+*activity_synthesis.xml*</panel_attributes><additional_attributes></additional_attributes></element></diagram>
