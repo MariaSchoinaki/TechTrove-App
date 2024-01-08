@@ -72,6 +72,11 @@ public class LogInPresenter {
 
     }
 
+    /**
+     * Gets user name
+     *
+     * @return user name as a String
+     */
     public String getUserName(){
         if(view.isEmployer()){
             if(employer != null){
