@@ -96,17 +96,16 @@
         app:layout_constraintVertical_bias="0.529" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/publish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="60dp"
-        android:text="Button"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="18dp"
+        android:text="Δημοσιοποίηση"
         app:layout_constraintBottom_toTopOf="@+id/upload_product_price"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toEndOf="@+id/upload_item_cart_quantity"
         app:layout_constraintTop_toTopOf="parent" />
 
 

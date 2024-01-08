@@ -1,5 +1,6 @@
 package com.example.tecktrove.view.MyAccount.OrderHistory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,13 +19,15 @@ import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.OrderDAOMemory;
 import com.example.tecktrove.view.CartProductAdapter;
 import com.example.tecktrove.view.OrderAdapter;
+import com.example.tecktrove.view.OrderSynthesisAdapter;
+import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
 import com.example.tecktrove.view.SynthesisAdapter;
 
 import java.util.ArrayList;
 
-public class OrderActivity extends OrderHistoryActivity implements OrderView, CartProductAdapter.OnCartProductClickListener,ProductAdapter.OnProductClickListener {
+public class OrderActivity extends OrderHistoryActivity implements OrderView, ProductAdapter.OnProductClickListener, OrderSynthesisAdapter.OnPublishClickListener {
     private RecyclerView recyclerView1;
     private RecyclerView recyclerView2;
 
@@ -48,24 +51,23 @@ public class OrderActivity extends OrderHistoryActivity implements OrderView, Ca
 
         init = new MemoryInitializer();
         orderDAO = new OrderDAOMemory();
-        ArrayList<OrderLine> syntheses = new ArrayList<OrderLine>();
+        ArrayList<Synthesis> syntheses = new ArrayList<Synthesis>();
         ArrayList<ProductType> components = new ArrayList<ProductType>();
         int orderid = getIntent().getIntExtra("orderid", 0);
         Order order = orderDAO.find(orderid);
-        Log.d("Orderrrrrrr", String.valueOf(orderid));
         for(OrderLine orderLine : order.getOrderLines()){
-            if(orderLine.getProductType().getClass().equals(Synthesis.class)){
-                syntheses.add(orderLine);
+            if(orderLine.getProductType() instanceof Synthesis){
+                syntheses.add((Synthesis) orderLine.getProductType());
             }else {
                 components.add(orderLine.getProductType());
             }
         }
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
-        GridLayoutManager gridLayoutManager2 = new GridLayoutManager(this,1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,1);
+        GridLayoutManager gridLayoutManager2 = new GridLayoutManager(this,2);
         recyclerView1.setLayoutManager(gridLayoutManager);
         recyclerView2.setLayoutManager(gridLayoutManager2);
-        SynthesisAdapter adapter = new SynthesisAdapter(syntheses,this);
+        OrderSynthesisAdapter adapter = new OrderSynthesisAdapter(syntheses,this);
         ProductAdapter adapter1 = new ProductAdapter(components,this);
         recyclerView2.setAdapter(adapter1);
         recyclerView1.setAdapter(adapter);
@@ -75,14 +77,15 @@ public class OrderActivity extends OrderHistoryActivity implements OrderView, Ca
     }
 
 
-
     @Override
-    public void onCartProductClick(ProductType product) {
-
+    public void onProductClick(ProductType product) {
+        Intent intent = new Intent(this, ProductActivity.class);
+        intent.putExtra("modelNo", product.getModelNo());
+        startActivity(intent);
     }
 
     @Override
-    public void onProductClick(ProductType product) {
-
+    public void onPublishClickListener(Synthesis synthesis) {
+        synthesis.setPublishState(true);
     }
 }
