@@ -16,7 +16,7 @@ public class ProductInformationViewStub implements ProductView{
     private int timesExited = 0;
     private int timesShowingMessage = 0;
     private int modelNo;
-    private String name, description, manufacturer;
+    private String name, description, manufacturer, avports, reqports;
     private Port availablePorts, requiredPorts;
     private Money price;
     private double rating;
@@ -90,12 +90,12 @@ public class ProductInformationViewStub implements ProductView{
 
     @Override
     public String getAvailablePorts() {
-        return availablePorts.getPorts().stream().map(Object::toString).collect(Collectors.joining(", "));
+        return avports;
     }
 
     @Override
     public String getRequiredPorts() {
-        return requiredPorts.getPorts().stream().map(Object::toString).collect(Collectors.joining(", "));
+        return reqports;
     }
 
     public int getTimesExited() {
@@ -126,7 +126,8 @@ public class ProductInformationViewStub implements ProductView{
         this.modelNo = modelNo;
     }
 
-    public void setAvailablePorts(Port availablePorts) {
-        this.availablePorts = availablePorts;
+    public void setPorts(String ports) {
+        this.avports = ports;
+        this.reqports = ports;
     }
 }

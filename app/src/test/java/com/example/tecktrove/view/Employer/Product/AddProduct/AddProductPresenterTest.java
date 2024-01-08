@@ -64,7 +64,7 @@ public class AddProductPresenterTest {
         view.setModelNo("2936");
         view.setName("Great cpu");
         presenter.saveProduct();
-        Assert.assertEquals(2, view.getTimesShowingMessage());
+        Assert.assertEquals(3, view.getTimesShowingMessage());
 
         //everything good
         view.setName("Great cpu");

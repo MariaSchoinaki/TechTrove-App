@@ -36,6 +36,7 @@ public class Component extends ProductType{
         this.manufacturer = manufacturer;
         this.availablePorts = availablePorts;
         this.requiredPorts = requiredPorts;
+        this.items = new ArrayList<Item>();
     }
 
 
