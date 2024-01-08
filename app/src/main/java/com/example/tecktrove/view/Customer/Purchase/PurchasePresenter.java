@@ -47,6 +47,7 @@ public class PurchasePresenter {
      * some of the basic rules, such as the card number must be 16 digits
      */
     public void placeOrder(){
+        boolean checked = true;
         String fullname = view.getFullName();
         String email = view.getEmail();
         String telephone = view.getTelephone();
@@ -65,47 +66,52 @@ public class PurchasePresenter {
         else if(telephone.length() != 10){
             view.showMessage("Error", "Please write a valid phone number.");
         }
-        boolean is_digit = true;
-        for (int i = 0; i < cardNumber.length(); i++)
-            if (!Character.isDigit(cardNumber.charAt(i))) is_digit = false;
+        else{
+            boolean is_digit = true;
+            for (int i = 0; i < cardNumber.length(); i++)
+                if (!Character.isDigit(cardNumber.charAt(i))) is_digit = false;
 
-        if(cardNumber.length() != 16 || !is_digit){
-            view.showMessage("Error", "Please write a valid card number.");
+            if(cardNumber.length() != 16 || !is_digit){
+                checked = false;
+                view.showMessage("Error", "Please write a valid card number.");
+            }
+
+            for (int i = 0; i < cardMonth.length(); i++)
+                if (!Character.isDigit(cardMonth.charAt(i))) is_digit = false;
+
+            if(cardMonth.length() != 2 || !is_digit){
+                checked = false;
+                view.showMessage("Error", "Please write a valid card month.");
+            }
+
+            for (int i = 0; i < cardYear.length(); i++)
+                if (!Character.isDigit(cardYear.charAt(i))) is_digit = false;
+
+            if(cardYear.length() != 2 || !is_digit){
+                checked = false;
+                view.showMessage("Error", "Please write a valid card year.");
+            }
+
+            for (int i = 0; i < cardCvv.length(); i++)
+                if (!Character.isDigit(cardCvv.charAt(i))) is_digit = false;
+
+            if(cardCvv.length() != 3 || !is_digit){
+                checked = false;
+                view.showMessage("Error", "Please write a valid card cvv.");
+            }
+
+            if(checked) {
+                Order order = new Order();
+                order.setOrderLines(sharedViewModel.getCustomer().getCart());
+                order.setCustomer(sharedViewModel.getCustomer());
+                order.setTelephone(new Telephone(telephone));
+                order.setEmail(new Email(email));
+                order.setCardNumber(Long.parseLong(cardNumber));
+                order.setDate(SystemDate.now());
+                orders.save(order);
+                orders.save(order);
+                view.order();
+            }
         }
-
-        for (int i = 0; i < cardMonth.length(); i++)
-            if (!Character.isDigit(cardMonth.charAt(i))) is_digit = false;
-
-        if(cardMonth.length() != 2 || !is_digit){
-            view.showMessage("Error", "Please write a valid card month.");
-        }
-
-        for (int i = 0; i < cardYear.length(); i++)
-            if (!Character.isDigit(cardYear.charAt(i))) is_digit = false;
-
-        if(cardYear.length() != 4 || !is_digit){
-            view.showMessage("Error", "Please write a valid card year.");
-        }
-
-        for (int i = 0; i < cardCvv.length(); i++)
-            if (!Character.isDigit(cardCvv.charAt(i))) is_digit = false;
-
-        if(cardCvv.length() != 3 || !is_digit){
-            view.showMessage("Error", "Please write a valid card cvv.");
-        }
-
-
-
-        Order order = new Order();
-        order.setOrderLines(sharedViewModel.getCustomer().getCart());
-        order.setCustomer(sharedViewModel.getCustomer());
-        order.setTelephone(new Telephone(telephone));
-        order.setEmail(new Email(email));
-        order.setCardNumber(Long.parseLong(cardNumber));
-        order.setDate(SystemDate.now());
-        orders.save(order);
-        orders.save(order);
-        view.order();
-
     }
 }
