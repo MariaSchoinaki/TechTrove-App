@@ -1,4 +1,4 @@
-package com.example.tecktrove.view.Customer.SavedProdacts;
+package com.example.tecktrove.view.Customer.SavedProducts;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +25,11 @@ public class SavedProductsActivity extends AppCompatActivity implements SavedPro
     private ProductAdapter productAdapter;
 
     private RecyclerView recyclerView;
+
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
         super.onCreate(savedInstanceState);
@@ -74,6 +79,10 @@ public class SavedProductsActivity extends AppCompatActivity implements SavedPro
 
     }
 
+    /**
+     * Navigates the user to the product information page
+     * @param product the product clicked
+     */
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);
@@ -81,25 +90,36 @@ public class SavedProductsActivity extends AppCompatActivity implements SavedPro
         startActivity(intent);
     }
 
+    /**
+     * Navigates the app to home screen
+     */
     @Override
     public void Home(){
         Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the app to cart screen
+     */
     @Override
     public void Cart(){
         Intent intent = new Intent(this, CartActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the app to my account screen
+     */
     @Override
     public void MyAccount(){
         Intent intent = new Intent(this, MyAccountActivity.class);
         startActivity(intent);
-
     }
 
+    /**
+     * Navigates the app to the my saved screen
+     */
     @Override
     public void Saved(){
         Intent intent = new Intent(this, SavedProductsActivity.class);
