@@ -1,4 +1,6 @@
 package com.example.tecktrove.view.MyAccount.OrderHistory;
 
-public class OrderPrisenter {
+public class OrderPresenter {
+
+    OrderPresenter(){}
 }

@@ -51,8 +51,8 @@ public class SharedViewModel extends ViewModel {
         return synthesis.getComponentList();
     }
 
-    public static void setOrder(Order order) {
-        SharedViewModel.order = order;
+    public static void setOrder(Order ord) {
+        order = ord;
     }
 
     public static Order getOrder(){
