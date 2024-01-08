@@ -36,6 +36,7 @@ public class Customer extends User {
         super(id,username,password, firstName,lastName,email,telephone);
         this.savedSynthesis=savedSynthesis;
         this.cart=cart;
+        this.orderList = new ArrayList<Order>();
     }
 
     /**
