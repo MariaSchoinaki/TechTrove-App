@@ -6,6 +6,8 @@ import com.example.tecktrove.dao.ComponentDAO;
 import com.example.tecktrove.dao.SynthesisDAO;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.Customer;
+import com.example.tecktrove.domain.Order;
+import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.util.Pair;
 
@@ -37,17 +39,26 @@ public class ProductPresenter {
     public void setInfo(int modelNo, Customer customer) {
         comp = components.find(modelNo);
         synthesi = synthesisDAO.find(modelNo);
-        boolean showRating = true;
+        boolean showRating1 = true;
+        boolean showRating2 = false;
         if (comp != null) {
             view.showProductInfo(comp.getModelNo(), comp.getPrice(), comp.getName(), comp.getDescription(), comp.getManufacturer(), comp.getAvailablePorts(), comp.getRequiredPorts(), comp.getQuantity());
         }else if(synthesi != null){
             view.showSynthesisInfo(synthesi.getModelNo(),synthesi.getName(), synthesi.getPrice().toString(), synthesi.getComponentList(), synthesi.getRating());
             for(Pair<Double, Customer> rating: synthesi.getRatingsList()){
                 if(rating.getSecond().equals(customer)){
-                    showRating = false;
+                    showRating1 = false;
                 }
             }
-            view.showRating(showRating);
+            for(Order o : customer.getOrderList()){
+                for(OrderLine or: o.getOrderLines()){
+                    if(or.getProductType().equals(synthesi)){
+                        showRating2 = true;
+                    }
+                }
+            }
+
+            view.showRating(showRating1 && showRating2);
         }
     }
 
