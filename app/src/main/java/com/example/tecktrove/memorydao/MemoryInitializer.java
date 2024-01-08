@@ -5,7 +5,6 @@ import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.DAOFactory;
 import com.example.tecktrove.dao.EmployerDAO;
 import com.example.tecktrove.dao.Initializer;
-import com.example.tecktrove.dao.ItemDAO;
 import com.example.tecktrove.dao.OrderDAO;
 import com.example.tecktrove.dao.SynthesisDAO;
 
@@ -25,7 +24,6 @@ public class MemoryInitializer extends Initializer {
         getEmployerDAO().deleteAll();
         getComponentDAO().deleteAll();
         getSynthesisDAO().deleteAll();
-        getItemDAO().deleteAll();
         getOrderDAO().deleteAll();
     }
 
@@ -77,15 +75,5 @@ public class MemoryInitializer extends Initializer {
     @Override
     public OrderDAO getOrderDAO() {
         return DAOFactory.getFactory().getOrderDAO();
-    }
-
-    /**
-     * Returns the object for the interface {@link ItemDAO}
-     *
-     * @return  the static item DAO
-     */
-    @Override
-    public ItemDAO getItemDAO() {
-        return DAOFactory.getFactory().getItemDAO();
     }
 }

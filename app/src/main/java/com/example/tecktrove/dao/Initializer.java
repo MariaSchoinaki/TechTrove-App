@@ -61,13 +61,6 @@ public abstract class Initializer {
     public abstract OrderDAO getOrderDAO();
 
     /**
-     * Returns the object for the interface {@link ItemDAO}
-     *
-     * @return  the DAO object
-     */
-    public abstract ItemDAO getItemDAO();
-
-    /**
      * Initializes all objects in the daos
      * as soon as the application starts
      */
@@ -332,15 +325,5 @@ public abstract class Initializer {
         o3.setId(1225);
         o3.setCustomer(c3);
         getOrderDAO().save(o3);
-
-        //Items
-        Item i1 = new Item(16245798);
-        getItemDAO().save(i1);
-
-        Item i2 = new Item(14247895);
-        getItemDAO().save(i2);
-
-        Item i3 = new Item(24178411);
-        getItemDAO().save(i3);
     }
 }
