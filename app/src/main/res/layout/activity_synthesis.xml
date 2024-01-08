@@ -43,7 +43,7 @@
             android:id="@+id/synthesis_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Home"
+            android:text="Σπίτι"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="-1dp"
             tools:layout_editor_absoluteY="687dp" />
@@ -52,7 +52,7 @@
             android:id="@+id/synthesis_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cart"
+            android:text="Καλάθι"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="103dp"
             tools:layout_editor_absoluteY="686dp" />
@@ -61,7 +61,7 @@
             android:id="@+id/synthesis_gloy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="gloy"
+            android:text="Αποθηκευμένα"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="136dp" />
@@ -70,7 +70,7 @@
             android:id="@+id/synthesis_myaccount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="My Account"
+            android:text="Ο λογαριασμός μου"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="136dp" />

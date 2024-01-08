@@ -16,6 +16,7 @@ import com.example.tecktrove.util.SimpleCalendar;
 import com.example.tecktrove.util.SystemDate;
 import com.example.tecktrove.view.SharedViewModel;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class PurchasePresenter {
     /**
      * Checks if the given from the user values, are following
      * some of the basic rules, such as the card number must be 16 digits
+     * and completes the order
      */
     public void placeOrder(){
         boolean checked = true;
@@ -56,13 +58,13 @@ public class PurchasePresenter {
         String cardCvv = view.getCardCvv();
 
         if(fullname.equals("") || email.equals("") || telephone.equals("") || address.equals("") || cardNumber.equals("") || cardMonth.equals("") || cardYear.equals("") || cardCvv.equals("")) {
-            view.showMessage("Error", "Please fill all the fields.");
+            view.showMessage("Προβλήμα", "Συμπληρώσε όλα τα πεδία");
         }
         else if(!(email.contains("@") && (email.contains(".com") || email.contains(".gr")))){
-            view.showMessage("Error", "Please write a valid email.");
+            view.showMessage("Προβλήμα", "Γράψε ένα έγκυρο email");
         }
         else if(telephone.length() != 10){
-            view.showMessage("Error", "Please write a valid phone number.");
+            view.showMessage("Προβλήμα", "Γράψε ένα έγκυρο αριθμό τηλεφώνου");
         }
         else{
             boolean is_digit = true;
@@ -71,7 +73,7 @@ public class PurchasePresenter {
 
             if(cardNumber.length() != 16 || !is_digit){
                 checked = false;
-                view.showMessage("Error", "Please write a valid card number.");
+                view.showMessage("Προβλήμα", "Γράψε ένα έγκυρο αριθμό κάρτας.");
             }
 
             for (int i = 0; i < cardMonth.length(); i++)
@@ -79,7 +81,7 @@ public class PurchasePresenter {
 
             if(cardMonth.length() != 2 || !is_digit){
                 checked = false;
-                view.showMessage("Error", "Please write a valid card month.");
+                view.showMessage("Προβλήμα", "Γράψε ένα έγκυρο αριθμό μήνα");
             }
 
             for (int i = 0; i < cardYear.length(); i++)
@@ -87,7 +89,7 @@ public class PurchasePresenter {
 
             if(cardYear.length() != 2 || !is_digit){
                 checked = false;
-                view.showMessage("Error", "Please write a valid card year.");
+                view.showMessage("Προβλήμα", "Γράψε ένα έγκυρο αριθμό χρόνου");
             }
 
             for (int i = 0; i < cardCvv.length(); i++)
@@ -95,23 +97,24 @@ public class PurchasePresenter {
 
             if(cardCvv.length() != 3 || !is_digit){
                 checked = false;
-                view.showMessage("Error", "Please write a valid card cvv.");
+                view.showMessage("Προβλήμα", "Γράψε ένα έγκυρο cvv");
             }
 
             if(checked) {
                 boolean ready_cart = true;
                 for(OrderLine ol: sharedViewModel.getCustomer().getCart()){
                     ProductType c = ol.getProductType();
-                    if(c.getClass() == Synthesis.class){
+                    if(c instanceof Synthesis){
                         boolean ready_synthesis = true;
-                        for(Component comp: ((Synthesis) c).getComponentList()){
+                        ArrayList<Component> componen = ((Synthesis) c).getComponentList();
+                        for(Component comp: componen){
                             if(comp.getQuantity() == 0){
                                 ready_synthesis = false;
                             }
                         }
                         if(!ready_synthesis){
                             ready_cart = false;
-                            view.showMessage("Error", "Synthesis is out of quantity");
+                            view.showMessage("Πρόβλημα!", "Η σύνθεση είναι εκτός διαθεσιμότητας.");
                         }
                     }
                     else{
@@ -129,10 +132,23 @@ public class PurchasePresenter {
                     order.setCardNumber(Long.parseLong(cardNumber));
                     order.setDate(SystemDate.now());
                     sharedViewModel.getCustomer().addOrderList(order);
+                    order.setId(orders.nextId());
                     orders.save(order);
+                    for(OrderLine ol: sharedViewModel.getCustomer().getCart()) {
+                        ProductType c = ol.getProductType();
+                        if(c instanceof Synthesis){
+                            c.setQuantity(c.getQuantity()-1);
+                            ArrayList<Component> componen = ((Synthesis) c).getComponentList();
+                            for(Component comp: componen) {
+                                comp.removeQuantity(1);
+                            }
+                        }else{
+                            c.setQuantity(c.getQuantity()-1);
+                        }
+                    }
                     view.order();
                 }
-                else{view.showMessage("Error", "Cart is out of quantity");}
+                else{view.showMessage("Προβλήμα", "Εκτος διαθεσιμότητας");}
             }
         }
     }
