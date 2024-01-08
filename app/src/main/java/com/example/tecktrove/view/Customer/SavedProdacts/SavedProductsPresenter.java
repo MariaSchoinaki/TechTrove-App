@@ -3,7 +3,7 @@ package com.example.tecktrove.view.Customer.SavedProdacts;
 public class SavedProductsPresenter {
     SavedProductView view;
 
-    SavedProductsPresenter(SavedProductView view){
+    public SavedProductsPresenter(SavedProductView view){
         this.view= view;
     }
 

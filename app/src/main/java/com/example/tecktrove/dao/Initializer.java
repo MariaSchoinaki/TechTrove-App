@@ -95,7 +95,7 @@ public abstract class Initializer {
 
 
         //Components
-        Component com1 = new Component(4191, Money.euros(BigDecimal.valueOf(59.99)), "Case Kolink VOID RGB Midi Tower", "Το VOID Midi-Tower Case αντιπροσωπεύει ένα συναρπαστικό νέο κεφάλαιο στην ιστορία της Kolink, με εντυπωσιακό εφέ «απείρου» καθρεπτισμού σε σχήμα V, ανεμιστήρα 120mm ARGB και πληθώρα χαρακτηριστικών.","Kolink" , new Port(), new Port(), 80);
+        Component com1 = new Component(4191, Money.euros(BigDecimal.valueOf(59.99)), "Box Kolink VOID RGB Midi Tower", "Το VOID Midi-Tower Case αντιπροσωπεύει ένα συναρπαστικό νέο κεφάλαιο στην ιστορία της Kolink, με εντυπωσιακό εφέ «απείρου» καθρεπτισμού σε σχήμα V, ανεμιστήρα 120mm ARGB και πληθώρα χαρακτηριστικών.","Kolink" , new Port(), new Port(), 80);
         getComponentDAO().save(com1);
 
         Pair<String, Integer> pair2_1 = new Pair<String, Integer>("ATX Power Port",1);
@@ -130,7 +130,7 @@ public abstract class Initializer {
         Pair<String, Integer> pair4_1 = new Pair<String, Integer>("socket AM4,",1);
         Port port4 = new Port();
         port4.add(pair4_1);
-        Component com4 = new Component(3888, Money.euros(BigDecimal.valueOf(32.90)), "Alpenföhn CPU Cooler Ben Nevis", "Ψύκτρα με ανεμιστήρα 130mm συμβατή με τα sockets 2066, 2011, 2011-v3, 1366, 115X, 1200, AM4, 775, AM4, AM3(+), AM3, AM2(+), AM2 και FM1.", "Alpenföhn",  new Port(), port4, 20);
+        Component com4 = new Component(3888, Money.euros(BigDecimal.valueOf(32.90)), "Alpenföhn Cooler Ben Nevis", "Ψύκτρα με ανεμιστήρα 130mm συμβατή με τα sockets 2066, 2011, 2011-v3, 1366, 115X, 1200, AM4, 775, AM4, AM3(+), AM3, AM2(+), AM2 και FM1.", "Alpenföhn",  new Port(), port4, 20);
         getComponentDAO().save(com4);
 
         Pair<String, Integer> pair5_1 = new Pair<String, Integer>("socket AM4",1);
@@ -166,17 +166,17 @@ public abstract class Initializer {
         port7.add(pair7_3);
         port7.add(pair7_2);
         port7_1.add(pair7_1);
-        Component com7 = new Component(4311, Money.euros(BigDecimal.valueOf(69.90)), "Asus VGA GeForce GT 730 Evo Low Profile BRK 2 GB", "Είναι ιδανική για υπολογιστές γραφείου, Small Form Factor (SFF) ή Home Theater PCs (HTPC). Είναι χαμηλής κατανάλωσης, με παθητική ψύξη και διαθέτει 3x εξόδους εικόνας.", "ASUS",  port7,port7_1, 28);
+        Component com7 = new Component(4311, Money.euros(BigDecimal.valueOf(69.90)), "Asus VGA GPU GeForce GT 730 Evo Low Profile BRK 2 GB", "Είναι ιδανική για υπολογιστές γραφείου, Small Form Factor (SFF) ή Home Theater PCs (HTPC). Είναι χαμηλής κατανάλωσης, με παθητική ψύξη και διαθέτει 3x εξόδους εικόνας.", "ASUS",  port7,port7_1, 28);
         getComponentDAO().save(com7);
 
         Pair<String, Integer> pair8 = new Pair<String, Integer>("SATA III",1);
         Port port8 = new Port();
 
         port8.add(pair8);
-        Component com8 = new Component(2489, Money.euros(BigDecimal.valueOf(26.90)), "SanDisk SSD Plus 240GB", "Η τεχνολογία SSD 2,5” στο φορητό ή το σταθερό σου υπολογιστή, με χωρητικότητα 240GB, γρήγορες ταχύτητες λειτουργίας και σύνδεση SATA III.", "SanDisk",new Port(),port8, 35);
+        Component com8 = new Component(2489, Money.euros(BigDecimal.valueOf(26.90)), "SanDisk Disk SSD Plus 240GB", "Η τεχνολογία SSD 2,5” στο φορητό ή το σταθερό σου υπολογιστή, με χωρητικότητα 240GB, γρήγορες ταχύτητες λειτουργίας και σύνδεση SATA III.", "SanDisk",new Port(),port8, 35);
         getComponentDAO().save(com8);
 
-        Component com11 = new Component(3604, Money.euros(BigDecimal.valueOf(69.90)), "Sharkoon Midi ATX Tower VS4-V Midi Tower", "Μινιμαλιστική σχεδίαση, ευρύχωρο εσωτερικό και άφθονες θέσεις για SSDs/HDDs, προεγκατεστημένος ανεμιστήρας και φίλτρο σκόνης, πρακτικό πάνελ και συμβατότητα με συστήματα υδρόψυξης.", "Sharkoon", new Port(), new Port(), 10);
+        Component com11 = new Component(3604, Money.euros(BigDecimal.valueOf(69.90)), "Sharkoon Midi ATX Box VS4-V Midi Tower", "Μινιμαλιστική σχεδίαση, ευρύχωρο εσωτερικό και άφθονες θέσεις για SSDs/HDDs, προεγκατεστημένος ανεμιστήρας και φίλτρο σκόνης, πρακτικό πάνελ και συμβατότητα με συστήματα υδρόψυξης.", "Sharkoon", new Port(), new Port(), 10);
         getComponentDAO().save(com11);
         Pair<String, Integer> pair12_1 = new Pair<String, Integer>("ATX Power Port",1);
         Pair<String, Integer> pair12_2 = new Pair<String, Integer>("ATX 12V Power Port",1);
@@ -201,7 +201,7 @@ public abstract class Initializer {
         Pair<String, Integer> pair14_1 = new Pair<String, Integer>("4-Pin PWM",1);
         Port port14 = new Port();
         port14.add(pair14_1);
-        Component com14 = new Component(4188, Money.euros(BigDecimal.valueOf(34.90)), "Be Quiet! Be Quiet Light Wings 140mm PWM", "Ανεμιστήρας 140mm με PWM, 7 ειδικά βελτιστοποιημένα για χαμηλό θόρυβο και υψηλή απόδοση πτερύγια, rifle-bearing και δύο φωτιζόμενους δακτυλίους ARGB.", "Be Quiet!", new Port(),new Port(), 54);
+        Component com14 = new Component(4188, Money.euros(BigDecimal.valueOf(34.90)), "Be Quiet! Be Quiet Light Wings Cooler 140mm PWM", "Ανεμιστήρας 140mm με PWM, 7 ειδικά βελτιστοποιημένα για χαμηλό θόρυβο και υψηλή απόδοση πτερύγια, rifle-bearing και δύο φωτιζόμενους δακτυλίους ARGB.", "Be Quiet!", new Port(),new Port(), 54);
         getComponentDAO().save(com14);
 
         Pair<String, Integer> pair15_1 = new Pair<String, Integer>("socket AM4+",1);
@@ -239,14 +239,14 @@ public abstract class Initializer {
         port17.add(pair17_4);
         port17_1.add(pair17_5);
         port17_1.add(pair17_6);
-        Component com17 = new Component(4311, Money.euros(BigDecimal.valueOf(189.90)), "Asus VGA GeForce GTX 1630 Phoenix EVO 4 GB", "Προσφέρει υψηλές επιδόσεις στα παιχνίδια χάρη στην αρχιτεκτονική NVIDIA Turing™. Διαθέτει 512 πυρήνες CUDA® και 4GB μνήμης GDDR6.", "Asus", port17, port7_1, 45);
+        Component com17 = new Component(4311, Money.euros(BigDecimal.valueOf(189.90)), "Asus VGA GPU GeForce GTX 1630 Phoenix EVO 4 GB", "Προσφέρει υψηλές επιδόσεις στα παιχνίδια χάρη στην αρχιτεκτονική NVIDIA Turing™. Διαθέτει 512 πυρήνες CUDA® και 4GB μνήμης GDDR6.", "Asus", port17, port7_1, 45);
         getComponentDAO().save(com17);
 
         Pair<String, Integer> pair18 = new Pair<String, Integer>("M.2",1);
         Port port18 = new Port();
 
         port18.add(pair18);
-        Component com18 = new Component(3748, Money.euros(BigDecimal.valueOf(94.90)), "Samsung SSD 980 NVMe M.2 1TB", "Το Samsung NVMe SSD χρησιμοποιεί τεχνολογία μνήμης V-NAND και υποστηρίζει ταχύτητες ανάγνωσης και εγγραφής (sequential) έως 3.500MB/s και 3.000MB/s αντίστοιχα. Έχει χωρητικότητα 1TB", "Samsung", new Port() , port18, 66);
+        Component com18 = new Component(3748, Money.euros(BigDecimal.valueOf(94.90)), "Samsung Disk SSD 980 NVMe M.2 1TB", "Το Samsung NVMe SSD χρησιμοποιεί τεχνολογία μνήμης V-NAND και υποστηρίζει ταχύτητες ανάγνωσης και εγγραφής (sequential) έως 3.500MB/s και 3.000MB/s αντίστοιχα. Έχει χωρητικότητα 1TB", "Samsung", new Port() , port18, 66);
         getComponentDAO().save(com18);
 
         //Synthesis

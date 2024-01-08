@@ -120,9 +120,9 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         categories.add("cpu");
         categories.add("motherboard");
         categories.add("ram");
-        categories.add("vga");
+        categories.add("gpu");
         categories.add("disk");
-        categories.add("trofodotiko");
+        categories.add("psu");
         categories.add("cooler");
         categories.add("synthesis");
         return categories;
@@ -132,10 +132,6 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     public void onCategoryClick(String category) {
         if(category.equals("makeyourownsynthesis")) {
             presenter.onDIYSyntesis();
-        }else if(category.equals("box")) {
-            presenter.onDisplayProducts("case tower");
-        }else if(category.equals("disk")) {
-            presenter.onDisplayProducts("disk ssd");
         }else {
             presenter.onDisplayProducts(category);
         }

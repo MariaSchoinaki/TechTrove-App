@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,7 @@ import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
 import com.example.tecktrove.view.CartProductAdapter;
 import com.example.tecktrove.view.CategoryAdapter;
 import com.example.tecktrove.view.ProductAdapter;
+import com.example.tecktrove.view.SharedViewModel;
 
 import java.util.ArrayList;
 
@@ -43,6 +45,8 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     private Synthesis synthesis;
 
+    private SharedViewModel model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,9 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
         recyclerView1.setLayoutManager(linearLayoutManager);
         recyclerView2.setLayoutManager(layoutManager);
 
+        model =  new ViewModelProvider(this).get(SharedViewModel.class);
+
+
         init = new MemoryInitializer();
         componentDAO = new ComponentDAOMemory();
         synthesisDao = new SynthesisDAOMemory();
@@ -67,7 +74,7 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
         recyclerView1.setAdapter(categoryAdapter);
         recyclerView2.setAdapter(productAdapter);
 
-        presenter = new SynthesisPresenter(componentDAO,synthesisDao,this);
+        presenter = new SynthesisPresenter(componentDAO,synthesisDao,this,model);
 
         findViewById(R.id.completeted).setOnClickListener(new View.OnClickListener() {
 
@@ -86,9 +93,9 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
         categories.add("cpu");
         categories.add("motherboard");
         categories.add("ram");
-        categories.add("vga");
+        categories.add("gpu");
         categories.add("disk");
-        categories.add("trofodotiko");
+        categories.add("psu");
         categories.add("cooler");
         return categories;
     }
@@ -108,14 +115,7 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     @Override
     public void onCategoryClick(String category) {
-         if(category.equals("box")) {
-            presenter.onDisplayProducts("case tower");
-        }else if(category.equals("disk")) {
-            presenter.onDisplayProducts("disk ssd");
-        }else {
-            presenter.onDisplayProducts(category);
-        }
-
+        presenter.onDisplayProducts(category);
     }
     @Override
     public void showErrorMessage(String title, String msg) {
@@ -130,7 +130,7 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
         updateUI(products);
     }
 
-    @Override
+
     public void updateUI(ArrayList<ProductType> searchResults) {
             productAdapter = new ProductAdapter(searchResults, this);
             recyclerView2.setAdapter(productAdapter);

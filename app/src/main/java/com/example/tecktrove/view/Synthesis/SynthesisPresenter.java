@@ -9,6 +9,7 @@ import com.example.tecktrove.dao.SynthesisDAO;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
+import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.view.SharedViewModel;
 
 import java.util.ArrayList;
@@ -24,12 +25,11 @@ public class SynthesisPresenter {
 
     private Synthesis synthesis = new Synthesis();
 
-    SynthesisPresenter(ComponentDAO componentDAO, SynthesisDAO synthesisDAO, SynthesisView view) {
+    public SynthesisPresenter(ComponentDAO componentDAO, SynthesisDAO synthesisDAO, SynthesisView view ,SharedViewModel model) {
         this.componentDAO = componentDAO;
         this.synthesisDAO = synthesisDAO;
         this.view = view;
-        sharedViewModel = new SharedViewModel();
-        sharedViewModel.setSharedSynthesis(this.synthesis);
+        model.setSharedSynthesis(this.synthesis);
     }
 
     public void onDisplayProducts(String category) {
@@ -43,53 +43,55 @@ public class SynthesisPresenter {
 
 
     public boolean compatibilityCheck(Component component) {
-        Boolean first = Boolean.FALSE;
-        Boolean second = Boolean.FALSE;
-        if (this.synthesis.getComponentList().size() >0) {
-            for (Component comp : this.synthesis.getComponentList()) {
-                if ((component.getRequiredPorts().getPorts().size() == 0)) {
-                    first = Boolean.TRUE;
-
-                    for (com.example.tecktrove.util.Pair<String, Integer> pair : comp.getRequiredPorts().getPorts()) {
-                        for (com.example.tecktrove.util.Pair<String, Integer> pair1 : component.getAvailablePorts().getPorts()) {
-                            if (pair.equals(pair1)) {
-                                second = Boolean.TRUE;
-
-                            }
-                        }
-                    }
-
-                } else {
-                    for (com.example.tecktrove.util.Pair<String, Integer> pair : comp.getAvailablePorts().getPorts()) {
-                        for (com.example.tecktrove.util.Pair<String, Integer> pair1 : component.getRequiredPorts().getPorts()) {
-                            if (pair.equals(pair1)) {
-                                first = Boolean.TRUE;
-                            }
-                        }
-
-                    }if(comp.getRequiredPorts().getPorts().size()==0){
-                        second = Boolean.TRUE;
-                    }else {
-                    for (com.example.tecktrove.util.Pair<String, Integer> pair : comp.getRequiredPorts().getPorts()) {
-                        for (com.example.tecktrove.util.Pair<String, Integer> pair1 : component.getAvailablePorts().getPorts()) {
-                            if (pair.equals(pair1)) {
-                                second = Boolean.TRUE;
-                            }
-                        }
-                    }
-
-                    }
+        Component motherboard = new Component();
+        Boolean motherBoardExist = Boolean.FALSE;
+        if (synthesis.getComponentList().size()==0){
+            return true;
+        }else {
+            for (Component comp: synthesis.getComponentList()){
+                if(comp.getName().toLowerCase().contains("motherboard".toLowerCase())){
+                    motherboard = comp;
+                    motherBoardExist = Boolean.TRUE;
                 }
             }
-        }else {
-            return Boolean.TRUE;
-        }
-        for (Component comp : this.synthesis.getComponentList()) {
-            if (  component.getRequiredPorts().getPorts().size()==0&&component.getAvailablePorts().getPorts().size()==0){
-                return true;
+            if(motherBoardExist){
+                int count = 0;
+                for (Pair<String,Integer> pair: component.getRequiredPorts().getPorts()){
+                    for (Pair<String,Integer> pair2: motherboard.getAvailablePorts().getPorts()){
+                        if (pair.equals(pair2)){
+                            count++;
+                        }
+                    }
+                }
+                if (component.getRequiredPorts().getPorts().size() == count){
+                    return true;
+                }
+            }else {
+                if(component.getName().toLowerCase().contains("motherboard".toLowerCase())){
+                    int countList = 0;
+                    for (Component comp: synthesis.getComponentList()){
+                        int count = 0;
+                        for (Pair<String,Integer> pair: comp.getRequiredPorts().getPorts()){
+                            for (Pair<String,Integer> pair2: component.getAvailablePorts().getPorts()){
+                                if (pair.equals(pair2)){
+                                    count++;
+                                }
+                            }
+
+                        }
+                        if (comp.getRequiredPorts().getPorts().size() == count){
+                            countList++;
+                        }
+                    }
+                    if(synthesis.getComponentList().size() == countList){
+                        return true;
+                    }
+                }else{
+                    return true;
+                }
             }
         }
-        return first && second;
+        return false;
     }
 
 
@@ -125,6 +127,10 @@ public class SynthesisPresenter {
     public void saveToSynthesis(Component comp){
         this.synthesis.add(comp);
 
+    }
+
+    public ArrayList<ProductType> getSearchResults(){
+        return searchResults;
     }
 
 

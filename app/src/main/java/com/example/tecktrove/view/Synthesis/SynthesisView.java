@@ -9,7 +9,6 @@ public interface SynthesisView {
 
     void displayProducts(ArrayList<ProductType> products);
 
-    void updateUI(ArrayList<ProductType> searchResults);
 
     void synthesisDisplay();
 
