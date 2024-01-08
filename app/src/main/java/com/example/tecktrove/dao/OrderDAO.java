@@ -27,7 +27,7 @@ public interface OrderDAO {
      * @param orderId   the order id
      * @return          the order object or null
      */
-    Order find(int orderId); //maybe in an exel san eggrafh na prosdiorizetai apo to id
+    Order find(int orderId);
 
     /**
      * Finds all the orders in the dao completed
