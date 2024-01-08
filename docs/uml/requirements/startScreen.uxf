@@ -1,0 +1,18 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>430</x><y>100</y><w>150</w><h>80</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*StartScreenView*
+--
+logInForm() : void
+signUpForm() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>280</y><w>280</w><h>80</h></coordinates><panel_attributes>*StartScreenActivity*
+--
+-initialized: boolean
+--
+#onCreate(Bundle savedInstanceState) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>190</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>200</x><y>170</y><w>140</w><h>30</h></coordinates><panel_attributes>*AppCompatActivity*
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>170</y><w>170</w><h>130</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>150;10;150;90;10;90;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>280</y><w>280</w><h>80</h></coordinates><panel_attributes>*StartScreenPresenter*
+--
+StartScreenPresenter(StartScreenView view)
+onLogIn() : void
+onSignUp()  : void </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>290</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+-presenter</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>170</y><w>220</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+-view
+1</panel_attributes><additional_attributes>10;10;10;70;200;70;200;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>430</y><w>170</w><h>40</h></coordinates><panel_attributes>&lt;&lt;layout&gt;&gt;
+*activity_start_screen.xml*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>350</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element></diagram>
