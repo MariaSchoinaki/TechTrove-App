@@ -31,8 +31,9 @@ public class ProductPresenter {
     }
 
     /**
-     * Finds if the product is a synthesis or a component and displays the correct information
-     * @param modelNo  the model number of the product
+     *
+     *
+     *
      */
     public void setInfo(int modelNo) {
         comp = components.find(modelNo);
@@ -122,7 +123,8 @@ public class ProductPresenter {
         if(quantity < 0){
             view.showMessage("Προσοχή!", "Λάθος εισαγωγή ποσότητας.");
         }else{
-            comp.setQuantity(quantity);
+            comp.addQuantity(quantity);
+            setInfo(modelNo);
         }
     }
 

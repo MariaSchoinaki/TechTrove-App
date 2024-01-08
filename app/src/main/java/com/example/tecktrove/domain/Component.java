@@ -118,6 +118,9 @@ public class Component extends ProductType{
      */
     public void addQuantity(int quantity) {
         this.quantity += quantity;
+        for(int q=0; q < quantity; q++){
+            items.add(new Item());
+        }
     }
 
     /**

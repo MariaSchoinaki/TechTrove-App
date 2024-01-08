@@ -139,11 +139,11 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
     public void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts ,int quantity) {
         productFlipper.setDisplayedChild(productFlipper.indexOfChild(findViewById(R.id.employer_product_info_constraintLayout)));
         ((TextView) findViewById(R.id.employer_product_info_name)).setText(name);
-        ((TextView) findViewById(R.id.employer_product_info_modelNo)).setText("Model Number: " + (String.valueOf(modelNo)));
-        ((TextView) findViewById(R.id.employer_product_info_manufacturer)).setText("Manufacturer: " + manufacturer);
+        ((TextView) findViewById(R.id.employer_product_info_modelNo)).setText("Κωδικός Προϊόντος: " + (String.valueOf(modelNo)));
+        ((TextView) findViewById(R.id.employer_product_info_manufacturer)).setText("Κατασκευαστής: " + manufacturer);
         ((TextView) findViewById(R.id.employer_product_info_description)).setText((description));
         ((TextView) findViewById(R.id.employer_product_info_price)).setText(price.toString());
-        ((EditText) findViewById(R.id.employer_product_info_quantity)).setText(String.valueOf(quantity));
+        ((TextView) findViewById(R.id.product_info_employer_quantity_number)).setText("Η συνολική ποσότητα στο κατάστημα είναι: " + String.valueOf(quantity));
         findViewById(R.id.product_info_employer_rating_number).setVisibility(View.GONE);
         findViewById(R.id.product_info_employer_rating_star).setVisibility(View.GONE);
         PortAdapter avports = new PortAdapter(availablePorts);
