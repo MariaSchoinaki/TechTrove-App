@@ -21,4 +21,8 @@ public interface CartView {
      * Navigates the user to purchase of the cart
      */
     void Purchase();
+
+    void Saved();
+
+    void Myacount();
 }
