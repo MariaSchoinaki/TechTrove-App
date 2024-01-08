@@ -4,13 +4,6 @@ import com.example.tecktrove.domain.Customer;
 public interface PurchaseView {
 
     /**
-     * Stores and presents the order details
-     *
-     * @param customer
-     */
-    void placeOrder(Customer customer);
-
-    /**
      * Gets the full name
      *
      * @return the full name as a String

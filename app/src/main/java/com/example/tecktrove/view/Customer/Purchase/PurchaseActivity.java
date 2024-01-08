@@ -39,20 +39,14 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
         init = new MemoryInitializer();
         presenter = new PurchasePresenter(this, init.getOrderDAO(), init.getCustomerDAO());
 
-        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
-    }
-
-    /**
-     * Starts when the screen is touched
-     */
-    @Override
-    public void onStart(){
-        super.onStart();
-        findViewById(R.id.btnPurchase).setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                presenter.check_values();
+        findViewById(R.id.btnPurchase).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.placeOrder();
             }
         });
+
+        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
     }
 
     /**
@@ -150,13 +144,4 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
                 .setPositiveButton(R.string.ok, null).create().show();
     }
 
-    /**
-     * Stores and presents the order details
-     *
-     * @param customer
-     */
-    @Override
-    public void placeOrder(Customer customer){
-
-    }
 }
