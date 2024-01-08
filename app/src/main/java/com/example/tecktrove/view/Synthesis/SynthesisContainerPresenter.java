@@ -16,21 +16,40 @@ public class SynthesisContainerPresenter {
 
     SynthesisDAO synthesisDAO;
 
+    /**
+     * Constructor
+     *
+     * @param view
+     * @param model
+     * @param synthesisDAO
+     */
     SynthesisContainerPresenter(SynthesisContainerView view,SharedViewModel model,SynthesisDAO synthesisDAO) {
         this.sharedViewModel= model;
         this.view = view;
         this.synthesisDAO = synthesisDAO;
     }
 
+    /**
+     * Gets the components list
+     *
+     * @return the components as an ArrayList
+     */
    public ArrayList<Component> getComponents(){
         return sharedViewModel.getComponentsFromSynthesis();
    }
 
-
+    /**
+     * Calls completeSynthesis to check if the synthesis is completed
+     */
     public void onComplete() {
         view.completeSynthesis();
     }
 
+    /**
+     * Checks if the synthesis includes mandatory components
+     *
+     * @return if the synthesis is completed
+     */
     public Boolean completeSynthesis() {
         String box = "box";
         String cpu = "cpu";
@@ -50,11 +69,17 @@ public class SynthesisContainerPresenter {
         return count==6;
     }
 
+    /**
+     * Calls saveSynthesis in order to save the synthesis
+     */
     public void onSave() {
         view.save();
         saveSynthesis();
     }
 
+    /**
+     * Saves the synthesis
+     */
     private void saveSynthesis(){
         SharedViewModel.getSynthesis().setName(view.getName());
         int id = (synthesisDAO.findAll().size() > 0 ? synthesisDAO.findAll().get(synthesisDAO.findAll().size()-1).getModelNo()+1 : 1);

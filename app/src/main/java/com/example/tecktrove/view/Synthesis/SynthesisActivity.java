@@ -52,6 +52,11 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     private SharedViewModel model;
 
+    /**
+     * Initializes the classes attributes
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +130,11 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     }
 
-
+    /**
+     * Puts in an ArrayList the categories of the eshop products
+     *
+     * @return the catogories
+     */
     private ArrayList<String> generateCategories() {
         ArrayList<String> categories = new ArrayList<>();
         categories.add("box");
@@ -140,11 +149,15 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
     }
 
 
-
+    /**
+     * Sets infos about a product of the synthesis
+     *
+     * @param product
+     */
     @Override
     public void onProductClick(ProductType product) {
         if (SharedViewModel.getSynthesis().getComponentList().contains(product)){
-            showErrorMessage("Προσοχή!","Το προϊόν θα αφερεθεί από την σύνθεση!");
+            showErrorMessage("Προσοχή!","Το προϊόν θα αφεραιθεί από την σύνθεση!");
             presenter.removeFromSynthesis(product);
         }else if(presenter.compatibilityCheck((Component)product)){
             showErrorMessage("Προσοχή!","Το προϊόν θα αποθηκευτεί στην σύνθεση!");
@@ -155,10 +168,22 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     }
 
+    /**
+     * Displays the clicked categories products
+     *
+     * @param category
+     */
     @Override
     public void onCategoryClick(String category) {
         presenter.onDisplayProducts(category);
     }
+
+    /**
+     * Shows a custom message
+     *
+     * @param title the title of the window
+     * @param msg   the message of the window
+     */
     @Override
     public void showErrorMessage(String title, String msg) {
         new AlertDialog.Builder(SynthesisActivity.this)
@@ -167,29 +192,46 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
                 .setMessage(msg)
                 .setPositiveButton(R.string.ok, null).create().show();
     }
+
+    /**
+     * Displayes the products
+     * @param products the products
+     */
     @Override
     public void displayProducts(ArrayList<ProductType> products) {
         updateUI(products);
     }
 
-
+    /**
+     * Updates the screen based on the search results
+     * @param searchResults
+     */
     public void updateUI(ArrayList<ProductType> searchResults) {
             productAdapter = new ProductAdapter(searchResults, this);
             recyclerView2.setAdapter(productAdapter);
     }
 
+    /**
+     * Displays a synthesis
+     */
     @Override
     public void synthesisDisplay(){
         Intent intent = new Intent(this, SynthesisContainerActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the user to the home screen
+     */
     @Override
     public void home() {
         Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the user to the cart screen
+     */
     @Override
     public void Cart() {
         Intent intent = new Intent(this, CartActivity.class);
@@ -197,6 +239,9 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     }
 
+    /**
+     * Navigates the user to the my saved synthesis
+     */
     @Override
     public void Saved() {
         Intent intent = new Intent(this, SavedProductsActivity.class);
@@ -204,6 +249,9 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
     }
 
+    /**
+     * Navigates the user to the my account
+     */
     @Override
     public void MyAcount() {
         Intent intent = new Intent(this, MyAccountActivity.class);

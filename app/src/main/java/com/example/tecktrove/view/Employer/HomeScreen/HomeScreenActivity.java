@@ -106,7 +106,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
     /**
      * Puts in an ArrayList the categories of the eshop products
-     * @return
+     * @return the catogories
      */
     private ArrayList<String> generateCategories() {
         ArrayList<String> categories = new ArrayList<>();

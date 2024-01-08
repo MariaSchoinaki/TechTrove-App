@@ -34,7 +34,11 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     private Initializer init;
     private SharedViewModel sharedViewModel;
 
-
+    /**
+     * Initializes the classes attributes
+     *
+     * @param savedInstanceState
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +83,12 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
         });
 
     }
+
+    /**
+     * Navigates app to product info screen
+     *
+     * @param product
+     */
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);
@@ -87,6 +97,12 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
 
     }
 
+    /**
+     * Shows a custom message
+     *
+     * @param title the title of the window
+     * @param msg   the message of the window
+     */
     @Override
     public void showErrorMessage(String title, String msg) {
         new AlertDialog.Builder(SynthesisContainerActivity.this)
@@ -97,6 +113,9 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
 
     }
 
+    /**
+     * Checks if a synthesis is completed and adds it to cart
+     */
     @Override
     public void completeSynthesis() {
         if (presenter.completeSynthesis()) {
@@ -107,11 +126,19 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
         }
     }
 
+    /**
+     * Calls showErrorMessage to display a message to customer
+     */
     @Override
     public void save() {
         showErrorMessage("Προσοχη!", "Προσοχή η παρούσα σύνθεση θα αποθηκευτεί στην λίστα με τα αποθηκευμένα προϊόντα σας");
     }
 
+    /**
+     * Gets the name
+     *
+     * @return the name as a String
+     */
     @Override
     public String getName() {
         return ((EditText)findViewById(R.id.name_synthesis)).getText().toString().trim();

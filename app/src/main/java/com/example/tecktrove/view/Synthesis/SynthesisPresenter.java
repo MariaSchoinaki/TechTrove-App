@@ -25,6 +25,14 @@ public class SynthesisPresenter {
 
     private Synthesis synthesis = new Synthesis();
 
+    /**
+     * Constructor
+     *
+     * @param componentDAO
+     * @param synthesisDAO
+     * @param view
+     * @param model
+     */
     public SynthesisPresenter(ComponentDAO componentDAO, SynthesisDAO synthesisDAO, SynthesisView view ,SharedViewModel model) {
         this.componentDAO = componentDAO;
         this.synthesisDAO = synthesisDAO;
@@ -32,16 +40,30 @@ public class SynthesisPresenter {
         model.setSharedSynthesis(this.synthesis);
     }
 
+    /**
+     * Calls displayProducts to display the products from the search result
+     *
+     * @param category
+     */
     public void onDisplayProducts(String category) {
         searchProducts(category);
         view.displayProducts(searchResults);
     }
 
+    /**
+     * Calls synthesisDisplay to display the synthesis
+     */
     public void onSynthesisDisplay(){
         view.synthesisDisplay();
     }
 
-
+    /**
+     * Checks the compatibility
+     *
+     * @param component
+     *
+     * @return if the component is compatible to the synthesis
+     */
     public boolean compatibilityCheck(Component component) {
         Component motherboard = new Component();
         Boolean motherBoardExist = Boolean.FALSE;
@@ -95,7 +117,11 @@ public class SynthesisPresenter {
     }
 
 
-
+    /**
+     * Searches for products that match the filter
+     *
+     * @param query the filter
+     */
     public void searchProducts(String query) {
         searchResults = new ArrayList<>();
         ArrayList<ProductType> allProducts = new ArrayList<>(componentDAO.findAll());
@@ -121,33 +147,58 @@ public class SynthesisPresenter {
             }
         }
 
-
+    /**
+     * Adds a component to the synthesis
+     *
+     * @param comp
+     */
     public void saveToSynthesis(Component comp){
         this.synthesis.add(comp);
 
     }
 
+    /**
+     * Gets Search results
+     *
+     * @return search results as an ArrayList
+     */
     public ArrayList<ProductType> getSearchResults(){
         return searchResults;
     }
 
-
+    /**
+     * Removes component from synthesis
+     *
+     * @param product
+     */
     public void removeFromSynthesis(ProductType product) {
         SharedViewModel.getSynthesis().remove((Component)product);
     }
 
+    /**
+     * Navigates app to home screen
+     */
     public void onHome() {
         view.home();
     }
 
+    /**
+     * Navigates app to cart screen
+     */
     public void onCart() {
         view.Cart();
     }
 
+    /**
+     * Navigates app to my saved synthesis screen
+     */
     public void onSaved() {
         view.Saved();
     }
 
+    /**
+     * Navigates app to my account screen
+     */
     public void onMyAcount() {
         view.MyAcount();
     }
