@@ -17,7 +17,6 @@ import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.CustomerDAOMemory;
 import com.example.tecktrove.memorydao.EmployerDAOMemory;
-import com.example.tecktrove.memorydao.ItemDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.OrderDAOMemory;
 import com.example.tecktrove.memorydao.SynthesisDAOMemory;
