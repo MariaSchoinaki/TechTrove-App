@@ -10,6 +10,7 @@ import com.example.tecktrove.domain.Employer;
 import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
+import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.SimpleCalendar;
 import com.example.tecktrove.util.SystemDate;
@@ -25,21 +26,17 @@ public class PurchasePresenter {
 
     private OrderDAO orders;
 
-    private CustomerDAO customers;
-
     private SharedViewModel sharedViewModel;
 
     /**
      * Constructor of the presenter
      * @param view          purchase view
      * @param orders        order dao
-     * @param customers     customer dao
      * @param sharedViewModel the shareViewModel
      */
-    public PurchasePresenter(PurchaseView view, OrderDAO orders, CustomerDAO customers,SharedViewModel sharedViewModel){
+    public PurchasePresenter(PurchaseView view, OrderDAO orders, SharedViewModel sharedViewModel){
         this.view = view;
         this.orders = orders;
-        this.customers = customers;
         this.sharedViewModel=sharedViewModel;
     }
 
@@ -102,15 +99,40 @@ public class PurchasePresenter {
             }
 
             if(checked) {
-                Order order = new Order();
-                order.setOrderLines(sharedViewModel.getCustomer().getCart());
-                order.setCustomer(sharedViewModel.getCustomer());
-                order.setTelephone(new Telephone(telephone));
-                order.setEmail(new Email(email));
-                order.setCardNumber(Long.parseLong(cardNumber));
-                order.setDate(SystemDate.now());
-                orders.save(order);
-                view.order();
+                boolean ready_cart = true;
+                for(OrderLine ol: sharedViewModel.getCustomer().getCart()){
+                    ProductType c = ol.getProductType();
+                    if(c.getClass() == Synthesis.class){
+                        boolean ready_synthesis = true;
+                        for(Component comp: ((Synthesis) c).getComponentList()){
+                            if(comp.getQuantity() == 0){
+                                ready_synthesis = false;
+                            }
+                        }
+                        if(!ready_synthesis){
+                            ready_cart = false;
+                            view.showMessage("Error", "Synthesis is out of quantity");
+                        }
+                    }
+                    else{
+                        if(ol.getQuantity() > ((Component) c).getQuantity()){
+                            ready_cart = false;
+                        }
+                    }
+                }
+                if(ready_cart) {
+                    Order order = new Order();
+                    order.setOrderLines(sharedViewModel.getCustomer().getCart());
+                    order.setCustomer(sharedViewModel.getCustomer());
+                    order.setTelephone(new Telephone(telephone));
+                    order.setEmail(new Email(email));
+                    order.setCardNumber(Long.parseLong(cardNumber));
+                    order.setDate(SystemDate.now());
+                    sharedViewModel.getCustomer().addOrderList(order);
+                    orders.save(order);
+                    view.order();
+                }
+                else{view.showMessage("Error", "Cart is out of quantity");}
             }
         }
     }

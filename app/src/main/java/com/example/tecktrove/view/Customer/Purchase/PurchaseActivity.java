@@ -39,7 +39,7 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
 
         sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
 
-        presenter = new PurchasePresenter(this, init.getOrderDAO(), init.getCustomerDAO(),sharedViewModel);
+        presenter = new PurchasePresenter(this, init.getOrderDAO(),sharedViewModel);
 
     }
 
