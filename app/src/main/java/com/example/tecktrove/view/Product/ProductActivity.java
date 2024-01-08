@@ -264,7 +264,10 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         startActivity(intent);
     }
 
-
+    /**
+     * Navigates the user to the product information page of the product they clicked
+     * @param product
+     */
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);
