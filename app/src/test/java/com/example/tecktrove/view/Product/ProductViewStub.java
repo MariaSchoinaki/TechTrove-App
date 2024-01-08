@@ -17,6 +17,7 @@ public class ProductViewStub implements ProductView{
     private int timesDecreasedQuantity = 0;
     private int timesShowInfoOfSynthesi = 0;
     private int timesExited = 0;
+    private boolean showRating;
 
     @Override
     public void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity) {
@@ -25,7 +26,7 @@ public class ProductViewStub implements ProductView{
     }
 
     @Override
-    public void showSynthesisInfo(int modelNo, String name, String price, ArrayList<Component> components) {
+    public void showSynthesisInfo(int modelNo, String name, String price, ArrayList<Component> components, double rating) {
         timesShowInfoOfSynthesi++;
         this.quantity = quantity;
     }
@@ -56,6 +57,11 @@ public class ProductViewStub implements ProductView{
     @Override
     public void goToHome() {
         timesExited++;
+    }
+
+    @Override
+    public void showRating(boolean show) {
+        this.showRating = show;
     }
 
     public int getTimesShowInfoOfProduct() {
@@ -92,5 +98,9 @@ public class ProductViewStub implements ProductView{
 
     public int getTimesExited() {
         return timesExited;
+    }
+
+    public boolean isShowRating() {
+        return showRating;
     }
 }

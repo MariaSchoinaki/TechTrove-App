@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.Component;
+import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.memorydao.ComponentDAOMemory;
@@ -45,6 +46,10 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
 
 
 
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +76,7 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         recyclerViewForAvailablePorts.setLayoutManager( new GridLayoutManager(this, 1));
 
 
-        presenter.setInfo(modelNo);
+        presenter.setInfo(modelNo, sharedViewModel.getCustomer());
 
 
         findViewById(R.id.product_info_addToCart).setOnClickListener(new View.OnClickListener() {
@@ -100,8 +105,50 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
                 presenter.onExit();
             }
         });
+        findViewById(R.id.very_bad_rating).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.setRating(modelNo, 1, sharedViewModel.getCustomer());
+            }
+        });
+        findViewById(R.id.bad_rating).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.setRating(modelNo, 2, sharedViewModel.getCustomer());
+            }
+        });
+        findViewById(R.id.meh_rating).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.setRating(modelNo, 3, sharedViewModel.getCustomer());
+            }
+        });
+        findViewById(R.id.good_rating).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.setRating(modelNo, 4, sharedViewModel.getCustomer());
+            }
+        });
+        findViewById(R.id.very_good_rating).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.setRating(modelNo, 5, sharedViewModel.getCustomer());
+            }
+        });
     }
 
+    /**
+     * Displays the Component's information
+     *
+     * @param modelNo           the model number
+     * @param price             the price
+     * @param name              the name
+     * @param description       the description
+     * @param manufacturer      the manufacturer
+     * @param availablePorts    the available ports
+     * @param requiredPorts     the required ports
+     * @param quantity          the quantity
+     */
     @Override
     public void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts ,int quantity) {
         flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.id.constraintLayout)));
@@ -110,6 +157,9 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         ((TextView) findViewById(R.id.product_info_manufacturer)).setText("Manufacturer: " + manufacturer);
         ((TextView) findViewById(R.id.product_info_description)).setText((description));
         ((TextView) findViewById(R.id.product_info_price)).setText(price.toString());
+        findViewById(R.id.product_info_rating_number).setVisibility(View.GONE);
+        findViewById(R.id.product_info_rating_star).setVisibility(View.GONE);
+        findViewById(R.id.rating_layout).setVisibility(View.GONE);
         PortAdapter avports = new PortAdapter(availablePorts);
         PortAdapter reqports = new PortAdapter(requiredPorts);
         recyclerViewForAvailablePorts.setAdapter(avports);
@@ -119,12 +169,22 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         recyclerViewForRequiredPorts.setLayoutManager( new GridLayoutManager(this, 1));
     }
 
+    /**
+     * Displays the synthesis information
+     *
+     * @param modelNo       the model number
+     * @param name          the name
+     * @param price         the price
+     * @param components    the components
+     * @param rating        the rating
+     */
     @Override
-    public void showSynthesisInfo(int modelNo, String name, String price, ArrayList<Component> components) {
+    public void showSynthesisInfo(int modelNo, String name, String price, ArrayList<Component> components, double rating) {
         flipper.setDisplayedChild(flipper.indexOfChild(findViewById(R.id.product_info_recyc)));
         ((TextView) findViewById(R.id.product_info_name)).setText(name);
         ((TextView) findViewById(R.id.product_info_modelNo)).setText("Model Number: " + (String.valueOf(modelNo)));
         ((TextView) findViewById(R.id.product_info_price)).setText(price.toString());
+        ((TextView) findViewById(R.id.product_info_rating_number)).setText(String.valueOf(rating));
         findViewById(R.id.product_info_manufacturer).setVisibility(View.GONE);
         findViewById(R.id.product_info_description).setVisibility(View.GONE);
         findViewById(R.id.product_info_descriptionTitle).setVisibility(View.GONE);
@@ -133,7 +193,22 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         recyclerViewForSynthesis.setLayoutManager(new GridLayoutManager(this, 1));
     }
 
+    /**
+     * Shows the rating stars if show is true
+     * @param show  a boolean value
+     */
+    public void showRating(boolean show){
+        if(show){
+            findViewById(R.id.rating_layout).setVisibility(View.VISIBLE);
+        }else {
+            findViewById(R.id.rating_layout).setVisibility(View.GONE);
+        }
+    }
 
+    /**
+     * Adds to cart of the customer the product
+     * @param product the product
+     */
     @Override
     public void Cart(ProductType product) {
         sharedViewModel.getCustomer().addToCart(new OrderLine(quantity,product));
@@ -141,12 +216,18 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
 
     }
 
+    /**
+     * Increases the quantity of the product
+     */
     @Override
     public void increaseQuantity() {
         quantity++;
         ((TextView) findViewById(R.id.product_info_quantity)).setText(String.valueOf(quantity));
     }
 
+    /**
+     * Decreases the quantity of the product
+     */
     @Override
     public void decreaseQuantity() {
         if (quantity > 0) {
@@ -156,6 +237,12 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         }
     }
 
+    /**
+     * Show a custome message
+     *
+     * @param title the title of the window
+     * @param msg   the message of the window
+     */
     @Override
     public void showMessage(String title, String msg) {
         new AlertDialog.Builder(ProductActivity.this)
@@ -165,6 +252,9 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
                 .setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * Navigates the app to the home screen
+     */
     @Override
     public void goToHome() {
         Intent intent = new Intent(this, HomeScreenActivity.class);

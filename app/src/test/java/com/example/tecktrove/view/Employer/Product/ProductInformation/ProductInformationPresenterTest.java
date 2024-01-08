@@ -99,6 +99,9 @@ public class ProductInformationPresenterTest {
         Assert.assertNull(synthesisDAO.find(9787));
     }
 
+    /**
+     * Tests changing the information of a component
+     */
     @Test
     public void testChange(){
 

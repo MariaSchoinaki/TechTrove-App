@@ -18,25 +18,38 @@ public class ProductPresenter {
     private Component comp;
     private Synthesis synthesi;
 
+    /**
+     * Constructor of the presenter
+     * @param components    component dao
+     * @param synthesisDAO  synthesis dao
+     * @param view          ProductView
+     */
     ProductPresenter(ComponentDAO components, SynthesisDAO synthesisDAO, ProductView view){
         this.components = components;
         this.view = view;
         this.synthesisDAO = synthesisDAO;
     }
 
+    /**
+     * Finds if the product is a synthesis or a component and displays the correct information
+     * @param modelNo  the model number of the product
+     */
     public void setInfo(int modelNo) {
         comp = components.find(modelNo);
         synthesi = synthesisDAO.find(modelNo);
         if (comp != null) {
             view.showProductInfo(comp.getModelNo(), comp.getPrice(), comp.getName(), comp.getDescription(), comp.getManufacturer(), comp.getAvailablePorts(), comp.getRequiredPorts(), comp.getQuantity());
         }else if(synthesi != null){
-            view.showSynthesisInfo(synthesi.getModelNo(),synthesi.getName(), synthesi.getPrice().toString(), synthesi.getComponentList());
+            view.showSynthesisInfo(synthesi.getModelNo(),synthesi.getName(), synthesi.getPrice().toString(), synthesi.getComponentList(), synthesi.getRating());
         }
     }
 
+    /**
+     * Checks if the changed information is correct and changes it
+     * @param modelNo the model number of the component
+     */
     public void ChangeInfo(int modelNo){
         comp = components.find(modelNo);
-        synthesi = synthesisDAO.find(modelNo);
         if(comp!=null){
             String modelNumber = view.getModelNo();
             String name = view.getName();
@@ -83,14 +96,26 @@ public class ProductPresenter {
         }
     }
 
+    /**
+     * Displays the form for changing the components info
+     * @param modelNo   the model number of the component
+     */
     public void goToChange(int modelNo){
         comp = components.find(modelNo);
         view.ChangeComponentInfo(comp);
     }
 
+    /**
+     * Navigates the app to the home screen
+     */
     public void goToHomeScreen(){
         view.onExit();
     }
+
+    /**
+     * Increases the quantity of a product
+     * @param modelNo   the model number of the component
+     */
     public void onIncreaseQuantity(int modelNo){
         comp = components.find(modelNo);
         int quantity = view.getQuantity();
@@ -100,6 +125,11 @@ public class ProductPresenter {
             comp.setQuantity(quantity);
         }
     }
+
+    /**
+     * Deletes a product
+     * @param modelNo   the model number of the product
+     */
     public void onDelete(int modelNo){
         comp = components.find(modelNo);
         synthesi = synthesisDAO.find(modelNo);

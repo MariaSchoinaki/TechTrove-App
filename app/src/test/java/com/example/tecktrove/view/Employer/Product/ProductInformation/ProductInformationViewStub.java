@@ -19,6 +19,7 @@ public class ProductInformationViewStub implements ProductView{
     private String name, description, manufacturer;
     private Port availablePorts, requiredPorts;
     private Money price;
+    private double rating;
 
     @Override
     public void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity) {
@@ -34,11 +35,12 @@ public class ProductInformationViewStub implements ProductView{
     }
 
     @Override
-    public void showSynthesisInfo(int modelNo, String name, String price, ArrayList<Component> components) {
+    public void showSynthesisInfo(int modelNo, String name, String price, ArrayList<Component> components, double rating) {
         timesShowInfoOfSynthesi++;
         this.modelNo = modelNo;
         this.name = name;
         this.price = Money.euros(new BigDecimal(Double.valueOf(price.replace("€", "").trim())));
+        this.rating = rating;
     }
 
     @Override
