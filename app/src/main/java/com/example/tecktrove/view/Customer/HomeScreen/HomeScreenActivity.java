@@ -38,9 +38,12 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     private ProductAdapter productAdapter;
     private Initializer init;
     private HomeScreenPresenter presenter;
-    private String submittedText;
     private SearchView searchListView;
 
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -58,8 +61,6 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         // Initialize the adapter with the product list
         categoryAdapter = new CategoryAdapter(new ArrayList<String>(categoryList), this);
 
-        // Set the layout manager and adapter to the RecyclerView
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(categoryAdapter);
 
 
@@ -112,6 +113,10 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         searchListView.setOnQueryTextListener(this);
     }
 
+    /**
+     * Puts in an ArrayList the categories of the eshop products
+     * @return
+     */
     private ArrayList<String> generateCategories() {
         ArrayList<String> categories = new ArrayList<>();
         categories.add("makeyourownsynthesis");
@@ -128,6 +133,10 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         return categories;
     }
 
+    /**
+     * Displays the clicked categories products
+     * @param category
+     */
     @Override
     public void onCategoryClick(String category) {
         if(category.equals("makeyourownsynthesis")) {
@@ -138,11 +147,18 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
 
     }
 
+    /**
+     * Displayes the products
+     * @param products the products
+     */
     @Override
     public void displayProducts(ArrayList<ProductType> products) {
         updateUI(products);
     }
 
+    /**
+     * Navigates the user to the cart
+     */
     @Override
     public void Cart() {
         Log.d("HomeScreenActivity", "Cart");
@@ -150,35 +166,54 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         startActivity(intent);
     }
 
+    /**
+     * Navigates the user to the home screen
+     */
     @Override
     public void goToHome() {
         Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the user to the my account
+     */
     @Override
     public void goToMyAccount() {
         Intent intent = new Intent(this, MyAccountActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * Navigates the user to the make your own synthesis page
+     */
     @Override
     public void diySynthesis() {
         Intent intent = new Intent(this, SynthesisActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Goes on the previous page
+     */
     @Override
     public void goBack() {
         recyclerView.setAdapter(categoryAdapter);
     }
 
+    /**
+     * Navigates the user to the saved synthesis page
+     */
     @Override
     public void saved() {
         Intent intent = new Intent(this, SavedProductsActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * If the search is empty show the categories
+     * @param text
+     * @return
+     */
     public boolean onQueryTextChange(String text)
     {
         if (text.isEmpty()) {
@@ -188,16 +223,29 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     }
 
 
+    /**
+     * When search input is put it displays the products cooresponding to the input
+     * @param query
+     * @return
+     */
     public boolean onQueryTextSubmit(String query) {
         presenter.onDisplayProducts(query);
         return true;
     }
 
+    /**
+     * When x is clicked it show the categories
+     * @return
+     */
     public boolean onClose(){
         recyclerView.setAdapter(categoryAdapter);
         return true;
     }
 
+    /**
+     * Updates the screen based on the search results
+     * @param searchResults
+     */
     private void updateUI(ArrayList<ProductType> searchResults) {
         if (searchResults.isEmpty()) {
             TextView noResultsTextView = findViewById(R.id.homeScreen_noResultsTextView);
@@ -212,6 +260,10 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         }
     }
 
+    /**
+     * Navigates the user to the product information page of the product they clicked
+     * @param product
+     */
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);

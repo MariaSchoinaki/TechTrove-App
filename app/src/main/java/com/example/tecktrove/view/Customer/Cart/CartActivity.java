@@ -44,7 +44,11 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
 
         private SharedViewModel sharedViewModel;
 
-        @Override
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             setTheme(R.style.Base_Theme_TeckTrove);
             super.onCreate(savedInstanceState);
@@ -118,8 +122,11 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
         }
 
 
-
-        @Override
+    /**
+     * Navigates the user to the product information page
+     * @param product the product clicked
+     */
+    @Override
         public void onCartProductClick(ProductType product) {
             Log.d("Category Clicked", product.getName());
             Intent intent = new Intent(this, ProductActivity.class);
@@ -127,18 +134,28 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
             startActivity(intent);
         }
 
-        @Override
+    /**
+     * Navigates the user to the home screen
+     */
+    @Override
         public void home() {
             Log.d("Cart", "HomeScreenActivity");
             Intent intent = new Intent(CartActivity.this, HomeScreenActivity.class);
             startActivity(intent);
         }
 
+    /**
+     * Navigates the user to the cart
+     */
     @Override
     public void cart() {
-
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
     }
 
+    /**
+     * Shows the total price of the cart
+     */
     @Override
         public void ShowTotal(){
             Money total = Money.euros(0);
@@ -147,10 +164,12 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
             }
             ((TextView) findViewById(R.id.sum)).setText("Total: "+total.toString());
         }
-
-        @Override
-        public void Purchase(){
-            Intent intent = new Intent(CartActivity.this, PurchaseActivity.class);
-            startActivity(intent);
-        }
+    /**
+     * Navigates the user to purchase of the cart
+     */
+    @Override
+    public void Purchase(){
+        Intent intent = new Intent(CartActivity.this, PurchaseActivity.class);
+        startActivity(intent);
+    }
 }

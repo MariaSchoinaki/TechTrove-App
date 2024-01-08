@@ -78,5 +78,11 @@ MyAccount
 #### Method saveProduct στη AddProduct
 ![saveProduct](uml/requirements/R4-sequence-add-product.png)
 
+#### Method changeInfo στη Product
+![changeInfo](uml/requirements/R4-sequence_changeInfo.png)
+
+#### Method compatibilityCheck στη Synthesis
+![compatibilityCheck](uml/requirements/R4-sequence-compatibility.png)
+
 #### Method purchase στη Purchase
 ![purchase](uml/requirements/R4-sequence-product-purchase.png)

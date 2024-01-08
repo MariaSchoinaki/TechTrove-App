@@ -20,6 +20,14 @@ public class HomeScreenPresenter {
     SynthesisDAO synthesisDAO;
     ArrayList<ProductType> searchResults;
 
+    /**
+     * Constructor
+     * @param view          HomeScreenView
+     * @param customers     CustomerDAO
+     * @param employers     EmployerDAO
+     * @param componentDAO  ComponentDAO
+     * @param synthesisDAO  SynthesisDAO
+     */
     public HomeScreenPresenter(HomeScreenView view, CustomerDAO customers, EmployerDAO employers, ComponentDAO componentDAO, SynthesisDAO synthesisDAO){
         this.view = view;
         this.customers = customers;
@@ -28,26 +36,49 @@ public class HomeScreenPresenter {
         this.synthesisDAO = synthesisDAO;
     }
 
+    /**
+     * Displays the products coresponding to the filter
+     * @param filter    the filter for the products
+     */
     public void onDisplayProducts(String filter){
         searchProducts(filter);
         view.displayProducts(searchResults);
     }
 
+    /**
+     * Navigates the app to the cart
+     */
     public void onCart(){
         view.Cart();}
 
+    /**
+     * Navigates the app to the home screen
+     */
     public void onHome(){view.goToHome();}
 
+    /**
+     * Navigates the app to my account
+     */
     public void onMyAccount(){view.goToMyAccount();}
 
+    /**
+     * Navigates the app to the make your own synthesis page
+     */
     public void onDIYSyntesis(){
         view.diySynthesis();
     }
 
+    /**
+     * Navigates the app to the previous screen
+     */
     public void onBack(){
         view.goBack();
     }
 
+    /**
+     * Searches for products that match the filter
+     * @param query the filter
+     */
     private void searchProducts(String query) {
         searchResults = new ArrayList<>();
         ArrayList<ProductType> allProducts = new ArrayList<>(componentDAO.findAll());

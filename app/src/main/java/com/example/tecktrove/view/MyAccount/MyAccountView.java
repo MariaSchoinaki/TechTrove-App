@@ -5,4 +5,6 @@ public interface MyAccountView {
     void logout();
 
     void showMessage(String title, String msg);
+
+    void history();
 }

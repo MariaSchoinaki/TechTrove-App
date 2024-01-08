@@ -51,6 +51,12 @@
         <activity
             android:name=".view.Customer.Purchase.PurchaseActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.MyAccount.OrderHistory.OrderHistoryActivity"
+            android:exported="false" />
+        <activity
+        android:name=".view.MyAccount.OrderHistory.OrderActivity"
+        android:exported="false" />
 
         <activity
             android:name=".view.Authentication.StartScreen.StartScreenActivity"
