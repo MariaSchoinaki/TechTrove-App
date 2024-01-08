@@ -134,7 +134,7 @@
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:hint="Αριθμός Κάρτας"
             android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/black"
@@ -189,7 +189,7 @@
                 android:textColorHint="@color/white"
                 app:boxBackgroundColor="@color/black"
                 app:boxBackgroundMode="outline"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabupdateled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPurchaseCardYear"
@@ -204,8 +204,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="110dp"
-                android:layout_height="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="40dp"
                 android:hint="CVV"
@@ -216,7 +216,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPurchaseCardCvv"
-                    android:layout_width="110dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="arial"
                     android:inputType="textPassword"
