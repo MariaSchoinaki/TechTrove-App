@@ -32,6 +32,10 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
     private String submittedText;
     private SearchView searchListView;
 
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -100,6 +104,10 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         searchListView.setOnQueryTextListener(this);
     }
 
+    /**
+     * Puts in an ArrayList the categories of the eshop products
+     * @return
+     */
     private ArrayList<String> generateCategories() {
         ArrayList<String> categories = new ArrayList<>();
         categories.add("all");
@@ -115,6 +123,10 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         return categories;
     }
 
+    /**
+     * Displays the clicked categories products
+     * @param category
+     */
     @Override
     public void onCategoryClick(String category) {
         if(category.equals("box")) {
@@ -125,34 +137,56 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
             presenter.onDisplayProducts(category);
         }
     }
+
+    /**
+     * Displayes the products
+     * @param products the products
+     */
     @Override
     public void displayProducts(ArrayList<ProductType> products) {
         updateUI(products);
     }
 
+    /**
+     * Navigates the user to the home screen
+     */
     @Override
     public void goToHome() {
         Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the user to the my account
+     */
     @Override
     public void goToMyAccount() {
         Intent intent = new Intent(this, MyAccountActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the app to the add product form
+     */
     @Override
     public void goToAddProduct() {
         Intent intent = new Intent(this, AddProductActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Goes on the previous page
+     */
     @Override
     public void goBack() {
         recyclerView.setAdapter(categoryAdapter);
     }
 
+    /**
+     * If the search is empty show the categories
+     * @param text
+     * @return
+     */
     public boolean onQueryTextChange(String text)
     {
         if (text.isEmpty()) {
@@ -161,17 +195,29 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         return true;
     }
 
-
+    /**
+     * When search input is put it displays the products cooresponding to the input
+     * @param query
+     * @return
+     */
     public boolean onQueryTextSubmit(String query) {
         presenter.onDisplayProducts(query);
         return true;
     }
 
+    /**
+     * When x is clicked it show the categories
+     * @return
+     */
     public boolean onClose(){
         recyclerView.setAdapter(categoryAdapter);
         return true;
     }
 
+    /**
+     * Updates the screen based on the search results
+     * @param searchResults
+     */
     private void updateUI(ArrayList<ProductType> searchResults) {
         if (searchResults.isEmpty()) {
             TextView noResultsTextView = findViewById(R.id.homeScreen_employer_noResultsTextView);
@@ -186,6 +232,10 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         }
     }
 
+    /**
+     * Navigates the user to the product information page of the product they clicked
+     * @param product
+     */
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);
