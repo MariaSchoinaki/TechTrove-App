@@ -36,6 +36,9 @@ public class SynthesisPresenterTest {
     private ComponentDAOMemory componentDAOMemory;
     private SynthesisDAOMemory synthesisDAOMemory;
 
+    /**
+     * Initializes data
+     */
     @Before
     public void setUp(){
         init = new MemoryInitializer();
@@ -51,6 +54,9 @@ public class SynthesisPresenterTest {
 
     }
 
+    /**
+     * Tests displayment of products
+     */
     @Test
     public void SearchProducts(){
         presenter.searchProducts("CPU");
@@ -66,6 +72,9 @@ public class SynthesisPresenterTest {
 
     }
 
+    /**
+     * Tests compatibility of components
+     */
     @Test
     public void TestCompatibles(){
         Pair<String, Integer> pair7_1 = new Pair<String, Integer>("PCI Express x16 3.0",1);
@@ -108,6 +117,9 @@ public class SynthesisPresenterTest {
 
     }
 
+    /**
+     * Tests the navigation on the app
+     */
     @Test
     public  void testTheRest(){
         presenter.onCart();

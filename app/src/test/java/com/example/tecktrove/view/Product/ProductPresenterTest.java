@@ -97,5 +97,8 @@ public class ProductPresenterTest {
 
         presenter.setInfo(9787,  init.getCustomerDAO().findCustomerByUsername("george"));
         Assert.assertFalse(view.isShowRating());
+
+        presenter.setInfo(9485, init.getCustomerDAO().findCustomerByUsername("chris"));
+        Assert.assertFalse(view.isShowRating());
     }
 }

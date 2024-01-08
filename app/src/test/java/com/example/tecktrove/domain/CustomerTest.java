@@ -60,6 +60,12 @@ public class CustomerTest {
 
    /**
     * Tests customer's cart functionality
+    > Task :app:preBuild UP-TO-DATE
+    > Task :app:preDebugBuild UP-TO-DATE
+    > Task :app:javaPreCompileDebug UP-TO-DATE
+    > Task :app:checkDebugAarMetadata UP-TO-DATE
+    > Task :app:generateDebugResValues UP-TO-DATE
+    > Task :app:mapDebugSourceSetPaths UP-
     */
    @Test
    public void checkCart(){
@@ -78,6 +84,9 @@ public class CustomerTest {
       customer1.removeFromCart(p);
       assertEquals(p, customer1.getProductFromCart(16627).getProductType());
       customer1.addToCart(new OrderLine(1,p));
+      customer1.addOrderList(new Order());
+      assertEquals(1, customer1.getOrderList().size());
+      assertNull(customer1.getProductFromCart(9876));
    }
 
    /**

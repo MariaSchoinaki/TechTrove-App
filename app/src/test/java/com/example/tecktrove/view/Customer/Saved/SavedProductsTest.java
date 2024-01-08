@@ -13,6 +13,9 @@ public class SavedProductsTest {
     private Initializer init;
     private SavedProductsPresenter presenter;
 
+    /**
+     * Initializes the data
+     */
     @Before
     public void Setup(){
         init = new MemoryInitializer();
@@ -21,6 +24,10 @@ public class SavedProductsTest {
         view = new SavedProductsStub();
         presenter = new SavedProductsPresenter(view);
     }
+
+    /**
+     * Tests the navigation of the app
+     */
     @Test
     public void tabTest(){
         presenter.onHome();

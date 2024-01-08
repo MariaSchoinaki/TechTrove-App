@@ -21,6 +21,9 @@ public class CartTest {
     private CartPresenter presenter;
 
 
+    /**
+     * Initializes the data
+     */
     @Before
     public void setUp(){
         init = new MemoryInitializer();
@@ -29,30 +32,45 @@ public class CartTest {
         presenter = new CartPresenter(view);
     }
 
+    /**
+     * Tests the cart's functionality
+     */
     @Test
     public void TestCart(){
         presenter.onCart();
         Assert.assertEquals(1, view.getOnCart());
     }
 
+    /**
+     * Tests navigating on the Homepage
+     */
     @Test
     public void TestHome(){
         presenter.onHome();
         Assert.assertEquals(1, view.getOnHome());
     }
 
+    /**
+     * Tests navigating on the saved synthesis
+     */
     @Test
     public void TestSaved(){
         presenter.onSaved();
         Assert.assertEquals(1, view.getOnSaved());
     }
 
+    /**
+     * Tests navigating on my account tab
+     */
     @Test
     public void TestMyacount(){
         presenter.onMyAcount();
         Assert.assertEquals(1, view.getOnMyacount());
     }
 
+    /**
+     * Tests navigating to purchase
+     */
     @Test
     public void TestPurchase(){
         presenter.onPurchase();

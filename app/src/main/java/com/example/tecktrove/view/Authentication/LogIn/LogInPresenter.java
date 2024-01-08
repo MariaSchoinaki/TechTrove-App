@@ -23,10 +23,6 @@ public class LogInPresenter {
         this.employers = employers;
     }
 
-    public LogInPresenter(LogInView view){
-        this.view = view;
-    }
-
     /**
      * Go to sign up
      */
@@ -70,23 +66,5 @@ public class LogInPresenter {
 
         }
 
-    }
-
-    /**
-     * Gets user name
-     *
-     * @return user name as a String
-     */
-    public String getUserName(){
-        if(view.isEmployer()){
-            if(employer != null){
-                return employer.getName();
-            }
-        }else{
-            if(customer != null){
-                return customer.getName();
-            }
-        }
-        return "";
     }
 }
