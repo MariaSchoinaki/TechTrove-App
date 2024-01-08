@@ -75,4 +75,8 @@ deleteAllByNumberOfRatings(int number): void</panel_attributes><additional_attri
 1</panel_attributes><additional_attributes>10;10;10;80;380;80;380;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>140</w><h>35</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 *ProductAdapter.OnProductClickListener*
 --
-onProductClick(ProductType product): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>335</y><w>35</w><h>15</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element></diagram>
+onProductClick(ProductType product): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>335</y><w>35</w><h>15</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>95</x><y>280</y><w>55</w><h>15</h></coordinates><panel_attributes>lw=2
+Initializer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>145</x><y>280</y><w>40</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-init
+1</panel_attributes><additional_attributes>10;10;60;80</additional_attributes></element></diagram>

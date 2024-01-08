@@ -32,6 +32,25 @@
 Το view για τις πληροφορίες ενός προϊόντος. Ο Πελάτης μπορεί να δει όλες τις πληροφορίες ενός προϊόντος, να προσθέσει στο καλάθι του την ποσότητα που θέλει και αν το προϊόν πρόκειται για σ΄νθεση που έχει αγοράσει να την αξιολογήσει.
 ![Product](uml/requirements/Customer_Product.png)
 
+4. Synthesis
+
+Το view για τη δημιουργία μιας σύνθεσης ηλεκτρονικού υπολογιστή. Εμφανίζει στον πελάτη τα προϊόντα της κάθε κατηγορίας που επιλέγει, τα οποία είναι συμβατά με ότι προϊόν έχει ήδη προσθέσει στη σύνθεση. 
+![Synthesis](uml/requirements/Synthesis.png)
+
+5. SynthesisContainer
+
+Το view για τις τελικές ενέργειες μετά την δημιουργία μιας σύνθεσης. Δίνει την δυνατότητα στον πελάτη να προσθέσει την σύνθεση στο καλάθι του ( αν αυτή είναι πλήρης) ή να την αποθηκεύσει για μελλοντική αγορά.
+![SynthesisContainer](uml/requirements/SynthesisContainer.png)
+
+6. Saved 
+Το view για τις αποθηκευμένες συνθέσεις του πελάτη.
+![Saved](uml/requirements/SavedSynthesis.png)
+
+7. Purchase
+
+Το view για την αγορά του καλαθιού ενός πελάτη. Ο πελάτης συμπληρώνει όλα τα απαραίτητα στοιχεία, ελέγχεται η ορθότητα τους και ολοκληρώνεται η αγορά.
+![Purchase](uml/requirements/Purchase.png)
+
 #### Για τον ρόλο του υπαλλήλου έχουμε τα εξής views:
 
 1. HomeScreen
@@ -53,3 +72,11 @@ MyAccount
 
 Το view για τις πληροφορίες του λογαριασμού ενός χρήστη. Δίνει τη δυνατότητα στο χρήστη να βγει από την εφαρμογή (log out), να αλλάξει τα στοιχεία του λογαριασμού του και να διαγράψει τον λογαριασμό του.
 ![MyAccount](uml/requirements/MyAccount.png)
+
+### Sequence diagrams
+
+#### Method saveProduct στη AddProduct
+![saveProduct](uml/requirements/R4-sequence-add-product.png)
+
+#### Method purchase στη Purchase
+![purchase](uml/requirements/R4-sequence-product-purchase.png)

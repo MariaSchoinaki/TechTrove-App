@@ -1,0 +1,83 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>405</x><y>153</y><w>243</w><h>180</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*PurchaseView*
+--
+getFullName(): String
+getEmail(): String
+getTelephone(): String
+getAddress(): String
+getCardNumber() : String
+getCardMonth() : String
+getCardYear() : v
+getCardCvv() : String
+showMessage(String title, String msg) : void
+order() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>144</x><y>396</y><w>243</w><h>81</h></coordinates><panel_attributes>*PurchaseActivity*
+--
+init: MemoryInitializer 
+sharedViewModel :  SharedViewModel
+--
+#onCreate(Bundle savedInstanceState): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>198</x><y>306</y><w>126</w><h>27</h></coordinates><panel_attributes>*AppCompatActivity*
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>324</y><w>27</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>324</y><w>180</w><h>90</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>180;10;180;50;10;50;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>162</x><y>558</y><w>207</w><h>36</h></coordinates><panel_attributes>&lt;&lt;layout&gt;&gt;
+*activity_purchase.xml*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>468</y><w>27</w><h>108</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>585</x><y>396</y><w>630</w><h>81</h></coordinates><panel_attributes>*PurchasePresenter*
+--
+sharedViewModel :  SharedViewModel
+--
+PurchasePresenter(PurchaseView view, OrderDAO orders, CustomerDAO customers,SharedViewModel sharedViewModel)
+placeOrder(): void
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>324</y><w>261</w><h>90</h></coordinates><panel_attributes>lt=&lt;-
+-view
+1</panel_attributes><additional_attributes>10;10;10;50;270;50;270;80</additional_attributes></element><element><id>Relation</id><coordinates><x>378</x><y>414</y><w>225</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+-presenter</panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>549</x><y>558</y><w>450</w><h>153</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*CustomerDAO*
+--
+void save(Customer entity) : 
+findAll() :  ArrayList&lt;Customer&gt;
+findCustomerByUsernameAndPassword(String username, String password) : Customer
+findCustomerByUsername(String username) :  Customer
+findCustomerByID(int id) :  Customer 
+delete(Customer entity) :  void
+deleteAll() :  void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>468</y><w>171</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- customers
+1</panel_attributes><additional_attributes>10;100;10;70;170;70;170;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1026</x><y>558</y><w>279</w><h>153</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*OrderDAO*
+--
+save(Order entity) : void
+findAll() :   List&lt;Order&gt; 
+find(int orderId) : Order
+findByCustomer(Customer customer):  List&lt;Order&gt;
+delete(Order entity) : void
+delete(int orderId): void
+deleteAll() : void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>963</x><y>468</y><w>198</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- orders
+1</panel_attributes><additional_attributes>200;100;200;70;10;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1287</x><y>369</y><w>99</w><h>36</h></coordinates><panel_attributes>lw=2
+Customer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>378</y><w>99</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>90;10;10;30</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1287</x><y>423</y><w>99</w><h>36</h></coordinates><panel_attributes>lw=2
+Order
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>432</y><w>99</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>900</x><y>99</y><w>297</w><h>225</h></coordinates><panel_attributes>*ShareViewModel*
+--
+- customer : Customer
+-isEmployer : boolean 
+-employer :  Employer 
+-synthesis : Synthesis
+--
+getCustomer() : Customer
+setSharedCustomer(Customer customer): void
+isEmployer() : boolean
+setSharedEmployer(Employer employer): void
+getEmployer() : Employer
+setIsEmployer(boolean isEmployer): boolean
+setSharedSynthesis(Synthesis synthesiss): void
+getComponentsFromSynthesis()  ArrayList&lt;Component&gt;
+getSynthesis() : Synthesis </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>963</x><y>315</y><w>126</w><h>99</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- shareViewModel
+1</panel_attributes><additional_attributes>120;10;120;50;10;50;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1035</x><y>36</y><w>27</w><h>81</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>999</x><y>18</y><w>90</w><h>27</h></coordinates><panel_attributes>ViewModel
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>99</y><w>828</w><h>342</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- shareViewModel
+1</panel_attributes><additional_attributes>900;20;10;20;10;360;60;360</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>504</y><w>99</w><h>27</h></coordinates><panel_attributes>lw=2
+Initializer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>468</y><w>72</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-init
+1</panel_attributes><additional_attributes>10;50;60;10</additional_attributes></element></diagram>

@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>414</x><y>234</y><w>126</w><h>84</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>492</x><y>234</y><w>126</w><h>84</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 *LogInView*
 --
 signUp() : void
@@ -6,11 +6,11 @@ getUsername() : String
 getPassword() : String
 showErrorMessage(String title, String msg): void
 login(User user) : void
-isEmployer() : boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>456</x><y>390</y><w>300</w><h>48</h></coordinates><panel_attributes>*LogInPresenter*
+isEmployer() : boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>534</x><y>390</y><w>300</w><h>48</h></coordinates><panel_attributes>*LogInPresenter*
 --
 LogInPresenter(LogInView view, CustomerDAO customers, EmployerDAO employers)
 startProcess() : void
-onSignUp() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>138</x><y>390</y><w>162</w><h>84</h></coordinates><panel_attributes>*LogInActivity*
+onSignUp() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>216</x><y>390</y><w>162</w><h>84</h></coordinates><panel_attributes>*LogInActivity*
 --
 - presenter : LogInPresenter 
 - init : MemoryInitializer
@@ -18,23 +18,23 @@ onSignUp() : void</panel_attributes><additional_attributes></additional_attribut
 
 --
 # onCreate(Budle SavedInstanceState) : void
-# onStart() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>330</y><w>18</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>186</x><y>318</y><w>66</w><h>18</h></coordinates><panel_attributes>lw=2
+# onStart() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>330</y><w>18</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>264</x><y>318</y><w>66</w><h>18</h></coordinates><panel_attributes>lw=2
 Activity
-bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>312</y><w>228</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>360;10;360;80;10;80;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>294</x><y>414</y><w>174</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>312</y><w>228</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>360;10;360;80;10;80;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>414</y><w>174</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
 -presenter
-1</panel_attributes><additional_attributes>270;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>486</x><y>312</y><w>126</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-
+1</panel_attributes><additional_attributes>270;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>564</x><y>312</y><w>126</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-
 -view
-1</panel_attributes><additional_attributes>10;10;10;80;190;80;190;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>408</y><w>66</w><h>18</h></coordinates><panel_attributes>lw=2
+1</panel_attributes><additional_attributes>10;10;10;80;190;80;190;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>78</x><y>408</y><w>66</w><h>18</h></coordinates><panel_attributes>lw=2
 Initializer
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>60</x><y>402</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>138</x><y>402</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.
 -init
-1</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>516</y><w>66</w><h>24</h></coordinates><panel_attributes>lw=2
+1</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>258</x><y>516</y><w>66</w><h>24</h></coordinates><panel_attributes>lw=2
 &lt;&lt;layout&gt;&gt;
-activity_login.xml</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>468</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>816</x><y>378</y><w>66</w><h>24</h></coordinates><panel_attributes>lw=2
+activity_login.xml</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>468</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>894</x><y>378</y><w>66</w><h>24</h></coordinates><panel_attributes>lw=2
 Customer
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>816</x><y>420</y><w>66</w><h>24</h></coordinates><panel_attributes>lw=2
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>894</x><y>420</y><w>66</w><h>24</h></coordinates><panel_attributes>lw=2
 Employer
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>384</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>414</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;30;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>312</x><y>492</y><w>300</w><h>102</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>384</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>828</x><y>414</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;30;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>492</y><w>300</w><h>102</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 *CustomerDAO*
 --
 void save(Customer entity) : 
@@ -44,7 +44,7 @@ findCustomerByUsername(String username) :  Customer
 findCustomerByID(int id) :  Customer 
 delete(Customer entity) :  void
 deleteAll() :  void
-nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>636</x><y>492</y><w>306</w><h>102</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>714</x><y>492</y><w>306</w><h>102</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 *EmployerDAO*
 --
 save(Employer entity) : void
@@ -54,8 +54,25 @@ findEmployerByUsername(String username) :   Employer
 findEmployerByID(int id) : Employer
 delete(Employer entity) : void
 deleteAll() : void
-nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>432</y><w>84</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>432</y><w>84</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-
 - customers
-1</panel_attributes><additional_attributes>10;100;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>432</y><w>84</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-
+1</panel_attributes><additional_attributes>10;100;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>702</x><y>432</y><w>84</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-
 - employers
-1</panel_attributes><additional_attributes>120;100;10;10</additional_attributes></element></diagram>
+1</panel_attributes><additional_attributes>120;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>528</y><w>198</w><h>150</h></coordinates><panel_attributes>*ShareViewModel*
+--
+- customer : Customer
+-isEmployer : boolean 
+-employer :  Employer 
+-synthesis : Synthesis
+--
+getCustomer() : Customer
+setSharedCustomer(Customer customer): void
+isEmployer() : boolean
+setSharedEmployer(Employer employer): void
+getEmployer() : Employer
+setIsEmployer(boolean isEmployer): boolean
+setSharedSynthesis(Synthesis synthesiss): void
+getComponentsFromSynthesis()  ArrayList&lt;Component&gt;
+getSynthesis() : Synthesis </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>594</y><w>60</w><h>18</h></coordinates><panel_attributes>ViewModel
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>474</y><w>108</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-shareViewModel</panel_attributes><additional_attributes>10;90;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>192</x><y>594</y><w>60</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element></diagram>
