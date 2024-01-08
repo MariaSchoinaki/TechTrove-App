@@ -1,23 +1,15 @@
 package com.example.tecktrove.view.Customer.Purchase;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.tecktrove.R;
-import com.example.tecktrove.domain.Customer;
-import com.example.tecktrove.domain.Employer;
-import com.example.tecktrove.domain.User;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.view.Authentication.LogIn.LogInActivity;
-import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
-import com.example.tecktrove.view.Authentication.SignUp.SignUpPresenter;
 import com.example.tecktrove.view.SharedViewModel;
 
 public class PurchaseActivity extends AppCompatActivity implements PurchaseView {
@@ -37,7 +29,6 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
         super.setContentView(R.layout.activity_purchase);
 
         init = new MemoryInitializer();
-        presenter = new PurchasePresenter(this, init.getOrderDAO(), init.getCustomerDAO());
 
         findViewById(R.id.btnPurchase).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +38,9 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
         });
 
         sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+
+        presenter = new PurchasePresenter(this, init.getOrderDAO(), init.getCustomerDAO(),sharedViewModel);
+
     }
 
     /**
@@ -142,6 +136,10 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
                 .setTitle(title)
                 .setMessage(msg)
                 .setPositiveButton(R.string.ok, null).create().show();
+    }
+    @Override
+    public void order(){
+        showMessage("Προσοχή!","Η παραγγελία σας ολοκληρώθηκε επιτιχώς!");
     }
 
 }

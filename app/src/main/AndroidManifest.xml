@@ -48,7 +48,9 @@
         <activity
             android:name=".view.Customer.SavedProdacts.SavedProductsActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".view.Customer.Purchase.PurchaseActivity"
+            android:exported="false" />
 
         <activity
             android:name=".view.Authentication.StartScreen.StartScreenActivity"

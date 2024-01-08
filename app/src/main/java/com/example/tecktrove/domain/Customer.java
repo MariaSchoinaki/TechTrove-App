@@ -12,6 +12,8 @@ public class Customer extends User {
     private ArrayList<Synthesis> savedSynthesis;
     private ArrayList<OrderLine> cart;
 
+    private ArrayList<Order> orderList;
+
     /**
      * Default Constructor
      */
@@ -156,5 +158,13 @@ public class Customer extends User {
             j-=1;
         }
         return null;
+    }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void addOrderlist(ArrayList<Order> orderList){
+        this.orderList=orderList;
     }
 }
