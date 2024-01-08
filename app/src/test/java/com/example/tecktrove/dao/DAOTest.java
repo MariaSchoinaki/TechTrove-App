@@ -433,6 +433,18 @@ public class DAOTest {
         Assert.assertEquals(INITIAL_SYNTHESIS_COUNT+1,synthesisDAO.findAll().size());
         synthesisDAO.delete(s1);
 
+        s1 = new Synthesis();
+        s1.setName("yeah");
+        synthesisDAO.save(s1);
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT+1,synthesisDAO.findAll().size());
+        synthesisDAO.delete("yeah");
+
+        s1 = new Synthesis();
+        s1.setModelNo(12345678);
+        synthesisDAO.save(s1);
+        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT+1,synthesisDAO.findAll().size());
+        synthesisDAO.delete(12345678);
+
         Assert.assertEquals(INITIAL_SYNTHESIS_COUNT,synthesisDAO.findAll().size());
         Synthesis s2 = new Synthesis();
         s2.setNumberOfRatings(2);
@@ -500,6 +512,11 @@ public class DAOTest {
         orderDAO.delete(orderDAO.find(1324));
         Assert.assertEquals(2, orderDAO.findAll().size());
         Assert.assertFalse(orderDAO.findAll().contains(orderDAO.find(1324)));
+        Order o1 = new Order(new SimpleCalendar(2023, 12, 12), 1111111111111111L, new Telephone("6947512635"), new Email("test@gmail.com"), new ArrayList<>());
+        o1.setId(9878);
+        orderDAO.save(o1);
+        orderDAO.delete(9878);
+        Assert.assertFalse(orderDAO.findAll().contains(orderDAO.find(9878)));
     }
 
     /**
