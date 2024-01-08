@@ -32,6 +32,10 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
     private View changeLayout;
     ViewFlipper flipper;
 
+    /**
+     * Initializes the classes attributes
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -121,7 +125,9 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
         ((EditText) findViewById(R.id.my_account_mobile)).setText(phone);
     }
 
-
+    /**
+     * Terminates app and navigates to start screen
+     */
     @Override
     public void logout() {
         sharedViewModel.clear();
@@ -129,6 +135,12 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
         startActivity(intent);
     }
 
+    /**
+     * Shows a custom message
+     *
+     * @param title the title of the window
+     * @param msg   the message of the window
+     */
     @Override
     public void showMessage(String title, String msg) {
         new AlertDialog.Builder(MyAccountActivity.this)
@@ -137,6 +149,10 @@ public class MyAccountActivity extends AppCompatActivity implements MyAccountVie
                 .setMessage(msg)
                 .setPositiveButton(R.string.ok, null).create().show();
     }
+
+    /**
+     * Navigates the app to the order history screen
+     */
     @Override
     public void history(){
         Intent intent = new Intent(this, OrderHistoryActivity.class);

@@ -31,9 +31,9 @@ public class ProductPresenter {
     }
 
     /**
+     * Sets basic info
      *
-     *
-     *
+     * @param modelNo
      */
     public void setInfo(int modelNo) {
         comp = components.find(modelNo);

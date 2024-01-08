@@ -22,17 +22,31 @@ public class MyAccountPresenter {
     private CustomerDAO customerDAO;
     private int userID;
 
-
+    /**
+     * Constructor
+     *
+     * @param view
+     * @param customerDAO
+     * @param employerDAO
+     */
     public MyAccountPresenter(MyAccountView view, CustomerDAO customerDAO, EmployerDAO employerDAO){
         this.view = view;
         this.customerDAO = customerDAO;
         this.employerDAO = employerDAO;
     }
 
+    /**
+     * Calls logout method
+     */
     public void onLogout(){
         view.logout();
     }
 
+    /**
+     * Checks values following basic rules and sets them
+     * @param user
+     * @param userID
+     */
     public void onSaveChanges(User user, int userID) {
         boolean allgood = false;
 
@@ -79,6 +93,17 @@ public class MyAccountPresenter {
         }
     }
 
+    /**
+     * Sets values
+     *
+     * @param fullname
+     * @param email
+     * @param phoneNumber
+     * @param username
+     * @param password
+     * @param confirm_password
+     * @param isemployer
+     */
     public void setInfo(String fullname, String email, String phoneNumber, String username, String password, String confirm_password, boolean isemployer){
         this.fullname = fullname;
         this.email = email;
@@ -89,6 +114,9 @@ public class MyAccountPresenter {
         this.isEmployer = isemployer;
     }
 
+    /**
+     * Deletes account and calls logout
+     */
     public void onDeleteAccount(){
         if(isEmployer){
             employerDAO.delete(employerDAO.findEmployerByUsernameAndPassword(username, password));
@@ -98,6 +126,9 @@ public class MyAccountPresenter {
         view.logout();
     }
 
+    /**
+     * Navigates the app to the order history screen
+     */
     public void onHistory() {
         view.history();
     }
