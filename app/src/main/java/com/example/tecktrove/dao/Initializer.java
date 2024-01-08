@@ -9,7 +9,6 @@ import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.domain.Component;
-import com.example.tecktrove.domain.Item;
 import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.Port;
 import com.example.tecktrove.util.Money;
