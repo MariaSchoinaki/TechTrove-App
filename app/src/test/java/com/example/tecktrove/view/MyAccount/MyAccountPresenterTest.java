@@ -134,4 +134,15 @@ public class MyAccountPresenterTest {
         Assert.assertNotNull(e);
         Assert.assertEquals("eleni", e.getName());
     }
+
+    /**
+     * Testing order history functionality
+     */
+    @Test
+    public void history(){
+        Assert.assertEquals(0, view.getTimesOnHistory());
+
+        presenter.onHistory();
+        Assert.assertEquals(1, view.getTimesOnHistory());
+    }
 }
