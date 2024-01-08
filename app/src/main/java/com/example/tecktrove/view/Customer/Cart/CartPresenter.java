@@ -32,10 +32,16 @@ public class CartPresenter {
         view.Purchase();
     }
 
+    /**
+     * Navigates the app to the my saved screen
+     */
     public void onSaved() {
         view.Saved();
     }
 
+    /**
+     * Navigates the app to my account screen
+     */
     public void onMyAcount() {
         view.Myacount();
     }

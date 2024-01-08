@@ -22,7 +22,13 @@ public interface CartView {
      */
     void Purchase();
 
+    /**
+     * Navigates the app to the my saved screen
+     */
     void Saved();
 
+    /**
+     * Navigates the app to my account screen
+     */
     void Myacount();
 }

@@ -74,6 +74,7 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
             ShowTotal();
 
             tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
                 @Override
                 public void onTabSelected(TabLayout.Tab tab) {
                     // Handle tab selection
@@ -110,9 +111,6 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
                 }
             });
         }
-
-
-
 
 
         //sample data
@@ -176,12 +174,18 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
         startActivity(intent);
     }
 
+    /**
+     * Navigates the app to the my saved screen
+     */
     @Override
     public void Saved() {
         Intent intent = new Intent(CartActivity.this, SavedProductsActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Navigates the app to my account screen
+     */
     @Override
     public void Myacount() {
         Intent intent = new Intent(CartActivity.this, MyAccountActivity.class);
