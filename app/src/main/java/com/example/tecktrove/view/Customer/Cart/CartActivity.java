@@ -22,6 +22,8 @@ import com.example.tecktrove.util.Money;
 import com.example.tecktrove.view.CartProductAdapter;
 import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
 import com.example.tecktrove.view.Customer.Purchase.PurchaseActivity;
+import com.example.tecktrove.view.Customer.SavedProdacts.SavedProductsActivity;
+import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.SharedViewModel;
 import com.google.android.material.tabs.TabLayout;
@@ -82,9 +84,10 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
                         case 1:
                             presenter.onCart();
                         case 2:
-                            break;
+
+                            presenter.onSaved();
                         case 3:
-                            break;
+                            presenter.onMyAcount();
                         // Add cases for other tabs as needed
                     }
                 }
@@ -170,6 +173,18 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
     @Override
     public void Purchase(){
         Intent intent = new Intent(CartActivity.this, PurchaseActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void Saved() {
+        Intent intent = new Intent(CartActivity.this, SavedProductsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void Myacount() {
+        Intent intent = new Intent(CartActivity.this, MyAccountActivity.class);
         startActivity(intent);
     }
 }

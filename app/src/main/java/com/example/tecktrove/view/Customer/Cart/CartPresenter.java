@@ -31,4 +31,12 @@ public class CartPresenter {
     public void onPurchase() {
         view.Purchase();
     }
+
+    public void onSaved() {
+        view.Saved();
+    }
+
+    public void onMyAcount() {
+        view.Myacount();
+    }
 }
