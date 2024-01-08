@@ -2,7 +2,6 @@ package com.example.tecktrove.view.MyAccount.OrderHistory;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,7 +19,7 @@ import com.example.tecktrove.view.SharedViewModel;
 
 import java.util.ArrayList;
 
-public class OrderHistoryActivity extends AppCompatActivity implements OrderHistoryView, OrderAdapter.OnOrderClickListener {
+public class OrderHistoryActivity extends AppCompatActivity implements OrderAdapter.OnOrderClickListener {
     private RecyclerView recyclerView;
 
     private Initializer init;
