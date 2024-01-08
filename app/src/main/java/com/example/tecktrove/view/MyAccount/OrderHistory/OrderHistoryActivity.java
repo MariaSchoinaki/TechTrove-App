@@ -28,6 +28,12 @@ public class OrderHistoryActivity extends AppCompatActivity implements OrderHist
     private OrderDAO orderDAO;
 
     protected Order order ;
+
+    /**
+     * Initializes the classes attributes
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Base_Theme_TeckTrove);
@@ -45,6 +51,11 @@ public class OrderHistoryActivity extends AppCompatActivity implements OrderHist
 
     }
 
+    /**
+     * Navigates app to order information screen
+     *
+     * @param order
+     */
     @Override
     public void onOrderClick(Order order) {
         Intent intent = new Intent(this, OrderActivity.class);
