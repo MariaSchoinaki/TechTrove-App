@@ -57,7 +57,7 @@ public class OrderDAOMemory implements OrderDAO{
     public List<Order> findByCustomer(Customer customer){
         ArrayList<Order> customer_order = new ArrayList<>();
         for(Order order : orders){
-            if(order.getCustomer() == customer){
+            if(order.getCustomer().equals(customer)){
                 customer_order.add(order);
             }
         }
