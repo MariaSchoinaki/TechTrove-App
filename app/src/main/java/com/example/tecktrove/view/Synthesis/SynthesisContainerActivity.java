@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -15,11 +16,8 @@ import com.example.tecktrove.R;
 import com.example.tecktrove.dao.Initializer;
 import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
-import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.memorydao.MemoryInitializer;
-import com.example.tecktrove.util.Pair;
-import com.example.tecktrove.view.Authentication.LogIn.LogInActivity;
-import com.example.tecktrove.view.Authentication.SignUp.SignUpActivity;
+import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
@@ -49,7 +47,7 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
 
         recyclerView = findViewById(R.id.main_container);
         recyclerView.setLayoutManager(layoutManager);
-        presenter = new SynthesisContainerPresenter(this,sharedViewModel);
+        presenter = new SynthesisContainerPresenter(this,sharedViewModel,new SynthesisDAOMemory());
 
 
         init = new MemoryInitializer();
@@ -84,6 +82,7 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     @Override
     public void onProductClick(ProductType product) {
         Intent intent = new Intent(this, ProductActivity.class);
+        intent.putExtra("modelNo",product.getModelNo() );
         startActivity(intent);
 
     }
@@ -111,7 +110,11 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     @Override
     public void save() {
         showErrorMessage("Προσοχη!", "Προσοχή η παρούσα σύνθεση θα αποθηκευτεί στην λίστα με τα αποθηκευμένα προϊόντα σας");
-        sharedViewModel.getCustomer().getSavedSynthesis().add(sharedViewModel.getSynthesis());
+    }
+
+    @Override
+    public String getName() {
+        return ((EditText)findViewById(R.id.name_synthesis)).getText().toString().trim();
     }
 
 }

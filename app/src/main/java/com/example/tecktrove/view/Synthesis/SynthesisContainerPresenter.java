@@ -14,9 +14,12 @@ public class SynthesisContainerPresenter {
 
     SharedViewModel sharedViewModel;
 
-    SynthesisContainerPresenter(SynthesisContainerView view,SharedViewModel model) {
+    SynthesisDAO synthesisDAO;
+
+    SynthesisContainerPresenter(SynthesisContainerView view,SharedViewModel model,SynthesisDAO synthesisDAO) {
         this.sharedViewModel= model;
         this.view = view;
+        this.synthesisDAO = synthesisDAO;
     }
 
    public ArrayList<Component> getComponents(){
@@ -46,5 +49,10 @@ public class SynthesisContainerPresenter {
 
     public void onSave() {
         view.save();
+        SharedViewModel.getSynthesis().setName(view.getName());
+        int id = (synthesisDAO.findAll().size() > 0 ? synthesisDAO.findAll().get(synthesisDAO.findAll().size()-1).getModelNo()+1 : 1);
+        SharedViewModel.getSynthesis().setModelNo(id);
+        sharedViewModel.getCustomer().getSavedSynthesis().add(SharedViewModel.getSynthesis());
+        synthesisDAO.save(SharedViewModel.getSynthesis());
     }
 }
