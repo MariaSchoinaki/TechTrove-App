@@ -2,32 +2,26 @@ package com.example.tecktrove.view.MyAccount.OrderHistory;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tecktrove.R;
-import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.Order;
 import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.OrderDAOMemory;
-import com.example.tecktrove.view.CartProductAdapter;
-import com.example.tecktrove.view.OrderAdapter;
 import com.example.tecktrove.view.OrderSynthesisAdapter;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
-import com.example.tecktrove.view.SynthesisAdapter;
 
 import java.util.ArrayList;
 
-public class OrderActivity extends OrderHistoryActivity implements OrderView, ProductAdapter.OnProductClickListener, OrderSynthesisAdapter.OnPublishClickListener {
+public class OrderActivity extends OrderHistoryActivity implements ProductAdapter.OnProductClickListener, OrderSynthesisAdapter.OnPublishClickListener {
     private RecyclerView recyclerView1;
     private RecyclerView recyclerView2;
 

@@ -44,15 +44,23 @@ public class SynthesisContainerPresenter {
                 count++;
             }
         }
+        if(count == 6){
+            saveSynthesis();
+        }
         return count==6;
     }
 
     public void onSave() {
         view.save();
+        saveSynthesis();
+    }
+
+    private void saveSynthesis(){
         SharedViewModel.getSynthesis().setName(view.getName());
         int id = (synthesisDAO.findAll().size() > 0 ? synthesisDAO.findAll().get(synthesisDAO.findAll().size()-1).getModelNo()+1 : 1);
         SharedViewModel.getSynthesis().setModelNo(id);
         sharedViewModel.getCustomer().getSavedSynthesis().add(SharedViewModel.getSynthesis());
+
         synthesisDAO.save(SharedViewModel.getSynthesis());
     }
 }

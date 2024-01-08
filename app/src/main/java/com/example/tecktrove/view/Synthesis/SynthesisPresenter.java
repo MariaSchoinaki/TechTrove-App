@@ -99,9 +99,7 @@ public class SynthesisPresenter {
     public void searchProducts(String query) {
         searchResults = new ArrayList<>();
         ArrayList<ProductType> allProducts = new ArrayList<>(componentDAO.findAll());
-        if(query.equals("all")){
-            searchResults = allProducts;
-        }else {
+
             String[] queries = query.split(" ");
 
             Boolean contains = Boolean.FALSE;
@@ -122,7 +120,7 @@ public class SynthesisPresenter {
                 }
             }
         }
-    }
+
 
     public void saveToSynthesis(Component comp){
         this.synthesis.add(comp);
@@ -136,5 +134,21 @@ public class SynthesisPresenter {
 
     public void removeFromSynthesis(ProductType product) {
         SharedViewModel.getSynthesis().remove((Component)product);
+    }
+
+    public void onHome() {
+        view.home();
+    }
+
+    public void onCart() {
+        view.Cart();
+    }
+
+    public void onSaved() {
+        view.Saved();
+    }
+
+    public void onMyAcount() {
+        view.MyAcount();
     }
 }

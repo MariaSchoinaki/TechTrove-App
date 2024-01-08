@@ -13,4 +13,11 @@ public interface SynthesisView {
     void synthesisDisplay();
 
 
+    void home();
+
+    void Cart();
+
+    void Saved();
+
+    void MyAcount();
 }
