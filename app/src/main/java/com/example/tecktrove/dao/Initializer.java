@@ -260,6 +260,8 @@ public abstract class Initializer {
         s1.add(com6);
         s1.add(com7);
         s1.add(com8);
+        s1.setSubRating(3, c2);
+        s1.setSubRating(4, c3);
         getSynthesisDAO().save(s1);
 
 
@@ -273,6 +275,8 @@ public abstract class Initializer {
         s2.add(com16);
         s2.add(com17);
         s2.add(com18);
+        s2.setSubRating(4, c1);
+        s2.setSubRating(5, c2);
         getSynthesisDAO().save(s2);
 
         //OrderLines-Orders
