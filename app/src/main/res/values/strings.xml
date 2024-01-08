@@ -35,5 +35,8 @@
     <string name="saved">Αποθηκευμένα Προϊόντα</string>
     <string name="saveButton">Αποθήκευση</string>
     <string name="NameurS">Όνομα σύνθεσης </string>
+    <string name="history_t">Ιστορικό Παραγγέλιων </string>
+    <string name="details">Στοιχεία Παραγγελίας </string>
+
 
 </resources>

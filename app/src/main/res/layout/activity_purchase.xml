@@ -189,7 +189,7 @@
                 android:textColorHint="@color/white"
                 app:boxBackgroundColor="@color/black"
                 app:boxBackgroundMode="outline"
-                app:passwordToggleEnabupdateled="true">
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPurchaseCardYear"

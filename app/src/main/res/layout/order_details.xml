@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#0F0F0F"
+    android:backgroundTint="#0F0F0F">
+
+    <TextView
+        android:id="@+id/orderDitails"
+        android:layout_width="306dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="155dp"
+
+        android:layout_marginEnd="155dp"
+        android:fontFamily="arial"
+        android:text="@string/details"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/OrderDetailsHomePageTabLayout"
+        android:layout_width="391dp"
+        android:layout_height="48dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabIndicatorColor="#FFA400"
+        app:tabRippleColor="#020101">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/OrderDetails_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Home"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="-1dp"
+            tools:layout_editor_absoluteY="687dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/OrderDetails_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cart"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="686dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/OrderDetails_gloy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="gloy"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/OrderDetails_myaccount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="My Account"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/details_container"
+        android:layout_width="362dp"
+        android:layout_height="527dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/OrderDetailsHomePageTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderDitails" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
