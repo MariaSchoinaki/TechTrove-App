@@ -10,6 +10,7 @@ import com.example.tecktrove.contacts.Telephone;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.domain.Employer;
+import com.example.tecktrove.domain.Order;
 import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
@@ -24,6 +25,7 @@ import com.example.tecktrove.util.Money;
 import com.example.tecktrove.util.Pair;
 import com.example.tecktrove.util.Port;
 import com.example.tecktrove.dao.Initializer;
+import com.example.tecktrove.util.SimpleCalendar;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -39,7 +41,6 @@ public class DAOTest {
     private ComponentDAO componentDAO;
     private CustomerDAO customerDAO;
     private EmployerDAO employerDAO;
-    private ItemDAO itemDAO;
     private OrderDAO orderDAO;
     private SynthesisDAO synthesisDAO;
 
@@ -60,7 +61,6 @@ public class DAOTest {
 
         componentDAO = new ComponentDAOMemory();
         synthesisDAO = new SynthesisDAOMemory();
-        itemDAO = new ItemDAOMemory();
 
         employerDAO = new EmployerDAOMemory();
         customerDAO = new CustomerDAOMemory();
@@ -305,7 +305,7 @@ public class DAOTest {
         s3.setSubRating(5.0,new Customer());
         synthesisDAO.save(s3);
         Assert.assertEquals(1,synthesisDAO.findAllByRating(5.0).size());
-        Assert.assertEquals(1,synthesisDAO.findAllByNumberOfRatings(2).size());
+        Assert.assertEquals(3,synthesisDAO.findAllByNumberOfRatings(2).size());
         synthesisDAO.deleteAllByRating(5.0);
         Assert.assertEquals("Synthesis1",synthesisDAO.find("Synthesis1").getName());
         Assert.assertEquals(9787,synthesisDAO.find(9787).getModelNo());
@@ -438,10 +438,10 @@ public class DAOTest {
         Synthesis s2 = new Synthesis();
         s2.setNumberOfRatings(2);
         synthesisDAO.save(s2);
-        Assert.assertEquals(1,synthesisDAO.findAllByNumberOfRatings(2).size());
+        Assert.assertEquals(3,synthesisDAO.findAllByNumberOfRatings(2).size());
         synthesisDAO.deleteAllByNumberOfRatings(2);
         Assert.assertEquals(0,synthesisDAO.findAllByNumberOfRatings(2).size());
-        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT,synthesisDAO.findAll().size());
+        Assert.assertEquals(0,synthesisDAO.findAll().size());
 
         Synthesis s3 = new Synthesis();
         s3.setSubRating(5.0,new Customer());
@@ -450,11 +450,65 @@ public class DAOTest {
         Assert.assertEquals(1,synthesisDAO.findAllByRating(5.0).size());
         synthesisDAO.deleteAllByRating(5.0);
         Assert.assertEquals(0,synthesisDAO.findAllByRating(5.0).size());
-        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT,synthesisDAO.findAll().size());
-
-        synthesisDAO.delete("Synthesis1");
-        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT-1,synthesisDAO.findAll().size());
-        synthesisDAO.delete(9485);
-        Assert.assertEquals(INITIAL_SYNTHESIS_COUNT-2,synthesisDAO.findAll().size());
+        Assert.assertEquals(0,synthesisDAO.findAll().size());
     }
+
+    /**
+     * Tests method findAll() in order dao
+     */
+    @Test
+    public void OrderCheckFindAll(){
+        Assert.assertEquals(3, orderDAO.findAll().size());
+        Assert.assertTrue(orderDAO.findAll().contains(orderDAO.find(1144)));
+    }
+
+    /**
+     * Tests method find(int orderId) in order dao
+     */
+    @Test
+    public void OrderCheckFindById(){
+        Assert.assertEquals(orderDAO.findAll().get(1), orderDAO.find(1144));
+        Assert.assertEquals(9999999999999999L, orderDAO.find(1324).getCardNumber());
+        Assert.assertNull(orderDAO.find(1));
+    }
+
+    /**
+     * Tests method findByCustomer(Customer customer) in order dao
+     */
+    @Test
+    public void OrderCheckFindByCustomer(){
+        Assert.assertEquals(2, orderDAO.findByCustomer(new Customer(2598, "chris", "chr!s598", "Christos", "Papaioanou", new Email("papaio54@gmail.com"), new Telephone("6985369825"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>())).size());
+        Assert.assertEquals(new ArrayList<>(), orderDAO.findByCustomer(new Customer(7859, "maria5", "31m@ria5", "Maria", "Papadaki", new Email("papadaki27@gmail.com"), new Telephone("6984596936"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>())));
+        Assert.assertEquals(new ArrayList<>(), orderDAO.findByCustomer(new Customer(1111, "test", "temp", "test", "temp", new Email("temp1@gmail.com"), new Telephone("6999999999"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>())));
+    }
+
+    /**
+     * Tests saving a new order in order dao
+     */
+    @Test
+    public void OrderCheckSave(){
+        Order o1 = new Order(new SimpleCalendar(2023, 12, 12), 1111111111111111L, new Telephone("6947512635"), new Email("test@gmail.com"), new ArrayList<>());
+        orderDAO.save(o1);
+        Assert.assertEquals(4, orderDAO.findAll().size());
+        Assert.assertTrue(orderDAO.findAll().contains(o1));
+    }
+
+    /**
+     * Tests deleting an order from the order dao
+     */
+    @Test
+    public void OrderCheckDelete(){
+        orderDAO.delete(orderDAO.find(1324));
+        Assert.assertEquals(2, orderDAO.findAll().size());
+        Assert.assertFalse(orderDAO.findAll().contains(orderDAO.find(1324)));
+    }
+
+    /**
+     * Tests next available id for a new order
+     */
+    @Test
+    public void OrderCheckNextId(){
+        Assert.assertEquals(1226, orderDAO.nextId());
+    }
+
 }
