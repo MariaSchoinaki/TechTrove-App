@@ -5,6 +5,8 @@ public class MyAccountViewStub implements MyAccountView{
     private int timesLogedOut = 0;
     private int timesShowingMessage = 0;
 
+    private int timesOnHistory = 0;
+
     @Override
     public void logout() {
         timesLogedOut++;
@@ -23,4 +25,10 @@ public class MyAccountViewStub implements MyAccountView{
         return timesLogedOut;
     }
 
+    public int getTimesOnHistory() { return timesOnHistory;}
+
+    @Override
+    public void history() {
+        timesOnHistory++;
+    }
 }
