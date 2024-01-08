@@ -1,0 +1,52 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>390</x><y>140</y><w>270</w><h>90</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*MyAccountView*
+--
+logout() : void
+showMessage(String title, String msg) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>350</y><w>270</w><h>90</h></coordinates><panel_attributes>*MyAccountActivity*
+--
+- init : MemoryInitializer
+- sharedViewModel : SharedViewModel 
+- flipper : ViewFlipper
+--
+# onCreate(Budle SavedInstanceState) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>140</x><y>240</y><w>140</w><h>30</h></coordinates><panel_attributes>*AppCompatActivity*
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>260</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>430</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>140</x><y>510</y><w>140</w><h>40</h></coordinates><panel_attributes>lw=2
+&lt;&lt;layout&gt;&gt;
+*activity_my_account.xml*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>220</y><w>170</w><h>150</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>150;10;150;70;10;70;10;130;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>220</y><w>340</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;-
+-view
+1</panel_attributes><additional_attributes>10;10;10;50;320;50;320;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>360</y><w>860</w><h>100</h></coordinates><panel_attributes>*MyAccountPresenter*
+--
+MyAccountPresenter(MyAccountView view, CustomerDAO customerDAO, EmployerDAO employerDAO)
+onLogout(): void
+onSaveChanges(User user, int userID): void
+setInfo(String fullname, String email, String phoneNumber, String username, String password, String confirm_password, boolean isemployer) : void
+onDeleteAccount(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>370</y><w>390</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;.
+-presenter
+1</panel_attributes><additional_attributes>370;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>560</y><w>500</w><h>170</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*CustomerDAO*
+--
+void save(Customer entity) : 
+findAll() :  ArrayList&lt;Customer&gt;
+findCustomerByUsernameAndPassword(String username, String password) : Customer
+findCustomerByUsername(String username) :  Customer
+findCustomerByID(int id) :  Customer 
+delete(Customer entity) :  void
+deleteAll() :  void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>450</y><w>170</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- customers
+1</panel_attributes><additional_attributes>10;110;150;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1170</x><y>560</y><w>510</w><h>170</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*EmployerDAO*
+--
+save(Employer entity) : void
+findAll() :   ArrayList&lt;Employer&gt;
+findEmployerByUsernameAndPassword(String username, String password) :  Employer 
+findEmployerByUsername(String username) :   Employer 
+findEmployerByID(int id) : Employer
+delete(Employer entity) : void
+deleteAll() : void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1170</x><y>450</y><w>220</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- employers
+1</panel_attributes><additional_attributes>200;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1620</x><y>420</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Employer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1620</x><y>360</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Customer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1550</x><y>370</y><w>90</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>70;10;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1550</x><y>420</y><w>90</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>70;20;10;10</additional_attributes></element></diagram>

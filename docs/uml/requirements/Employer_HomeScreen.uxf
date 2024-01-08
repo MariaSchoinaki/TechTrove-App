@@ -1,0 +1,112 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>710</x><y>120</y><w>360</w><h>120</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*HomeScreenView*
+--
+displayProducts(ArrayList&lt;ProductType&gt; products): void
+goToHome(): void
+goToMyAccount(): void
+goBack(): void
+goToAddProduct(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>330</y><w>310</w><h>130</h></coordinates><panel_attributes>*HomeScreenActivity*
+--
+- recyclerView :RecyclerView
+-categoryAdapter :CategoryAdapter
+-productAdapter :ProductAdapter 
+-init :Initializer
+searchListView :SearchView
+--
+#onCreate(Bundle savedInstanceState) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>230</y><w>200</w><h>120</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>180;10;180;80;10;80;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>250</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>230</y><w>140</w><h>30</h></coordinates><panel_attributes>*AppCompatActivity*
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>670</x><y>370</y><w>210</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+-presenter</panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>860</x><y>340</y><w>930</w><h>170</h></coordinates><panel_attributes>*HomeScreenPresenter*
+--
+-searchResults : ArrayList&lt;ProductType&gt; 
+--
+HomeScreenPresenter(HomeScreenView view, CustomerDAO customers, EmployerDAO employers, ComponentDAO componentDAO, SynthesisDAO synthesisDAO)
+onDisplayProducts(String filter): void
+onHome(): void
+onMyAccount(): void
+onDIYSyntesis(): void
+onBack(): void
+searchProducts(String query): void
+onAddProduct():void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>790</x><y>500</y><w>190</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- customers
+1</panel_attributes><additional_attributes>10;110;10;80;170;80;170;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>610</y><w>500</w><h>170</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*CustomerDAO*
+--
+void save(Customer entity) : 
+findAll() :  ArrayList&lt;Customer&gt;
+findCustomerByUsernameAndPassword(String username, String password) : Customer
+findCustomerByUsername(String username) :  Customer
+findCustomerByID(int id) :  Customer 
+delete(Customer entity) :  void
+deleteAll() :  void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1300</x><y>500</y><w>90</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- employers
+1</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1130</x><y>610</y><w>510</w><h>170</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*EmployerDAO*
+--
+save(Employer entity) : void
+findAll() :   ArrayList&lt;Employer&gt;
+findEmployerByUsernameAndPassword(String username, String password) :  Employer 
+findEmployerByUsername(String username) :   Employer 
+findEmployerByID(int id) : Employer
+delete(Employer entity) : void
+deleteAll() : void
+nextId() : int </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1680</x><y>610</y><w>390</w><h>260</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*ComponentDAO*
+--
+save(Component component) : void
+findAll() :   ArrayList&lt;Component&gt;
+find(String name) :   Component
+find(int modelNo) :   Component
+findByManufacturer(String manufacturer) :  ArrayList&lt;Component&gt;
+findAllByRequiredPorts(Port ports):  ArrayList&lt;Component&gt;
+findAllByAvailablePorts(Port ports): ArrayList&lt;Component&gt;
+delete(Component component) : void
+delete(String name): void
+delete(int modelNo): void
+deleteByAvailablePorts(Port ports): void
+deleteByRequiredPorts(Port ports): void
+deleteAll() : void
+deleteByManufacturer(String manufacturer): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1510</x><y>500</y><w>360</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- componentDAO
+1</panel_attributes><additional_attributes>340;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>450</y><w>370</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-
+- synthesisDAO
+1</panel_attributes><additional_attributes>350;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2130</x><y>510</y><w>390</w><h>260</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*SynthesisDAO*
+--
+save(Synthesis entity): void
+findAll():  ArrayList&lt;Synthesis&gt;
+findAllByNumberOfRatings(int number): V
+findAllByRating(Double number):   ArrayList&lt;Synthesis&gt;
+find(int modelNo): Synthesis
+find(String name): Synthesis
+findAllPublished():   ArrayList&lt;Synthesis&gt;
+deleteAll(): void
+delete(Synthesis entity): void
+delete(String name): void
+delete(int modelNo): void
+deleteAllByRating(Double rating): void
+deleteAllByNumberOfRatings(int number): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1910</x><y>320</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Customer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1890</x><y>260</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Employer
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1850</x><y>210</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Component
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1720</x><y>200</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Synthesis
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>330</y><w>150</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>130;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>270</y><w>130</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1770</x><y>240</y><w>110</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>90;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1750</x><y>230</y><w>40</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>20;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>940</x><y>230</y><w>290</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+-view
+1</panel_attributes><additional_attributes>10;10;10;70;270;70;270;110</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>450</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>530</y><w>230</w><h>40</h></coordinates><panel_attributes>&lt;&lt;layout&gt;&gt;
+*activity_home_screen_employer.xml*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>340</y><w>280</w><h>60</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*ProductAdapter.OnProductClickListener*
+--
+onProductClick(ProductType product): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>420</y><w>270</w><h>80</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*SearchView.OnQueryTextListener*
+--
+onQueryTextChange(String text): boolean
+onQueryTextSubmit(String query): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>520</y><w>210</w><h>60</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*SearchView.OnCloseListener*
+--
+onClose(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>260</y><w>280</w><h>70</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+*CategoryAdapter.OnCategoryClickListener*
+--
+onCategoryClick(String category): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>450</y><w>160</w><h>120</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;100;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>420</y><w>130</w><h>60</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;40;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>360</y><w>120</w><h>40</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>290</y><w>120</w><h>80</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;100;60</additional_attributes></element></diagram>
