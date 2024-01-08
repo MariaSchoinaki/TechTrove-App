@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -157,6 +158,8 @@ public class ProductActivity extends AppCompatActivity implements ProductView, P
         ((TextView) findViewById(R.id.product_info_manufacturer)).setText("Manufacturer: " + manufacturer);
         ((TextView) findViewById(R.id.product_info_description)).setText((description));
         ((TextView) findViewById(R.id.product_info_price)).setText(price.toString());
+        int resId = findViewById(R.id.constraintLayout).getResources().getIdentifier("c" + String.valueOf(modelNo), "drawable", findViewById(R.id.constraintLayout).getContext().getPackageName());
+        ((ImageView) findViewById(R.id.product_info_img)).setImageResource(resId);
         findViewById(R.id.product_info_rating_number).setVisibility(View.GONE);
         findViewById(R.id.product_info_rating_star).setVisibility(View.GONE);
         findViewById(R.id.rating_layout).setVisibility(View.GONE);

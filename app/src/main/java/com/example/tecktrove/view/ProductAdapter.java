@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tecktrove.R;
+import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.ProductType;
 
 import java.util.ArrayList;
@@ -83,8 +84,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             productImageView = itemView.findViewById(R.id.productImage1);
 
             productNameTextView.setText(product.getName());
-            //String s = product.getImg();
-            //productImageView.setImageResource(R.drawable.s);
+            int resId = itemView.getResources().getIdentifier("c" + String.valueOf(product.getModelNo()), "drawable", itemView.getContext().getPackageName());
+
+            // Set the image based on the resource identifier
+            if (resId != 0 && (product instanceof Component)) {
+                productImageView.setImageResource(resId);
+            }
         }
     }
 }

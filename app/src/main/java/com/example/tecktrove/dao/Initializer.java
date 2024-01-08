@@ -188,13 +188,13 @@ public abstract class Initializer {
         Pair<String, Integer> pair13_1 = new Pair<String, Integer>("socket AM4+",1);
         Port port13 = new Port();
         port13.add(pair13_1);
-        Component com13 = new Component(3740, Money.euros(BigDecimal.valueOf(84.90)), "AMD CPU Ryzen 5 4500", "Με πυρήνες αρχιτεκτονικής Zen 2 και υψηλότερους χρονισμούς, περισσότερο bandwidth, υποστήριξη PCIe 3.0 και αποκλειστικές τεχνολογίες AMD, επαναπροσδιορίζουν την απόδοση των Gaming PCs.", "AMD",new Port(),port13,33);
+        Component com13 = new Component(3741, Money.euros(BigDecimal.valueOf(84.90)), "AMD CPU Ryzen 5 4500", "Με πυρήνες αρχιτεκτονικής Zen 2 και υψηλότερους χρονισμούς, περισσότερο bandwidth, υποστήριξη PCIe 3.0 και αποκλειστικές τεχνολογίες AMD, επαναπροσδιορίζουν την απόδοση των Gaming PCs.", "AMD",new Port(),port13,33);
         getComponentDAO().save(com13);
 
         Pair<String, Integer> pair14_1 = new Pair<String, Integer>("4-Pin PWM",1);
         Port port14 = new Port();
         port14.add(pair14_1);
-        Component com14 = new Component(4188, Money.euros(BigDecimal.valueOf(34.90)), "Be Quiet! Be Quiet Light Wings Cooler 140mm PWM", "Ανεμιστήρας 140mm με PWM, 7 ειδικά βελτιστοποιημένα για χαμηλό θόρυβο και υψηλή απόδοση πτερύγια, rifle-bearing και δύο φωτιζόμενους δακτυλίους ARGB.", "Be Quiet!", new Port(),new Port(), 54);
+        Component com14 = new Component(4198, Money.euros(BigDecimal.valueOf(34.90)), "Be Quiet! Be Quiet Light Wings Cooler 140mm PWM", "Ανεμιστήρας 140mm με PWM, 7 ειδικά βελτιστοποιημένα για χαμηλό θόρυβο και υψηλή απόδοση πτερύγια, rifle-bearing και δύο φωτιζόμενους δακτυλίους ARGB.", "Be Quiet!", new Port(),new Port(), 54);
         getComponentDAO().save(com14);
 
         Pair<String, Integer> pair15_1 = new Pair<String, Integer>("socket AM4+",1);
@@ -232,7 +232,7 @@ public abstract class Initializer {
         port17.add(pair17_4);
         port17_1.add(pair17_5);
         port17_1.add(pair17_6);
-        Component com17 = new Component(4311, Money.euros(BigDecimal.valueOf(189.90)), "Asus VGA GPU GeForce GTX 1630 Phoenix EVO 4 GB", "Προσφέρει υψηλές επιδόσεις στα παιχνίδια χάρη στην αρχιτεκτονική NVIDIA Turing™. Διαθέτει 512 πυρήνες CUDA® και 4GB μνήμης GDDR6.", "Asus", port17, port7_1, 45);
+        Component com17 = new Component(4312, Money.euros(BigDecimal.valueOf(189.90)), "Asus VGA GPU GeForce GTX 1630 Phoenix EVO 4 GB", "Προσφέρει υψηλές επιδόσεις στα παιχνίδια χάρη στην αρχιτεκτονική NVIDIA Turing™. Διαθέτει 512 πυρήνες CUDA® και 4GB μνήμης GDDR6.", "Asus", port17, port7_1, 45);
         getComponentDAO().save(com17);
 
         Pair<String, Integer> pair18 = new Pair<String, Integer>("M.2",1);
