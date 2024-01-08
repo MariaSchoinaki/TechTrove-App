@@ -11,7 +11,6 @@ public class Component extends ProductType{
     private Port availablePorts;
     private Port requiredPorts;
 
-    private ArrayList<Item> items;
 
     /**
      * Default Constructor
@@ -36,7 +35,6 @@ public class Component extends ProductType{
         this.manufacturer = manufacturer;
         this.availablePorts = availablePorts;
         this.requiredPorts = requiredPorts;
-        this.items = new ArrayList<Item>();
     }
 
 
@@ -119,9 +117,6 @@ public class Component extends ProductType{
      */
     public void addQuantity(int quantity) {
         this.quantity += quantity;
-        for(int q=0; q < quantity; q++){
-            items.add(new Item());
-        }
     }
 
     /**
