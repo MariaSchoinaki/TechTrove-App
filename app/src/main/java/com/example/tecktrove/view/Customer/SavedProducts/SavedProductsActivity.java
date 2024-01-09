@@ -62,6 +62,7 @@ public class SavedProductsActivity extends AppCompatActivity implements SavedPro
                         break;
                     case 3:
                         presenter.onMyAccount();
+                        break;
                 }
             }
 
