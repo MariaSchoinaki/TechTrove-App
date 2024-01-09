@@ -46,7 +46,7 @@
             android:name=".view.Synthesis.SynthesisActivity"
             android:exported="false" />
         <activity
-            android:name=".view.Customer.SavedProdacts.SavedProductsActivity"
+            android:name=".view.Customer.SavedProducts.SavedProductsActivity"
             android:exported="false" />
         <activity
             android:name=".view.Customer.Purchase.PurchaseActivity"

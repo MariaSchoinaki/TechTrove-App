@@ -55,6 +55,43 @@ public class PurchasePresenterTest {
         view.order();
         Assert.assertEquals(1, view.getTimesShowingMessage());
 
+        view.setFullName("");
+        presenter.placeOrder();
+        Assert.assertEquals(2, view.getTimesShowingMessage());
+
+        view.setFullName("Maria Papa"); view.setTelephone("6988457815"); view.setAddress("Patision 13"); view.setCardNumber("1111111111111111"); view.setCardMonth("12"); view.setCardYear("27"); view.setCardCvv("658");
+        view.setEmail("pagmail.com");
+        presenter.placeOrder();
+        Assert.assertEquals(3, view.getTimesShowingMessage());
+
+        view.setEmail("papa12@gmail.com");
+        view.setTelephone("698845715");
+        presenter.placeOrder();
+        Assert.assertEquals(4, view.getTimesShowingMessage());
+
+
+        view.setTelephone("6988457815");
+        view.setCardNumber("111111111111");
+        presenter.placeOrder();
+        Assert.assertEquals(5, view.getTimesShowingMessage());
+
+        view.setCardNumber("1111111111111111");
+        view.setCardMonth("123");
+        presenter.placeOrder();
+        Assert.assertEquals(6, view.getTimesShowingMessage());
+
+        view.setCardMonth("12");
+        view.setCardYear("2");
+        presenter.placeOrder();
+        Assert.assertEquals(7, view.getTimesShowingMessage());
+
+        view.setCardYear("27");
+        view.setCardCvv("65");
+        presenter.placeOrder();
+        Assert.assertEquals(8, view.getTimesShowingMessage());
+
+        view.setFullName("Maria Papa");
+        view.setEmail("papa12@gmail.com");
         view.setFullName("Maria Papa");
         view.setEmail("papa12@gmail.com");
         view.setTelephone("6988457815");
@@ -63,10 +100,9 @@ public class PurchasePresenterTest {
         view.setCardMonth("12");
         view.setCardYear("27");
         view.setCardCvv("658");
-        view.setOrderID(1234);
         presenter.placeOrder();
-        Assert.assertEquals(2, view.getTimesShowingMessage());
+        Assert.assertEquals(9, view.getTimesShowingMessage());
 
-        Assert.assertNotNull(orderDAO.find(1234));
+        Assert.assertNotNull(orderDAO.find(1226));
     }
 }
