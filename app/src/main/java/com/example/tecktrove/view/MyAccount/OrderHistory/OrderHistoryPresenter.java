@@ -1,15 +1,15 @@
 package com.example.tecktrove.view.MyAccount.OrderHistory;
 
-public class OrderPresenter {
-    private OrderView view;
+public class OrderHistoryPresenter {
+
+    private OrderHistoryView view;
 
     /**
      * Constructor
-     * @param view OrderView
+     * @param view OrderHistoryView
      */
-    public OrderPresenter(OrderView view){
+    OrderHistoryPresenter(OrderHistoryView view){
         this.view = view;
-
     }
 
     /**
@@ -18,20 +18,19 @@ public class OrderPresenter {
     public void onHome() {
         view.home();
     }
-
     /**
      * navigate to cart
      * */
     public void onCart() {
         view.cart();
     }
-
     /**
      * navigate to Saved
      * */
     public void onSaved() {
         view.Saved();
     }
+
     /**
      * navigate to MyAcount
      * */

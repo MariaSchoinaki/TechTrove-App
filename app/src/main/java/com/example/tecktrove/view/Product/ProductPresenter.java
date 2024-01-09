@@ -118,5 +118,6 @@ public class ProductPresenter {
         if(synthesi!=null){
             synthesi.setSubRating(rating,customer);
         }
+        setInfo(modelNo, customer);
     }
 }

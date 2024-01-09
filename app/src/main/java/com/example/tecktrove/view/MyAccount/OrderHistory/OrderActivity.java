@@ -2,6 +2,7 @@ package com.example.tecktrove.view.MyAccount.OrderHistory;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -74,7 +75,7 @@ public class OrderActivity extends OrderHistoryActivity implements ProductAdapte
         ProductAdapter adapter1 = new ProductAdapter(components,this);
         recyclerView2.setAdapter(adapter1);
         recyclerView1.setAdapter(adapter);
-        TabLayout tabLayout = findViewById(R.id.OrderHomePageTabLayout);
+        TabLayout tabLayout = findViewById(R.id.OrderDetailsHomePageTabLayout);
 
         OrderPresenter presenter = new OrderPresenter(this);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -88,14 +89,16 @@ public class OrderActivity extends OrderHistoryActivity implements ProductAdapte
                 switch (position) {
                     case 0:
                         presenter.onHome();
+                        break;
                     case 1:
                         presenter.onCart();
+                        break;
                     case 2:
-
                         presenter.onSaved();
+                        break;
                     case 3:
                         presenter.onMyAcount();
-                        // Add cases for other tabs as needed
+                        break;
                 }
             }
             @Override
@@ -129,9 +132,7 @@ public class OrderActivity extends OrderHistoryActivity implements ProductAdapte
      * @param synthesis
      */
     @Override
-    public void onPublishClickListener(Synthesis synthesis) {
-        synthesis.setPublishState(true);
-    }
+    public void onPublishClick(Synthesis synthesis) {}
 
     /**
      * navigate to home

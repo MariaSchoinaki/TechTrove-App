@@ -1,5 +1,8 @@
 package com.example.tecktrove.view;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import com.example.tecktrove.R;
 import com.example.tecktrove.domain.Component;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
+import com.example.tecktrove.view.Customer.Cart.CartActivity;
 
 import java.util.ArrayList;
 
@@ -21,7 +25,7 @@ public class OrderSynthesisAdapter extends RecyclerView.Adapter<OrderSynthesisAd
     private OrderSynthesisAdapter.OnPublishClickListener onPublishClickListener;
 
     public interface OnPublishClickListener {
-        void onPublishClickListener(Synthesis synthesis);
+        void onPublishClick(Synthesis synthesis);
     }
 
     public OrderSynthesisAdapter(ArrayList<Synthesis> synthesis, OrderSynthesisAdapter.OnPublishClickListener onPublishClickListener) {
@@ -69,7 +73,7 @@ public class OrderSynthesisAdapter extends RecyclerView.Adapter<OrderSynthesisAd
 
                         if (clickedProductIndex < synthesis.size()) {
                             Synthesis clickedProduct = synthesis.get(clickedProductIndex);
-                            onPublishClickListener.onPublishClickListener(clickedProduct);
+                            onPublishClickListener.onPublishClick(clickedProduct);
                         }
                     }
                 }
@@ -86,6 +90,14 @@ public class OrderSynthesisAdapter extends RecyclerView.Adapter<OrderSynthesisAd
             productNameTextView.setText(product.getName());
             productQuantityTextView.setText(String.valueOf(product.getQuantity()));
             productPriceTextView.setText(product.getPrice().toString());
+
+            itemView.findViewById(R.id.publish).setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    product.setPublishState(true);
+                }
+            });
         }
     }
 }
