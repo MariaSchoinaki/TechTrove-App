@@ -5,9 +5,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.example.tecktrove.contacts.Email;
+import com.example.tecktrove.contacts.Telephone;
 import com.example.tecktrove.dao.CustomerDAO;
 import com.example.tecktrove.dao.OrderDAO;
 import com.example.tecktrove.dao.Initializer;
+import com.example.tecktrove.domain.Customer;
+import com.example.tecktrove.domain.OrderLine;
+import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.memorydao.ComponentDAOMemory;
 import com.example.tecktrove.memorydao.OrderDAOMemory;
 import com.example.tecktrove.memorydao.MemoryInitializer;
@@ -19,11 +24,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class PurchasePresenterTest {
     private PurchaseViewStub view;
     private PurchasePresenter presenter;
     private OrderDAO orderDAO;
-    private SharedViewModel sharedViewModel;
+    private Customer customer;
 
     /**
      * Sets up the presenter and initializes the data
@@ -35,8 +42,8 @@ public class PurchasePresenterTest {
 
         view = new PurchaseViewStub();
         orderDAO = new OrderDAOMemory();
-        sharedViewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(SharedViewModel.class);
-        presenter = new PurchasePresenter(view, orderDAO, sharedViewModel);
+        customer = new Customer(5673, "george", "ok123456", "George", "Johnson", new Email("klap@yahoo.com"), new Telephone("6898909678"), new ArrayList<Synthesis>(), new ArrayList<OrderLine>());
+        presenter = new PurchasePresenter(view, orderDAO, customer);
     }
 
     /**

@@ -27,18 +27,18 @@ public class PurchasePresenter {
 
     private OrderDAO orders;
 
-    private SharedViewModel sharedViewModel;
+    private Customer customer;
 
     /**
      * Constructor of the presenter
      * @param view          purchase view
      * @param orders        order dao
-     * @param sharedViewModel the shareViewModel
+     * @param customer      customer
      */
-    public PurchasePresenter(PurchaseView view, OrderDAO orders, SharedViewModel sharedViewModel){
+    public PurchasePresenter(PurchaseView view, OrderDAO orders, Customer customer){
         this.view = view;
         this.orders = orders;
-        this.sharedViewModel=sharedViewModel;
+        this.customer = customer;
     }
 
     /**
@@ -102,7 +102,7 @@ public class PurchasePresenter {
 
             if(checked) {
                 boolean ready_cart = true;
-                for(OrderLine ol: sharedViewModel.getCustomer().getCart()){
+                for(OrderLine ol: customer.getCart()){
                     ProductType c = ol.getProductType();
                     if(c instanceof Synthesis){
                         boolean ready_synthesis = true;
@@ -125,16 +125,16 @@ public class PurchasePresenter {
                 }
                 if(ready_cart) {
                     Order order = new Order();
-                    order.setOrderLines(sharedViewModel.getCustomer().getCart());
-                    order.setCustomer(sharedViewModel.getCustomer());
+                    order.setOrderLines(customer.getCart());
+                    order.setCustomer(customer);
                     order.setTelephone(new Telephone(telephone));
                     order.setEmail(new Email(email));
                     order.setCardNumber(Long.parseLong(cardNumber));
                     order.setDate(SystemDate.now());
-                    sharedViewModel.getCustomer().addOrderList(order);
+                    customer.addOrderList(order);
                     order.setId(orders.nextId());
                     orders.save(order);
-                    for(OrderLine ol: sharedViewModel.getCustomer().getCart()) {
+                    for(OrderLine ol: customer.getCart()) {
                         ProductType c = ol.getProductType();
                         if(c instanceof Synthesis){
                             ArrayList<Component> componen = ((Synthesis) c).getComponentList();

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.tecktrove.R;
 import com.example.tecktrove.memorydao.MemoryInitializer;
+import com.example.tecktrove.domain.Customer;
 import com.example.tecktrove.view.SharedViewModel;
 
 public class PurchaseActivity extends AppCompatActivity implements PurchaseView {
@@ -38,8 +39,9 @@ public class PurchaseActivity extends AppCompatActivity implements PurchaseView 
         });
 
         sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        Customer customer = sharedViewModel.getCustomer();
 
-        presenter = new PurchasePresenter(this, init.getOrderDAO(),sharedViewModel);
+        presenter = new PurchasePresenter(this, init.getOrderDAO(), customer);
 
     }
 
