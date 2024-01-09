@@ -82,13 +82,16 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
                     switch (position) {
                         case 0:
                             presenter.onHome();
+                            break;
                         case 1:
                             presenter.onCart();
+                            break;
                         case 2:
-
                             presenter.onSaved();
+                            break;
                         case 3:
                             presenter.onMyAcount();
+                            break;
                         // Add cases for other tabs as needed
                     }
                 }

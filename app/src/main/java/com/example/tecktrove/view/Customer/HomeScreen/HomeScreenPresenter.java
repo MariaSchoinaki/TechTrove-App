@@ -86,7 +86,9 @@ public class HomeScreenPresenter {
 
         if(query.equals("all")){
             searchResults = allProducts;
-        }else {
+        } else if (query.equals("synthesis")) {
+            searchResults = new ArrayList<>(synthesisDAO.findAllPublished());
+        } else {
             String[] queries = query.split(" ");
 
 
