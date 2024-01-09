@@ -38,18 +38,18 @@ public class SynthesisContainerPresenterTest {
 
 
     }
+
     @Test
-    public void TestCompletedSynthesis(){
+    public  void testAll(){
+        presenter.onCart();
+        presenter.onHome();
+        presenter.onSaved();
+        presenter.onMyAcount();
 
-        SharedViewModel.getSynthesis().add(componentDAOMemory.find(4191));
-        SharedViewModel.getSynthesis().add(componentDAOMemory.find(2936));
-        SharedViewModel.getSynthesis().add(componentDAOMemory.find(3260));
-        SharedViewModel.getSynthesis().add(componentDAOMemory.find(3888));
-        SharedViewModel.getSynthesis().add(componentDAOMemory.find(4188));
-        SharedViewModel.getSynthesis().add(componentDAOMemory.find(3935));
-        SharedViewModel.getSynthesis().add(componentDAOMemory.find(4311));
-
-        Assert.assertEquals(true,presenter.completeSynthesis());
+        Assert.assertEquals(1,view.getCart());
+        Assert.assertEquals(1,view.getHome());
+        Assert.assertEquals(1,view.getSaved());
+        Assert.assertEquals(1,view.getMyAccount());
 
     }
 

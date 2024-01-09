@@ -1,41 +1,16 @@
-package com.example.tecktrove.view.Customer.Synthesis;
+package com.example.tecktrove.view.Customer.Order;
 
-import com.example.tecktrove.view.Synthesis.SynthesisContainerView;
+import com.example.tecktrove.view.MyAccount.OrderHistory.OrderView;
 
-public class SynthesisContainerViewStub implements SynthesisContainerView {
+public class OrderViewStab implements OrderView {
 
     int home=0;
     int cart=0;
     int saved = 0;
 
     int myAccount =0 ;
-
-    private int messages=0;
-    private int completedSynthesis=0;
-
-    private int savedSynthesis=0;
-    @Override
-    public void showErrorMessage(String title, String msg) {
-        messages++;
-    }
-
-    @Override
-    public void completeSynthesis() {
-
-    }
-
-    @Override
-    public void save() {
-        savedSynthesis++;
-    }
-
-    @Override
-    public String getName() {
-        return null;
-    }
-
     /**
-     * Show home
+     * navigate to home
      */
     @Override
     public void home() {
@@ -43,7 +18,7 @@ public class SynthesisContainerViewStub implements SynthesisContainerView {
     }
 
     /**
-     * Show cart
+     * navigate to cart
      */
     @Override
     public void cart() {
@@ -51,21 +26,20 @@ public class SynthesisContainerViewStub implements SynthesisContainerView {
     }
 
     /**
-     * Show saved
+     * navigate to Saved
      */
     @Override
-    public void saved() {
+    public void Saved() {
         saved++;
     }
 
     /**
-     * Show Myacount
+     * navigate to MyAcount
      */
     @Override
-    public void Myacount() {
+    public void MyAcount() {
         myAccount++;
     }
-
     /**
      * @return times navigated to cart;
      */
