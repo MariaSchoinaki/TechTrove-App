@@ -24,6 +24,9 @@ public class OrderHistoryPresenterTest {
     private ComponentDAOMemory componentDAOMemory;
     private SynthesisDAOMemory synthesisDAOMemory;
 
+    /**
+     * setup data
+     * */
     @Before
     public void setUp(){
         init = new MemoryInitializer();
@@ -38,7 +41,9 @@ public class OrderHistoryPresenterTest {
 
 
     }
-
+    /**
+     * Test navigation
+     * */
     @Test
     public  void testAll(){
         presenter.onCart();
