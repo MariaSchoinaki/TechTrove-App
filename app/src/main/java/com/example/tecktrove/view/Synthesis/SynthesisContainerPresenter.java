@@ -23,7 +23,7 @@ public class SynthesisContainerPresenter {
      * @param model
      * @param synthesisDAO
      */
-    SynthesisContainerPresenter(SynthesisContainerView view,SharedViewModel model,SynthesisDAO synthesisDAO) {
+    public SynthesisContainerPresenter(SynthesisContainerView view, SharedViewModel model, SynthesisDAO synthesisDAO) {
         this.sharedViewModel= model;
         this.view = view;
         this.synthesisDAO = synthesisDAO;
@@ -39,14 +39,14 @@ public class SynthesisContainerPresenter {
    }
 
     /**
-     * Calls completeSynthesis to check if the synthesis is completed
+     * Calls completeSynthesis
      */
     public void onComplete() {
         view.completeSynthesis();
     }
 
     /**
-     * Checks if the synthesis includes mandatory components
+     * Checks if the synthesis contains mandatory components
      *
      * @return if the synthesis is completed
      */
@@ -70,7 +70,7 @@ public class SynthesisContainerPresenter {
     }
 
     /**
-     * Calls saveSynthesis in order to save the synthesis
+     * Calls saveSynthesis in order to save
      */
     public void onSave() {
         view.save();
@@ -78,14 +78,13 @@ public class SynthesisContainerPresenter {
     }
 
     /**
-     * Saves the synthesis
+     * Saves synthesis
      */
     private void saveSynthesis(){
         SharedViewModel.getSynthesis().setName(view.getName());
         int id = (synthesisDAO.findAll().size() > 0 ? synthesisDAO.findAll().get(synthesisDAO.findAll().size()-1).getModelNo()+1 : 1);
         SharedViewModel.getSynthesis().setModelNo(id);
         sharedViewModel.getCustomer().getSavedSynthesis().add(SharedViewModel.getSynthesis());
-
         synthesisDAO.save(SharedViewModel.getSynthesis());
     }
 }
