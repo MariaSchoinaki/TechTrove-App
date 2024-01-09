@@ -92,19 +92,20 @@ MyAccount
 ![Alt text](image.png)
 ![Alt text](image-1.png)
 ![Alt text](image-2.png)
-![Alt text](image-3.png)
+![Alt text](image5.png)
 ### Metrics
 
 #### Class Metrics
-![Alt text](image-5.png)
-![Alt text](image-4.png)
-![Alt text](image-6.png)
+![Alt text](uml/requirements/metrics1.png)
+![Alt text](uml/requirements/metrics2.png)
+![Alt text](uml/requirements/metrics3.png)
+![Alt text](uml/requirements/metrics4.png)
 
 #### Module Metrics
-![Alt text](image-7.png)
+![Alt text](uml/requirements/metrics5.png)
 
 #### Package Metrics
-![Alt text](image-9.png)
+![Alt text](uml/requirements/metrics7.png)
 
 #### Project Metrics
-![Alt text](image-8.png)
+![Alt text](uml/requirements/metrics6.png)
