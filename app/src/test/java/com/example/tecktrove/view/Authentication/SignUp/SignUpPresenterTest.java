@@ -88,17 +88,17 @@ public class SignUpPresenterTest {
             view.setUser("lolaaaa", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "Georga Johnson",Boolean.TRUE);
             presenter.startProcess();
             Assert.assertEquals(1, view.timesSignedUp());
-            Assert.assertEquals(10,view.getErrorMessage());
+            Assert.assertEquals(9,view.getErrorMessage());
 
-            view.setUser("george", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.TRUE);
+            view.setUser("lolaaaa", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "Georga Johnson",Boolean.TRUE);
             presenter.startProcess();
             Assert.assertEquals(1, view.timesSignedUp());
-            Assert.assertEquals(11,view.getErrorMessage());
+            Assert.assertEquals(10,view.getErrorMessage());
 
-            view.setUser("georga", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "GeorgeJohnson",Boolean.FALSE);
+            view.setUser("georga", "ok123456","ok123456", "klap@yahoo.com", "6898909678", "George Johnson",Boolean.FALSE);
             presenter.startProcess();
             Assert.assertEquals(2, view.timesSignedUp());
-            Assert.assertEquals(12,view.getErrorMessage());
+            Assert.assertEquals(10,view.getErrorMessage());
 
 
 

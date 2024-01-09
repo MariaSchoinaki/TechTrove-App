@@ -60,12 +60,12 @@ public class SignUpViewStub implements SignUpView{
 
     @Override
     public void signUp(User user) {
-
+        signedUp++;
     }
 
     //@Override
     public void signUp() {
-        signedUp++;
+
     }
 
     @Override
