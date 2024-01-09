@@ -86,3 +86,20 @@ MyAccount
 
 #### Method purchase στη Purchase
 ![purchase](uml/requirements/R4-sequence-product-purchase.png)
+
+
+### Coverage Report
+![Alt text](image.png)
+### Metrics
+
+#### Class Metrics
+![class]()
+
+#### Module Metrics
+![module]()
+
+#### Package Metrics
+![package]()
+
+#### Project Metrics
+![project]()
