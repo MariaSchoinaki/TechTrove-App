@@ -8,7 +8,7 @@ public class OrderHistoryPresenter {
      * Constructor
      * @param view OrderHistoryView
      */
-    OrderHistoryPresenter(OrderHistoryView view){
+    public OrderHistoryPresenter(OrderHistoryView view){
         this.view = view;
     }
 
