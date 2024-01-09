@@ -1,0 +1,170 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MemoryDAOFactory</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.memorydao</a>
+</div>
+
+<h1>Coverage Summary for Class: MemoryDAOFactory (com.example.tecktrove.memorydao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MemoryDAOFactory</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.memorydao;
+&nbsp;
+&nbsp;import com.example.tecktrove.dao.ComponentDAO;
+&nbsp;import com.example.tecktrove.dao.CustomerDAO;
+&nbsp;import com.example.tecktrove.dao.DAOFactory;
+&nbsp;import com.example.tecktrove.dao.EmployerDAO;
+&nbsp;import com.example.tecktrove.dao.OrderDAO;
+&nbsp;import com.example.tecktrove.dao.SynthesisDAO;
+&nbsp;
+<b class="fc">&nbsp;public class MemoryDAOFactory extends DAOFactory {</b>
+&nbsp;
+<b class="fc">&nbsp;    private CustomerDAOMemory customerDAOMemory = new CustomerDAOMemory();</b>
+<b class="fc">&nbsp;    private EmployerDAOMemory employerDAOMemory = new EmployerDAOMemory();</b>
+<b class="fc">&nbsp;    private ComponentDAOMemory componentDAOMemory = new ComponentDAOMemory();</b>
+<b class="fc">&nbsp;    private SynthesisDAOMemory synthesisDAOMemory = new SynthesisDAOMemory();</b>
+<b class="fc">&nbsp;    private OrderDAOMemory orderDAOMemory =new OrderDAOMemory();</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link CustomerDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public CustomerDAO getCustomerDAO() {
+<b class="fc">&nbsp;        return customerDAOMemory;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link EmployerDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public EmployerDAO getEmployerDAO() {
+<b class="fc">&nbsp;        return employerDAOMemory;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link ComponentDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public ComponentDAO getComponentDAO() {
+<b class="fc">&nbsp;        return componentDAOMemory;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link SynthesisDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public SynthesisDAO getSynthesisDAO() {
+<b class="fc">&nbsp;        return synthesisDAOMemory;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link OrderDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public OrderDAO getOrderDAO() {
+<b class="fc">&nbsp;        return orderDAOMemory;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:21</div>
+</div>
+</body>
+</html>

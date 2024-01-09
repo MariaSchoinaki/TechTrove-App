@@ -1,0 +1,345 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CartActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.view.Customer.Cart</a>
+</div>
+
+<h1>Coverage Summary for Class: CartActivity (com.example.tecktrove.view.Customer.Cart)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CartActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/43)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CartActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/57)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.view.Customer.Cart;
+&nbsp;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.util.Log;
+&nbsp;import android.view.View;
+&nbsp;import android.widget.TextView;
+&nbsp;
+&nbsp;import androidx.appcompat.app.AppCompatActivity;
+&nbsp;import androidx.lifecycle.ViewModelProvider;
+&nbsp;import androidx.recyclerview.widget.GridLayoutManager;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;
+&nbsp;import com.example.tecktrove.R;
+&nbsp;import com.example.tecktrove.dao.Initializer;
+&nbsp;import com.example.tecktrove.domain.OrderLine;
+&nbsp;import com.example.tecktrove.domain.ProductType;
+&nbsp;import com.example.tecktrove.memorydao.ComponentDAOMemory;
+&nbsp;import com.example.tecktrove.memorydao.MemoryInitializer;
+&nbsp;import com.example.tecktrove.dao.ComponentDAO;
+&nbsp;import com.example.tecktrove.util.Money;
+&nbsp;import com.example.tecktrove.view.CartProductAdapter;
+&nbsp;import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
+&nbsp;import com.example.tecktrove.view.Customer.Purchase.PurchaseActivity;
+&nbsp;import com.example.tecktrove.view.Customer.SavedProducts.SavedProductsActivity;
+&nbsp;import com.example.tecktrove.view.MyAccount.MyAccountActivity;
+&nbsp;import com.example.tecktrove.view.Product.ProductActivity;
+&nbsp;import com.example.tecktrove.view.SharedViewModel;
+&nbsp;import com.google.android.material.tabs.TabLayout;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+<b class="nc">&nbsp;public class CartActivity extends AppCompatActivity implements CartView, CartProductAdapter.OnCartProductClickListener{</b>
+&nbsp;    private RecyclerView recyclerView;
+&nbsp;
+&nbsp;    private Initializer init;
+&nbsp;
+&nbsp;    private ComponentDAO componentDAO;
+&nbsp;
+&nbsp;
+&nbsp;        private CartProductAdapter productAdapter;
+&nbsp;
+&nbsp;
+&nbsp;        private CartPresenter presenter;
+&nbsp;
+&nbsp;
+&nbsp;        private SharedViewModel sharedViewModel;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the classes attributes
+&nbsp;     * @param savedInstanceState
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;        protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;            setTheme(R.style.Base_Theme_TeckTrove);</b>
+<b class="nc">&nbsp;            super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;            super.setContentView(R.layout.cart);</b>
+&nbsp;
+<b class="nc">&nbsp;            recyclerView = findViewById(R.id.recyclerView);</b>
+<b class="nc">&nbsp;            init = new MemoryInitializer();</b>
+<b class="nc">&nbsp;            componentDAO = new ComponentDAOMemory();</b>
+&nbsp;
+<b class="nc">&nbsp;            sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);</b>
+&nbsp;
+<b class="nc">&nbsp;            ArrayList&lt;ProductType&gt; items = getSelectedItems();</b>
+<b class="nc">&nbsp;            GridLayoutManager layoutManager = new GridLayoutManager(this, 1);</b>
+<b class="nc">&nbsp;            recyclerView.setLayoutManager(layoutManager);</b>
+<b class="nc">&nbsp;            productAdapter = new CartProductAdapter((sharedViewModel.getCustomer().getCart()), this);</b>
+<b class="nc">&nbsp;            recyclerView.setAdapter(productAdapter);</b>
+&nbsp;
+<b class="nc">&nbsp;            presenter = new CartPresenter(this);</b>
+<b class="nc">&nbsp;            TabLayout tabLayout = findViewById(R.id.CustomerHomePageTabLayout);</b>
+&nbsp;
+<b class="nc">&nbsp;            ShowTotal();</b>
+&nbsp;
+<b class="nc">&nbsp;            tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {</b>
+&nbsp;
+&nbsp;                @Override
+&nbsp;                public void onTabSelected(TabLayout.Tab tab) {
+&nbsp;                    // Handle tab selection
+<b class="nc">&nbsp;                    int position = tab.getPosition();</b>
+<b class="nc">&nbsp;                    switch (position) {</b>
+&nbsp;                        case 0:
+<b class="nc">&nbsp;                            presenter.onHome();</b>
+<b class="nc">&nbsp;                            break;</b>
+&nbsp;                        case 1:
+<b class="nc">&nbsp;                            presenter.onCart();</b>
+<b class="nc">&nbsp;                            break;</b>
+&nbsp;                        case 2:
+<b class="nc">&nbsp;                            presenter.onSaved();</b>
+<b class="nc">&nbsp;                            break;</b>
+&nbsp;                        case 3:
+<b class="nc">&nbsp;                            presenter.onMyAcount();</b>
+&nbsp;                            break;
+&nbsp;                        // Add cases for other tabs as needed
+&nbsp;                    }
+&nbsp;                }
+&nbsp;                @Override
+&nbsp;                public void onTabUnselected(TabLayout.Tab tab) {
+&nbsp;
+<b class="nc">&nbsp;                }</b>
+&nbsp;
+&nbsp;                @Override
+&nbsp;                public void onTabReselected(TabLayout.Tab tab) {
+<b class="nc">&nbsp;                    presenter.onCart();</b>
+&nbsp;                }
+&nbsp;            });
+&nbsp;
+<b class="nc">&nbsp;            findViewById(R.id.button_purchase_cart).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;
+&nbsp;                @Override
+&nbsp;                public void onClick(View view) {
+<b class="nc">&nbsp;                    presenter.onPurchase();</b>
+&nbsp;                }
+&nbsp;            });
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;        //sample data
+&nbsp;        private ArrayList&lt;ProductType&gt; getSelectedItems() {
+<b class="nc">&nbsp;            ArrayList&lt;ProductType&gt; items = new ArrayList&lt;ProductType&gt;();</b>
+<b class="nc">&nbsp;            items.add(componentDAO.find(&quot;AMD CPU Ryzen 3 3200G&quot;));</b>
+<b class="nc">&nbsp;            items.add(componentDAO.find(&quot;Turbo-X PSU Value III Series 550 W&quot;));</b>
+<b class="nc">&nbsp;            items.add(componentDAO.find(&quot;Gigabyte Motherboard A520I AC&quot;));</b>
+<b class="nc">&nbsp;            return items;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the product information page
+&nbsp;     * @param product the product clicked
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;        public void onCartProductClick(ProductType product) {
+<b class="nc">&nbsp;            Log.d(&quot;Category Clicked&quot;, product.getName());</b>
+<b class="nc">&nbsp;            Intent intent = new Intent(this, ProductActivity.class);</b>
+<b class="nc">&nbsp;            intent.putExtra(&quot;modelNo&quot;,product.getModelNo() );</b>
+<b class="nc">&nbsp;            startActivity(intent);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the home screen
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;        public void home() {
+<b class="nc">&nbsp;            Log.d(&quot;Cart&quot;, &quot;HomeScreenActivity&quot;);</b>
+<b class="nc">&nbsp;            Intent intent = new Intent(CartActivity.this, HomeScreenActivity.class);</b>
+<b class="nc">&nbsp;            startActivity(intent);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the cart
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void cart() {
+<b class="nc">&nbsp;        Intent intent = new Intent(this, CartActivity.class);</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Shows the total price of the cart
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;        public void ShowTotal(){
+<b class="nc">&nbsp;            Money total = Money.euros(0);</b>
+<b class="nc">&nbsp;            for (OrderLine p : sharedViewModel.getCustomer().getCart()){</b>
+<b class="nc">&nbsp;                total= total.plus(p.getProductType().getPrice().times(p.getQuantity()));</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            ((TextView) findViewById(R.id.sum)).setText(&quot;Total: &quot;+total.toString());</b>
+&nbsp;        }
+&nbsp;    /**
+&nbsp;     * Navigates the user to purchase of the cart
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void Purchase(){
+<b class="nc">&nbsp;        Intent intent = new Intent(CartActivity.this, PurchaseActivity.class);</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the app to the my saved screen
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void Saved() {
+<b class="nc">&nbsp;        Intent intent = new Intent(CartActivity.this, SavedProductsActivity.class);</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the app to my account screen
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void Myacount() {
+<b class="nc">&nbsp;        Intent intent = new Intent(CartActivity.this, MyAccountActivity.class);</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>

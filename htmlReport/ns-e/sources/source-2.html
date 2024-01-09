@@ -1,0 +1,201 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > HomeScreenPresenter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.view.Employer.HomeScreen</a>
+</div>
+
+<h1>Coverage Summary for Class: HomeScreenPresenter (com.example.tecktrove.view.Employer.HomeScreen)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HomeScreenPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    96.2%
+  </span>
+  <span class="absValue">
+    (25/26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.view.Employer.HomeScreen;
+&nbsp;
+&nbsp;import android.util.Log;
+&nbsp;
+&nbsp;import com.example.tecktrove.dao.ComponentDAO;
+&nbsp;import com.example.tecktrove.dao.CustomerDAO;
+&nbsp;import com.example.tecktrove.dao.EmployerDAO;
+&nbsp;import com.example.tecktrove.dao.SynthesisDAO;
+&nbsp;import com.example.tecktrove.domain.ProductType;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class HomeScreenPresenter {
+&nbsp;    private HomeScreenView view;
+&nbsp;    CustomerDAO customers;
+&nbsp;    EmployerDAO employers;
+&nbsp;    ComponentDAO componentDAO;
+&nbsp;    SynthesisDAO synthesisDAO;
+&nbsp;    ArrayList&lt;ProductType&gt; searchResults;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructor
+&nbsp;     *
+&nbsp;     * @param view
+&nbsp;     * @param customers
+&nbsp;     * @param employers
+&nbsp;     * @param componentDAO
+&nbsp;     * @param synthesisDAO
+&nbsp;     */
+<b class="fc">&nbsp;    public HomeScreenPresenter(HomeScreenView view, CustomerDAO customers, EmployerDAO employers, ComponentDAO componentDAO, SynthesisDAO synthesisDAO){</b>
+<b class="fc">&nbsp;        this.view = view;</b>
+<b class="fc">&nbsp;        this.customers = customers;</b>
+<b class="fc">&nbsp;        this.employers = employers;</b>
+<b class="fc">&nbsp;        this.componentDAO = componentDAO;</b>
+<b class="fc">&nbsp;        this.synthesisDAO = synthesisDAO;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Displays the products coresponding to the filter
+&nbsp;     * @param filter    the filter for the products
+&nbsp;     */
+&nbsp;    public void onDisplayProducts(String filter){
+<b class="fc">&nbsp;        searchProducts(filter);</b>
+<b class="fc">&nbsp;        view.displayProducts(searchResults);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the app to the home screen
+&nbsp;     */
+<b class="fc">&nbsp;    public void onHome(){view.goToHome();}</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the app to my account
+&nbsp;     */
+<b class="fc">&nbsp;    public void onMyAccount(){view.goToMyAccount();}</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the app to the previous screen
+&nbsp;     */
+&nbsp;    public void onBack(){
+<b class="fc">&nbsp;        view.goBack();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Searches for products that match the filter
+&nbsp;     * @param query the filter
+&nbsp;     */
+&nbsp;    private void searchProducts(String query) {
+<b class="fc">&nbsp;        searchResults = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        ArrayList&lt;ProductType&gt; allProducts = new ArrayList&lt;&gt;(componentDAO.findAll());</b>
+<b class="fc">&nbsp;        allProducts.addAll(new ArrayList&lt;&gt;(synthesisDAO.findAllPublished()));</b>
+&nbsp;
+<b class="fc">&nbsp;        if(query.equals(&quot;all&quot;)){</b>
+<b class="fc">&nbsp;            searchResults = allProducts;</b>
+<b class="fc">&nbsp;        }else if (query.equals(&quot;synthesis&quot;)) {</b>
+<b class="nc">&nbsp;            searchResults = new ArrayList&lt;&gt;(synthesisDAO.findAllPublished());</b>
+&nbsp;        }else {
+<b class="fc">&nbsp;            String[] queries = query.split(&quot; &quot;);</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;            for (ProductType prod : allProducts) {</b>
+<b class="fc">&nbsp;                for (String q : queries) {</b>
+<b class="fc">&nbsp;                    if (prod.getName().toLowerCase().contains(q.toLowerCase()) ||</b>
+<b class="fc">&nbsp;                            (String.valueOf(prod.getModelNo())).equals(q.toLowerCase())) {</b>
+<b class="fc">&nbsp;                        searchResults.add(prod);</b>
+&nbsp;                    }
+&nbsp;                }
+<b class="fc">&nbsp;            }</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the app to the add product form
+&nbsp;     */
+&nbsp;    public void onAddProduct(){
+<b class="fc">&nbsp;        view.goToAddProduct();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>

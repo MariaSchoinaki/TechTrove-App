@@ -1,0 +1,295 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CartProductAdapter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.view</a>
+</div>
+
+<h1>Coverage Summary for Class: CartProductAdapter (com.example.tecktrove.view)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CartProductAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CartProductAdapter$CartProductViewHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartProductAdapter$CartProductViewHolder$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartProductAdapter$CartProductViewHolder$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CartProductAdapter$OnCartProductClickListener</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/40)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.view;
+&nbsp;
+&nbsp;import static android.app.PendingIntent.getActivity;
+&nbsp;import static androidx.core.content.ContextCompat.startActivity;
+&nbsp;
+&nbsp;import android.content.Intent;
+&nbsp;import android.view.LayoutInflater;
+&nbsp;import android.view.View;
+&nbsp;import android.view.ViewGroup;
+&nbsp;import android.widget.ImageView;
+&nbsp;import android.widget.TextView;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;
+&nbsp;import com.example.tecktrove.domain.OrderLine;
+&nbsp;import com.example.tecktrove.util.Pair;
+&nbsp;import com.example.tecktrove.R;
+&nbsp;import com.example.tecktrove.domain.ProductType;
+&nbsp;import com.example.tecktrove.view.Customer.Cart.CartActivity;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+<b class="nc">&nbsp;public class CartProductAdapter extends RecyclerView.Adapter&lt;CartProductAdapter.CartProductViewHolder&gt;{</b>
+&nbsp;
+&nbsp;    private ArrayList&lt;OrderLine&gt; productList;
+&nbsp;    private CartProductAdapter.OnCartProductClickListener onProductClickListener;
+&nbsp;
+&nbsp;    public interface OnCartProductClickListener {
+&nbsp;        void onCartProductClick(ProductType product);
+&nbsp;    }
+<b class="nc">&nbsp;    public CartProductAdapter(ArrayList&lt;OrderLine&gt; productList, OnCartProductClickListener onCategoryClickListener) {</b>
+<b class="nc">&nbsp;        this.productList = productList;</b>
+<b class="nc">&nbsp;        this.onProductClickListener = onCategoryClickListener;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CartProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+<b class="nc">&nbsp;        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_product, parent, false);</b>
+<b class="nc">&nbsp;        return new CartProductViewHolder(view);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void onBindViewHolder(CartProductViewHolder holder, int position) {
+<b class="nc">&nbsp;        int ProductPosition = position;</b>
+&nbsp;
+&nbsp;        // Bind data to the ViewHolder for the first product in the row
+<b class="nc">&nbsp;        ProductType Product = productList.get(ProductPosition).getProductType();</b>
+<b class="nc">&nbsp;        SharedViewModel viewModel = new SharedViewModel();</b>
+<b class="nc">&nbsp;        holder.bindProduct(Product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getItemCount() {
+<b class="nc">&nbsp;        return productList.size();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    class CartProductViewHolder extends RecyclerView.ViewHolder {
+&nbsp;        TextView productPriceView;
+&nbsp;        TextView productQuantityView;
+&nbsp;
+&nbsp;        TextView productNameTextView;
+&nbsp;        ImageView productImageView;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        public CartProductViewHolder(View itemView) {</b>
+<b class="nc">&nbsp;            super(itemView);</b>
+<b class="nc">&nbsp;            productPriceView = itemView.findViewById(R.id.product_price);</b>
+<b class="nc">&nbsp;            productQuantityView = itemView.findViewById(R.id.item_cart_quantity);</b>
+<b class="nc">&nbsp;            productNameTextView = itemView.findViewById(R.id.productName1);</b>
+<b class="nc">&nbsp;            productImageView = itemView.findViewById(R.id.productImage1);</b>
+<b class="nc">&nbsp;            itemView.setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;                @Override
+&nbsp;                public void onClick(View v) {
+&nbsp;
+<b class="nc">&nbsp;                    int adapterPosition = getAdapterPosition();</b>
+<b class="nc">&nbsp;                    if (adapterPosition != RecyclerView.NO_POSITION) {</b>
+&nbsp;
+<b class="nc">&nbsp;                        int clickedProductIndex = adapterPosition;</b>
+&nbsp;
+<b class="nc">&nbsp;                        if (clickedProductIndex &lt; productList.size()) {</b>
+<b class="nc">&nbsp;                            ProductType clickedProduct = productList.get(clickedProductIndex).getProductType();</b>
+<b class="nc">&nbsp;                            onProductClickListener.onCartProductClick(clickedProduct);</b>
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            });
+&nbsp;        
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;        
+&nbsp;
+&nbsp;
+&nbsp;        void bindProduct(ProductType product) {
+&nbsp;
+<b class="nc">&nbsp;            productNameTextView = itemView.findViewById(R.id.productName1);</b>
+<b class="nc">&nbsp;            productImageView = itemView.findViewById(R.id.productImage1);</b>
+<b class="nc">&nbsp;            productPriceView = itemView.findViewById(R.id.product_price);</b>
+<b class="nc">&nbsp;            productQuantityView = itemView.findViewById(R.id.item_cart_quantity);</b>
+&nbsp;
+<b class="nc">&nbsp;            SharedViewModel sharedViewModel = new SharedViewModel();</b>
+&nbsp;
+<b class="nc">&nbsp;            productPriceView.setText(product.getPrice().toString());</b>
+<b class="nc">&nbsp;            productNameTextView.setText(product.getName());</b>
+<b class="nc">&nbsp;            int i = sharedViewModel.getCustomer().getCart().indexOf(sharedViewModel.getCustomer().getProductFromCart(product.getModelNo()));</b>
+<b class="nc">&nbsp;            productQuantityView.setText(&quot;x&quot;+sharedViewModel.getCustomer().getCart().get(i).getQuantity());</b>
+&nbsp;
+<b class="nc">&nbsp;            itemView.findViewById(R.id.remove_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;
+&nbsp;                @Override
+&nbsp;                public void onClick(View view) {
+<b class="nc">&nbsp;                    SharedViewModel sharedViewModel = new SharedViewModel();</b>
+<b class="nc">&nbsp;                    sharedViewModel.getCustomer().getCart().remove(sharedViewModel.getCustomer().getProductFromCart(product.getModelNo()));</b>
+&nbsp;
+<b class="nc">&nbsp;                    Intent intent = new Intent(view.getContext(), CartActivity.class);</b>
+<b class="nc">&nbsp;                    startActivity(view.getContext(),intent,null);</b>
+&nbsp;                }
+&nbsp;            });
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>

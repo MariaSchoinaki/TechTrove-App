@@ -1,0 +1,541 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ProductActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.view.Employer.Product.ProductInformation</a>
+</div>
+
+<h1>Coverage Summary for Class: ProductActivity (com.example.tecktrove.view.Employer.Product.ProductInformation)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProductActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/79)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ProductActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ProductActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ProductActivity$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ProductActivity$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ProductActivity$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ProductActivity$6</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/94)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.view.Employer.Product.ProductInformation;
+&nbsp;
+&nbsp;import android.app.AlertDialog;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.util.Log;
+&nbsp;import android.view.View;
+&nbsp;import android.widget.EditText;
+&nbsp;import android.widget.TextView;
+&nbsp;import android.widget.ViewFlipper;
+&nbsp;
+&nbsp;import androidx.appcompat.app.AppCompatActivity;
+&nbsp;import androidx.lifecycle.ViewModelProvider;
+&nbsp;import androidx.recyclerview.widget.GridLayoutManager;
+&nbsp;import androidx.recyclerview.widget.RecyclerView;
+&nbsp;
+&nbsp;import com.example.tecktrove.R;
+&nbsp;import com.example.tecktrove.dao.Initializer;
+&nbsp;import com.example.tecktrove.domain.Component;
+&nbsp;import com.example.tecktrove.domain.ProductType;
+&nbsp;import com.example.tecktrove.memorydao.ComponentDAOMemory;
+&nbsp;import com.example.tecktrove.memorydao.MemoryInitializer;
+&nbsp;import com.example.tecktrove.memorydao.SynthesisDAOMemory;
+&nbsp;import com.example.tecktrove.util.Money;
+&nbsp;import com.example.tecktrove.util.Pair;
+&nbsp;import com.example.tecktrove.util.Port;
+&nbsp;import com.example.tecktrove.view.Employer.HomeScreen.HomeScreenActivity;
+&nbsp;import com.example.tecktrove.view.PortAdapter;
+&nbsp;import com.example.tecktrove.view.ProductAdapter;
+&nbsp;import com.example.tecktrove.view.SharedViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+<b class="nc">&nbsp;public class ProductActivity extends AppCompatActivity implements ProductView, ProductAdapter.OnProductClickListener{</b>
+&nbsp;
+&nbsp;    private ProductPresenter presenter;
+&nbsp;    private Initializer init;
+&nbsp;    private  int quantity;
+&nbsp;    private SharedViewModel sharedViewModel;
+&nbsp;    private ProductAdapter componentAdapter;
+&nbsp;    private RecyclerView recyclerViewForSynthesis;
+&nbsp;    private RecyclerView recyclerViewForAvailablePorts, recyclerViewForRequiredPorts;
+&nbsp;    private PortAdapter adapter;
+&nbsp;    ViewFlipper productFlipper, ActivityFlipper;
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the classes attributes
+&nbsp;     * @param savedInstanceState
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        setContentView(R.layout.activity_product_information_employer);</b>
+&nbsp;
+<b class="nc">&nbsp;        int modelNo = getIntent().getIntExtra(&quot;modelNo&quot;, 0);</b>
+<b class="nc">&nbsp;        init = new MemoryInitializer();</b>
+<b class="nc">&nbsp;        presenter = new ProductPresenter(new ComponentDAOMemory(), new SynthesisDAOMemory(), this);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);</b>
+<b class="nc">&nbsp;        productFlipper = findViewById(R.id.employer_product_info_view_flipper);</b>
+<b class="nc">&nbsp;        ActivityFlipper = findViewById(R.id.employer_product_view_flipper);</b>
+&nbsp;
+<b class="nc">&nbsp;        recyclerViewForSynthesis = findViewById(R.id.employer_product_info_recyc);</b>
+&nbsp;
+<b class="nc">&nbsp;        GridLayoutManager layoutManager = new GridLayoutManager(this, 1);</b>
+<b class="nc">&nbsp;        recyclerViewForSynthesis.setLayoutManager(layoutManager);</b>
+&nbsp;
+<b class="nc">&nbsp;        recyclerViewForRequiredPorts = findViewById(R.id.employer_product_info_recycler_required_port);</b>
+<b class="nc">&nbsp;        recyclerViewForRequiredPorts.setLayoutManager( new GridLayoutManager(this, 1));</b>
+&nbsp;
+<b class="nc">&nbsp;        recyclerViewForAvailablePorts = findViewById(R.id.employer_product_info_recycler_available_port);</b>
+<b class="nc">&nbsp;        recyclerViewForAvailablePorts.setLayoutManager( new GridLayoutManager(this, 1));</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        presenter.setInfo(modelNo);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_change_elements).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.goToChange(modelNo);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_delete_product).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.onDelete(modelNo);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_increase_quantity).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.onIncreaseQuantity(modelNo);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_change_save_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.ChangeInfo(modelNo);</b>
+<b class="nc">&nbsp;                ActivityFlipper.setDisplayedChild(ActivityFlipper.indexOfChild(findViewById(R.id.employer_product_info)));</b>
+<b class="nc">&nbsp;                presenter.setInfo(Integer.parseInt(getModelNo()));</b>
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_change_exit_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                ActivityFlipper.setDisplayedChild(ActivityFlipper.indexOfChild(findViewById(R.id.employer_product_info)));</b>
+<b class="nc">&nbsp;                presenter.setInfo(modelNo);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_exit_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.goToHomeScreen();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Displays the Component&#39;s information
+&nbsp;     *
+&nbsp;     * @param modelNo           the model number
+&nbsp;     * @param price             the price
+&nbsp;     * @param name              the name
+&nbsp;     * @param description       the description
+&nbsp;     * @param manufacturer      the manufacturer
+&nbsp;     * @param availablePorts    the available ports
+&nbsp;     * @param requiredPorts     the required ports
+&nbsp;     * @param quantity          the quantity
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void showProductInfo(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts ,int quantity) {
+<b class="nc">&nbsp;        productFlipper.setDisplayedChild(productFlipper.indexOfChild(findViewById(R.id.employer_product_info_constraintLayout)));</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_name)).setText(name);</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_modelNo)).setText(&quot;??????? ?????????: &quot; + (String.valueOf(modelNo)));</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_manufacturer)).setText(&quot;?????????????: &quot; + manufacturer);</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_description)).setText((description));</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_price)).setText(price.toString());</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.product_info_employer_quantity_number)).setText(&quot;? ???????? ???????? ??? ????????? ?????: &quot; + String.valueOf(quantity));</b>
+<b class="nc">&nbsp;        findViewById(R.id.product_info_employer_rating_number).setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        findViewById(R.id.product_info_employer_rating_star).setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        PortAdapter avports = new PortAdapter(availablePorts);</b>
+<b class="nc">&nbsp;        PortAdapter reqports = new PortAdapter(requiredPorts);</b>
+<b class="nc">&nbsp;        recyclerViewForAvailablePorts.setAdapter(avports);</b>
+<b class="nc">&nbsp;        Log.d(&quot;ProductActivity&quot;,availablePorts.toString());</b>
+<b class="nc">&nbsp;        recyclerViewForAvailablePorts.setLayoutManager( new GridLayoutManager(this, 1));</b>
+<b class="nc">&nbsp;        recyclerViewForRequiredPorts.setAdapter(reqports);</b>
+<b class="nc">&nbsp;        recyclerViewForRequiredPorts.setLayoutManager( new GridLayoutManager(this, 1));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Displays the synthesis information
+&nbsp;     *
+&nbsp;     * @param modelNo       the model number
+&nbsp;     * @param name          the name
+&nbsp;     * @param price         the price
+&nbsp;     * @param components    the components
+&nbsp;     * @param rating        the rating
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void showSynthesisInfo(int modelNo, String name, String price, ArrayList&lt;Component&gt; components, double rating) {
+<b class="nc">&nbsp;        productFlipper.setDisplayedChild(productFlipper.indexOfChild(findViewById(R.id.employer_product_info_recyc)));</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_name)).setText(name);</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_modelNo)).setText(&quot;Model Number: &quot; + (String.valueOf(modelNo)));</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.employer_product_info_price)).setText(price.toString());</b>
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.product_info_employer_rating_number)).setText(String.valueOf(rating));</b>
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_change_elements).setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_manufacturer).setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_description).setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        findViewById(R.id.employer_product_info_descriptionTitle).setVisibility(View.GONE);</b>
+<b class="nc">&nbsp;        componentAdapter = new ProductAdapter(new ArrayList&lt;&gt;(components), this);</b>
+<b class="nc">&nbsp;        recyclerViewForSynthesis.setAdapter(componentAdapter);</b>
+<b class="nc">&nbsp;        recyclerViewForSynthesis.setLayoutManager(new GridLayoutManager(this, 1));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Changes the components information
+&nbsp;     *
+&nbsp;     * @param component the component
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void ChangeComponentInfo(Component component) {
+<b class="nc">&nbsp;        ActivityFlipper.setDisplayedChild(ActivityFlipper.indexOfChild(findViewById(R.id.employer_product_change)));</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.employer_product_change_name)).setText(component.getName());</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.employer_product_change_modelNo)).setText(String.valueOf(component.getModelNo()));</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.employer_product_change_price)).setText(component.getPrice().toString());</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.employer_product_change_description)).setText(component.getDescription());</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.employer_product_change_manufacturer)).setText(component.getManufacturer());</b>
+<b class="nc">&nbsp;        String listString = component.getAvailablePorts().getPorts().stream().map(Object::toString).collect(Collectors.joining(&quot;, &quot;));</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.employer_product_change_available_ports)).setText(listString);</b>
+<b class="nc">&nbsp;        listString = component.getRequiredPorts().getPorts().stream().map(Object::toString).collect(Collectors.joining(&quot;, &quot;));</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.employer_product_change_required_ports)).setText(listString);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to exit
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void onExit() {
+<b class="nc">&nbsp;        Intent intent = new Intent(this, HomeScreenActivity.class);</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the quantity set by the user
+&nbsp;     *
+&nbsp;     * @return the quantity
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int getQuantity() {
+<b class="nc">&nbsp;        return Integer.parseInt(((EditText) findViewById(R.id.employer_product_info_quantity)).getText().toString().trim());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Shows a custom message
+&nbsp;     *
+&nbsp;     * @param title the title of the window
+&nbsp;     * @param msg   the message of the window
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void showMessage(String title, String msg) {
+<b class="nc">&nbsp;        new AlertDialog.Builder(ProductActivity.this)</b>
+<b class="nc">&nbsp;                .setCancelable(true)</b>
+<b class="nc">&nbsp;                .setTitle(title)</b>
+<b class="nc">&nbsp;                .setMessage(msg)</b>
+<b class="nc">&nbsp;                .setPositiveButton(R.string.ok, null).create().show();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the name set by the user
+&nbsp;     *
+&nbsp;     * @return the name
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getName() {
+<b class="nc">&nbsp;        return ((EditText)findViewById(R.id.employer_product_change_name)).getText().toString().trim();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the price set by the user
+&nbsp;     *
+&nbsp;     * @return the price
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getPrice() {
+<b class="nc">&nbsp;        return ((EditText)findViewById(R.id.employer_product_change_price)).getText().toString().trim();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the manufacturer set by the user
+&nbsp;     *
+&nbsp;     * @return the manufacturer
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getManufacturer() {
+<b class="nc">&nbsp;        return ((EditText)findViewById(R.id.employer_product_change_manufacturer)).getText().toString().trim();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the description set by the user
+&nbsp;     *
+&nbsp;     * @return the description
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getDescription() {
+<b class="nc">&nbsp;        return ((EditText)findViewById(R.id.employer_product_change_description)).getText().toString().trim();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the model number set by the user
+&nbsp;     *
+&nbsp;     * @return the model number
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getModelNo() {
+<b class="nc">&nbsp;        return ((EditText)findViewById(R.id.employer_product_change_modelNo)).getText().toString().trim();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the available ports set by the user
+&nbsp;     *
+&nbsp;     * @return the available ports
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getAvailablePorts() {
+<b class="nc">&nbsp;        return ((EditText)findViewById(R.id.employer_product_change_available_ports)).getText().toString().trim();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the required ports set by the user
+&nbsp;     *
+&nbsp;     * @return the required ports
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getRequiredPorts() {
+<b class="nc">&nbsp;        return ((EditText)findViewById(R.id.employer_product_change_required_ports)).getText().toString().trim();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the product information of the product clicked
+&nbsp;     * @param product   the clicke product
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void onProductClick(ProductType product) {
+<b class="nc">&nbsp;        Intent intent = new Intent(this, ProductActivity.class);</b>
+<b class="nc">&nbsp;        intent.putExtra(&quot;modelNo&quot;,product.getModelNo() );</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>

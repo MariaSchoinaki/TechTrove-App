@@ -1,0 +1,218 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SynthesisContainerPresenter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.view.Synthesis</a>
+</div>
+
+<h1>Coverage Summary for Class: SynthesisContainerPresenter (com.example.tecktrove.view.Synthesis)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SynthesisContainerPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (5/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25.8%
+  </span>
+  <span class="absValue">
+    (8/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.view.Synthesis;
+&nbsp;
+&nbsp;import com.example.tecktrove.dao.ComponentDAO;
+&nbsp;import com.example.tecktrove.dao.SynthesisDAO;
+&nbsp;import com.example.tecktrove.domain.Component;
+&nbsp;import com.example.tecktrove.view.SharedViewModel;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;
+&nbsp;public class SynthesisContainerPresenter {
+&nbsp;
+&nbsp;    SynthesisContainerView view;
+&nbsp;
+&nbsp;    SharedViewModel sharedViewModel;
+&nbsp;
+&nbsp;    SynthesisDAO synthesisDAO;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructor
+&nbsp;     *
+&nbsp;     * @param view
+&nbsp;     * @param model
+&nbsp;     * @param synthesisDAO
+&nbsp;     */
+<b class="fc">&nbsp;    public SynthesisContainerPresenter(SynthesisContainerView view, SharedViewModel model, SynthesisDAO synthesisDAO) {</b>
+<b class="fc">&nbsp;        this.sharedViewModel= model;</b>
+<b class="fc">&nbsp;        this.view = view;</b>
+<b class="fc">&nbsp;        this.synthesisDAO = synthesisDAO;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the components list
+&nbsp;     *
+&nbsp;     * @return the components as an ArrayList
+&nbsp;     */
+&nbsp;   public ArrayList&lt;Component&gt; getComponents(){
+<b class="nc">&nbsp;        return sharedViewModel.getComponentsFromSynthesis();</b>
+&nbsp;   }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Calls completeSynthesis
+&nbsp;     */
+&nbsp;    public void onComplete() {
+<b class="nc">&nbsp;        view.completeSynthesis();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks if the synthesis contains mandatory components
+&nbsp;     *
+&nbsp;     * @return if the synthesis is completed
+&nbsp;     */
+&nbsp;    public Boolean completeSynthesis() {
+<b class="nc">&nbsp;        String box = &quot;box&quot;;</b>
+<b class="nc">&nbsp;        String cpu = &quot;cpu&quot;;</b>
+<b class="nc">&nbsp;        String motherboard = &quot;motherboard&quot;;</b>
+<b class="nc">&nbsp;        String psu = &quot;psu&quot;;</b>
+<b class="nc">&nbsp;        String ram = &quot;ram&quot;;</b>
+<b class="nc">&nbsp;        String gpu = &quot;gpu&quot;;</b>
+<b class="nc">&nbsp;        int count = 0;</b>
+<b class="nc">&nbsp;        for (Component component : sharedViewModel.getComponentsFromSynthesis()) {</b>
+<b class="nc">&nbsp;            if (component.getName().toLowerCase().contains(box.toLowerCase())||component.getName().toLowerCase().contains(cpu.toLowerCase())||component.getName().toLowerCase().contains(motherboard.toLowerCase())||component.getName().toLowerCase().contains(ram.toLowerCase())||component.getName().toLowerCase().contains(psu.toLowerCase())||component.getName().toLowerCase().contains(gpu.toLowerCase())) {</b>
+<b class="nc">&nbsp;                count++;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        if(count == 6){</b>
+<b class="nc">&nbsp;            saveSynthesis();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return count==6;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Calls saveSynthesis in order to save
+&nbsp;     */
+&nbsp;    public void onSave() {
+<b class="nc">&nbsp;        view.save();</b>
+<b class="nc">&nbsp;        saveSynthesis();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Saves synthesis
+&nbsp;     */
+&nbsp;    private void saveSynthesis(){
+<b class="nc">&nbsp;        SharedViewModel.getSynthesis().setName(view.getName());</b>
+<b class="nc">&nbsp;        int id = (synthesisDAO.findAll().size() &gt; 0 ? synthesisDAO.findAll().get(synthesisDAO.findAll().size()-1).getModelNo()+1 : 1);</b>
+<b class="nc">&nbsp;        SharedViewModel.getSynthesis().setModelNo(id);</b>
+<b class="nc">&nbsp;        sharedViewModel.getCustomer().getSavedSynthesis().add(SharedViewModel.getSynthesis());</b>
+<b class="nc">&nbsp;        synthesisDAO.save(SharedViewModel.getSynthesis());</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * Go to homePage
+&nbsp;     */
+&nbsp;    public void onHome() {
+<b class="fc">&nbsp;        view.home();</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * Go to Cart
+&nbsp;     */
+&nbsp;    public void onCart() {
+<b class="fc">&nbsp;        view.cart();</b>
+&nbsp;    }
+&nbsp;    /**
+&nbsp;     * Go to saved
+&nbsp;     */
+&nbsp;    public void onSaved() {
+<b class="fc">&nbsp;        view.saved();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Go to MyAcount
+&nbsp;     */
+&nbsp;    public void onMyAcount() {
+<b class="fc">&nbsp;        view.Myacount();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:21</div>
+</div>
+</body>
+</html>

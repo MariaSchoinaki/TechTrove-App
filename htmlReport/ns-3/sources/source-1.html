@@ -1,0 +1,237 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Component</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: Component (com.example.tecktrove.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Component</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.domain;
+&nbsp;
+&nbsp;import com.example.tecktrove.util.Money;
+&nbsp;import com.example.tecktrove.util.Port;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class Component extends ProductType{
+&nbsp;    private String description;
+&nbsp;    private String manufacturer;
+&nbsp;    private Port availablePorts;
+&nbsp;    private Port requiredPorts;
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Default Constructor
+&nbsp;     */
+<b class="fc">&nbsp;    public Component(){this.quantity = 0;}</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructor of Component
+&nbsp;     *
+&nbsp;     * @param name            the name of the component as a String
+&nbsp;     * @param description     the description of the component as a String
+&nbsp;     * @param manufacturer    the manufacturer of the component as a String
+&nbsp;     * @param availablePorts  the available ports of the component as an ArrayList
+&nbsp;     * @param requiredPorts   the required ports of the component as an ArrayList
+&nbsp;     * @param modelNo         the model number of the Component as an Integer
+&nbsp;     * @param price           the price of the Component as Money
+&nbsp;     * @param quantity        the quantity of the Component as Integer
+&nbsp;     */
+&nbsp;    public Component(int modelNo, Money price, String name, String description, String manufacturer, Port availablePorts, Port requiredPorts, int quantity){
+<b class="fc">&nbsp;        super(modelNo, price,name,quantity);</b>
+<b class="fc">&nbsp;        this.description = description;</b>
+<b class="fc">&nbsp;        this.manufacturer = manufacturer;</b>
+<b class="fc">&nbsp;        this.availablePorts = availablePorts;</b>
+<b class="fc">&nbsp;        this.requiredPorts = requiredPorts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the description of the component
+&nbsp;     *
+&nbsp;     * @return  the description
+&nbsp;     */
+&nbsp;    public String getDescription() {
+<b class="fc">&nbsp;        return description;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the manufacturer of the component
+&nbsp;     *
+&nbsp;     * @return  the manufacturer
+&nbsp;     */
+&nbsp;    public String getManufacturer() {
+<b class="fc">&nbsp;        return manufacturer;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the available ports of the component
+&nbsp;     *
+&nbsp;     * @return  the available ports
+&nbsp;     */
+&nbsp;    public Port getAvailablePorts() {
+<b class="fc">&nbsp;        return availablePorts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the required ports of the component
+&nbsp;     *
+&nbsp;     * @return  the required ports
+&nbsp;     */
+&nbsp;    public Port getRequiredPorts() {
+<b class="fc">&nbsp;        return requiredPorts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the description of a Component
+&nbsp;     *
+&nbsp;     * @param description   Component&#39;s description
+&nbsp;     */
+&nbsp;    public void setDescription(String description) {
+<b class="fc">&nbsp;        this.description = description;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the manufacturer of a Component
+&nbsp;     *
+&nbsp;     * @param manufacturer   Component&#39;s manufacturer
+&nbsp;     */
+&nbsp;    public void setManufacturer(String manufacturer) {
+<b class="fc">&nbsp;        this.manufacturer = manufacturer;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the available ports of a Component
+&nbsp;     *
+&nbsp;     * @param availablePorts   Component&#39;s available ports
+&nbsp;     */
+&nbsp;    public void setAvailablePorts(Port availablePorts) {
+<b class="fc">&nbsp;        this.availablePorts = availablePorts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets the required ports of a Component
+&nbsp;     *
+&nbsp;     * @param requiredPorts   Component&#39;s required ports
+&nbsp;     */
+&nbsp;    public void setRequiredPorts(Port requiredPorts) {
+<b class="fc">&nbsp;        this.requiredPorts = requiredPorts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds quantity to the component
+&nbsp;     *
+&nbsp;     * @param quantity the quantity
+&nbsp;     */
+&nbsp;    public void addQuantity(int quantity) {
+<b class="fc">&nbsp;        this.quantity += quantity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Removes quantity from the product
+&nbsp;     *
+&nbsp;     * @param quantity the quantity
+&nbsp;     */
+&nbsp;    public void removeQuantity(int quantity) {
+<b class="fc">&nbsp;        if(this.quantity &lt;= quantity){</b>
+<b class="fc">&nbsp;            this.quantity = 0;</b>
+&nbsp;        }else{
+<b class="fc">&nbsp;            this.quantity -= quantity;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>

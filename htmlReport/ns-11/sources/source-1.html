@@ -1,0 +1,385 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MyAccountActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.view.MyAccount</a>
+</div>
+
+<h1>Coverage Summary for Class: MyAccountActivity (com.example.tecktrove.view.MyAccount)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MyAccountActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/42)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">MyAccountActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">MyAccountActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">MyAccountActivity$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">MyAccountActivity$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">MyAccountActivity$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">MyAccountActivity$6</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/62)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.view.MyAccount;
+&nbsp;
+&nbsp;import android.app.AlertDialog;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;
+&nbsp;import androidx.appcompat.app.AppCompatActivity;
+&nbsp;import androidx.lifecycle.ViewModelProvider;
+&nbsp;
+&nbsp;import android.view.View;
+&nbsp;import android.widget.EditText;
+&nbsp;import android.widget.TextView;
+&nbsp;import android.widget.ViewFlipper;
+&nbsp;
+&nbsp;import com.example.tecktrove.R;
+&nbsp;import com.example.tecktrove.dao.Initializer;
+&nbsp;import com.example.tecktrove.domain.User;
+&nbsp;import com.example.tecktrove.memorydao.CustomerDAOMemory;
+&nbsp;import com.example.tecktrove.memorydao.EmployerDAOMemory;
+&nbsp;import com.example.tecktrove.memorydao.MemoryInitializer;
+&nbsp;import com.example.tecktrove.view.Authentication.StartScreen.StartScreenActivity;
+&nbsp;import com.example.tecktrove.view.MyAccount.OrderHistory.OrderHistoryActivity;
+&nbsp;import com.example.tecktrove.view.SharedViewModel;
+&nbsp;
+<b class="nc">&nbsp;public class MyAccountActivity extends AppCompatActivity implements MyAccountView{</b>
+&nbsp;
+&nbsp;    private MyAccountPresenter presenter;
+&nbsp;    private SharedViewModel sharedViewModel;
+&nbsp;    private boolean isEmployer;
+&nbsp;    private Initializer init;
+&nbsp;    private View mainLayout;
+&nbsp;    private View changeLayout;
+&nbsp;    ViewFlipper flipper;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the classes attributes
+&nbsp;     * @param savedInstanceState
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;        setTheme(R.style.Base_Theme_TeckTrove);</b>
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;        super.setContentView(R.layout.activity_my_account);</b>
+&nbsp;
+<b class="nc">&nbsp;        init = new MemoryInitializer();</b>
+&nbsp;
+<b class="nc">&nbsp;        presenter = new MyAccountPresenter(this, new CustomerDAOMemory(), new EmployerDAOMemory());</b>
+<b class="nc">&nbsp;        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);</b>
+&nbsp;
+<b class="nc">&nbsp;        isEmployer = sharedViewModel.isEmployer();</b>
+&nbsp;
+<b class="nc">&nbsp;        flipper = findViewById(R.id.my_account_view_flipper);</b>
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.my_account_change_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                flipper.showNext();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.my_acount_exit_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                flipper.showPrevious();</b>
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        findViewById(R.id.my_account_save_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+&nbsp;
+<b class="nc">&nbsp;                presenter.setInfo(((EditText) findViewById(R.id.my_account_full_name)).getText().toString().trim(),</b>
+<b class="nc">&nbsp;                        ((EditText) findViewById(R.id.my_account_email)).getText().toString().trim(),</b>
+<b class="nc">&nbsp;                        ((EditText) findViewById(R.id.my_account_mobile)).getText().toString().trim(),</b>
+<b class="nc">&nbsp;                        ((EditText) findViewById(R.id.my_account_username)).getText().toString().trim(),</b>
+<b class="nc">&nbsp;                        ((EditText) findViewById(R.id.my_account_password)).getText().toString().trim(),</b>
+<b class="nc">&nbsp;                        ((EditText) findViewById(R.id.my_account_confirm_password)).getText().toString().trim(), sharedViewModel.isEmployer());</b>
+<b class="nc">&nbsp;                if(sharedViewModel.isEmployer()){</b>
+<b class="nc">&nbsp;                    presenter.onSaveChanges((User) sharedViewModel.getEmployer(),sharedViewModel.getEmployer().getId() );</b>
+&nbsp;                }else{
+<b class="nc">&nbsp;                    presenter.onSaveChanges((User) sharedViewModel.getCustomer(), sharedViewModel.getCustomer().getId());</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.my_account_logout).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.onLogout();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.my_account_delete_account).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.onDeleteAccount();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        findViewById(R.id.history_button).setOnClickListener(new View.OnClickListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void onClick(View view) {
+<b class="nc">&nbsp;                presenter.onHistory();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+&nbsp;        String fullname, username, password, email, phone;
+<b class="nc">&nbsp;        if(sharedViewModel.isEmployer()){</b>
+<b class="nc">&nbsp;            fullname = sharedViewModel.getEmployer().getName() + &quot; &quot; + sharedViewModel.getEmployer().getLastName();</b>
+<b class="nc">&nbsp;            username = sharedViewModel.getEmployer().getUsername();</b>
+<b class="nc">&nbsp;            password = sharedViewModel.getEmployer().getPassword();</b>
+<b class="nc">&nbsp;            email = sharedViewModel.getEmployer().getEmail().getEmail();</b>
+<b class="nc">&nbsp;            phone = sharedViewModel.getEmployer().getTelephone().getTelephone();</b>
+&nbsp;        }else {
+<b class="nc">&nbsp;            fullname = sharedViewModel.getCustomer().getName() + &quot; &quot; + sharedViewModel.getCustomer().getLastName();</b>
+<b class="nc">&nbsp;            username = sharedViewModel.getCustomer().getUsername();</b>
+<b class="nc">&nbsp;            password = sharedViewModel.getCustomer().getPassword();</b>
+<b class="nc">&nbsp;            email = sharedViewModel.getCustomer().getEmail().getEmail();</b>
+<b class="nc">&nbsp;            phone = sharedViewModel.getCustomer().getTelephone().getTelephone();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        ((TextView) findViewById(R.id.my_account_name)).setText(fullname);</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.my_account_full_name)).setText(fullname);</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.my_account_email)).setText(email);</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.my_account_username)).setText(username);</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.my_account_password)).setText(password);</b>
+<b class="nc">&nbsp;        ((EditText) findViewById(R.id.my_account_mobile)).setText(phone);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Terminates app and navigates to start screen
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void logout() {
+<b class="nc">&nbsp;        sharedViewModel.clear();</b>
+<b class="nc">&nbsp;        Intent intent = new Intent(this, StartScreenActivity.class);</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Shows a custom message
+&nbsp;     *
+&nbsp;     * @param title the title of the window
+&nbsp;     * @param msg   the message of the window
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void showMessage(String title, String msg) {
+<b class="nc">&nbsp;        new AlertDialog.Builder(MyAccountActivity.this)</b>
+<b class="nc">&nbsp;                .setCancelable(true)</b>
+<b class="nc">&nbsp;                .setTitle(title)</b>
+<b class="nc">&nbsp;                .setMessage(msg)</b>
+<b class="nc">&nbsp;                .setPositiveButton(R.string.ok, null).create().show();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the app to the order history screen
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void history(){
+<b class="nc">&nbsp;        Intent intent = new Intent(this, OrderHistoryActivity.class);</b>
+<b class="nc">&nbsp;        startActivity(intent);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>

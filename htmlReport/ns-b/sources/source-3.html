@@ -1,0 +1,111 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > HomeScreenView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.view.Customer.HomeScreen</a>
+</div>
+
+<h1>Coverage Summary for Class: HomeScreenView (com.example.tecktrove.view.Customer.HomeScreen)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">HomeScreenView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.view.Customer.HomeScreen;
+&nbsp;
+&nbsp;import com.example.tecktrove.domain.ProductType;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public interface HomeScreenView {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Displayes the products
+&nbsp;     * @param products the products
+&nbsp;     */
+&nbsp;    void displayProducts(ArrayList&lt;ProductType&gt; products);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the cart
+&nbsp;     */
+&nbsp;    void Cart();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the home screen
+&nbsp;     */
+&nbsp;    void goToHome();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the my account
+&nbsp;     */
+&nbsp;    void goToMyAccount();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the make your own synthesis page
+&nbsp;     */
+&nbsp;    void diySynthesis();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Goes on the previous page
+&nbsp;     */
+&nbsp;    void goBack();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Navigates the user to the saved synthesis page
+&nbsp;     */
+&nbsp;    void saved();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>

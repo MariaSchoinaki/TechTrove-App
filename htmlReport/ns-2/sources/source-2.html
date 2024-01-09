@@ -1,0 +1,430 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Initializer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.tecktrove.dao</a>
+</div>
+
+<h1>Coverage Summary for Class: Initializer (com.example.tecktrove.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Initializer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (204/204)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.tecktrove.dao;
+&nbsp;
+&nbsp;import com.example.tecktrove.contacts.Email;
+&nbsp;import com.example.tecktrove.contacts.Telephone;
+&nbsp;import com.example.tecktrove.domain.Customer;
+&nbsp;import com.example.tecktrove.domain.Employer;
+&nbsp;import com.example.tecktrove.domain.Order;
+&nbsp;import com.example.tecktrove.domain.OrderLine;
+&nbsp;import com.example.tecktrove.domain.Synthesis;
+&nbsp;import com.example.tecktrove.domain.Component;
+&nbsp;import com.example.tecktrove.util.Pair;
+&nbsp;import com.example.tecktrove.util.Port;
+&nbsp;import com.example.tecktrove.util.Money;
+&nbsp;import com.example.tecktrove.util.SimpleCalendar;
+&nbsp;
+&nbsp;import java.math.BigDecimal;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+<b class="fc">&nbsp;public abstract class Initializer {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Erases all the data from the database
+&nbsp;     */
+&nbsp;    protected abstract void eraseData();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link CustomerDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    public abstract CustomerDAO getCustomerDAO();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link EmployerDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    public abstract EmployerDAO getEmployerDAO();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link ComponentDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    public abstract ComponentDAO getComponentDAO();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link SynthesisDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    public abstract SynthesisDAO getSynthesisDAO();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the object for the interface {@link OrderDAO}
+&nbsp;     *
+&nbsp;     * @return  the DAO object
+&nbsp;     */
+&nbsp;    public abstract OrderDAO getOrderDAO();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes all objects in the daos
+&nbsp;     * as soon as the application starts
+&nbsp;     */
+&nbsp;    public void prepareData(){
+<b class="fc">&nbsp;        eraseData();</b>
+&nbsp;        //Customers
+<b class="fc">&nbsp;        Customer c1 = new Customer(5673, &quot;george&quot;, &quot;ok123456&quot;, &quot;George&quot;, &quot;Johnson&quot;, new Email(&quot;klap@yahoo.com&quot;), new Telephone(&quot;6898909678&quot;), new ArrayList&lt;Synthesis&gt;(), new ArrayList&lt;OrderLine&gt;());</b>
+<b class="fc">&nbsp;        getCustomerDAO().save(c1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Customer c2 = new Customer(7859, &quot;maria5&quot;, &quot;31m@ria5&quot;, &quot;Maria&quot;, &quot;Papadaki&quot;, new Email(&quot;papadaki27@gmail.com&quot;), new Telephone(&quot;6984596936&quot;), new ArrayList&lt;Synthesis&gt;(), new ArrayList&lt;OrderLine&gt;());</b>
+<b class="fc">&nbsp;        getCustomerDAO().save(c2);</b>
+&nbsp;
+<b class="fc">&nbsp;        Customer c3 = new Customer(2598, &quot;chris&quot;, &quot;chr!s598&quot;, &quot;Christos&quot;, &quot;Papaioanou&quot;, new Email(&quot;papaio54@gmail.com&quot;), new Telephone(&quot;6985369825&quot;), new ArrayList&lt;Synthesis&gt;(), new ArrayList&lt;OrderLine&gt;());</b>
+<b class="fc">&nbsp;        getCustomerDAO().save(c3);</b>
+&nbsp;
+&nbsp;        //Employers
+<b class="fc">&nbsp;        Employer em1 = new Employer(1252, &quot;eleni3&quot;, &quot;elen!562&quot;, &quot;Eleni&quot;, &quot;Georgali&quot;, new Email(&quot;eleniii2@gmail.com&quot;), new Telephone(&quot;6988745961&quot;));</b>
+<b class="fc">&nbsp;        getEmployerDAO().save(em1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Employer em2 = new Employer(5698, &quot;faihh1&quot;, &quot;faihskoni1&quot;, &quot;Foteini&quot;, &quot;Soultatou&quot;, new Email(&quot;apple3r@yahoo.com&quot;), new Telephone(&quot;6978451236&quot;));</b>
+<b class="fc">&nbsp;        getEmployerDAO().save(em2);</b>
+&nbsp;
+<b class="fc">&nbsp;        Employer em3 = new Employer(8596, &quot;kostas34&quot;, &quot;13k023m32&quot;, &quot;Konstantinos&quot;, &quot;Glitsas&quot;, new Email(&quot;glitsas13@gmail.com&quot;), new Telephone(&quot;6945259875&quot;));</b>
+<b class="fc">&nbsp;        getEmployerDAO().save(em3);</b>
+&nbsp;
+&nbsp;
+&nbsp;        //Components
+<b class="fc">&nbsp;        Component com1 = new Component(4191, Money.euros(BigDecimal.valueOf(59.99)), &quot;Box Kolink VOID RGB Midi Tower&quot;, &quot;?? VOID Midi-Tower Case ?????????????? ??? ???????????? ??? ???????? ???? ??????? ??? Kolink, ?? ??????????? ??? «???????» ???????????? ?? ????? V, ?????????? 120mm ARGB ??? ??????? ???????????????.&quot;,&quot;Kolink&quot; , new Port(), new Port(), 80);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair2_1 = new Pair&lt;String, Integer&gt;(&quot;ATX Power Port&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair2_2 = new Pair&lt;String, Integer&gt;(&quot;ATX 12V Power Port&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair2_3 = new Pair&lt;String, Integer&gt;(&quot;SATA Power Port&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair2_4 = new Pair&lt;String, Integer&gt;(&quot;Molex Connector&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair2_5 = new Pair&lt;String, Integer&gt;(&quot;PCI Express Connector&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair2_6 = new Pair&lt;String, Integer&gt;(&quot;PCI Floppy Drive Connector&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair2_7 = new Pair&lt;String, Integer&gt;(&quot;AC Adapter&quot;,1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Port port2 = new Port();</b>
+<b class="fc">&nbsp;        Port port2_1 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port2.add(pair2_1);</b>
+<b class="fc">&nbsp;        port2.add(pair2_2);</b>
+<b class="fc">&nbsp;        port2.add(pair2_3);</b>
+<b class="fc">&nbsp;        port2.add(pair2_4);</b>
+<b class="fc">&nbsp;        port2.add(pair2_5);</b>
+<b class="fc">&nbsp;        port2.add(pair2_6);</b>
+<b class="fc">&nbsp;        port2_1.add(pair2_7);</b>
+&nbsp;
+<b class="fc">&nbsp;        Component com2 = new Component(2936, Money.euros(BigDecimal.valueOf(36.90)), &quot;Turbo-X PSU Value III Series 550 W&quot;, &quot;??????? ???? ????????? ???????????, ?? ???? 550W, ?????????? ????????? ????????? ??? ??????? ?????????? 120mm.&quot;, &quot;Turbo-X&quot;,  port2, new Port(), 75);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com2);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair3_1 = new Pair&lt;String, Integer&gt;(&quot;socket AM4&quot;,1);</b>
+<b class="fc">&nbsp;        Port port3 = new Port();</b>
+<b class="fc">&nbsp;        port3.add(pair3_1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Component com3 = new Component(3260, Money.euros(BigDecimal.valueOf(119.90)), &quot;AMD CPU Ryzen 3 3200G&quot;, &quot;?? ???????? ??????? Zen ?? Socket AM4, ??????? ????????? ??????????? 4GHz, ????? cache 6MB ??? Radeon Vega 8 iGPU ??? ??????????? ????????? ????????.&quot;, &quot;AMD&quot;,new Port(),port3, 60);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com3);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair4_1 = new Pair&lt;String, Integer&gt;(&quot;socket AM4,&quot;,1);</b>
+<b class="fc">&nbsp;        Port port4 = new Port();</b>
+<b class="fc">&nbsp;        port4.add(pair4_1);</b>
+<b class="fc">&nbsp;        Component com4 = new Component(3888, Money.euros(BigDecimal.valueOf(32.90)), &quot;Alpenföhn Cooler Ben Nevis&quot;, &quot;?????? ?? ?????????? 130mm ??????? ?? ?? sockets 2066, 2011, 2011-v3, 1366, 115X, 1200, AM4, 775, AM4, AM3(+), AM3, AM2(+), AM2 ??? FM1.&quot;, &quot;Alpenföhn&quot;,  new Port(), port4, 20);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com4);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair5_1 = new Pair&lt;String, Integer&gt;(&quot;socket AM4&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair5_2 = new Pair&lt;String, Integer&gt;(&quot;socket DDR4&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair5_3 = new Pair&lt;String, Integer&gt;(&quot;PCI Express x16 3.0&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair5_4 = new Pair&lt;String, Integer&gt;(&quot;SATA III&quot;,1);</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        Port port5 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port5.add(pair5_1);</b>
+<b class="fc">&nbsp;        port5.add(pair5_2);</b>
+<b class="fc">&nbsp;        port5.add(pair5_3);</b>
+<b class="fc">&nbsp;        port5.add(pair5_4);</b>
+&nbsp;
+<b class="fc">&nbsp;        Component com5 = new Component(4188, Money.euros(BigDecimal.valueOf(129.90)), &quot;Gigabyte Motherboard A520I AC&quot;, &quot;????????? ??? AMD® A520 Chipset ??? ??????? ???????????? AMD Ryzen™ 5000 ??? 3000 Series ????? ??? 4000 G-Series. ??????????? DDR4 RAM ?? 64GB, NVMe PCIe 3.0 M.2 ??? Intel® Dual Band 802.11ac Wi-Fi.&quot;, &quot;AMD&quot;,port5, new Port(), 57);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com5);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair6 = new Pair&lt;String, Integer&gt;(&quot;socket DDR4&quot;,1);</b>
+<b class="fc">&nbsp;        Port port6 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port6.add(pair6);</b>
+<b class="fc">&nbsp;        Component com6 = new Component(3935, Money.euros(BigDecimal.valueOf(44.90)), &quot;Crucial Desktop RAM Value 16GB 3200MHz DDR4&quot;, &quot;????? DDR4-3200 UDIMM ????????????? 16GB ??? ??? Crucial® ?? ????????? ??????????? 3.200 MHz ??? CL22.&quot;, &quot;Micron&quot;,new Port(),port6, 44);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com6);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair7_1 = new Pair&lt;String, Integer&gt;(&quot;PCI Express x16 3.0&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair7_2 = new Pair&lt;String, Integer&gt;(&quot;HDMI&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair7_3 = new Pair&lt;String, Integer&gt;(&quot;DVI-D&quot;,1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Port port7 = new Port();</b>
+<b class="fc">&nbsp;        Port port7_1 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port7.add(pair7_3);</b>
+<b class="fc">&nbsp;        port7.add(pair7_2);</b>
+<b class="fc">&nbsp;        port7_1.add(pair7_1);</b>
+<b class="fc">&nbsp;        Component com7 = new Component(4311, Money.euros(BigDecimal.valueOf(69.90)), &quot;Asus VGA GPU GeForce GT 730 Evo Low Profile BRK 2 GB&quot;, &quot;????? ??????? ??? ??????????? ????????, Small Form Factor (SFF) ? Home Theater PCs (HTPC). ????? ??????? ???????????, ?? ???????? ???? ??? ???????? 3x ??????? ???????.&quot;, &quot;ASUS&quot;,  port7,port7_1, 28);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com7);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair8 = new Pair&lt;String, Integer&gt;(&quot;SATA III&quot;,1);</b>
+<b class="fc">&nbsp;        Port port8 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port8.add(pair8);</b>
+<b class="fc">&nbsp;        Component com8 = new Component(2489, Money.euros(BigDecimal.valueOf(26.90)), &quot;SanDisk Disk SSD Plus 240GB&quot;, &quot;? ?????????? SSD 2,5” ??? ?????? ? ?? ??????? ??? ??????????, ?? ???????????? 240GB, ???????? ????????? ??????????? ??? ??????? SATA III.&quot;, &quot;SanDisk&quot;,new Port(),port8, 35);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com8);</b>
+&nbsp;
+<b class="fc">&nbsp;        Component com11 = new Component(3604, Money.euros(BigDecimal.valueOf(69.90)), &quot;Sharkoon Midi ATX Box VS4-V Midi Tower&quot;, &quot;????????????? ????????, ???????? ????????? ??? ??????? ?????? ??? SSDs/HDDs, ????????????????? ??????????? ??? ?????? ??????, ???????? ????? ??? ??????????? ?? ????????? ?????????.&quot;, &quot;Sharkoon&quot;, new Port(), new Port(), 10);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com11);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair12_1 = new Pair&lt;String, Integer&gt;(&quot;ATX Power Port&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair12_2 = new Pair&lt;String, Integer&gt;(&quot;ATX 12V Power Port&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair12_3 = new Pair&lt;String, Integer&gt;(&quot;SATA Power Port&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair12_4 = new Pair&lt;String, Integer&gt;(&quot;PCI Express Connector&quot;,1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Port port12 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port12.add(pair12_1);</b>
+<b class="fc">&nbsp;        port12.add(pair12_2);</b>
+<b class="fc">&nbsp;        port12.add(pair12_3);</b>
+<b class="fc">&nbsp;        port12.add(pair12_4);</b>
+<b class="fc">&nbsp;        Component com12 = new Component(3740, Money.euros(BigDecimal.valueOf(69.90)), &quot;Sharkoon PSU Series 500 W 80+ Bronze&quot;, &quot;??????????? ?????????? Sharkoon 500W ?? ??????????? 80+ Bronze, active PFC, ??????? ??????????? ?? ?????????? 120mm ??? ?????????? ????? ????????.&quot;, &quot;Sharkoon&quot;,  port12 ,new Port(), 17);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com12);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair13_1 = new Pair&lt;String, Integer&gt;(&quot;socket AM4+&quot;,1);</b>
+<b class="fc">&nbsp;        Port port13 = new Port();</b>
+<b class="fc">&nbsp;        port13.add(pair13_1);</b>
+<b class="fc">&nbsp;        Component com13 = new Component(3741, Money.euros(BigDecimal.valueOf(84.90)), &quot;AMD CPU Ryzen 5 4500&quot;, &quot;?? ??????? ?????????????? Zen 2 ??? ??????????? ??????????, ??????????? bandwidth, ?????????? PCIe 3.0 ??? ????????????? ??????????? AMD, ?????????????????? ??? ??????? ??? Gaming PCs.&quot;, &quot;AMD&quot;,new Port(),port13,33);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com13);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair14_1 = new Pair&lt;String, Integer&gt;(&quot;4-Pin PWM&quot;,1);</b>
+<b class="fc">&nbsp;        Port port14 = new Port();</b>
+<b class="fc">&nbsp;        port14.add(pair14_1);</b>
+<b class="fc">&nbsp;        Component com14 = new Component(4198, Money.euros(BigDecimal.valueOf(34.90)), &quot;Be Quiet! Be Quiet Light Wings Cooler 140mm PWM&quot;, &quot;??????????? 140mm ?? PWM, 7 ?????? ???????????????? ??? ?????? ?????? ??? ????? ??????? ????????, rifle-bearing ??? ??? ???????????? ?????????? ARGB.&quot;, &quot;Be Quiet!&quot;, new Port(),new Port(), 54);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com14);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair15_1 = new Pair&lt;String, Integer&gt;(&quot;socket AM4+&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair15_2 = new Pair&lt;String, Integer&gt;(&quot;DDR5&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair15_3 = new Pair&lt;String, Integer&gt;(&quot;PCI Express x16 3.0&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair15_4 = new Pair&lt;String, Integer&gt;(&quot;M.2&quot;,1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Port port15 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port15.add(pair15_1);</b>
+<b class="fc">&nbsp;        port15.add(pair15_2);</b>
+<b class="fc">&nbsp;        port15.add(pair15_3);</b>
+<b class="fc">&nbsp;        port15.add(pair15_4);</b>
+<b class="fc">&nbsp;        Component com15 = new Component(3639, Money.euros(BigDecimal.valueOf(69.90)), &quot;MSI Motherboard A520M-A PRO&quot;, &quot;????????? ??? AMD® A520 Chipset ??? ??????? ???????????? AMD Ryzen™ 5000 ??? 3000 Series ????? ??? 4000 G-Series. ??????????? ????? DDR5 ?? 64GB ??? ???? ???????? ?.2 ??? PCI Express Gen3 x16.&quot;, &quot;AMD&quot;, port15, new Port(), 85);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com15);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair16 = new Pair&lt;String, Integer&gt;(&quot;DDR5&quot;,1);</b>
+<b class="fc">&nbsp;        Port port16 = new Port();</b>
+<b class="fc">&nbsp;        port16.add(pair16);</b>
+<b class="fc">&nbsp;        Component com16 = new Component(3290, Money.euros(BigDecimal.valueOf(69.90)), &quot;Corsair Desktop RAM Vengeance PRO RGB 16GB Kit 3000MHz DDR5&quot;, &quot;16GB ?????? RAM DDR5 ??? ?????? ????????? ??? ??????????, ?? built-in heat spreaders ??? multi-zone RGB ??????? ??? ??????????? ?? ???? ???? gamer.&quot;, &quot;Corsair&quot;, new Port(), port16, 29);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com16);</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair17_2 = new Pair&lt;String, Integer&gt;(&quot;HDMI&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair17_3 = new Pair&lt;String, Integer&gt;(&quot;DVI-D&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair17_4 = new Pair&lt;String, Integer&gt;(&quot;DisplayPort&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair17_5 = new Pair&lt;String, Integer&gt;(&quot;PCI Express Connector&quot;,1);</b>
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair17_6 = new Pair&lt;String, Integer&gt;(&quot;PCI Express x16 3.0&quot;,1);</b>
+&nbsp;
+<b class="fc">&nbsp;        Port port17 = new Port();</b>
+<b class="fc">&nbsp;        Port port17_1 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port17.add(pair17_3);</b>
+<b class="fc">&nbsp;        port17.add(pair17_2);</b>
+<b class="fc">&nbsp;        port17.add(pair17_4);</b>
+<b class="fc">&nbsp;        port17_1.add(pair17_5);</b>
+<b class="fc">&nbsp;        port17_1.add(pair17_6);</b>
+<b class="fc">&nbsp;        Component com17 = new Component(4312, Money.euros(BigDecimal.valueOf(189.90)), &quot;Asus VGA GPU GeForce GTX 1630 Phoenix EVO 4 GB&quot;, &quot;????????? ?????? ????????? ??? ????????? ???? ???? ????????????? NVIDIA Turing™. ???????? 512 ??????? CUDA® ??? 4GB ?????? GDDR6.&quot;, &quot;Asus&quot;, port17, port7_1, 45);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com17);</b>
+&nbsp;
+<b class="fc">&nbsp;        Pair&lt;String, Integer&gt; pair18 = new Pair&lt;String, Integer&gt;(&quot;M.2&quot;,1);</b>
+<b class="fc">&nbsp;        Port port18 = new Port();</b>
+&nbsp;
+<b class="fc">&nbsp;        port18.add(pair18);</b>
+<b class="fc">&nbsp;        Component com18 = new Component(3748, Money.euros(BigDecimal.valueOf(94.90)), &quot;Samsung Disk SSD 980 NVMe M.2 1TB&quot;, &quot;?? Samsung NVMe SSD ???????????? ?????????? ?????? V-NAND ??? ??????????? ????????? ????????? ??? ???????? (sequential) ??? 3.500MB/s ??? 3.000MB/s ??????????. ???? ???????????? 1TB&quot;, &quot;Samsung&quot;, new Port() , port18, 66);</b>
+<b class="fc">&nbsp;        getComponentDAO().save(com18);</b>
+&nbsp;
+&nbsp;        //Synthesis
+<b class="fc">&nbsp;        Synthesis s1 = new Synthesis(9787, Money.euros(BigDecimal.valueOf(0)), &quot;Synthesis1&quot;);</b>
+<b class="fc">&nbsp;        s1.setPublishState(true);</b>
+<b class="fc">&nbsp;        s1.add(com1);</b>
+<b class="fc">&nbsp;        s1.add(com2);</b>
+<b class="fc">&nbsp;        s1.add(com3);</b>
+<b class="fc">&nbsp;        s1.add(com4);</b>
+<b class="fc">&nbsp;        s1.add(com5);</b>
+<b class="fc">&nbsp;        s1.add(com6);</b>
+<b class="fc">&nbsp;        s1.add(com7);</b>
+<b class="fc">&nbsp;        s1.add(com8);</b>
+<b class="fc">&nbsp;        s1.setSubRating(3, c2);</b>
+<b class="fc">&nbsp;        s1.setSubRating(4, c3);</b>
+<b class="fc">&nbsp;        getSynthesisDAO().save(s1);</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        Synthesis s2 = new Synthesis(9485, Money.euros(BigDecimal.valueOf(0)), &quot;Synthesis2&quot;);</b>
+<b class="fc">&nbsp;        s2.setPublishState(true);</b>
+<b class="fc">&nbsp;        s2.add(com11);</b>
+<b class="fc">&nbsp;        s2.add(com12);</b>
+<b class="fc">&nbsp;        s2.add(com13);</b>
+<b class="fc">&nbsp;        s2.add(com14);</b>
+<b class="fc">&nbsp;        s2.add(com15);</b>
+<b class="fc">&nbsp;        s2.add(com16);</b>
+<b class="fc">&nbsp;        s2.add(com17);</b>
+<b class="fc">&nbsp;        s2.add(com18);</b>
+<b class="fc">&nbsp;        s2.setSubRating(4, c1);</b>
+<b class="fc">&nbsp;        s2.setSubRating(5, c2);</b>
+<b class="fc">&nbsp;        getSynthesisDAO().save(s2);</b>
+&nbsp;
+&nbsp;        //OrderLines-Orders
+<b class="fc">&nbsp;        OrderLine ol1 = new OrderLine(5, com1);</b>
+<b class="fc">&nbsp;        OrderLine ol2 = new OrderLine(2, com2);</b>
+<b class="fc">&nbsp;        OrderLine ol3 = new OrderLine(4, com3);</b>
+<b class="fc">&nbsp;        OrderLine ol4 = new OrderLine(2, com8);</b>
+<b class="fc">&nbsp;        OrderLine ol5 = new OrderLine(1, s1);</b>
+&nbsp;
+<b class="fc">&nbsp;        ArrayList&lt;OrderLine&gt; orderLines1 = new ArrayList&lt;OrderLine&gt;();</b>
+<b class="fc">&nbsp;        orderLines1.add(ol1);</b>
+<b class="fc">&nbsp;        orderLines1.add(ol2);</b>
+<b class="fc">&nbsp;        orderLines1.add(ol3);</b>
+<b class="fc">&nbsp;        orderLines1.add(ol4);</b>
+<b class="fc">&nbsp;        orderLines1.add(ol5);</b>
+<b class="fc">&nbsp;        Order o1 = new Order(new SimpleCalendar(2023, 11, 24), 9999999999999999L, new Telephone(&quot;6977584156&quot;), new Email(&quot;vasia43@gmail.com&quot;), orderLines1);</b>
+<b class="fc">&nbsp;        o1.setId(1324);</b>
+<b class="fc">&nbsp;        o1.setCustomer(c1);</b>
+<b class="fc">&nbsp;        getOrderDAO().save(o1);</b>
+&nbsp;
+&nbsp;        //-----------------------------------------------//
+<b class="fc">&nbsp;        OrderLine ol11 = new OrderLine(5, com15);</b>
+<b class="fc">&nbsp;        OrderLine ol12 = new OrderLine(2, com12);</b>
+<b class="fc">&nbsp;        OrderLine ol13 = new OrderLine(4, com17);</b>
+<b class="fc">&nbsp;        OrderLine ol14 = new OrderLine(1, com14);</b>
+<b class="fc">&nbsp;        OrderLine ol15 = new OrderLine(1, s2);</b>
+&nbsp;
+<b class="fc">&nbsp;        ArrayList&lt;OrderLine&gt; orderLines2 = new ArrayList&lt;OrderLine&gt;();</b>
+<b class="fc">&nbsp;        orderLines2.add(ol11);</b>
+<b class="fc">&nbsp;        orderLines2.add(ol12);</b>
+<b class="fc">&nbsp;        orderLines2.add(ol13);</b>
+<b class="fc">&nbsp;        orderLines2.add(ol14);</b>
+<b class="fc">&nbsp;        orderLines2.add(ol15);</b>
+<b class="fc">&nbsp;        Order o2 = new Order(new SimpleCalendar(2023, 12, 12), 1111111111111111L, new Telephone(&quot;6947512635&quot;), new Email(&quot;snoopy15@gmail.com&quot;), orderLines2);</b>
+<b class="fc">&nbsp;        o2.setId(1144);</b>
+<b class="fc">&nbsp;        o2.setCustomer(c3);</b>
+<b class="fc">&nbsp;        getOrderDAO().save(o2);</b>
+&nbsp;
+&nbsp;        //-----------------------------------------------//
+<b class="fc">&nbsp;        OrderLine ol21 = new OrderLine(5, com11);</b>
+<b class="fc">&nbsp;        OrderLine ol22 = new OrderLine(2, com15);</b>
+<b class="fc">&nbsp;        OrderLine ol23 = new OrderLine(4, com18);</b>
+<b class="fc">&nbsp;        OrderLine ol24 = new OrderLine(1, s1);</b>
+<b class="fc">&nbsp;        OrderLine ol25 = new OrderLine(1, s2);</b>
+&nbsp;
+<b class="fc">&nbsp;        ArrayList&lt;OrderLine&gt; orderLines3 = new ArrayList&lt;OrderLine&gt;();</b>
+<b class="fc">&nbsp;        orderLines3.add(ol21);</b>
+<b class="fc">&nbsp;        orderLines3.add(ol22);</b>
+<b class="fc">&nbsp;        orderLines3.add(ol23);</b>
+<b class="fc">&nbsp;        orderLines3.add(ol24);</b>
+<b class="fc">&nbsp;        orderLines3.add(ol25);</b>
+<b class="fc">&nbsp;        Order o3 = new Order(new SimpleCalendar(2023, 12, 25), 1234567891234567L, new Telephone(&quot;6955352569&quot;), new Email(&quot;legolas7@gmail.com&quot;), orderLines3);</b>
+<b class="fc">&nbsp;        o3.setId(1225);</b>
+<b class="fc">&nbsp;        o3.setCustomer(c3);</b>
+<b class="fc">&nbsp;        getOrderDAO().save(o3);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-01-09 04:22</div>
+</div>
+</body>
+</html>
