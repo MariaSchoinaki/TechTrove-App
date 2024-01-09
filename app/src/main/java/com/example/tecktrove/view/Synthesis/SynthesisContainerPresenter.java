@@ -87,4 +87,29 @@ public class SynthesisContainerPresenter {
         sharedViewModel.getCustomer().getSavedSynthesis().add(SharedViewModel.getSynthesis());
         synthesisDAO.save(SharedViewModel.getSynthesis());
     }
+    /**
+     * Go to homePage
+     */
+    public void onHome() {
+        view.home();
+    }
+    /**
+     * Go to Cart
+     */
+    public void onCart() {
+        view.cart();
+    }
+    /**
+     * Go to saved
+     */
+    public void onSaved() {
+        view.saved();
+    }
+
+    /**
+     * Go to MyAcount
+     */
+    public void onMyAcount() {
+        view.Myacount();
+    }
 }

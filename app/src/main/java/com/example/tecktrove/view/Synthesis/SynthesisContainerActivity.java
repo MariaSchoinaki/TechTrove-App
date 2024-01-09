@@ -21,6 +21,7 @@ import com.example.tecktrove.memorydao.SynthesisDAOMemory;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,40 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
 
 
         recyclerView.setAdapter(productAdapter);
+
+
+        TabLayout tabLayout = findViewById(R.id.SynthesisHomePageTabLayout);
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                // Handle tab selection
+                int position = tab.getPosition();
+                switch (position) {
+                    case 0:
+                        presenter.onHome();
+                    case 1:
+                        presenter.onCart();
+                    case 2:
+
+                        presenter.onSaved();
+                    case 3:
+                        presenter.onMyAcount();
+                        // Add cases for other tabs as needed
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                presenter.onCart();
+            }
+        });
 
 
 
@@ -142,6 +177,38 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
     @Override
     public String getName() {
         return ((EditText)findViewById(R.id.name_synthesis)).getText().toString().trim();
+    }
+
+    /**
+     * Show home
+     */
+    @Override
+    public void home() {
+        presenter.onHome();
+    }
+
+    /**
+     * Show cart
+     */
+    @Override
+    public void cart() {
+        presenter.onCart();
+    }
+
+    /**
+     * Show saved
+     */
+    @Override
+    public void saved() {
+        presenter.onSaved();
+    }
+
+    /**
+     * Show Myacount
+     */
+    @Override
+    public void Myacount() {
+        presenter.onMyAcount();
     }
 
 }

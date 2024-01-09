@@ -25,4 +25,20 @@ public interface SynthesisContainerView {
      * @return the name as a String
      */
     String getName();
+    /**
+     * Show home
+     */
+    void home();
+    /**
+     * Show cart
+     */
+    void cart();
+    /**
+     * Show saved
+     */
+    void saved();
+    /**
+     * Show Myacount
+     */
+    void Myacount();
 }

@@ -14,14 +14,19 @@ import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.domain.Synthesis;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.OrderDAOMemory;
+import com.example.tecktrove.view.Customer.Cart.CartActivity;
+import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.Customer.SavedProducts.SavedProductsActivity;
+import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.OrderSynthesisAdapter;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class OrderActivity extends OrderHistoryActivity implements ProductAdapter.OnProductClickListener, OrderSynthesisAdapter.OnPublishClickListener {
+public class OrderActivity extends OrderHistoryActivity implements ProductAdapter.OnProductClickListener, OrderSynthesisAdapter.OnPublishClickListener , OrderView {
     private RecyclerView recyclerView1;
     private RecyclerView recyclerView2;
 
@@ -69,6 +74,40 @@ public class OrderActivity extends OrderHistoryActivity implements ProductAdapte
         ProductAdapter adapter1 = new ProductAdapter(components,this);
         recyclerView2.setAdapter(adapter1);
         recyclerView1.setAdapter(adapter);
+        TabLayout tabLayout = findViewById(R.id.OrderHomePageTabLayout);
+
+        OrderPresenter presenter = new OrderPresenter(this);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            /**navigate through tabs
+             *
+             */
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                // Handle tab selection
+                int position = tab.getPosition();
+                switch (position) {
+                    case 0:
+                        presenter.onHome();
+                    case 1:
+                        presenter.onCart();
+                    case 2:
+
+                        presenter.onSaved();
+                    case 3:
+                        presenter.onMyAcount();
+                        // Add cases for other tabs as needed
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                presenter.onCart();
+            }
+        });
 
     }
 
@@ -92,5 +131,41 @@ public class OrderActivity extends OrderHistoryActivity implements ProductAdapte
     @Override
     public void onPublishClickListener(Synthesis synthesis) {
         synthesis.setPublishState(true);
+    }
+
+    /**
+     * navigate to home
+     */
+    @Override
+    public void home() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * navigate to cart
+     */
+    @Override
+    public void cart() {
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * navigate to Saved
+     */
+    @Override
+    public void Saved() {
+        Intent intent = new Intent(this, SavedProductsActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * navigate to MyAcount
+     */
+    @Override
+    public void MyAcount() {
+        Intent intent = new Intent(this, MyAccountActivity.class);
+        startActivity(intent);
     }
 }
