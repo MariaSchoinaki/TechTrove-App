@@ -90,16 +90,21 @@ MyAccount
 
 ### Coverage Report
 ![Alt text](image.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
+![Alt text](image-3.png)
 ### Metrics
 
 #### Class Metrics
-![class]()
+![Alt text](image-5.png)
+![Alt text](image-4.png)
+![Alt text](image-6.png)
 
 #### Module Metrics
-![module]()
+![Alt text](image-7.png)
 
 #### Package Metrics
-![package]()
+![Alt text](image-9.png)
 
 #### Project Metrics
-![project]()
+![Alt text](image-8.png)
