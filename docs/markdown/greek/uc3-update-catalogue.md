@@ -113,7 +113,7 @@
 2. Η Διαδικασία επιστρέφει στο βήμα 2 της ΠΧ1.
 
 ## Διάγραμμα Δραστηριότητας
-![Διάγραμμα](uml/requirements/activity-product-addition.png)
+![Διάγραμμα](../uml/requirements/activity-product-addition.png)
 
 ## Διάγραμμα Ακολουθίας
-![Διάγραμμα](uml/requirements/sequence-update-product.png)
+![Διάγραμμα](../uml/requirements/sequence-update-product.png)

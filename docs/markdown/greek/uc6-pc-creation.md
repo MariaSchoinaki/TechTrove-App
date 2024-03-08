@@ -71,4 +71,4 @@
 2. Η διαδικασία επιστρέφει στο βήμα 2 της ΠΧ1.
 
 ## Διάγραμμα Δραστηριότητας
-![Διάγραμμα Δραστηριότητας](uml/requirements/activity-pc-creation.png)
+![Διάγραμμα Δραστηριότητας](../uml/requirements/activity-pc-creation.png)

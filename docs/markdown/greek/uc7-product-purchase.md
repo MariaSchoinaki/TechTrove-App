@@ -81,4 +81,4 @@
 
 
 ## Διάγραμμα
-![Διάγραμμα](uml/requirements/activity-product-purchase.png)
+![Διάγραμμα](../uml/requirements/activity-product-purchase.png)
