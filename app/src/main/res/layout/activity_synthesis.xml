@@ -82,13 +82,13 @@
         android:id="@+id/completeted"
         android:layout_width="183dp"
         android:layout_height="47dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginEnd="114dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/complete"
         app:layout_constraintBottom_toTopOf="@+id/SynthesisHomePageTabLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView7" />
 
@@ -115,9 +115,11 @@
         android:layout_height="28dp"
         android:layout_marginStart="105dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="13dp"
         android:text="@string/addToS"
         android:textColor="@color/white"
         android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,27 +127,33 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView7"
-        android:layout_width="223dp"
-        android:layout_height="267dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="339dp"
+        android:layout_height="294dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toTopOf="@+id/completeted"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addS" />
 
     <androidx.recyclerview.widget.RecyclerView
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/recyclerView5"
-        android:layout_width="319dp"
-        android:layout_height="172dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView7"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView7"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView7"
-        app:layout_constraintTop_toBottomOf="@+id/chooseCategory" />
+        android:layout_width="392dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="7dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/addS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseCategory"
+        app:spanCount="2"
+        android:clipToPadding="false"
+        android:orientation="horizontal"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
