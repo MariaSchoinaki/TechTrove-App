@@ -1,5 +1,7 @@
 package com.example.tecktrove.view.Synthesis;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -67,7 +69,6 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,recyclerView1.HORIZONTAL,false);
-
         recyclerView1.setLayoutManager(linearLayoutManager);
         recyclerView2.setLayoutManager(layoutManager);
 
@@ -98,13 +99,16 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
                 switch (position) {
                     case 0:
                         presenter.onHome();
+                        break;
                     case 1:
                         presenter.onCart();
+                        break;
                     case 2:
-
                         presenter.onSaved();
+                        break;
                     case 3:
                         presenter.onMyAcount();
+                        break;
                         // Add cases for other tabs as needed
                 }
             }
@@ -115,7 +119,7 @@ public class SynthesisActivity extends AppCompatActivity implements SynthesisVie
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                presenter.onCart();
+                presenter.onHome();
             }
         });
 

@@ -89,7 +89,7 @@
             android:id="@+id/home_screen_employer_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Σπίτι"
+            android:text="Home"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="136dp" />
@@ -98,7 +98,7 @@
             android:id="@+id/home_screen_employer_gloy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Νέο Προϊόν"
+            android:text="New Product"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="136dp" />
@@ -107,7 +107,7 @@
             android:id="@+id/homeScreen_employer_myaccount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Ο λογαριασμός μου"
+            android:text="My Account"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="136dp" />

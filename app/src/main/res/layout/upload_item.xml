@@ -102,7 +102,7 @@
         android:layout_marginTop="62dp"
         android:layout_marginEnd="33dp"
         android:layout_marginBottom="18dp"
-        android:text="Δημοσιοποίηση"
+        android:text="Upload"
         app:layout_constraintBottom_toTopOf="@+id/upload_product_price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/upload_item_cart_quantity"

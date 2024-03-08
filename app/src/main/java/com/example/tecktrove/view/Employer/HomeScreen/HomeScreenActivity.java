@@ -115,9 +115,9 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         categories.add("cpu");
         categories.add("motherboard");
         categories.add("ram");
-        categories.add("vga");
+        categories.add("gpu");
         categories.add("disk");
-        categories.add("trofodotiko");
+        categories.add("psu");
         categories.add("cooler");
         categories.add("synthesis");
         return categories;

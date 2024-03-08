@@ -18,6 +18,10 @@ import com.example.tecktrove.domain.OrderLine;
 import com.example.tecktrove.domain.ProductType;
 import com.example.tecktrove.memorydao.MemoryInitializer;
 import com.example.tecktrove.memorydao.SynthesisDAOMemory;
+import com.example.tecktrove.view.Customer.Cart.CartActivity;
+import com.example.tecktrove.view.Customer.HomeScreen.HomeScreenActivity;
+import com.example.tecktrove.view.Customer.SavedProducts.SavedProductsActivity;
+import com.example.tecktrove.view.MyAccount.MyAccountActivity;
 import com.example.tecktrove.view.Product.ProductActivity;
 import com.example.tecktrove.view.ProductAdapter;
 import com.example.tecktrove.view.SharedViewModel;
@@ -96,7 +100,7 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                presenter.onCart();
+                presenter.onHome();
             }
         });
 
@@ -187,7 +191,8 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
      */
     @Override
     public void home() {
-        presenter.onHome();
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -195,7 +200,8 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
      */
     @Override
     public void cart() {
-        presenter.onCart();
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -203,7 +209,8 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
      */
     @Override
     public void saved() {
-        presenter.onSaved();
+        Intent intent = new Intent(this, SavedProductsActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -211,7 +218,8 @@ public class SynthesisContainerActivity extends AppCompatActivity implements Syn
      */
     @Override
     public void Myacount() {
-        presenter.onMyAcount();
+        Intent intent = new Intent(this, MyAccountActivity.class);
+        startActivity(intent);
     }
 
 }

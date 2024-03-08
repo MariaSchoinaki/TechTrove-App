@@ -50,9 +50,9 @@
                 android:id="@+id/my_account_change_button"
                 android:layout_width="164dp"
                 android:layout_height="54dp"
-                android:text="Αλλαγή Στοιχείων"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Change Account Data"
                 app:layout_constraintBottom_toTopOf="@+id/my_account_logout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,25 +62,26 @@
                 android:id="@+id/my_account_delete_account"
                 android:layout_width="164dp"
                 android:layout_height="54dp"
-                android:text="Διαγραφή λογαριασμού"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Delete Account"
+                android:textColor="@color/red"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/my_account_logout"/>
+                app:layout_constraintTop_toBottomOf="@+id/my_account_logout" />
 
             <Button
                 android:id="@+id/my_account_logout"
                 android:layout_width="164dp"
                 android:layout_height="54dp"
-                android:text="Έξοδος"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Exit Application"
                 app:layout_constraintBottom_toTopOf="@+id/my_account_delete_account"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/my_account_change_button"/>
+                app:layout_constraintTop_toBottomOf="@+id/my_account_change_button" />
 
             <Button
                 android:id="@+id/history_button"

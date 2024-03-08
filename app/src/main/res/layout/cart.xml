@@ -41,7 +41,7 @@
             android:id="@+id/cart_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Σπίτι"
+            android:text="Home"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="-1dp"
             tools:layout_editor_absoluteY="687dp" />
@@ -50,7 +50,7 @@
             android:id="@+id/cart_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Καλάθι"
+            android:text="Cart"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="103dp"
             tools:layout_editor_absoluteY="686dp" />
@@ -59,7 +59,7 @@
             android:id="@+id/cart_gloy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Αποθηκευμένα"
+            android:text="Saved Products"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="136dp" />
@@ -68,7 +68,7 @@
             android:id="@+id/cart_myaccount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Ο λογαριασμός μου"
+            android:text="My account"
             tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="136dp" />

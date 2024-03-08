@@ -24,19 +24,19 @@
     <string name="Cart">Cart</string>
     <string name="MyCart">My Cart</string>
     <string name="Purchase">Purchase</string>
-    <string name="MySynthesis">Η Σύνθεση μου</string>
-    <string name="MySynthesisContains">Η Σύνθεση μου περιέχει:</string>
-    <string name="MySynthesisAdd">Πρόσθεσε στην σύνθεση:</string>
-    <string name="CreateSynthesis">Τέλος και προσθήκη στο καλάθι</string>
-    <string name="category">Επιλέξετε μια κατηγορία:</string>
-    <string name="addToS">Προσθέστε στην σύνθεση:</string>
-    <string name="synthesysC">H σύνθεση σας περιέχει:</string>
-    <string name="complete">Ολοκλήρωση</string>
-    <string name="saved">Αποθηκευμένα Προϊόντα</string>
-    <string name="saveButton">Αποθήκευση</string>
-    <string name="NameurS">Όνομα σύνθεσης </string>
-    <string name="history_t">Ιστορικό Παραγγέλιων </string>
-    <string name="details">Στοιχεία Παραγγελίας </string>
+    <string name="MySynthesis">My Synthesis</string>
+    <string name="MySynthesisContains">Synthesis contains:</string>
+    <string name="MySynthesisAdd">Add to Synthesis:</string>
+    <string name="CreateSynthesis">Complete and add to cart</string>
+    <string name="category">Choose a category:</string>
+    <string name="addToS">Add to Synthesis:</string>
+    <string name="synthesysC">Your Synthesis Contains:</string>
+    <string name="complete">Done</string>
+    <string name="saved">Saved Products</string>
+    <string name="saveButton">Save</string>
+    <string name="NameurS">Synthesis Name</string>
+    <string name="history_t">Order History</string>
+    <string name="details">Order Details</string>
 
 
 </resources>

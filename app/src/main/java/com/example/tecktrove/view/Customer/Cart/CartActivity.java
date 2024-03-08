@@ -102,7 +102,7 @@ public class CartActivity extends AppCompatActivity implements CartView, CartPro
 
                 @Override
                 public void onTabReselected(TabLayout.Tab tab) {
-                    presenter.onCart();
+                    presenter.onHome();
                 }
             });
 
