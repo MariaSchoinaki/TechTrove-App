@@ -80,8 +80,7 @@
 [ΠΧ2 Αναζήτηση Προϊόντος](uc2-product-search.md)
 
 [ΠΧ3 Ενημέρωση Καταλόγου](uc3-update-catalogue.md)
-
-#### ![Διάγραμμα](../uml/requirements/update-catalogue.png)
+![Διάγραμμα](../uml/requirements/update-catalogue.png)
 
 [ΠΧ4 Αξιολόγηση Σύνθεσης](uc4-pc-rating.md)
 
@@ -90,7 +89,7 @@
 [ΠΧ6 Δημιουργία Σύνθεσης](uc6-pc-creation.md)
 ![Διάγραμμα](../uml/requirements/activity-pc-creation.png)
 
-[ΠΧ7 Αγορά Προϊόντων](uc7-product-purchase.md)
+[ΠΧ7 Αγορά Προϊόντων](uc7-product-purchase.md)</br>
 ![Διάγραμμα](../uml/requirements/activity-product-purchase.png)
 
 ## Συμπληρωματικές προδιαγραφές
