@@ -80,8 +80,7 @@ of electronic systems.
 [UC2 Product Search](uc2-product-search.md)
 
 [UC3 Update Catalog](uc3-update-catalogue.md)
-
-#### ![Diagram](../uml/requirements/update-catalogue.png)
+![Diagram](../uml/requirements/update-catalogue.png)
 
 [UC4 Synthesis Rating](uc4-pc-rating.md)
 
@@ -90,7 +89,7 @@ of electronic systems.
 [UC6 Synthesis Creation](uc6-pc-creation.md)
 ![Diagram](../uml/requirements/activity-pc-creation.png)
 
-[UC7 Product Purchase](uc7-product-purchase.md)
+[UC7 Product Purchase](uc7-product-purchase.md)<br>
 ![Diagram](../uml/requirements/activity-product-purchase.png)
 
 ## Non-functional Requirements
@@ -170,7 +169,7 @@ of electronic systems.
 ### Analysis classes
 
 
-![Analysis classes](../uml/requirements/analysis-classes.png)
+![Analysis classes](../uml/requirements/classes-analysis.png)
 
 ### Behaviors
 
