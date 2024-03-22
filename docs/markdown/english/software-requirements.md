@@ -21,7 +21,7 @@ of electronic systems.
 | UC2 | [Product Search](uc2-product-search.md) | The User sees the information of the products that interest them|
 | UC3 | [Update Catalogue](uc3-update-catalogue.md) | Company staff will be able to add, delete and modify product compatibility information |
 | UC4 |[Synthesis Rating](uc4-pc-rating.md) | Users will be able to rate other users' published compositions and view existing ratings |
-| UC5 | [Composite Publishing](uc5-publishing.md) | The customer will be able to publish their synthesis so that they are visible and accessible to other users (individual purchase)|
+| UC5 | [Composite Publishing](uc5-publishment.md) | The customer will be able to publish their synthesis so that they are visible and accessible to other users (individual purchase)|
 | UC6 | [Synthesis Creation](uc6-pc-creation.md) | The customer will be able to save his completed composition |
 | UC7 | [Product Purchase](uc7-product-purchase.md) | The Customer selects the pc synthesis/individual components he wants to buy |
 
