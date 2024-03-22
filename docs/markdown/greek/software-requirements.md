@@ -170,7 +170,7 @@
 ### Κλάσεις ανάλυσης
 
 
-![Κλάσεις Ανάλυσης](../uml/requirements/analysis-classes.png)
+![Κλάσεις Ανάλυσης](../uml/requirements/classes-analysis.png)
 
 ### Συμπεριφορές
 
